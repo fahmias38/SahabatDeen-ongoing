@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Surah Al-Quran - EduVoo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://placehold.co/32x32/8B5CF6/FFFFFF?text=UM" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        /* CSS Khusus Halaman Surah */
+        ::selection {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .surah-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .surah-card {
+            background-color: var(--bg-dark-secondary);
+            border-radius: var(--border-radius);
+            padding: 25px 20px;
+            box-shadow: var(--card-shadow);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .surah-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(46, 133, 110, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .surah-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-left-color: var(--secondary-color);
+        }
+
+        .surah-card:hover::before {
+            left: 100%;
+        }
+
+        .surah-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .surah-number {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(46, 133, 110, 0.3);
+        }
+
+        .surah-type {
+            background-color: var(--bg-dark-primary);
+            color: var(--text-light-secondary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .surah-type.makkiyah {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .surah-type.madaniyah {
+            border: 1px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .surah-names {
+            margin-bottom: 15px;
+        }
+
+        .surah-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: right;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .surah-latin {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .surah-meaning {
+            font-size: 0.95rem;
+            color: var(--text-light-secondary);
+            font-style: italic;
+        }
+
+        .surah-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .surah-ayah-count {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light-primary);
+            font-size: 0.9rem;
+        }
+
+        .surah-ayah-count::before {
+            content: '📖';
+            font-size: 1rem;
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border-radius: var(--border-radius);
+            border: 2px solid var(--bg-dark-secondary);
+            background-color: var(--bg-dark-secondary);
+            color: var(--text-light-primary);
+            font-family: var(--font-family);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(46, 133, 110, 0.2);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-light-secondary);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light-secondary);
+            font-size: 1.2rem;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            background-color: var(--bg-dark-secondary);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-light-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .surah-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .surah-arabic {
+                font-size: 1.8rem;
+            }
+            
+            .search-container {
+                margin: 20px auto;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .surah-card {
+                padding: 20px 15px;
+            }
+            
+            .surah-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .surah-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="mainHeader">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="nav-logo">Edu<span>Voo</span></a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
+                    <li class="nav-item"><a href="tentang.html" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="surah.html" class="nav-link active">Surah</a></li>
+                    <li class="nav-item"><a href="materi.html" class="nav-link">Materi Belajar</a></li>
+                    <li class="nav-item"><a href="kontak.html" class="nav-link">Kontak</a></li>
+                </ul>
+                <!-- Mobile Menu belum dibuat -->
+                <!-- <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div> -->
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-title-section">
+        <div class="container">
+            <h1>Daftar Surah Al-Quran</h1>
+            <p>Jelajahi 114 surah dalam Al-Quran Al-Kareem dengan mudah dan nyaman</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="surah-list-section section-padding">
+            <div class="container">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">114</div>
+                        <div class="stat-label">Total Surah</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">86</div>
+                        <div class="stat-label">Surah Makkiyah</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">28</div>
+                        <div class="stat-label">Surah Madaniyah</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">6236</div>
+                        <div class="stat-label">Total Ayat</div>
+                    </div>
+                </div>
+
+                <div class="search-container">
+                    <input type="text" id="searchSurah" class="search-input" placeholder="Cari surah berdasarkan nama...">
+                    <span class="search-icon">🔍</span>
+                </div>
+
+                <div class="surah-grid" id="surahGrid">
+                    <div class="surah-card" data-name="al-fatihah alfatihah pembuka">
+                        <div class="surah-header">
+                            <div class="surah-number">1</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْفَاتِحَة</div>
+                            <div class="surah-latin">Al-Fatihah</div>
+                            <div class="surah-meaning">Pembuka</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">7 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-baqarah albaqarah sapi betina">
+                        <div class="surah-header">
+                            <div class="surah-number">2</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْبَقَرَة</div>
+                            <div class="surah-latin">Al-Baqarah</div>
+                            <div class="surah-meaning">Sapi Betina</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">286 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="ali imran aliimran keluarga imran">
+                        <div class="surah-header">
+                            <div class="surah-number">3</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">آلِ عِمْرَان</div>
+                            <div class="surah-latin">Ali 'Imran</div>
+                            <div class="surah-meaning">Keluarga Imran</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">200 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="an-nisa annisa perempuan wanita">
+                        <div class="surah-header">
+                            <div class="surah-number">4</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">النِّسَاء</div>
+                            <div class="surah-latin">An-Nisa</div>
+                            <div class="surah-meaning">Wanita</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">176 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-maidah almaidah hidangan">
+                        <div class="surah-header">
+                            <div class="surah-number">5</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمَائِدَة</div>
+                            <div class="surah-latin">Al-Ma'idah</div>
+                            <div class="surah-meaning">Hidangan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">120 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-anam alanaam binatang ternak">
+                        <div class="surah-header">
+                            <div class="surah-number">6</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْأَنْعَام</div>
+                            <div class="surah-latin">Al-An'am</div>
+                            <div class="surah-meaning">Binatang Ternak</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">165 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-araf alaraf tempat tinggi">
+                        <div class="surah-header">
+                            <div class="surah-number">7</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْأَعْرَاف</div>
+                            <div class="surah-latin">Al-A'raf</div>
+                            <div class="surah-meaning">Tempat Tinggi</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">206 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-anfal alanfal harta rampasan">
+                        <div class="surah-header">
+                            <div class="surah-number">8</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْأَنْفَال</div>
+                            <div class="surah-latin">Al-Anfal</div>
+                            <div class="surah-meaning">Harta Rampasan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">75 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="at-taubah attaubah pengampunan">
+                        <div class="surah-header">
+                            <div class="surah-number">9</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">التَّوْبَة</div>
+                            <div class="surah-latin">At-Taubah</div>
+                            <div class="surah-meaning">Pengampunan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">129 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="yunus nabi yunus">
+                        <div class="surah-header">
+                            <div class="surah-number">10</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">يُونُس</div>
+                            <div class="surah-latin">Yunus</div>
+                            <div class="surah-meaning">Nabi Yunus</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">109 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="hud nabi hud">
+                        <div class="surah-header">
+                            <div class="surah-number">11</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">هُود</div>
+                            <div class="surah-latin">Hud</div>
+                            <div class="surah-meaning">Nabi Hud</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">123 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="yusuf nabi yusuf">
+                        <div class="surah-header">
+                            <div class="surah-number">12</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">يُوسُف</div>
+                            <div class="surah-latin">Yusuf</div>
+                            <div class="surah-meaning">Nabi Yusuf</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">111 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="ar-rad arrad guruh petir">
+                        <div class="surah-header">
+                            <div class="surah-number">13</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الرَّعْد</div>
+                            <div class="surah-latin">Ar-Ra'd</div>
+                            <div class="surah-meaning">Guruh</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">43 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="ibrahim nabi ibrahim">
+                        <div class="surah-header">
+                            <div class="surah-number">14</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">إِبْرَاهِيم</div>
+                            <div class="surah-latin">Ibrahim</div>
+                            <div class="surah-meaning">Nabi Ibrahim</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">52 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-hijr alhijr negeri hijr">
+                        <div class="surah-header">
+                            <div class="surah-number">15</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْحِجْر</div>
+                            <div class="surah-latin">Al-Hijr</div>
+                            <div class="surah-meaning">Negeri Hijr</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">99 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="an-nahl annahl lebah">
+                        <div class="surah-header">
+                            <div class="surah-number">16</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">النَّحْل</div>
+                            <div class="surah-latin">An-Nahl</div>
+                            <div class="surah-meaning">Lebah</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">128 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-isra alisra perjalanan malam">
+                        <div class="surah-header">
+                            <div class="surah-number">17</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْإِسْرَاء</div>
+                            <div class="surah-latin">Al-Isra</div>
+                            <div class="surah-meaning">Perjalanan Malam</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">111 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-kahf alkahf gua">
+                        <div class="surah-header">
+                            <div class="surah-number">18</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْكَهْف</div>
+                            <div class="surah-latin">Al-Kahf</div>
+                            <div class="surah-meaning">Gua</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">110 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="maryam siti maryam">
+                        <div class="surah-header">
+                            <div class="surah-number">19</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">مَرْيَم</div>
+                            <div class="surah-latin">Maryam</div>
+                            <div class="surah-meaning">Siti Maryam</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">98 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="taha">
+                        <div class="surah-header">
+                            <div class="surah-number">20</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">طه</div>
+                            <div class="surah-latin">Taha</div>
+                            <div class="surah-meaning">Taha</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">135 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-anbiya alanbiya para nabi">
+                        <div class="surah-header">
+                            <div class="surah-number">21</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْأَنْبِيَاء</div>
+                            <div class="surah-latin">Al-Anbiya</div>
+                            <div class="surah-meaning">Para Nabi</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">112 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-hajj alhajj haji">
+                        <div class="surah-header">
+                            <div class="surah-number">22</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْحَجّ</div>
+                            <div class="surah-latin">Al-Hajj</div>
+                            <div class="surah-meaning">Haji</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">78 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-muminun almuminun orang beriman">
+                        <div class="surah-header">
+                            <div class="surah-number">23</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمُؤْمِنُون</div>
+                            <div class="surah-latin">Al-Mu'minun</div>
+                            <div class="surah-meaning">Orang-orang Beriman</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">118 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="an-nur annur cahaya">
+                        <div class="surah-header">
+                            <div class="surah-number">24</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">النُّور</div>
+                            <div class="surah-latin">An-Nur</div>
+                            <div class="surah-meaning">Cahaya</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">64 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-furqan alfurqan pembeda">
+                        <div class="surah-header">
+                            <div class="surah-number">25</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْفُرْقَان</div>
+                            <div class="surah-latin">Al-Furqan</div>
+                            <div class="surah-meaning">Pembeda</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">77 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="ash-shuara asysyuara para penyair">
+                        <div class="surah-header">
+                            <div class="surah-number">26</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الشُّعَرَاء</div>
+                            <div class="surah-latin">Asy-Syu'ara</div>
+                            <div class="surah-meaning">Para Penyair</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">227 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="an-naml annaml semut">
+                        <div class="surah-header">
+                            <div class="surah-number">27</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">النَّمْل</div>
+                            <div class="surah-latin">An-Naml</div>
+                            <div class="surah-meaning">Semut</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">93 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-qasas alqasas cerita">
+                        <div class="surah-header">
+                            <div class="surah-number">28</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْقَصَص</div>
+                            <div class="surah-latin">Al-Qasas</div>
+                            <div class="surah-meaning">Cerita-cerita</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">88 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-ankabut alankabut laba-laba">
+                        <div class="surah-header">
+                            <div class="surah-number">29</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْعَنْكَبُوت</div>
+                            <div class="surah-latin">Al-'Ankabut</div>
+                            <div class="surah-meaning">Laba-laba</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">69 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="ar-rum arrum bangsa rum">
+                        <div class="surah-header">
+                            <div class="surah-number">30</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الرُّوم</div>
+                            <div class="surah-latin">Ar-Rum</div>
+                            <div class="surah-meaning">Bangsa Rum</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">60 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="luqman nabi luqman">
+                        <div class="surah-header">
+                            <div class="surah-number">31</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">لُقْمَان</div>
+                            <div class="surah-latin">Luqman</div>
+                            <div class="surah-meaning">Luqman</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">34 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="as-sajdah assajdah sujud">
+                        <div class="surah-header">
+                            <div class="surah-number">32</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">السَّجْدَة</div>
+                            <div class="surah-latin">As-Sajdah</div>
+                            <div class="surah-meaning">Sujud</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">30 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-ahzab alahzab golongan yang bersekutu">
+                        <div class="surah-header">
+                            <div class="surah-number">33</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْأَحْزَاب</div>
+                            <div class="surah-latin">Al-Ahzab</div>
+                            <div class="surah-meaning">Golongan yang Bersekutu</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">73 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="saba ratu saba">
+                        <div class="surah-header">
+                            <div class="surah-number">34</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">سَبَأ</div>
+                            <div class="surah-latin">Saba</div>
+                            <div class="surah-meaning">Kaum Saba</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">54 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="fatir pencipta">
+                        <div class="surah-header">
+                            <div class="surah-number">35</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">فَاطِر</div>
+                            <div class="surah-latin">Fatir</div>
+                            <div class="surah-meaning">Pencipta</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">45 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="yasin">
+                        <div class="surah-header">
+                            <div class="surah-number">36</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">يس</div>
+                            <div class="surah-latin">Yasin</div>
+                            <div class="surah-meaning">Yasin</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">83 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="as-saffat assaffat barisan">
+                        <div class="surah-header">
+                            <div class="surah-number">37</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الصَّافَّات</div>
+                            <div class="surah-latin">As-Saffat</div>
+                            <div class="surah-meaning">Barisan-barisan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">182 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="sad">
+                        <div class="surah-header">
+                            <div class="surah-number">38</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">ص</div>
+                            <div class="surah-latin">Sad</div>
+                            <div class="surah-meaning">Sad</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">88 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="az-zumar azzumar rombongan">
+                        <div class="surah-header">
+                            <div class="surah-number">39</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الزُّمَر</div>
+                            <div class="surah-latin">Az-Zumar</div>
+                            <div class="surah-meaning">Rombongan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">75 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="ghafir yang mengampuni">
+                        <div class="surah-header">
+                            <div class="surah-number">40</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">غَافِر</div>
+                            <div class="surah-latin">Ghafir</div>
+                            <div class="surah-meaning">Yang Mengampuni</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">85 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="fussilat fusshilat yang dijelaskan">
+                        <div class="surah-header">
+                            <div class="surah-number">41</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">فُصِّلَت</div>
+                            <div class="surah-latin">Fussilat</div>
+                            <div class="surah-meaning">Yang Dijelaskan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">54 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="ash-shura asyshura musyawarah">
+                        <div class="surah-header">
+                            <div class="surah-number">42</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الشُّورَى</div>
+                            <div class="surah-latin">Asy-Syura</div>
+                            <div class="surah-meaning">Musyawarah</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">53 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="az-zukhruf azzukhruf perhiasan">
+                        <div class="surah-header">
+                            <div class="surah-number">43</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الزُّخْرُف</div>
+                            <div class="surah-latin">Az-Zukhruf</div>
+                            <div class="surah-meaning">Perhiasan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">89 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="ad-dukhan addukhan kabut">
+                        <div class="surah-header">
+                            <div class="surah-number">44</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الدُّخَان</div>
+                            <div class="surah-latin">Ad-Dukhan</div>
+                            <div class="surah-meaning">Kabut</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">59 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-jathiyah aljatsiyah yang berlutut">
+                        <div class="surah-header">
+                            <div class="surah-number">45</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْجَاثِيَة</div>
+                            <div class="surah-latin">Al-Jatsiyah</div>
+                            <div class="surah-meaning">Yang Berlutut</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">37 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-ahqaf alahqaf bukit pasir">
+                        <div class="surah-header">
+                            <div class="surah-number">46</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْأَحْقَاف</div>
+                            <div class="surah-latin">Al-Ahqaf</div>
+                            <div class="surah-meaning">Bukit Pasir</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">35 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="muhammad nabi muhammad">
+                        <div class="surah-header">
+                            <div class="surah-number">47</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">مُحَمَّد</div>
+                            <div class="surah-latin">Muhammad</div>
+                            <div class="surah-meaning">Nabi Muhammad</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">38 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-fath alfath kemenangan">
+                        <div class="surah-header">
+                            <div class="surah-number">48</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْفَتْح</div>
+                            <div class="surah-latin">Al-Fath</div>
+                            <div class="surah-meaning">Kemenangan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">29 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-hujurat alhujurat kamar">
+                        <div class="surah-header">
+                            <div class="surah-number">49</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْحُجُرَات</div>
+                            <div class="surah-latin">Al-Hujurat</div>
+                            <div class="surah-meaning">Kamar-kamar</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">18 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="qaf">
+                        <div class="surah-header">
+                            <div class="surah-number">50</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">ق</div>
+                            <div class="surah-latin">Qaf</div>
+                            <div class="surah-meaning">Qaf</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">45 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="adh-dhariyat adzdzariyat angin yang menerbangkan">
+                        <div class="surah-header">
+                            <div class="surah-number">51</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الذَّارِيَات</div>
+                            <div class="surah-latin">Adz-Dzariyat</div>
+                            <div class="surah-meaning">Angin yang Menerbangkan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">60 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="at-tur attur bukit">
+                        <div class="surah-header">
+                            <div class="surah-number">52</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الطُّور</div>
+                            <div class="surah-latin">At-Tur</div>
+                            <div class="surah-meaning">Bukit</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">49 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="an-najm annajm bintang">
+                        <div class="surah-header">
+                            <div class="surah-number">53</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">النَّجْم</div>
+                            <div class="surah-latin">An-Najm</div>
+                            <div class="surah-meaning">Bintang</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">62 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-qamar alqamar bulan">
+                        <div class="surah-header">
+                            <div class="surah-number">54</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="suaman-names">
+                            <div class="surah-arabic">الْقَمَر</div>
+                            <div class="surah-latin">Al-Qamar</div>
+                            <div class="surah-meaning">Bulan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">55 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="ar-rahman arrahman yang maha pengasih">
+                        <div class="surah-header">
+                            <div class="surah-number">55</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الرَّحْمَن</div>
+                            <div class="surah-latin">Ar-Rahman</div>
+                            <div class="surah-meaning">Yang Maha Pengasih</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">78 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-waqiah alwaqiah hari kiamat">
+                        <div class="surah-header">
+                            <div class="surah-number">56</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْوَاقِعَة</div>
+                            <div class="surah-latin">Al-Waqi'ah</div>
+                            <div class="surah-meaning">Hari Kiamat</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">96 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-hadid alhadid besi">
+                        <div class="surah-header">
+                            <div class="surah-number">57</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْحَدِيد</div>
+                            <div class="surah-latin">Al-Hadid</div>
+                            <div class="surah-meaning">Besi</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">29 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-mujadalah almujadalah wanita yang mengajukan gugatan">
+                        <div class="surah-header">
+                            <div class="surah-number">58</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمُجَادَلَة</div>
+                            <div class="surah-latin">Al-Mujadalah</div>
+                            <div class="surah-meaning">Wanita yang Mengajukan Gugatan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">22 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-hashr alhashr pengusiran">
+                        <div class="surah-header">
+                            <div class="surah-number">59</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْحَشْر</div>
+                            <div class="surah-latin">Al-Hasyr</div>
+                            <div class="surah-meaning">Pengusiran</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">24 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-mumtahanah almumtahanah wanita yang diuji">
+                        <div class="surah-header">
+                            <div class="surah-number">60</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمُمْتَحَنَة</div>
+                            <div class="surah-latin">Al-Mumtahanah</div>
+                            <div class="surah-meaning">Wanita yang Diuji</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">13 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="as-saff assaff barisan">
+                        <div class="surah-header">
+                            <div class="surah-number">61</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الصَّفّ</div>
+                            <div class="surah-latin">As-Saff</div>
+                            <div class="surah-meaning">Barisan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">14 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-jumuah aljumuah hari jumat">
+                        <div class="surah-header">
+                            <div class="surah-number">62</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْجُمُعَة</div>
+                            <div class="surah-latin">Al-Jumu'ah</div>
+                            <div class="surah-meaning">Hari Jum'at</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">11 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-munafiqun almunafiqun orang munafik">
+                        <div class="surah-header">
+                            <div class="surah-number">63</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمُنَافِقُون</div>
+                            <div class="surah-latin">Al-Munafiqun</div>
+                            <div class="surah-meaning">Orang-orang Munafik</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">11 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="at-taghabun attaghabun pengungkapan kesalahan">
+                        <div class="surah-header">
+                            <div class="surah-number">64</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">التَّغَابُن</div>
+                            <div class="surah-latin">At-Taghabun</div>
+                            <div class="surah-meaning">Pengungkapan Kesalahan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">18 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="at-talaq attalaq talak">
+                        <div class="surah-header">
+                            <div class="surah-number">65</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الطَّلَاق</div>
+                            <div class="surah-latin">At-Talaq</div>
+                            <div class="surah-meaning">Talak</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">12 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="at-tahrim attahrim pengharaman">
+                        <div class="surah-header">
+                            <div class="surah-number">66</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">التَّحْرِيم</div>
+                            <div class="surah-latin">At-Tahrim</div>
+                            <div class="surah-meaning">Pengharaman</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">12 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-mulk almulk kerajaan">
+                        <div class="surah-header">
+                            <div class="surah-number">67</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمُلْك</div>
+                            <div class="surah-latin">Al-Mulk</div>
+                            <div class="surah-meaning">Kerajaan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">30 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-qalam alqalam pena">
+                        <div class="surah-header">
+                            <div class="surah-number">68</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْقَلَم</div>
+                            <div class="surah-latin">Al-Qalam</div>
+                            <div class="surah-meaning">Pena</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">52 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-haqqah alhaqqah hari kiamat">
+                        <div class="surah-header">
+                            <div class="surah-number">69</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْحَاقَّة</div>
+                            <div class="surah-latin">Al-Haqqah</div>
+                            <div class="surah-meaning">Hari Kiamat</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">52 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-maarij almaarij tempat naik">
+                        <div class="surah-header">
+                            <div class="surah-number">70</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمَعَارِج</div>
+                            <div class="surah-latin">Al-Ma'arij</div>
+                            <div class="surah-meaning">Tempat Naik</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">44 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="nuh nabi nuh">
+                        <div class="surah-header">
+                            <div class="surah-number">71</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">نُوح</div>
+                            <div class="surah-latin">Nuh</div>
+                            <div class="surah-meaning">Nabi Nuh</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">28 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-jin aljin jin">
+                        <div class="surah-header">
+                            <div class="surah-number">72</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْجِنّ</div>
+                            <div class="surah-latin">Al-Jinn</div>
+                            <div class="surah-meaning">Jin</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">28 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-muzzammil almuzzammil yang berselimut">
+                        <div class="surah-header">
+                            <div class="surah-number">73</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمُزَّمِّل</div>
+                            <div class="surah-latin">Al-Muzzammil</div>
+                            <div class="surah-meaning">Yang Berselimut</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">20 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-muddaththir almuddatstsir yang berkemul">
+                        <div class="surah-header">
+                            <div class="surah-number">74</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمُدَّثِّر</div>
+                            <div class="surah-latin">Al-Muddatstsir</div>
+                            <div class="surah-meaning">Yang Berkemul</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">56 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-qiyamah alqiyamah hari kiamat">
+                        <div class="surah-header">
+                            <div class="surah-number">75</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْقِيَامَة</div>
+                            <div class="surah-latin">Al-Qiyamah</div>
+                            <div class="surah-meaning">Hari Kiamat</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">40 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-insan alinsan manusia">
+                        <div class="surah-header">
+                            <div class="surah-number">76</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْإِنْسَان</div>
+                            <div class="surah-latin">Al-Insan</div>
+                            <div class="surah-meaning">Manusia</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">31 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-mursalat almursalat malaikat yang diutus">
+                        <div class="surah-header">
+                            <div class="surah-number">77</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمُرْسَلَات</div>
+                            <div class="surah-latin">Al-Mursalat</div>
+                            <div class="surah-meaning">Malaikat yang Diutus</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">50 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="an-naba annaba berita besar">
+                        <div class="surah-header">
+                            <div class="surah-number">78</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">النَّبَأ</div>
+                            <div class="surah-latin">An-Naba</div>
+                            <div class="surah-meaning">Berita Besar</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">40 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="an-naziat annaziat malaikat pencabut nyawa">
+                        <div class="surah-header">
+                            <div class="surah-number">79</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">النَّازِعَات</div>
+                            <div class="surah-latin">An-Nazi'at</div>
+                            <div class="surah-meaning">Malaikat Pencabut Nyawa</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">46 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="abasa dia bermuka masam">
+                        <div class="surah-header">
+                            <div class="surah-number">80</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">عَبَسَ</div>
+                            <div class="surah-latin">Abasa</div>
+                            <div class="surah-meaning">Dia Bermuka Masam</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">42 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="at-takwir attakwir menggulung">
+                        <div class="surah-header">
+                            <div class="surah-number">81</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">التَّكْوِير</div>
+                            <div class="surah-latin">At-Takwir</div>
+                            <div class="surah-meaning">Menggulung</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">29 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-infitar alinfitar terbelah">
+                        <div class="surah-header">
+                            <div class="surah-number">82</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْإِنْفِطَار</div>
+                            <div class="surah-latin">Al-Infitar</div>
+                            <div class="surah-meaning">Terbelah</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">19 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-mutaffifin almutaffifin orang yang curang">
+                        <div class="surah-header">
+                            <div class="surah-number">83</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمُطَفِّفِين</div>
+                            <div class="surah-latin">Al-Mutaffifin</div>
+                            <div class="surah-meaning">Orang yang Curang</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">36 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-inshiqaq alinshiqaq terbelah">
+                        <div class="surah-header">
+                            <div class="surah-number">84</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْإِنْشِقَاق</div>
+                            <div class="surah-latin">Al-Insyiqaq</div>
+                            <div class="surah-meaning">Terbelah</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">25 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-buruj alburuj gugusan bintang">
+                        <div class="surah-header">
+                            <div class="surah-number">85</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْبُرُوج</div>
+                            <div class="surah-latin">Al-Buruj</div>
+                            <div class="surah-meaning">Gugusan Bintang</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">22 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="at-tariq attariq yang datang malam">
+                        <div class="surah-header">
+                            <div class="surah-number">86</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الطَّارِق</div>
+                            <div class="surah-latin">At-Tariq</div>
+                            <div class="surah-meaning">Yang Datang di Malam Hari</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">17 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-ala alala yang maha tinggi">
+                        <div class="surah-header">
+                            <div class="surah-number">87</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْأَعْلَى</div>
+                            <div class="surah-latin">Al-A'la</div>
+                            <div class="surah-meaning">Yang Maha Tinggi</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">19 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-ghashiyah alghasyiyah hari pembalasan">
+                        <div class="surah-header">
+                            <div class="surah-number">88</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْغَاشِيَة</div>
+                            <div class="surah-latin">Al-Ghasiyah</div>
+                            <div class="surah-meaning">Hari Pembalasan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">26 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-fajr alfajr fajar">
+                        <div class="surah-header">
+                            <div class="surah-number">89</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْفَجْر</div>
+                            <div class="surah-latin">Al-Fajr</div>
+                            <div class="surah-meaning">Fajar</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">30 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-balad albalad negeri">
+                        <div class="surah-header">
+                            <div class="surah-number">90</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْبَلَد</div>
+                            <div class="surah-latin">Al-Balad</div>
+                            <div class="surah-meaning">Negeri</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">20 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="ash-shams asyshams matahari">
+                        <div class="surah-header">
+                            <div class="surah-number">91</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الشَّمْس</div>
+                            <div class="surah-latin">Asy-Syams</div>
+                            <div class="surah-meaning">Matahari</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">15 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-lail allail malam">
+                        <div class="surah-header">
+                            <div class="surah-number">92</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">اللَّيْل</div>
+                            <div class="surah-latin">Al-Lail</div>
+                            <div class="surah-meaning">Malam</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">21 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="ad-duha adduha waktu dhuha">
+                        <div class="surah-header">
+                            <div class="surah-number">93</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الضُّحَى</div>
+                            <div class="surah-latin">Ad-Duha</div>
+                            <div class="surah-meaning">Waktu Duha</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">11 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="ash-sharh asysyarh kelapangan">
+                        <div class="surah-header">
+                            <div class="surah-number">94</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الشَّرْح</div>
+                            <div class="surah-latin">Asy-Syarh</div>
+                            <div class="surah-meaning">Kelapangan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">8 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="at-tin attin buah tin">
+                        <div class="surah-header">
+                            <div class="surah-number">95</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">التِّين</div>
+                            <div class="surah-latin">At-Tin</div>
+                            <div class="surah-meaning">Buah Tin</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">8 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-alaq alalaq segumpal darah">
+                        <div class="surah-header">
+                            <div class="surah-number">96</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْعَلَق</div>
+                            <div class="surah-latin">Al-'Alaq</div>
+                            <div class="surah-meaning">Segumpal Darah</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">19 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-qadr alqadr kemuliaan">
+                        <div class="surah-header">
+                            <div class="surah-number">97</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْقَدْر</div>
+                            <div class="surah-latin">Al-Qadr</div>
+                            <div class="surah-meaning">Kemuliaan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">5 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-bayyinah albayyinah bukti yang nyata">
+                        <div class="surah-header">
+                            <div class="surah-number">98</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْبَيِّنَة</div>
+                            <div class="surah-latin">Al-Bayyinah</div>
+                            <div class="surah-meaning">Bukti yang Nyata</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">8 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="az-zalzalah azzalzalah guncangan">
+                        <div class="surah-header">
+                            <div class="surah-number">99</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الزَّلْزَلَة</div>
+                            <div class="surah-latin">Az-Zalzalah</div>
+                            <div class="surah-meaning">Guncangan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">8 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-adiyat aladiyat kuda perang yang berlari">
+                        <div class="surah-header">
+                            <div class="surah-number">100</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْعَادِيَات</div>
+                            <div class="surah-latin">Al-'Adiyat</div>
+                            <div class="surah-meaning">Kuda Perang yang Berlari</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">11 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-qariah alqariah hari kiamat">
+                        <div class="surah-header">
+                            <div class="surah-number">101</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْقَارِعَة</div>
+                            <div class="surah-latin">Al-Qari'ah</div>
+                            <div class="surah-meaning">Hari Kiamat</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">11 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="at-takathur attakatsur bermegah-megahan">
+                        <div class="surah-header">
+                            <div class="surah-number">102</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">التَّكَاثُر</div>
+                            <div class="surah-latin">At-Takatsur</div>
+                            <div class="surah-meaning">Bermegah-megahan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">8 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-asr alasr masa">
+                        <div class="surah-header">
+                            <div class="surah-number">103</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْعَصْر</div>
+                            <div class="surah-latin">Al-'Asr</div>
+                            <div class="surah-meaning">Masa</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">3 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-humazah alhumazah pengumpat">
+                        <div class="surah-header">
+                            <div class="surah-number">104</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْهُمَزَة</div>
+                            <div class="surah-latin">Al-Humazah</div>
+                            <div class="surah-meaning">Pengumpat</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">9 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-fil alfil gajah">
+                        <div class="surah-header">
+                            <div class="surah-number">105</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْفِيل</div>
+                            <div class="surah-latin">Al-Fil</div>
+                            <div class="surah-meaning">Gajah</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">5 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="quraish suku quraish">
+                        <div class="surah-header">
+                            <div class="surah-number">106</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">قُرَيْش</div>
+                            <div class="surah-latin">Quraisy</div>
+                            <div class="surah-meaning">Suku Quraisy</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">4 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-maun almaun barang berguna">
+                        <div class="surah-header">
+                            <div class="surah-number">107</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمَاعُون</div>
+                            <div class="surah-latin">Al-Ma'un</div>
+                            <div class="surah-meaning">Barang yang Berguna</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">7 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-kawthar alkautsar nikmat yang berlimpah">
+                        <div class="surah-header">
+                            <div class="surah-number">108</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْكَوْثَر</div>
+                            <div class="surah-latin">Al-Kautsar</div>
+                            <div class="surah-meaning">Nikmat yang Berlimpah</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">3 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-kafirun alkafirun orang kafir">
+                        <div class="surah-header">
+                            <div class="surah-number">109</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْكَافِرُون</div>
+                            <div class="surah-latin">Al-Kafirun</div>
+                            <div class="surah-meaning">Orang-orang Kafir</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">6 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="an-nasr annasr pertolongan">
+                        <div class="surah-header">
+                            <div class="surah-number">110</div>
+                            <div class="surah-type madaniyah">Madaniyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">النَّصْر</div>
+                            <div class="surah-latin">An-Nasr</div>
+                            <div class="surah-meaning">Pertolongan</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">3 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-masad almasad sabut">
+                        <div class="surah-header">
+                            <div class="surah-number">111</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْمَسَد</div>
+                            <div class="surah-latin">Al-Masad</div>
+                            <div class="surah-meaning">Sabut</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">5 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-ikhlas alikhlas kemurnian">
+                        <div class="surah-header">
+                            <div class="surah-number">112</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْإِخْلَاص</div>
+                            <div class="surah-latin">Al-Ikhlas</div>
+                            <div class="surah-meaning">Kemurnian</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">4 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="al-falaq alfalaq subuh">
+                        <div class="surah-header">
+                            <div class="surah-number">113</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">الْفَلَق</div>
+                            <div class="surah-latin">Al-Falaq</div>
+                            <div class="surah-meaning">Subuh</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">5 Ayat</div>
+                        </div>
+                    </div>
+
+                    <div class="surah-card" data-name="an-nas annas manusia">
+                        <div class="surah-header">
+                            <div class="surah-number">114</div>
+                            <div class="surah-type makkiyah">Makkiyah</div>
+                        </div>
+                        <div class="surah-names">
+                            <div class="surah-arabic">النَّاس</div>
+                            <div class="surah-latin">An-Nas</div>
+                            <div class="surah-meaning">Manusia</div>
+                        </div>
+                        <div class="surah-info">
+                            <div class="surah-ayah-count">6 Ayat</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Edu<span>Voo</span></h3>
+                    <p>Platform persiapan UTBK online terdepan yang berkomitmen untuk membantumu mencapai Perguruan Tinggi Negeri impian melalui pembelajaran berkualitas dan inovatif.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><img src="https://placehold.co/20x20/FFFFFF/000000?text=FB" alt="Facebook"></a>
+                        <a href="#" aria-label="Instagram"><img src="https://placehold.co/20x20/FFFFFF/000000?text=IG" alt="Instagram"></a>
+                        <a href="#" aria-label="Twitter"><img src="https://placehold.co/20x20/FFFFFF/000000?text=TW" alt="Twitter"></a>
+                        <a href="#" aria-label="YouTube"><img src="https://placehold.co/20x20/FFFFFF/000000?text=YT" alt="YouTube"></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigasi Cepat</h4>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tentang.html">Tentang Kami</a></li>
+                        <li><a href="surah.html">Paket Harga</a></li>
+                        <li><a href="materi.html">Materi Belajar</a></li>
+                        <li><a href="surah.html">Surah</a></li>
+                        <li><a href="kontak.html">Hubungi Kami</a></li>
+                        <li><a href="surah.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Hubungi Kami</h4>
+                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=M" alt="Email Icon"> info@eduvoo.com</p>
+                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=P" alt="Telepon Icon"> (021) 123-4567</p>
+                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=L" alt="Lokasi Icon"> Jl. Pendidikan No. 123, Jakarta Selatan, Indonesia</p>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <p class="footer-copy">&copy; <span id="currentYear"></span> EduVoo. Semua Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Update tahun di footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Menu hamburger untuk mobile
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Fungsi pencarian surah
+        const searchInput = document.getElementById('searchSurah');
+        const surahCards = document.querySelectorAll('.surah-card');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            surahCards.forEach(card => {
+                const searchData = card.getAttribute('data-name');
+                const surahLatin = card.querySelector('.surah-latin').textContent.toLowerCase();
+                const surahMeaning = card.querySelector('.surah-meaning').textContent.toLowerCase();
+                
+                if (searchData.includes(searchTerm) || 
+                    surahLatin.includes(searchTerm) || 
+                    surahMeaning.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Efek hover untuk kartu surah
+        surahCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderLeftColor = getComputedStyle(document.documentElement).getPropertyValue('--secondary-color');
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.borderLeftColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
+            });
+        });
+    </script>
+</body>
+</html>
