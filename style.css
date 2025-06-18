@@ -1,28 +1,28 @@
 /* CSS Reset dan Style Tema */
 :root {
-    --primary-color: #8B5CF6;
-    --primary-color-rgb: 139, 92, 246;
-    --primary-color-darker: #7C3AED;
-    --secondary-color: #38BDF8;
-    --secondary-color-darker: #0EA5E9;
+    --primary-color: #2E856E;
+    --primary-color-rgb: 46, 133, 110;
+    --primary-color-darker: #246B58;
+    --secondary-color: #C9AD6A;
+    --secondary-color-darker: #B19250;
 
-    --bg-dark-primary: #111827;
-    --bg-dark-secondary: #1F2937;
-    --bg-dark-tertiary: #374151;
-
+    --bg-dark-primary: #1B2B2A;
+    --bg-dark-secondary: #243533;
+    --bg-dark-tertiary: #304742;
     --text-light-primary: #F3F4F6;
     --text-light-secondary: #9CA3AF;
-    --text-link-hover: #F59E0B;
+    --text-link-hover: #C9AD6A;
 
     --font-family: 'Poppins', sans-serif;
     --container-width: 1170px;
     --border-radius: 10px;
-    --card-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+    --card-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
     --header-height: 75px;
 
     --success-color: #10B981;
     --danger-color: #EF4444;
 }
+
 
 * {
     margin: 0;
