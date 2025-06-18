@@ -1,0 +1,336 @@
+/* CSS Reset dan Style Tema */
+:root {
+    --primary-color: #8B5CF6;
+    --primary-color-rgb: 139, 92, 246;
+    --primary-color-darker: #7C3AED;
+    --secondary-color: #38BDF8;
+    --secondary-color-darker: #0EA5E9;
+
+    --bg-dark-primary: #111827;
+    --bg-dark-secondary: #1F2937;
+    --bg-dark-tertiary: #374151;
+
+    --text-light-primary: #F3F4F6;
+    --text-light-secondary: #9CA3AF;
+    --text-link-hover: #F59E0B;
+
+    --font-family: 'Poppins', sans-serif;
+    --container-width: 1170px;
+    --border-radius: 10px;
+    --card-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+    --header-height: 75px;
+
+    --success-color: #10B981;
+    --danger-color: #EF4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.7;
+    color: var(--text-light-primary);
+    background-color: var(--bg-dark-primary);
+    padding-top: var(--header-height);
+    overflow-x: hidden;
+}
+
+
+
+/* Utilitas Umum */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.9rem;
+    margin-bottom: 25px;
+    color: #fff;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    border-radius: 3px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.15rem;
+    color: var(--text-light-secondary);
+    margin-bottom: 60px;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.page-title-section {
+    background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.9)), url('https://picsum.photos/seed/darkabouthero/1920/500') center center/cover no-repeat;
+    padding: 90px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.page-title-section h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.page-title-section p {
+    font-size: 1.2rem;
+    color: var(--text-light-secondary);
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.bg-alternate {
+    background-color: var(--bg-dark-secondary);
+}
+
+.text-center {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--text-link-hover);
+}
+
+/* Tombol */
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-darker);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-dark-primary);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    margin-left: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-dark-primary);
+}
+
+.btn-lg {
+    padding: 18px 45px;
+    font-size: 1.15rem;
+}
+
+/* Header dan Navigasi */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--bg-dark-primary);
+    padding: 15px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-logo span {
+    color: var(--primary-color);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 35px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-light-primary);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* .bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 6px auto;
+    background-color: var(--text-light-primary);
+    border-radius: 1.5px;
+} */
+
+/* Footer (Sama seperti halaman lain) */
+.footer {
+    background-color: var(--bg-dark-tertiary);
+    color: var(--text-light-secondary);
+    padding: 70px 0 35px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 45px;
+    margin-bottom: 45px;
+}
+
+.footer-about h3,
+.footer-links h4,
+.footer-contact h4 {
+    font-size: 1.45rem;
+    margin-bottom: 25px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.footer-about p {
+    margin-bottom: 25px;
+    font-size: 0.98rem;
+    line-height: 1.8;
+}
+
+.social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.social-links img {
+    width: 20px;
+    height: 20px;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li a {
+    color: var(--text-light-secondary);
+    margin-bottom: 14px;
+    display: block;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-contact p {
+    margin-bottom: 12px;
+    font-size: 0.98rem;
+    display: flex;
+    align-items: center;
+}
+
+.footer-contact p img {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin: 35px 0;
+}
+
+.footer-copy {
+    text-align: center;
+    font-size: 0.92rem;
+}
+

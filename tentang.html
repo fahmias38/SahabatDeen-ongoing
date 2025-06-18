@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - EduVoo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="https://placehold.co/32x32/8B5CF6/FFFFFF?text=UM" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        .about-intro {
+            display: grid;
+            align-items: center;
+            margin-bottom: 60px;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+        }
+
+        .about-intro-image {
+            max-width: 550px;
+            border-radius: var(--border-radius);
+            width: 100%;
+        }
+
+        .about-intro-content h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-intro-content p {
+            margin-bottom: 18px;
+            font-size: 1.08rem;
+            color: var(--text-light-secondary);
+            text-align: justify;
+        }
+
+        .vision-mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .vision-item,
+        .mission-item {
+            background-color: var(--bg-dark-secondary);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        .vision-item h3,
+        .mission-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 18px;
+            font-size: 1.9rem;
+            font-weight: 600;
+        }
+
+        .vision-item h3::before {
+            content: '🎯';
+            margin-right: 12px;
+            font-size: 1.6rem;
+        }
+        
+        .mission-item h3::before {
+            content: '🚀';
+            margin-right: 12px;
+            font-size: 1.6rem;
+        }
+
+        .mission-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .mission-item ul li {
+            margin-bottom: 14px;
+            padding-left: 10px;
+            color: var(--text-light-secondary);
+            font-size: 1.02rem;
+        }
+
+        .mission-item ul li::before {
+            content: '✔ ';
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .team-member {
+            background-color: var(--bg-dark-secondary);
+            text-align: center;
+            padding: 35px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        .team-member:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-member-img-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 25px auto;
+            overflow: hidden;
+            border: 5px solid var(--primary-color);
+        }
+
+        .team-member-img-container img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .team-member h4 {
+            font-size: 1.35rem;
+            color: #fff;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .team-member p.role {
+            font-size: 0.98rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .team-member p.bio {
+            font-size: 0.92rem;
+            color: var(--text-light-secondary);
+            line-height: 1.65;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 30px 25px;
+        }
+
+        .value-item .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 18px;
+            line-height: 1;
+        }
+
+        .value-item h4 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="header" id="mainHeader">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="nav-logo">Edu<span>Voo</span></a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
+                    <li class="nav-item"><a href="tentang.html" class="nav-link active">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="harga.html" class="nav-link">Harga</a></li>
+                    <li class="nav-item"><a href="materi.html" class="nav-link">Materi Belajar</a></li>
+                    <li class="nav-item"><a href="kontak.html" class="nav-link">Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-title-section">
+        <div class="container">
+            <h1>Tentang EduVoo</h1>
+            <p>Mengenal lebih dekat siapa kami, visi, misi, dan tim di balik kesuksesanmu.</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="about-us-content section-padding">
+            <div class="container">
+
+                <div class="about-intro">
+                    <div class="about-intro-image">
+                        <img src="https://picsum.photos/seed/teamdiscussdarkmodern/550/420"
+                            alt="Tim UTBK Master sedang berdiskusi strategi pembelajaran"
+                            onerror="this.onerror=null;this.src='https://placehold.co/550x420/111827/9CA3AF?text=Diskusi+Tim+UTBK+Master';">
+                    </div>
+                    <div class="about-intro-content">
+                        <h2>Selamat Datang di Keluarga Besar EduVoo!</h2>
+                        <p>Kami lebih dari sekadar platform belajar; kami adalah partner setiamu dalam
+                            perjalanan menaklukkan UTBK dan meraih kursi di Perguruan Tinggi Negeri impian.</p>
+                        <p>EduVoo lahir dari semangat untuk memberikan akses pendidikan berkualitas tinggi kepada
+                            seluruh calon mahasiswa di Indonesia. Kami percaya bahwa setiap individu memiliki potensi
+                            gemilang yang menunggu untuk diasah. Dengan pendekatan pembelajaran yang modern, materi yang
+                            relevan, dan dukungan penuh dari tim ahli, kami berkomitmen untuk membantumu mencapai versi
+                            terbaik dirimu.</p>
+                        <p>Sejak didirikan, kami telah membantu ribuan siswa mempersiapkan diri secara optimal, memahami
+                            materi secara mendalam, dan membangun kepercayaan diri untuk menghadapi UTBK.</p>
+                    </div>
+                </div>
+
+                <div class="vision-mission-grid">
+                    <div class="vision-item">
+                        <h3>Visi Kami</h3>
+                        <p>Menjadi pionir dalam inovasi pembelajaran UTBK di Indonesia, menciptakan ekosistem belajar
+                            yang inspiratif, inklusif, dan mampu melahirkan generasi penerus bangsa yang kompeten dan
+                            berkarakter.</p>
+                    </div>
+                    <div class="mission-item">
+                        <h3>Misi Kami</h3>
+                        <ul>
+                            <li>Menyediakan kurikulum UTBK yang paling update, komprehensif, dan disajikan secara
+                                menarik.</li>
+                            <li>Mengembangkan teknologi pembelajaran adaptif yang dapat menyesuaikan dengan kebutuhan
+                                unik setiap siswa.</li>
+                            <li>Menghadirkan ribuan soal latihan berkualitas HOTS dan tryout berstandar nasional.</li>
+                            <li>Memberikan bimbingan dan mentoring intensif dari para pengajar berpengalaman dan ahli di
+                                bidangnya.</li>
+                            <li>Membangun komunitas belajar yang solid, suportif, dan saling memotivasi antar siswa.
+                            </li>
+                            <li>Terus berinovasi dan berkolaborasi untuk meningkatkan kualitas layanan pendidikan kami.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section section-padding bg-alternate" id="tim-kami">
+            <div class="container">
+                <h2 class="section-title">Tim Profesional di Balik Layar</h2>
+                <p class="section-subtitle">Kami didukung oleh tim yang berdedikasi tinggi, terdiri dari para ahli
+                    pendidikan, pengembang materi, dan pakar teknologi yang siap membantumu.</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-member-img-container">
+                            <img src="https://picsum.photos/seed/leaderdarkmodern/150/150"
+                                alt="Foto Ahmad Fikri Zakaria"
+                                onerror="this.onerror=null;this.src='https://placehold.co/150x150/1F2937/F3F4F6?text=AFZ';">
+                        </div>
+                        <h4>Ahmad Fikri Z.</h4>
+                        <p class="role">Founder & Lead Developer</p>
+                        <p class="bio">Mahasiswa Informatika Unsoed dengan passion di bidang edukasi dan teknologi.
+                            Bertekad menciptakan platform UTBK terbaik.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-img-container">
+                            <img src="https://picsum.photos/seed/tpsgurudarkmodern/150/150"
+                                alt="Foto Anggota Tim Ahli TPS"
+                                onerror="this.onerror=null;this.src='https://placehold.co/150x150/1F2937/F3F4F6?text=TPS';">
+                        </div>
+                        <h4>Fahmi Arif Setiawan</h4>
+                        <p class="role">Koordinator Materi TPS</p>
+                        <p class="bio">Pakar psikometri dan pengembangan tes dengan pengalaman lebih dari 10 tahun dalam
+                            penyusunan soal potensi skolastik.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-img-container">
+                            <img src="https://picsum.photos/seed/saintekgurudarkmodern/150/150"
+                                alt="Foto Anggota Tim Ahli SAINTEK"
+                                onerror="this.onerror=null;this.src='https://placehold.co/150x150/1F2937/F3F4F6?text=STK';">
+                        </div>
+                        <h4>Aditya Alfandi</h4>
+                        <p class="role">Koordinator Materi SAINTEK</p>
+                        <p class="bio">Dosen senior Fisika dengan rekam jejak publikasi riset internasional dan dedikasi
+                            tinggi pada pengajaran sains.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-img-container">
+                            <img src="https://picsum.photos/seed/soshumgurudarkmodern/150/150"
+                                alt="Foto Anggota Tim Ahli SOSHUM"
+                                onerror="this.onerror=null;this.src='https://placehold.co/150x150/1F2937/F3F4F6?text=SHM';">
+                        </div>
+                        <h4>M. Faqih Muhyidin</h4>
+                        <p class="role">Koordinator Materi SOSHUM</p>
+                        <p class="bio">Sejarawan dan penulis buku teks pelajaran SMA, ahli dalam menyajikan materi
+                            sosial humaniora secara menarik.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-img-container">
+                            <img src="https://picsum.photos/seed/supportdarkmodern/150/150"
+                                alt="Foto Anggota Tim Support"
+                                onerror="this.onerror=null;this.src='https://placehold.co/150x150/1F2937/F3F4F6?text=CS';">
+                        </div>
+                        <h4>Raja Arcenio</h4>
+                        <p class="role">Community & Support Lead</p>
+                        <p class="bio">Berkomitmen memberikan dukungan terbaik dan membangun komunitas belajar yang
+                            positif bagi semua siswa UTBK Master.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section section-padding">
+            <div class="container">
+                <h2 class="section-title">Nilai Inti Kami</h2>
+                <p class="section-subtitle">Prinsip-prinsip yang menjadi landasan kami dalam memberikan layanan terbaik
+                    untukmu.</p>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="icon">🌟</div>
+                        <h4>Kualitas Unggul</h4>
+                        <p>Kami tidak pernah kompromi dalam kualitas materi, pengajaran, dan teknologi yang kami
+                            sajikan.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="icon">💡</div>
+                        <h4>Inovasi Berkelanjutan</h4>
+                        <p>Selalu mencari dan menerapkan metode serta teknologi terbaru untuk pengalaman belajar
+                            terbaik.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="icon">🤝</div>
+                        <h4>Integritas & Transparansi</h4>
+                        <p>Beroperasi dengan jujur, terbuka, dan bertanggung jawab kepada semua pemangku kepentingan.
+                        </p>
+                    </div>
+                    <div class="value-item">
+                        <div class="icon">🎯</div>
+                        <h4>Fokus Pada Siswa</h4>
+                        <p>Keberhasilan dan kepuasan setiap siswa adalah prioritas utama dan tolok ukur kesuksesan kami.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Edu<span>Voo</span></h3>
+                    <p>Platform persiapan UTBK online terdepan yang berkomitmen untuk membantumu mencapai Perguruan
+                        Tinggi Negeri impian melalui pembelajaran berkualitas dan inovatif.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><img src="https://placehold.co/20x20/FFFFFF/000000?text=FB"
+                                alt="Facebook"></a>
+                        <a href="#" aria-label="Instagram"><img src="https://placehold.co/20x20/FFFFFF/000000?text=IG"
+                                alt="Instagram"></a>
+                        <a href="#" aria-label="Twitter"><img src="https://placehold.co/20x20/FFFFFF/000000?text=TW"
+                                alt="Twitter"></a>
+                        <a href="#" aria-label="YouTube"><img src="https://placehold.co/20x20/FFFFFF/000000?text=YT"
+                                alt="YouTube"></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigasi Cepat</h4>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tentang.html">Tentang Kami</a></li>
+                        <li><a href="harga.html">Paket Harga</a></li>
+                        <li><a href="materi.html">Materi Belajar</a></li>
+                        <li><a href="kontak.html">Hubungi Kami</a></li>
+                        <li><a href="harga.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Hubungi Kami</h4>
+                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=M" alt="Email Icon"> info@eduvoo.com
+                    </p>
+                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=P" alt="Telepon Icon"> (021) 123-4567</p>
+                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=L" alt="Lokasi Icon"> Jl. Pendidikan No.
+                        123, Jakarta Selatan, Indonesia</p>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <p class="footer-copy">&copy; <span id="currentYear"></span> UTBK Master. Semua Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    
+    <script>
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Harga - EduVoo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://placehold.co/32x32/8B5CF6/FFFFFF?text=UM" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        /* Konten Spesifik Halaman Harga */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 35px;
+        }
+        .pricing-card {
+            background-color: var(--bg-dark-secondary);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+        }
+
+        .pricing-card.popular {
+            border: 3px solid var(--primary-color);
+        }
+
+        .pricing-card-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+        .pricing-card-header h3 { 
+            font-size: 1.9rem;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .pricing-card-header .price { 
+            font-size: 3rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .pricing-card-header .price span.currency {
+            margin-right: 4px;
+        }
+        .pricing-card-header .price span.period {
+            font-size: 1.05rem;
+            color: var(--text-light-secondary);
+            font-weight: 400;
+        }
+        .pricing-card-header p.description { 
+            font-size: 0.95rem;
+            color: var(--text-light-secondary);
+        }
+
+        .pricing-card-features {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+        .pricing-card-features li {
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: var(--text-light-primary);
+        }
+        .pricing-card-features li::before { 
+            content: '✔'; 
+            color: var(--success-color);
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        .pricing-card-features li.disabled::before { 
+            content: '✖';
+            color: var(--danger-color);
+        }
+        .pricing-card-features li.disabled {
+            color: var(--text-light-secondary);
+            text-decoration: none;
+            opacity: 0.8;
+        }
+        
+        .pricing-card .btn {
+            margin-top: auto; 
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background-color: var(--bg-dark-secondary);
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        .faq-question {
+            padding: 22px 28px;
+        }
+
+        .faq-answer {
+            padding: 0 28px 25px 28px;
+            color: var(--text-light-secondary);
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header class="header" id="mainHeader">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="nav-logo">Edu<span>Voo</span></a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
+                    <li class="nav-item"><a href="tentang.html" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="harga.html" class="nav-link active">Harga</a></li>
+                    <li class="nav-item"><a href="materi.html" class="nav-link">Materi Belajar</a></li>
+                    <li class="nav-item"><a href="kontak.html" class="nav-link">Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-title-section">
+        <div class="container">
+            <h1>Pilihan Paket Harga</h1>
+            <p>Temukan paket belajar UTBK Master yang paling sesuai dengan kebutuhan dan targetmu.</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="pricing-section section-padding">
+            <div class="container">
+                <h2 class="section-title">Investasi Terbaik untuk Masa Depanmu</h2>
+                <p class="section-subtitle">Kami menawarkan berbagai pilihan paket dengan fitur lengkap dan harga terjangkau untuk membantumu meraih skor UTBK impian.</p>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-card-header">
+                            <h3>Paket Cermat</h3>
+                            <div class="price"><span class="currency">Rp</span>99.000<span class="period">/bln</span></div>
+                            <p class="description">Mulai perjalananmu dengan akses esensial ke materi dan latihan dasar.</p>
+                        </div>
+                        <ul class="pricing-card-features">
+                            <li>Akses ke 1000+ Soal Latihan TPS(Tidak Termasuk TKA)</li>
+                            <li>Video Pembahasan Soal Terpilih</li>
+                            <li>Modul Ringkasan Materi Kunci Yang Cukup Lengkap</li>
+                            <li>2x Tryout Mini Bulanan</li>
+                            <li class="disabled">Forum Diskusi Eksklusif dengan Mentor Ahli</li>
+                            <li class="disabled">Sesi Tanya Jawab Berupa Live Mingguan</li>
+                            <li class="disabled">Analisis Hasil Belajar Detail & Rekomendasi Personal</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Pilih Paket Cermat</a>
+                    </div>
+
+                    <div class="pricing-card popular">
+                        <div class="pricing-card-header">
+                            <h3>Paket Intensif</h3>
+                            <div class="price"><span class="currency">Rp</span>249.000<span class="period">/bln</span></div>
+                            <p class="description">Pilihan terbaik untuk persiapan UTBK yang komprehensif dan mendalam.</p>
+                        </div>
+                        <ul class="pricing-card-features">
+                            <li>Akses ke 7500+ Soal Latihan (TPS & TKA)</li>
+                            <li>Video Pembahasan Semua Soal</li>
+                            <li>Modul Materi Lengkap & Interaktif</li>
+                            <li>4x Tryout Standar UTBK Bulanan</li>
+                            <li>Forum Diskusi Eksklusif dengan Mentor Ahli</li>
+                            <li>Sesi Tanya Jawab Live Mingguan</li>
+                            <li>Analisis Hasil Belajar Detail & Rekomendasi Personal</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Pilih Paket Intensif</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-card-header">
+                            <h3>Paket Juara</h3>
+                            <div class="price"><span class="currency">Rp</span>499.000<span class="period">/bln</span></div>
+                            <p class="description">Persiapan super maksimal secara personal dan fitur premium.</p>
+                        </div>
+                        <ul class="pricing-card-features">
+                            <li>Semua Fitur Paket Intensif</li>
+                            <li>Akses Bank Soal Eksklusif (Soal HOTS++)</li>
+                            <li>Sesi Mentoring Privat 1-on-1 (4x/bulan)</li>
+                            <li>Grup Belajar Premium (Maks. 5 orang)</li>
+                            <li>Prioritas Akses Fitur & Materi Baru</li>
+                            <li>Konsultasi Strategi Pilihan Jurusan Mendalam</li>
+                            <li>UTBK Master Kit Eksklusif (Merchandise)</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Pilih Paket Juara</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section section-padding bg-alternate" id="faq">
+            <div class="container">
+                <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
+                <p class="section-subtitle">Temukan jawaban atas pertanyaan yang sering diajukan seputar layanan dan paket harga kami.</p>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Apa saja metode pembayaran yang diterima?</h4>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kami menerima berbagai metode pembayaran, termasuk transfer bank (BCA, Mandiri, BRI, BNI), e-wallet (GoPay, OVO, Dana, ShopeePay), virtual account, dan kartu kredit/debit berlogo Visa/Mastercard. Semua transaksi dijamin aman dan terenkripsi.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Apakah ada garansi uang kembali jika saya tidak puas?</h4>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kami sangat mengutamakan kepuasanmu. Jika dalam 7 hari pertama setelah aktivasi kamu merasa layanan kami tidak memenuhi ekspektasi (dengan syarat dan ketentuan yang berlaku), kamu berhak mengajukan permohonan pengembalian dana penuh. Detail lebih lanjut bisa kamu temukan pada halaman Syarat & Ketentuan kami.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Bisakah saya melakukan upgrade atau downgrade paket langganan?</h4>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Tentu saja! Kamu bisa melakukan upgrade paket kapan saja selama periode langgananmu. Sistem kami akan secara otomatis menghitung selisih harga secara prorata berdasarkan sisa masa aktif paketmu saat ini. Untuk downgrade, biasanya akan berlaku pada periode perpanjangan berikutnya. Prosesnya mudah dan bisa dilakukan langsung melalui dashboard akunmu.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Berapa lama saya bisa mengakses materi setelah berlangganan?</h4>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kamu bisa mengakses seluruh materi dan fitur sesuai dengan paket yang kamu pilih selama periode langganan aktif. Misalnya, jika kamu memilih paket bulanan, akses akan berlaku selama satu bulan penuh sejak tanggal aktivasi dan dapat diperpanjang secara otomatis atau manual sesuai preferensimu.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Apakah materi dan soal selalu diupdate sesuai perkembangan UTBK?</h4>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Ya, komitmen kami adalah menyediakan konten yang paling relevan. Tim akademik kami secara berkala dan berkelanjutan meninjau, memperbarui, serta menambahkan materi dan bank soal agar selalu sejalan dengan kisi-kisi, format, dan tren soal UTBK terbaru yang dikeluarkan oleh lembaga resmi penyelenggara ujian.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Edu<span>Voo</span></h3>
+                    <p>Platform persiapan UTBK online terdepan yang berkomitmen untuk membantumu mencapai Perguruan Tinggi Negeri impian melalui pembelajaran berkualitas dan inovatif.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><img src="https://placehold.co/20x20/FFFFFF/000000?text=FB" alt="Facebook"></a>
+                        <a href="#" aria-label="Instagram"><img src="https://placehold.co/20x20/FFFFFF/000000?text=IG" alt="Instagram"></a>
+                        <a href="#" aria-label="Twitter"><img src="https://placehold.co/20x20/FFFFFF/000000?text=TW" alt="Twitter"></a>
+                        <a href="#" aria-label="YouTube"><img src="https://placehold.co/20x20/FFFFFF/000000?text=YT" alt="YouTube"></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigasi Cepat</h4>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tentang.html">Tentang Kami</a></li>
+                        <li><a href="harga.html">Paket Harga</a></li>
+                        <li><a href="materi.html">Materi Belajar</a></li>
+                        <li><a href="kontak.html">Hubungi Kami</a></li>
+                        <li><a href="#faq">FAQ</a></li> 
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Hubungi Kami</h4>
+                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=M" alt="Email Icon"> info@eduvoo.com</p>
+                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=P" alt="Telepon Icon"> (021) 123-4567</p>
+                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=L" alt="Lokasi Icon"> Jl. Pendidikan No. 123, Jakarta Selatan, Indonesia</p>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <p class="footer-copy">&copy; <span id="currentYear"></span> EduVoo. Semua Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+    </script>
+</body>
+</html>
