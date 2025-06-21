@@ -9,14 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="https://placehold.co/32x32/2E856E/FFFFFF?text=Q" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <style>
         /* Konten Spesifik Halaman Harga */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 35px;
             align-items: stretch; 
+            margin-top: 60px;
         }
+        
         .pricing-card {
             background-color: var(--bg-dark-secondary);
             border-radius: var(--border-radius);
@@ -26,26 +29,32 @@
             flex-direction: column;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .pricing-card:hover {
-            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transform: translateY(-5px);
+            border-color: rgba(46, 133, 110, 0.3);
         }
 
         .pricing-card.popular {
             border: 3px solid var(--primary-color);
             z-index: 10;
+            transform: scale(1.05);
         }
 
         .pricing-card.popular:hover {
-            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 25px 50px rgba(46, 133, 110, 0.3);
         }
 
         .popular-badge {
             position: absolute;
-            top: 15px; 
+            top: 20px; 
             right: -35px;
-            background-color: var(--primary-color);
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-color-darker));
             color: #fff;
             padding: 8px 45px;
             font-size: 0.85rem;
@@ -61,33 +70,42 @@
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
+            border-bottom: 2px solid rgba(255,255,255,0.1);
         }
+        
         .pricing-card-header h3 { 
             font-size: 1.9rem;
             color: #fff;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
+        
         .pricing-card-header .price { 
             font-size: 3rem;
             color: var(--primary-color);
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
+        
         .pricing-card-header .price span.currency {
             font-size: 1.6rem;
             vertical-align: super;
             margin-right: 4px;
         }
+        
         .pricing-card-header .price span.period {
             font-size: 1.05rem;
             color: var(--text-light-secondary);
             font-weight: 400;
         }
+        
         .pricing-card-header p.description { 
             font-size: 0.95rem;
             color: var(--text-light-secondary);
+            line-height: 1.6;
+            margin-top: 10px;
         }
 
         .pricing-card-features {
@@ -95,32 +113,45 @@
             margin-bottom: 35px;
             flex-grow: 1; 
         }
+        
         .pricing-card-features li {
-            margin-bottom: 14px;
+            margin-bottom: 16px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             font-size: 1rem;
             color: var(--text-light-primary);
+            line-height: 1.5;
         }
+        
         .pricing-card-features li::before { 
             content: '✔'; 
             color: var(--success-color);
             font-weight: bold;
             margin-right: 12px;
             font-size: 1.2rem;
+            margin-top: 2px;
+            flex-shrink: 0;
         }
+        
         .pricing-card-features li.disabled::before { 
             content: '✖';
             color: var(--danger-color);
         }
+        
         .pricing-card-features li.disabled {
             color: var(--text-light-secondary);
             text-decoration: none;
-            opacity: 0.7;
+            opacity: 0.6;
         }
         
         .pricing-card .btn {
-            margin-top: auto; 
+            margin-top: auto;
+            width: 100%;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
         }
 
         /* FAQ Section */
@@ -131,19 +162,22 @@
             box-shadow: var(--card-shadow);
             border-left: 4px solid transparent;
             transition: all 0.3s ease;
+            overflow: hidden;
         }
 
         .faq-item.active {
             border-left-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(46, 133, 110, 0.2);
         }
 
         .faq-question {
-            padding: 22px 28px;
+            padding: 25px 30px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: background-color 0.3s ease;
+            user-select: none;
         }
 
         .faq-question:hover {
@@ -155,29 +189,32 @@
             font-size: 1.15rem;
             font-weight: 600;
             margin: 0;
+            line-height: 1.4;
+            padding-right: 20px;
         }
 
         .faq-toggle {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             color: var(--primary-color);
             transition: transform 0.3s ease;
             font-weight: 300;
             line-height: 1;
+            flex-shrink: 0;
         }
 
         .faq-answer {
-            padding: 0 28px;
+            padding: 0 30px;
             max-height: 0;
             overflow: hidden;
             color: var(--text-light-secondary);
             font-size: 1rem;
             line-height: 1.75;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
 
         .faq-item.active .faq-answer {
             max-height: 500px;
-            padding: 10px 28px 25px 28px;
+            padding: 10px 30px 30px 30px;
         }
 
         .faq-item.active .faq-toggle {
@@ -185,26 +222,89 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .pricing-card.popular {
-                transform: scale(1); 
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
             }
-            .page-title-section h1 { font-size: 2.6rem; }
+            
+            .pricing-card.popular {
+                transform: scale(1.02);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: scale(1.02) translateY(-5px);
+            }
         }
 
         @media (max-width: 768px) {
             .pricing-grid {
-                grid-template-columns: 1fr; 
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin-top: 40px;
             }
+            
+            .pricing-card {
+                padding: 35px 25px;
+            }
+            
             .pricing-card.popular {
-                transform: scale(1.03); 
+                transform: scale(1);
             }
-            .pricing-card-header .price { font-size: 2.5rem; }
-            .faq-question h4 { font-size: 1.1rem; }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-5px);
+            }
+            
+            .pricing-card-header .price { 
+                font-size: 2.5rem; 
+            }
+            
             .popular-badge {
                 right: -40px;
                 padding: 6px 40px;
                 font-size: 0.8rem;
+                top: 15px;
+            }
+            
+            .faq-question {
+                padding: 20px 25px;
+            }
+            
+            .faq-question h4 { 
+                font-size: 1.1rem; 
+            }
+            
+            .faq-answer {
+                padding: 0 25px;
+            }
+            
+            .faq-item.active .faq-answer {
+                padding: 10px 25px 25px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pricing-card {
+                padding: 30px 20px;
+            }
+            
+            .pricing-card-header h3 {
+                font-size: 1.7rem;
+            }
+            
+            .pricing-card-header .price {
+                font-size: 2.2rem;
+            }
+            
+            .pricing-card-features li {
+                font-size: 0.95rem;
+                margin-bottom: 14px;
+            }
+            
+            .popular-badge {
+                font-size: 0.75rem;
+                padding: 5px 35px;
             }
         }
     </style>
@@ -393,46 +493,5 @@
             <p class="footer-copy">&copy; <span id="currentYear"></span> QuranKu Digital. Semua Hak Cipta Dilindungi.</p>
         </div>
     </footer>
-
-    <script>
-        // FAQ Toggle Function
-        function toggleFAQ(element) {
-            const faqItem = element.parentElement;
-            const isActive = faqItem.classList.contains('active');
-            
-            // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // If the clicked item wasn't active, open it
-            if (!isActive) {
-                faqItem.classList.add('active');
-            }
-        }
-
-        // Set current year in footer
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentYear = new Date().getFullYear();
-            const yearElement = document.getElementById('currentYear');
-            if (yearElement) {
-                yearElement.textContent = currentYear;
-            }
-        });
-
-        // Add smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>

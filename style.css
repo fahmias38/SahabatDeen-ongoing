@@ -23,9 +23,6 @@
     --danger-color: #EF4444;
 }
 
-
-
-
 * {
     margin: 0;
     padding: 0;
@@ -45,8 +42,6 @@ body {
     overflow-x: hidden;
 }
 
-
-
 /* Utilitas Umum */
 .container {
     max-width: var(--container-width);
@@ -55,7 +50,7 @@ body {
 }
 
 .section-padding {
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 .section-title {
@@ -90,16 +85,27 @@ body {
 }
 
 .page-title-section {
-    background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.9)), url('https://picsum.photos/seed/darkabouthero/1920/500') center center/cover no-repeat;
+    background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.9)), url('https://www.kaffahcollege.com/wp-content/uploads/2018/09/anak-laki-dan-orang-tua.jpg') center 33% /cover no-repeat;
     padding: 90px 0;
     text-align: center;
     color: #fff;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-title-section .container {
+    z-index: 2;
+    position: relative;
 }
 
 .page-title-section h1 {
     font-size: 3.2rem;
     font-weight: 800;
     margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .page-title-section p {
@@ -107,6 +113,7 @@ body {
     color: var(--text-light-secondary);
     max-width: 650px;
     margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .bg-alternate {
@@ -145,6 +152,7 @@ a:hover {
     font-size: 1.05rem;
     letter-spacing: 0.5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 .btn-primary {
@@ -154,6 +162,7 @@ a:hover {
 
 .btn-primary:hover {
     background-color: var(--primary-color-darker);
+    transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -165,6 +174,7 @@ a:hover {
 .btn-outline:hover {
     background-color: var(--secondary-color);
     color: var(--bg-dark-primary);
+    transform: translateY(-2px);
 }
 
 .btn-secondary {
@@ -177,6 +187,7 @@ a:hover {
 .btn-secondary:hover {
     background-color: var(--secondary-color);
     color: var(--bg-dark-primary);
+    transform: translateY(-2px);
 }
 
 .btn-lg {
@@ -193,11 +204,13 @@ a:hover {
     z-index: 1000;
     background-color: var(--bg-dark-primary);
     padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .nav-logo {
@@ -227,6 +240,7 @@ a:hover {
     color: var(--text-light-primary);
     font-weight: 500;
     font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
 .nav-link:hover,
@@ -234,22 +248,59 @@ a:hover {
     color: var(--primary-color);
 }
 
+/* Hamburger Menu */
 .hamburger {
     display: none;
+    flex-direction: column;
     cursor: pointer;
     padding: 10px;
+    background: none;
+    border: none;
+    position: relative;
+    z-index: 1001;
 }
 
-/* .bar {
+.bar {
     display: block;
     width: 28px;
     height: 3px;
-    margin: 6px auto;
+    margin: 3px 0;
     background-color: var(--text-light-primary);
-    border-radius: 1.5px;
-} */
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
 
-/* Footer (Sama seperti halaman lain) */
+/* Hamburger Animation */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Menu Overlay */
+.nav-menu.mobile-active {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background-color: var(--bg-dark-primary);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 50px;
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Footer */
 .footer {
     background-color: var(--bg-dark-tertiary);
     color: var(--text-light-secondary);
@@ -287,6 +338,7 @@ a:hover {
     height: 40px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.08);
+    transition: background-color 0.3s ease;
 }
 
 .social-links img {
@@ -306,6 +358,7 @@ a:hover {
     color: var(--text-light-secondary);
     margin-bottom: 14px;
     display: block;
+    transition: color 0.3s ease;
 }
 
 .footer-links ul li a:hover {
@@ -336,3 +389,131 @@ a:hover {
     font-size: 0.92rem;
 }
 
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .page-title-section h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Navigation */
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        background-color: var(--bg-dark-primary);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 50px;
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-item {
+        margin: 20px 0;
+    }
+    
+    .nav-link {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+    
+    .page-title-section {
+        padding: 60px 0;
+        min-height: 300px;
+    }
+    
+    .page-title-section h1 {
+        font-size: 2.4rem;
+        margin-bottom: 20px;
+    }
+    
+    .page-title-section p {
+        font-size: 1.1rem;
+    }
+    
+    .btn {
+        padding: 12px 25px;
+        font-size: 0.95rem;
+    }
+    
+    .btn-lg {
+        padding: 15px 35px;
+        font-size: 1.05rem;
+    }
+    
+    .btn-secondary {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .section-title {
+        font-size: 1.9rem;
+    }
+    
+    .page-title-section {
+        height: 60vh;
+    }
+
+    .page-title-section h1 {
+        font-size: 2rem;
+    }
+    
+    .page-title-section p {
+        font-size: 1rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .nav-item {
+        margin: 15px 0;
+    }
+    
+    .nav-link {
+        font-size: 1.1rem;
+    }
+}
