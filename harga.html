@@ -1,22 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paket Harga - UTBK Master</title>
+    <title>Paket Berlangganan - QuranKu Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://placehold.co/32x32/8B5CF6/FFFFFF?text=UM" type="image/png">
+    <link rel="icon" href="https://placehold.co/32x32/2E856E/FFFFFF?text=Q" type="image/png">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <style>
         /* Konten Spesifik Halaman Harga */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); /* Sedikit lebih lebar untuk kartu harga */
-            gap: 35px; /* Gap lebih besar */
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 35px;
             align-items: stretch; 
         }
         .pricing-card {
@@ -45,34 +43,34 @@
 
         .popular-badge {
             position: absolute;
-            top: 0px; 
-            right: -50px; /* Disesuaikan agar pas dengan rotasi */
+            top: 15px; 
+            right: -35px;
             background-color: var(--primary-color);
             color: #fff;
-            padding: 10px 50px; /* Padding badge lebih besar */
-            font-size: 0.85rem; /* Font badge sedikit lebih besar */
-            font-weight: 700; /* Lebih bold */
+            padding: 8px 45px;
+            font-size: 0.85rem;
+            font-weight: 700;
             text-transform: uppercase;
             transform: rotate(45deg);
-            transform-origin: top left; /* Titik rotasi di kiri atas */
-            letter-spacing: 0.8px; /* Spasi huruf */
+            letter-spacing: 0.8px;
             box-shadow: 0 4px 10px rgba(var(--primary-color-rgb), 0.4);
+            z-index: 20;
         }
 
         .pricing-card-header {
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.15); /* Garis pemisah lebih jelas */
+            border-bottom: 1px solid rgba(255,255,255,0.15);
         }
         .pricing-card-header h3 { 
-            font-size: 1.9rem; /* Nama paket lebih besar */
+            font-size: 1.9rem;
             color: #fff;
             font-weight: 600;
             margin-bottom: 12px;
         }
         .pricing-card-header .price { 
-            font-size: 3rem; /* Harga lebih besar */
+            font-size: 3rem;
             color: var(--primary-color);
             font-weight: 700;
             margin-bottom: 8px;
@@ -88,37 +86,37 @@
             font-weight: 400;
         }
         .pricing-card-header p.description { 
-            font-size: 0.95rem; /* Deskripsi paket sedikit lebih besar */
+            font-size: 0.95rem;
             color: var(--text-light-secondary);
         }
 
         .pricing-card-features {
             list-style: none;
-            margin-bottom: 35px; /* Jarak lebih besar ke tombol */
+            margin-bottom: 35px;
             flex-grow: 1; 
         }
         .pricing-card-features li {
-            margin-bottom: 14px; /* Jarak antar fitur lebih besar */
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
-            font-size: 1rem; /* Font fitur lebih besar */
+            font-size: 1rem;
             color: var(--text-light-primary);
         }
         .pricing-card-features li::before { 
             content: '✔'; 
             color: var(--success-color);
             font-weight: bold;
-            margin-right: 12px; /* Jarak ikon lebih besar */
-            font-size: 1.2rem; /* Ikon lebih besar */
+            margin-right: 12px;
+            font-size: 1.2rem;
         }
         .pricing-card-features li.disabled::before { 
             content: '✖';
-            color: var(--danger-color); /* Warna lebih tegas untuk fitur tidak termasuk */
+            color: var(--danger-color);
         }
         .pricing-card-features li.disabled {
             color: var(--text-light-secondary);
-            text-decoration: none; /* Hilangkan coretan, ikon sudah cukup */
-            opacity: 0.7; /* Sedikit redup */
+            text-decoration: none;
+            opacity: 0.7;
         }
         
         .pricing-card .btn {
@@ -132,6 +130,7 @@
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
             border-left: 4px solid transparent;
+            transition: all 0.3s ease;
         }
 
         .faq-item.active {
@@ -144,31 +143,46 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        .faq-question h4 {
+            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 0;
         }
 
         .faq-toggle {
             font-size: 1.6rem;
             color: var(--primary-color);
+            transition: transform 0.3s ease;
+            font-weight: 300;
+            line-height: 1;
         }
 
         .faq-answer {
-            padding: 0 28px 25px 28px;
+            padding: 0 28px;
             max-height: 0;
             overflow: hidden;
             color: var(--text-light-secondary);
             font-size: 1rem;
             line-height: 1.75;
+            transition: all 0.3s ease;
         }
 
         .faq-item.active .faq-answer {
-            max-height: 400px;
-            padding-top: 10px;
+            max-height: 500px;
+            padding: 10px 28px 25px 28px;
         }
 
         .faq-item.active .faq-toggle {
-            transform: rotate(135deg);
+            transform: rotate(45deg);
         }
-
 
         /* Responsive Design */
         @media (max-width: 992px) {
@@ -187,6 +201,11 @@
             }
             .pricing-card-header .price { font-size: 2.5rem; }
             .faq-question h4 { font-size: 1.1rem; }
+            .popular-badge {
+                right: -40px;
+                padding: 6px 40px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -194,12 +213,12 @@
     <header class="header" id="mainHeader">
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="nav-logo">UTBK<span>Master</span></a>
+                <a href="index.html" class="nav-logo">Quran<span>Ku</span></a>
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
                     <li class="nav-item"><a href="tentang.html" class="nav-link">Tentang Kami</a></li>
-                    <li class="nav-item"><a href="harga.html" class="nav-link active">Harga</a></li>
-                    <li class="nav-item"><a href="materi.html" class="nav-link">Materi Belajar</a></li>
+                    <li class="nav-item"><a href="harga.html" class="nav-link active">Berlangganan</a></li>
+                    <li class="nav-item"><a href="materi.html" class="nav-link">Fitur Al-Quran</a></li>
                     <li class="nav-item"><a href="kontak.html" class="nav-link">Kontak</a></li>
                 </ul>
                 <div class="hamburger">
@@ -213,71 +232,71 @@
 
     <section class="page-title-section">
         <div class="container">
-            <h1>Pilihan Paket Harga</h1>
-            <p>Temukan paket belajar UTBK Master yang paling sesuai dengan kebutuhan dan targetmu.</p>
+            <h1>Paket Berlangganan QuranKu</h1>
+            <p>Pilih paket berlangganan yang sesuai dengan kebutuhan spiritual dan pembelajaran Al-Quran Anda.</p>
         </div>
     </section>
 
     <main>
         <section class="pricing-section section-padding">
             <div class="container">
-                <h2 class="section-title">Investasi Terbaik untuk Masa Depanmu</h2>
-                <p class="section-subtitle">Kami menawarkan berbagai pilihan paket dengan fitur lengkap dan harga terjangkau untuk membantumu meraih skor UTBK impian.</p>
+                <h2 class="section-title">Investasi Terbaik untuk Spiritual Anda</h2>
+                <p class="section-subtitle">Kami menawarkan berbagai pilihan paket dengan fitur lengkap untuk meningkatkan kualitas ibadah dan pemahaman Al-Quran Anda.</p>
 
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <div class="pricing-card-header">
-                            <h3>Paket Cermat</h3>
-                            <div class="price"><span class="currency">Rp</span>99.000<span class="period">/bln</span></div>
-                            <p class="description">Mulai perjalananmu dengan akses esensial ke materi dan latihan dasar.</p>
+                            <h3>Paket Dasar</h3>
+                            <div class="price"><span class="currency">Rp</span>25.000<span class="period">/bln</span></div>
+                            <p class="description">Mulai perjalanan spiritual Anda dengan fitur-fitur dasar Al-Quran digital.</p>
                         </div>
                         <ul class="pricing-card-features">
-                            <li>Akses ke 1000+ Soal Latihan TPS</li>
-                            <li>Video Pembahasan Soal Terpilih</li>
-                            <li>Modul Ringkasan Materi Kunci</li>
-                            <li>2x Tryout Mini Bulanan</li>
-                            <li class="disabled">Forum Diskusi Komunitas</li>
-                            <li class="disabled">Sesi Tanya Jawab Live Mingguan</li>
-                            <li class="disabled">Analisis Hasil Belajar Detail</li>
+                            <li>Akses 30 Juz Al-Quran Digital</li>
+                            <li>Terjemahan Bahasa Indonesia</li>
+                            <li>Audio Murotal 3 Qori</li>
+                            <li>Pencarian Ayat Sederhana</li>
+                            <li class="disabled">Tafsir Lengkap</li>
+                            <li class="disabled">Bookmarking Ayat</li>
+                            <li class="disabled">Jadwal Khatam Otomatis</li>
                         </ul>
-                        <a href="#" class="btn btn-outline">Pilih Paket Cermat</a>
+                        <a href="#" class="btn btn-outline">Lihat Detail Paket</a>
                     </div>
 
                     <div class="pricing-card popular">
                         <div class="popular-badge">Terlaris</div>
                         <div class="pricing-card-header">
-                            <h3>Paket Intensif</h3>
-                            <div class="price"><span class="currency">Rp</span>249.000<span class="period">/bln</span></div>
-                            <p class="description">Pilihan terbaik untuk persiapan UTBK yang komprehensif dan mendalam.</p>
+                            <h3>Paket Premium</h3>
+                            <div class="price"><span class="currency">Rp</span>49.000<span class="period">/bln</span></div>
+                            <p class="description">Paket terlengkap untuk pengalaman membaca Al-Quran yang sempurna.</p>
                         </div>
                         <ul class="pricing-card-features">
-                            <li>Akses ke 7500+ Soal Latihan (TPS & TKA)</li>
-                            <li>Video Pembahasan Semua Soal</li>
-                            <li>Modul Materi Lengkap & Interaktif</li>
-                            <li>4x Tryout Standar UTBK Bulanan</li>
-                            <li>Forum Diskusi Eksklusif dengan Mentor Ahli</li>
-                            <li>Sesi Tanya Jawab Live Mingguan</li>
-                            <li>Analisis Hasil Belajar Detail & Rekomendasi Personal</li>
+                            <li>Semua Fitur Paket Dasar</li>
+                            <li>Tafsir Lengkap (Ibnu Katsir, Jalalain)</li>
+                            <li>Audio Murotal 15+ Qori Terkenal</li>
+                            <li>Bookmarking & Notes Pribadi</li>
+                            <li>Jadwal Khatam Otomatis</li>
+                            <li>Pencarian Advanced dengan Filter</li>
+                            <li>Mode Gelap & Terang</li>
                         </ul>
-                        <a href="#" class="btn btn-primary">Pilih Paket Intensif</a>
+                        <a href="#" class="btn btn-primary">Lihat Detail Paket</a>
                     </div>
 
                     <div class="pricing-card">
                         <div class="pricing-card-header">
-                            <h3>Paket Juara</h3>
-                            <div class="price"><span class="currency">Rp</span>499.000<span class="period">/bln</span></div>
-                            <p class="description">Persiapan super maksimal dengan bimbingan personal dan fitur premium.</p>
+                            <h3>Paket Ultimate</h3>
+                            <div class="price"><span class="currency">Rp</span>79.000<span class="period">/bln</span></div>
+                            <p class="description">Pengalaman spiritual maksimal dengan fitur AI dan pembelajaran interaktif.</p>
                         </div>
                         <ul class="pricing-card-features">
-                            <li>Semua Fitur Paket Intensif</li>
-                            <li>Akses Bank Soal Eksklusif (Soal HOTS++)</li>
-                            <li>Sesi Mentoring Privat 1-on-1 (4x/bulan)</li>
-                            <li>Grup Belajar Premium (Maks. 5 orang)</li>
-                            <li>Prioritas Akses Fitur & Materi Baru</li>
-                            <li>Konsultasi Strategi Pilihan Jurusan Mendalam</li>
-                            <li>UTBK Master Kit Eksklusif (Merchandise)</li>
+                            <li>Semua Fitur Paket Premium</li>
+                            <li>AI Assistant untuk Pertanyaan Islam</li>
+                            <li>Kursus Tajwid Interaktif</li>
+                            <li>Hafalan Al-Quran dengan AI</li>
+                            <li>Analisis Progress Khatam</li>
+                            <li>Komunitas Eksklusif</li>
+                            <li>Konsultasi Ustadz Online</li>
                         </ul>
-                        <a href="#" class="btn btn-outline">Pilih Paket Juara</a>
+                        <a href="#" class="btn btn-outline">Lihat Detail Paket</a>
                     </div>
                 </div>
             </div>
@@ -286,52 +305,52 @@
         <section class="faq-section section-padding bg-alternate" id="faq">
             <div class="container">
                 <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
-                <p class="section-subtitle">Temukan jawaban atas pertanyaan yang sering diajukan seputar layanan dan paket harga kami.</p>
+                <p class="section-subtitle">Temukan jawaban atas pertanyaan yang sering diajukan seputar layanan dan paket berlangganan kami.</p>
 
                 <div class="faq-list">
                     <div class="faq-item">
-                        <div class="faq-question">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
                             <h4>Apa saja metode pembayaran yang diterima?</h4>
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>Kami menerima berbagai metode pembayaran, termasuk transfer bank (BCA, Mandiri, BRI, BNI), e-wallet (GoPay, OVO, Dana, ShopeePay), virtual account, dan kartu kredit/debit berlogo Visa/Mastercard. Semua transaksi dijamin aman dan terenkripsi.</p>
+                            <p>Kami menerima berbagai metode pembayaran, termasuk transfer bank (BCA, Mandiri, BRI, BNI), e-wallet (GoPay, OVO, Dana, ShopeePay), virtual account, dan kartu kredit/debit berlogo Visa/Mastercard. Semua transaksi dijamin aman dan terenkripsi dengan standar keamanan internasional.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">
-                            <h4>Apakah ada garansi uang kembali jika saya tidak puas?</h4>
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>Apakah bisa menggunakan aplikasi secara offline?</h4>
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>Kami sangat mengutamakan kepuasanmu. Jika dalam 7 hari pertama setelah aktivasi kamu merasa layanan kami tidak memenuhi ekspektasi (dengan syarat dan ketentuan yang berlaku), kamu berhak mengajukan permohonan pengembalian dana penuh. Detail lebih lanjut bisa kamu temukan pada halaman Syarat & Ketentuan kami.</p>
+                            <p>Ya, setelah berlangganan Anda dapat mendownload Al-Quran dan audio murotal untuk digunakan secara offline. Fitur offline tersedia untuk semua paket berlangganan. Namun, beberapa fitur seperti AI Assistant dan konsultasi online memerlukan koneksi internet.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">
-                            <h4>Bisakah saya melakukan upgrade atau downgrade paket langganan?</h4>
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>Bisakah saya upgrade atau downgrade paket langganan?</h4>
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>Tentu saja! Kamu bisa melakukan upgrade paket kapan saja selama periode langgananmu. Sistem kami akan secara otomatis menghitung selisih harga secara prorata berdasarkan sisa masa aktif paketmu saat ini. Untuk downgrade, biasanya akan berlaku pada periode perpanjangan berikutnya. Prosesnya mudah dan bisa dilakukan langsung melalui dashboard akunmu.</p>
+                            <p>Tentu saja! Anda bisa melakukan upgrade paket kapan saja selama periode langganan. Sistem kami akan secara otomatis menghitung selisih harga secara prorata berdasarkan sisa masa aktif paket saat ini. Untuk downgrade, biasanya akan berlaku pada periode perpanjangan berikutnya.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">
-                            <h4>Berapa lama saya bisa mengakses materi setelah berlangganan?</h4>
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>Apakah konten Al-Quran sudah diverifikasi keasliannya?</h4>
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>Kamu bisa mengakses seluruh materi dan fitur sesuai dengan paket yang kamu pilih selama periode langganan aktif. Misalnya, jika kamu memilih paket bulanan, akses akan berlaku selama satu bulan penuh sejak tanggal aktivasi dan dapat diperpanjang secara otomatis atau manual sesuai preferensimu.</p>
+                            <p>Ya, semua konten Al-Quran di aplikasi kami telah diverifikasi dan disesuaikan dengan Mushaf Standar Indonesia yang diterbitkan oleh Kementerian Agama RI. Tim ahli Al-Quran dan teknologi kami memastikan akurasi setiap ayat, terjemahan, dan audio murotal yang tersedia.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">
-                            <h4>Apakah materi dan soal selalu diupdate sesuai perkembangan UTBK?</h4>
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>Bagaimana cara kerja fitur AI Assistant untuk pembelajaran Islam?</h4>
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>Ya, komitmen kami adalah menyediakan konten yang paling relevan. Tim akademik kami secara berkala dan berkelanjutan meninjau, memperbarui, serta menambahkan materi dan bank soal agar selalu sejalan dengan kisi-kisi, format, dan tren soal UTBK terbaru yang dikeluarkan oleh lembaga resmi penyelenggara ujian.</p>
+                            <p>AI Assistant kami telah dilatih dengan rujukan kitab-kitab Islam terpercaya dan fatwa-fatwa dari ulama mu'tabar. Fitur ini dapat membantu menjawab pertanyaan seputar tafsir ayat, hukum fiqh dasar, dan panduan ibadah. Namun, untuk masalah kompleks, kami tetap menyarankan berkonsultasi dengan ustadz melalui fitur konsultasi online.</p>
                         </div>
                     </div>
                 </div>
@@ -343,8 +362,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <h3>UTBK<span>Master</span></h3>
-                    <p>Platform persiapan UTBK online terdepan yang berkomitmen untuk membantumu mencapai Perguruan Tinggi Negeri impian melalui pembelajaran berkualitas dan inovatif.</p>
+                    <h3>Quran<span>Ku</span></h3>
+                    <p>Platform Al-Quran digital terdepan yang berkomitmen untuk membantu umat Muslim meningkatkan kualitas ibadah dan pemahaman Al-Quran melalui teknologi modern dan inovatif.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><img src="https://placehold.co/20x20/FFFFFF/000000?text=FB" alt="Facebook"></a>
                         <a href="#" aria-label="Instagram"><img src="https://placehold.co/20x20/FFFFFF/000000?text=IG" alt="Instagram"></a>
@@ -357,25 +376,63 @@
                     <ul>
                         <li><a href="index.html">Beranda</a></li>
                         <li><a href="tentang.html">Tentang Kami</a></li>
-                        <li><a href="harga.html">Paket Harga</a></li>
-                        <li><a href="materi.html">Materi Belajar</a></li>
+                        <li><a href="harga.html">Paket Berlangganan</a></li>
+                        <li><a href="materi.html">Fitur Al-Quran</a></li>
                         <li><a href="kontak.html">Hubungi Kami</a></li>
                         <li><a href="#faq">FAQ</a></li> 
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Hubungi Kami</h4>
-                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=M" alt="Email Icon"> info@utbkmaster.com</p>
-                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=P" alt="Telepon Icon"> (021) 123-4567</p>
-                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=L" alt="Lokasi Icon"> Jl. Pendidikan No. 123, Jakarta Selatan, Indonesia</p>
+                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=M" alt="Email Icon"> info@quranku.com</p>
+                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=P" alt="Telepon Icon"> (021) 123-4567</p>
+                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=L" alt="Lokasi Icon"> Jl. Masjid Raya No. 123, Jakarta Pusat, Indonesia</p>
                 </div>
             </div>
             <hr class="footer-divider">
-            <p class="footer-copy">&copy; <span id="currentYear"></span> UTBK Master. Semua Hak Cipta Dilindungi.</p>
+            <p class="footer-copy">&copy; <span id="currentYear"></span> QuranKu Digital. Semua Hak Cipta Dilindungi.</p>
         </div>
     </footer>
 
     <script>
+        // FAQ Toggle Function
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // If the clicked item wasn't active, open it
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Set current year in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                yearElement.textContent = currentYear;
+            }
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
