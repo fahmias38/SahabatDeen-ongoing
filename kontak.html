@@ -3,105 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hubungi Kami - EduVoo</title>
+    <title>Hubungi Kami - QuranKu Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://placehold.co/32x32/8B5CF6/FFFFFF?text=UM" type="image/png">
+    <link rel="icon" href="https://placehold.co/32x32/2E856E/FFFFFF?text=Q" type="image/png">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <style>
         /* Konten Spesifik Halaman Kontak */
         .contact-grid {
             display: grid;
-            grid-template-columns: 1.3fr 0.7fr; 
+            grid-template-columns: 1.2fr 0.8fr; 
             gap: 50px;
-            align-items: start; 
+            align-items: start;
+            margin-top: 60px;
         }
         
         .contact-form-container, .contact-info-container {
             background-color: var(--bg-dark-secondary);
-            padding: 40px 35px;
+            padding: 45px 40px;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .contact-form-container:hover, .contact-info-container:hover {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transform: translateY(-3px);
         }
         
         .contact-form-container h3, .contact-info-container h3 {
-            font-size: 1.9rem;
+            font-size: 2rem;
             color: #fff;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         /* Formulir Kontak */
         .contact-form .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 28px;
         }
+        
         .contact-form label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--text-light-secondary);
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
+        
         .contact-form input[type="text"],
         .contact-form input[type="email"],
         .contact-form textarea {
             outline: none;
             width: 100%;
-            padding: 14px 18px;
+            padding: 16px 20px;
             border-radius: var(--border-radius);
-            border: 1px solid var(--bg-dark-primary);
+            border: 2px solid var(--bg-dark-primary);
             background-color: var(--bg-dark-primary);
             color: var(--text-light-primary);
             font-family: var(--font-family);
             font-size: 1rem;
+            transition: all 0.3s ease;
         }
+        
         .contact-form input[type="text"]::placeholder,
         .contact-form input[type="email"]::placeholder,
         .contact-form textarea::placeholder {
             color: var(--text-light-secondary);
             opacity: 0.7;
         }
+        
         .contact-form input[type="text"]:focus,
         .contact-form input[type="email"]:focus,
         .contact-form textarea:focus {
+            border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.25);
         }
+        
         .contact-form textarea {
-            min-height: 130px;
+            min-height: 140px;
+            resize: vertical;
         }
+        
         .contact-form .btn {
-            padding: 15px 40px;
+            padding: 18px 45px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+        }
+
+        /* Form Message */
+        #formMessage {
+            margin-top: 25px;
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #formMessage.success {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: var(--success-color);
+            border: 1px solid var(--success-color);
+        }
+
+        #formMessage.error {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: var(--danger-color);
+            border: 1px solid var(--danger-color);
         }
 
         /* Informasi Kontak */
         .contact-info-list {
             list-style: none;
         }
+        
         .contact-info-list li {
             display: flex;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             font-size: 1rem;
+            align-items: flex-start;
         }
+        
         .contact-info-list .icon {
-            font-size: 1.8rem; 
+            font-size: 2rem; 
             margin-right: 20px;
-            width: 35px; 
+            width: 40px; 
             text-align: center;
-            line-height: 1.6; 
+            line-height: 1.4; 
+            flex-shrink: 0;
+            margin-top: 3px;
         }
+        
         .contact-info-list .info-text strong {
             display: block;
             color: #fff;
             font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-size: 1.15rem;
         }
+        
         .contact-info-list .info-text span,
         .contact-info-list .info-text a {
             color: var(--text-light-secondary);
+            line-height: 1.6;
         }
+        
         .contact-info-list .info-text a:hover { 
             color: var(--secondary-color);
             text-decoration: underline;
@@ -109,18 +165,99 @@
 
         /* Peta Lokasi */
         .map-container {
-            margin-top: 40px;
+            margin-top: 45px;
         }
+        
         .map-container h3 {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             color: #fff;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
+        
         .map-container iframe {
             width: 100%;
-            height: 400px;
+            height: 350px;
             border-radius: var(--border-radius);
-            /* filter: grayscale(90%) contrast(1.2) brightness(0.85) invert(95%); */
+            border: 2px solid var(--bg-dark-primary);
+            transition: all 0.3s ease;
+        }
+
+        .map-container iframe:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 20px rgba(46, 133, 110, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-top: 40px;
+            }
+            
+            .contact-form-container, .contact-info-container {
+                padding: 40px 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-form-container, .contact-info-container {
+                padding: 35px 25px;
+            }
+            
+            .contact-form-container h3, .contact-info-container h3 {
+                font-size: 1.7rem;
+                margin-bottom: 30px;
+            }
+            
+            .contact-form .btn {
+                width: 100%;
+                padding: 16px 35px;
+            }
+            
+            .contact-info-list li {
+                margin-bottom: 30px;
+            }
+            
+            .contact-info-list .icon {
+                font-size: 1.8rem;
+                width: 35px;
+            }
+            
+            .map-container iframe {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-grid {
+                gap: 30px;
+                margin-top: 30px;
+            }
+            
+            .contact-form-container, .contact-info-container {
+                padding: 30px 20px;
+            }
+            
+            .contact-form-container h3, .contact-info-container h3 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-form input[type="text"],
+            .contact-form input[type="email"],
+            .contact-form textarea {
+                padding: 14px 16px;
+                font-size: 0.95rem;
+            }
+            
+            .contact-info-list .info-text strong {
+                font-size: 1.05rem;
+            }
+            
+            .map-container iframe {
+                height: 250px;
+            }
         }
     </style>
 </head>
@@ -128,12 +265,13 @@
     <header class="header" id="mainHeader">
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="nav-logo">Edu<span>Voo</span></a>
+                <a href="index.html" class="nav-logo">Quran<span>Ku</span></a>
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
                     <li class="nav-item"><a href="tentang.html" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="harga.html" class="nav-link">Berlangganan</a></li>
                     <li class="nav-item"><a href="surah.html" class="nav-link">Surah</a></li>
-                    <li class="nav-item"><a href="materi.html" class="nav-link">Materi Belajar</a></li>
+                    <li class="nav-item"><a href="materi.html" class="nav-link">Fitur Al-Quran</a></li>
                     <li class="nav-item"><a href="kontak.html" class="nav-link active">Kontak</a></li>
                 </ul>
                 <div class="hamburger">
@@ -148,7 +286,7 @@
     <section class="page-title-section">
         <div class="container">
             <h1>Hubungi Kami</h1>
-            <p>Punya pertanyaan, saran, atau butuh bantuan? Jangan ragu untuk menghubungi tim UTBK EduVoo.</p>
+            <p>Punya pertanyaan tentang Al-Quran digital atau butuh bantuan? Jangan ragu untuk menghubungi tim QuranKu Digital.</p>
         </div>
     </section>
 
@@ -156,78 +294,78 @@
         <section class="contact-details-section section-padding">
             <div class="container">
                 <h2 class="section-title">Tetap Terhubung Dengan Kami</h2>
-                <p class="section-subtitle">Kami siap mendengarkan dan membantumu. Pilih cara ternyaman untuk berinteraksi dengan tim kami.</p>
+                <p class="section-subtitle">Kami siap mendengarkan dan membantu perjalanan spiritual Anda. Pilih cara ternyaman untuk berinteraksi dengan tim kami.</p>
 
                 <div class="contact-grid">
                     <div class="contact-form-container">
-                        <h3>Kirim Pesan Langsung</h3>
+                        <h3>📩 Kirim Pesan Langsung</h3>
                         <form action="#" method="POST" class="contact-form" id="mainContactForm">
                             <div class="form-group">
-                                <label for="nama">Nama Lengkap Anda</label>
-                                <input type="text" id="nama" name="nama" placeholder="Contoh: Budi Sanjaya" required>
+                                <label for="nama">Nama Lengkap Anda *</label>
+                                <input type="text" id="nama" name="nama" placeholder="Contoh: Ahmad Abdullah" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Alamat Email Aktif</label>
-                                <input type="email" id="email" name="email" placeholder="Contoh: budi.sanjaya@example.com" required>
+                                <label for="email">Alamat Email Aktif *</label>
+                                <input type="email" id="email" name="email" placeholder="Contoh: ahmad.abdullah@example.com" required>
                             </div>
                             <div class="form-group">
-                                <label for="subjek">Subjek atau Topik Pesan</label>
-                                <input type="text" id="subjek" name="subjek" placeholder="Misalnya: Pertanyaan tentang Paket Intensif" required>
+                                <label for="subjek">Subjek atau Topik Pesan *</label>
+                                <input type="text" id="subjek" name="subjek" placeholder="Misalnya: Pertanyaan tentang Paket Premium" required>
                             </div>
                             <div class="form-group">
-                                <label for="pesan">Isi Pesan Anda</label>
-                                <textarea id="pesan" name="pesan" rows="6" placeholder="Tuliskan detail pertanyaan, masukan, atau kendala yang Anda hadapi di sini..." required></textarea>
+                                <label for="pesan">Isi Pesan Anda *</label>
+                                <textarea id="pesan" name="pesan" rows="6" placeholder="Tuliskan detail pertanyaan, masukan, atau kendala yang Anda hadapi dalam menggunakan QuranKu Digital..." required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Kirim Pesan Sekarang</button>
                         </form>
-                        <div id="formMessage" style="margin-top: 20px; font-weight: 500; min-height: 20px;"></div>
+                        <div id="formMessage"></div>
                     </div>
 
                     <div class="contact-info-container">
-                        <h3>Informasi Kontak Kami</h3>
+                        <h3>📞 Informasi Kontak Kami</h3>
                         <ul class="contact-info-list">
                             <li>
-                                <span class="icon">📍</span> 
+                                <span class="icon">🕌</span> 
                                 <div class="info-text">
                                     <strong>Alamat Kantor Pusat:</strong>
-                                    <span>Gedung Pusat EduVoo, Jl. Pendidikan Merdeka No. 123, Lt. 5<br>Kota Belajar, Provinsi Cerdas, Indonesia 12345</span>
+                                    <span>Gedung Islamic Center QuranKu<br>Jl. Masjid Istiqlal No. 456, Lt. 3<br>Jakarta Pusat, DKI Jakarta 10110</span>
                                 </div>
                             </li>
                             <li>
                                 <span class="icon">📧</span>
                                 <div class="info-text">
                                     <strong>Email Dukungan Teknis:</strong>
-                                    <span><a href="mailto:support@eduvoo.com">support@eduvoo.com</a></span>
+                                    <span><a href="mailto:support@quranku.com">support@quranku.com</a></span>
                                     <strong>Email Informasi Umum:</strong>
-                                    <span><a href="mailto:info@eduvoo.com">info@eduvoo.com</a></span>
+                                    <span><a href="mailto:info@quranku.com">info@quranku.com</a></span>
                                 </div>
                             </li>
                             <li>
-                                <span class="icon">📞</span>
+                                <span class="icon">📱</span>
                                 <div class="info-text">
                                     <strong>Layanan Telepon:</strong>
-                                    <span><a href="tel:+62211234567">(021) 123-4567</a> (Jam Kerja)</span>
+                                    <span><a href="tel:+622112345678">(021) 1234-5678</a> (Jam Kerja)</span>
                                     <strong>Layanan WhatsApp:</strong>
-                                    <span><a href="https://wa.me/6281234567890?text=Halo%20UTBK%20Master,%20saya%20ingin%20bertanya..." target="_blank">0812-3456-7890</a> (Respon Cepat)</span>
+                                    <span><a href="https://wa.me/6281234567890?text=Assalamu%27alaikum%20QuranKu%20Digital,%20saya%20ingin%20bertanya..." target="_blank">0812-3456-7890</a> (Respon Cepat)</span>
                                 </div>
                             </li>
                             <li>
-                                <span class="icon">🕒</span>
+                                <span class="icon">⏰</span>
                                 <div class="info-text">
                                     <strong>Jam Operasional Layanan:</strong>
-                                    <span>Senin - Jumat: 08.00 - 17.00 WIB<br>Sabtu: 09.00 - 15.00 WIB (Layanan Terbatas)</span>
+                                    <span>Senin - Jumat: 08.00 - 17.00 WIB<br>Sabtu: 09.00 - 15.00 WIB<br>Minggu: 13.00 - 17.00 WIB</span>
                                 </div>
                             </li>
                         </ul>
 
                         <div class="map-container">
-                            <h3>Temukan Lokasi Kami di Peta</h3>
+                            <h3>🗺️ Temukan Lokasi Kami</h3>
                             <iframe 
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5212005329033!2d106.81959731532593!3d-6.194741395514674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f424a0f1c6c1%3A0x2f2a07510e311133!2sMonumen%20Nasional%20(Monas)!5e0!3m2!1sid!2sid!4v1678889912345!5m2!1sid!2sid" 
                                 allowfullscreen="" 
                                 loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"
-                                title="Peta Lokasi UTBK Master">
+                                title="Peta Lokasi QuranKu Digital">
                             </iframe>
                         </div>
                     </div>
@@ -240,8 +378,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <h3>Edu<span>Voo</span></h3>
-                    <p>Platform persiapan UTBK online terdepan yang berkomitmen untuk membantumu mencapai Perguruan Tinggi Negeri impian melalui pembelajaran berkualitas dan inovatif.</p>
+                    <h3>Quran<span>Ku</span></h3>
+                    <p>Platform Al-Quran digital terdepan yang berkomitmen untuk membantu umat Muslim meningkatkan kualitas ibadah dan pemahaman Al-Quran melalui teknologi modern dan inovatif.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><img src="https://placehold.co/20x20/FFFFFF/000000?text=FB" alt="Facebook"></a>
                         <a href="#" aria-label="Instagram"><img src="https://placehold.co/20x20/FFFFFF/000000?text=IG" alt="Instagram"></a>
@@ -254,24 +392,22 @@
                     <ul>
                         <li><a href="index.html">Beranda</a></li>
                         <li><a href="tentang.html">Tentang Kami</a></li>
-                        <li><a href="surah.html">Paket Harga</a></li>
-                        <li><a href="materi.html">Materi Belajar</a></li>
+                        <li><a href="harga.html">Paket Berlangganan</a></li>
+                        <li><a href="materi.html">Fitur Al-Quran</a></li>
                         <li><a href="kontak.html">Hubungi Kami</a></li>
-                        <li><a href="surah.html#faq">FAQ</a></li>
+                        <li><a href="harga.html#faq">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Hubungi Kami</h4>
-                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=M" alt="Email Icon"> info@eduvoo.com</p>
-                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=P" alt="Telepon Icon"> (021) 123-4567</p>
-                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=L" alt="Lokasi Icon"> Jl. Pendidikan No. 123, Jakarta Selatan, Indonesia</p>
+                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=M" alt="Email Icon"> info@quranku.com</p>
+                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=P" alt="Telepon Icon"> (021) 1234-5678</p>
+                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=L" alt="Lokasi Icon"> Jl. Masjid Istiqlal No. 456, Jakarta Pusat</p>
                 </div>
             </div>
             <hr class="footer-divider">
-            <p class="footer-copy">&copy; <span id="currentYear"></span> EduVoo. Semua Hak Cipta Dilindungi.</p>
+            <p class="footer-copy">&copy; <span id="currentYear"></span> QuranKu Digital. Semua Hak Cipta Dilindungi.</p>
         </div>
     </footer>
-
-
 </body>
 </html>

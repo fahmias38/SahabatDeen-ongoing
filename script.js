@@ -40,6 +40,71 @@ function toggleFAQ(element) {
     }
 }
 
+// Contact Form Validation and Handling
+function handleContactForm(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formMessage = document.getElementById('formMessage');
+    const nama = form.nama.value.trim();
+    const email = form.email.value.trim();
+    const subjek = form.subjek.value.trim();
+    const pesan = form.pesan.value.trim();
+    
+    // Reset message
+    formMessage.className = '';
+    formMessage.textContent = '';
+    
+    // Basic validation
+    if (!nama || !email || !subjek || !pesan) {
+        showFormMessage('error', 'Mohon lengkapi semua field yang wajib diisi (*)');
+        return;
+    }
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showFormMessage('error', 'Format email tidak valid. Contoh: nama@email.com');
+        return;
+    }
+    
+    // Minimum length validation
+    if (nama.length < 2) {
+        showFormMessage('error', 'Nama harus minimal 2 karakter');
+        return;
+    }
+    
+    if (subjek.length < 5) {
+        showFormMessage('error', 'Subjek harus minimal 5 karakter');
+        return;
+    }
+    
+    if (pesan.length < 10) {
+        showFormMessage('error', 'Pesan harus minimal 10 karakter');
+        return;
+    }
+    
+    // Simulate form submission (since no actual backend)
+    showFormMessage('success', 'Terima kasih! Pesan Anda telah berhasil dikirim. Tim kami akan merespons dalam 1x24 jam.');
+    
+    // Reset form after successful submission
+    setTimeout(() => {
+        form.reset();
+        formMessage.className = '';
+        formMessage.textContent = '';
+    }, 5000);
+}
+
+// Show form message function
+function showFormMessage(type, message) {
+    const formMessage = document.getElementById('formMessage');
+    formMessage.className = type;
+    formMessage.textContent = message;
+    
+    // Scroll to message
+    formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
 // Smooth Scrolling for anchor links
 function initSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -94,6 +159,12 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.addEventListener('click', toggleMobileMenu);
     }
     
+    // Contact form event listener
+    const contactForm = document.getElementById('mainContactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactForm);
+    }
+    
     // Add click listeners to nav links for mobile
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', closeMobileMenu);
@@ -125,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Animation on scroll (optional enhancement)
+// Animation on scroll (enhanced for contact page)
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
@@ -142,7 +213,7 @@ function initScrollAnimations() {
     }, observerOptions);
     
     // Observe elements with animation
-    document.querySelectorAll('.pricing-card, .faq-item').forEach(el => {
+    document.querySelectorAll('.pricing-card, .faq-item, .contact-form-container, .contact-info-container').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';

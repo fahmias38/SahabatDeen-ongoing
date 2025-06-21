@@ -81,7 +81,7 @@ body {
     color: var(--text-light-secondary);
     margin-bottom: 60px;
     max-width: 750px;
-    margin: 0 auto;
+    margin: 0 auto 60px auto;
 }
 
 .page-title-section {
@@ -205,6 +205,7 @@ a:hover {
     background-color: var(--bg-dark-primary);
     padding: 15px 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
 }
 
 .navbar {
@@ -493,7 +494,7 @@ a:hover {
     }
     
     .page-title-section {
-        height: 60vh;
+        min-height: 280px;
     }
 
     .page-title-section h1 {
