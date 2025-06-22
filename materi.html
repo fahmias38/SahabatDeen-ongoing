@@ -240,7 +240,9 @@
         }
 
         .video-thumbnail {
-            background: var(--gradient-accent);
+            background: var(--gradient-primary);
+            background-size: cover;
+            background-position: center;
         }
 
         .quiz-thumbnail {
@@ -813,8 +815,8 @@
                         </video>
                         <div class="video-controls" id="videoControls">
                             <button class="control-btn" id="playPauseBtn" onclick="togglePlay()">▶</button>
-                            <button class="control-btn" onclick="skipTime(-10)">⏪ 10s</button>
-                            <button class="control-btn" onclick="skipTime(10)">10s ⏩</button>
+                            <button class="control-btn" onclick="skipTime(-10)"><< 10s</button>
+                            <button class="control-btn" onclick="skipTime(10)">10s >></button>
                             <div class="progress-bar" onclick="seekVideo(event)">
                                 <div class="progress-fill" id="progressFill"></div>
                             </div>
@@ -992,7 +994,7 @@
                                 <span id="materialDifficulty"></span>
                             </div>
                         </div>
-                        
+                        A
                         <div class="material-text" id="materialText">
                             <!-- Material content will be populated here -->
                         </div>
@@ -1018,7 +1020,8 @@
                         description: 'Memahami konsep dasar penalaran logis dan cara berpikir sistematis dalam menyelesaikan masalah',
                         duration: '45 menit',
                         difficulty: 'mudah',
-                        instructor: 'Prof. Dr. Ahmad Susanto'
+                        instructor: 'Prof. Dr. Ahmad Susanto',
+                        thumbnail: 'Galeri/anjay.png'
                     },
                 ],
                 'pengetahuan-pemahaman-umum': [
@@ -1465,8 +1468,7 @@ Sudut Istimewa:
             
             card.innerHTML = `
                 <div class="content-thumbnail ${thumbnailClass}">
-                    ${icon}
-                    ${currentMode === 'video' ? '<div class="play-button">▶</div>' : ''}
+                    <img src="${item.thumbnail}" alt="${item.title} Thumbnail" class="img-thumbnail">
                 </div>
                 <div class="content-info">
                     <h4>${item.title}</h4>

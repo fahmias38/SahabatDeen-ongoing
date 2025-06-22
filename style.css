@@ -1,13 +1,13 @@
 /* CSS Reset dan Style Tema */
 :root {
-    --primary-color: #2E856E;
+    --primary-color: #00af6c;
     --primary-color-rgb: 46, 133, 110;
     --primary-color-darker: #246B58;
     --primary-hover: #246B58;
     --secondary-color: #C9AD6A;
     --secondary-color-darker: #B19250;
 
-    --bg-dark-primary: #1B2B2A;
+    --bg-dark-primary: #1b2b21;
     --bg-dark-secondary: #243533;
     --bg-dark-tertiary: #304742;
     --text-light-primary: #F3F4F6;
