@@ -3,322 +3,658 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduVoo - Raih PTN Impian (Beranda)</title>
+    <title>QuranKu Digital - Platform Al-Quran Terdepan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://placehold.co/32x32/8B5CF6/FFFFFF?text=UM" type="image/png">
+    <link rel="icon" href="https://placehold.co/32x32/2E856E/FFFFFF?text=Q" type="image/png">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <style>
-
-        /* Hero */
+        /* Hero Section - Full Screen */
         .hero {
-            background: linear-gradient(rgba(17, 24, 39, 0.88), rgba(17, 24, 39, 0.96)), 
-                        url('https://picsum.photos/seed/modernhero/1920/1080') center center/cover no-repeat;
-            min-height: calc(100vh - 75px);
+            background: linear-gradient(rgba(27, 43, 42, 0.85), rgba(48, 71, 66, 0.90)), 
+                        url('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg') center center/cover no-repeat;
+            min-height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
             color: #fff;
+            position: relative;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content .subtitle {
+            font-size: 1.4rem;
+            color: var(--text-light-secondary);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.7);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        .scroll-indicator .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .scroll-indicator span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Statistics Section */
+        .stats-section {
+            background-color: var(--bg-dark-secondary);
+            padding: 80px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--bg-dark-primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: rgba(46, 133, 110, 0.3);
+        }
+        
+        .stat-item .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .stat-item .stat-label {
+            color: var(--text-light-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        
+        .feature-card {
+            background-color: var(--bg-dark-secondary);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
             position: relative;
             overflow: hidden;
         }
-        .hero .container {
-            display: flex;
-            align-items: center;
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
-        .hero-content {
-            max-width: 620px;
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            border-color: rgba(46, 133, 110, 0.3);
         }
-        .hero-content h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            line-height: 1.25;
-            margin-bottom: 30px;
-            color: #fff;
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
         }
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            color: var(--text-light-secondary);
-            max-width: 550px;
-        }
-        .hero-image {
-            max-width: 520px;
-        }
-
-
-        /* Fitur Unggulan */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-        }
-        .feature-item {
-            background-color: var(--bg-dark-secondary);
-            padding: 40px 30px;
-            text-align: center;
-            border-left: 5px solid var(--primary-color);
-        }
+        
         .feature-icon {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             margin-bottom: 25px;
             line-height: 1;
         }
-        .feature-item h3 {
-            font-size: 1.7rem;
-            margin-bottom: 18px;
+        
+        .feature-card h3 {
+            font-size: 1.6rem;
             color: #fff;
-        }
-        .feature-item p {
-            color: var(--text-light-secondary);
-        }
-
-        /* Materi Unggulan */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-        }
-        .course-card {
-            background-color: var(--bg-dark-secondary);
-            box-shadow: var(--card-shadow);
-            display: flex;
-            flex-direction: column;
-        }
-        .course-image-container {
-            height: 230px;
-            overflow: hidden;
-        }
-        .course-content {
-            padding: 30px 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .course-content h3 {
-            font-size: 1.55rem;
-            margin-bottom: 12px;
-            color: #fff;
-        }
-        .course-content p {
-            font-size: 0.98rem;
-            color: var(--text-light-secondary);
-            margin-bottom: 25px;
-        }
-        .course-content .btn {
-            margin-top: auto;
-            align-self: flex-start;
-            background-color: var(--secondary-color);
-            color: var(--bg-dark-primary);
-        }
-        .course-content .btn:hover {
-            background-color: var(--secondary-color-darker);
-        }
-
-        /* Testimoni */
-        .testimonial-slider {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-            gap: 35px;
-        }
-        .testimonial-item {
-            background-color: var(--bg-dark-tertiary);
-            padding: 35px;
-            border-radius: var(--border-radius);
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.28);
-            border-top: 5px solid var(--secondary-color);
-        }
-        .testimonial-avatar {
-            width: 95px;
-            height: 95px;
-            border-radius: 50%;
-            margin: 0 auto 25px auto;
-            border: 4px solid var(--secondary-color);
-        }
-        .testimonial-item p.quote {
-            font-style: italic;
-            color: var(--text-light-secondary);
             margin-bottom: 20px;
-            font-size: 1.08rem;
+            font-weight: 600;
         }
-        .testimonial-item h4.author {
-            font-weight: 700;
-            color: #fff;
-            font-size: 1.15rem;
-        }
-        .testimonial-item span.achievement {
-            font-size: 0.92rem;
-            color: var(--primary-color);
+        
+        .feature-card p {
+            color: var(--text-light-secondary);
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
-        /* Call to Action (CTA) */
-        .cta {
-            background: linear-gradient(to right, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: #fff;
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
-        .cta .container {
+        
+        .service-card {
+            background-color: var(--bg-dark-secondary);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: rgba(46, 133, 110, 0.3);
+        }
+        
+        .service-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-        }
-        .cta h2 {
-            font-size: 2.6rem;
-            margin-bottom: 20px;
-            font-weight: 700;
+            font-size: 4rem;
             color: #fff;
         }
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-            max-width: 650px;
+        
+        .service-content {
+            padding: 30px 25px;
         }
-        .cta .btn-primary {
-            background-color: #fff;
-            color: var(--primary-color);
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
-        .cta .btn-primary:hover {
-            color: var(--primary-color-darker);
+        
+        .service-content p {
+            color: var(--text-light-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .service-content .btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 0.95rem;
         }
 
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--bg-dark-secondary);
+            padding: 35px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.3;
+            font-family: serif;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: rgba(46, 133, 110, 0.3);
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            border: 3px solid var(--primary-color);
+            overflow: hidden;
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-text {
+            color: var(--text-light-secondary);
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .testimonial-author {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-role {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-color-darker));
+            color: #fff;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-buttons .btn {
+            background-color: #fff;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .cta-buttons .btn:hover {
+            background-color: var(--text-light-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stat-item .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .feature-card {
+                padding: 30px 25px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content {
+                padding: 0 15px;
+            }
+            
+            .feature-card {
+                padding: 25px 20px;
+            }
+            
+            .feature-icon {
+                font-size: 3rem;
+            }
+            
+            .service-content {
+                padding: 25px 20px;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+            
+            .cta-content h2 {
+                font-size: 1.9rem;
+            }
+            
+            .cta-content p {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header class="header" id="mainHeader">
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="nav-logo">Edu<span>Voo</span></a>
+                <a href="index.html" class="nav-logo">Quran<span>Ku</span></a>
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link active">Beranda</a></li>
                     <li class="nav-item"><a href="tentang.html" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="harga.html" class="nav-link">Berlangganan</a></li>
                     <li class="nav-item"><a href="surah.html" class="nav-link">Surah</a></li>
-                    <li class="nav-item"><a href="materi.html" class="nav-link">Materi Belajar</a></li>
+                    <li class="nav-item"><a href="materi.html" class="nav-link">Fitur Al-Quran</a></li>
                     <li class="nav-item"><a href="kontak.html" class="nav-link">Kontak</a></li>
                 </ul>
-                <!-- Mobile Menu belum dibuat -->
-                <!-- <div class="hamburger">
+                <div class="hamburger">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                </div> -->
+                </div>
             </nav>
         </div>
     </header>
 
-    <section class="hero" id="beranda">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Raih Skor UTBK Impianmu Bersama Kami!</h1>
-                <p>Platform belajar online terlengkap dengan materi berkualitas, ribuan latihan soal, dan tryout standar UTBK untuk membantumu sukses menembus PTN favorit.</p>
-                <a href="materi.html" class="btn btn-primary btn-lg">Mulai Belajar Sekarang</a>
-                <a href="surah.html" class="btn btn-secondary">Lihat Paket</a>
+    <!-- Hero Section - Full Screen -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Al-Quran Digital untuk Generasi Modern</h1>
+            <p class="subtitle">Platform terlengkap untuk membaca, mendengar, dan memahami Al-Quran dengan teknologi terdepan. Rasakan pengalaman spiritual yang mendalam di era digital.</p>
+            <div class="hero-buttons">
+                <a href="surah.html" class="btn btn-primary btn-lg">🔥 Mulai Membaca Al-Quran</a>
+                <a href="harga.html" class="btn btn-outline btn-lg">💎 Lihat Paket Premium</a>
             </div>
-            <div class="hero-image">
-                <img src="https://picsum.photos/seed/modernstudent/520/470" alt="Mahasiswa Belajar UTBK dengan Semangat" onerror="this.onerror=null;this.src='https://placehold.co/520x470/1A1A2E/A0A0A0?text=Ilustrasi+Belajar+UTBK';">
+        </div>
+        <div class="scroll-indicator" onclick="document.getElementById('stats').scrollIntoView({behavior: 'smooth'})">
+            <span class="icon">⬇️</span>
+            <span>Jelajahi Lebih Lanjut</span>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section" id="stats">
+        <div class="container">
+            <h2 class="section-title">Platform Al-Quran Terpercaya</h2>
+            <p class="section-subtitle">Dipercaya oleh ribuan Muslim di seluruh Indonesia untuk meningkatkan kualitas ibadah dan spiritual mereka.</p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">114</span>
+                    <span class="stat-label">Surah Lengkap</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">6,236</span>
+                    <span class="stat-label">Ayat Al-Quran</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Pengguna Aktif</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Qori Pilihan</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="features section-padding" id="fitur">
+    <!-- Features Section -->
+    <section class="features-section section-padding">
         <div class="container">
-            <h2 class="section-title">Mengapa Memilih UTBK Master?</h2>
-            <p class="section-subtitle">Kami menyediakan semua yang kamu butuhkan untuk persiapan UTBK yang maksimal dan efektif.</p>
+            <h2 class="section-title">Fitur Unggulan Platform Kami</h2>
+            <p class="section-subtitle">Teknologi canggih yang memudahkan Anda dalam beribadah dan mendekatkan diri kepada Allah SWT.</p>
             <div class="features-grid">
-                <div class="feature-item">
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Al-Quran Digital HD</h3>
+                    <p>Tampilan Al-Quran dengan kualitas HD, font yang jelas, dan pengaturan yang dapat disesuaikan dengan kenyamanan mata Anda.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎧</div>
+                    <h3>Audio Murotal Premium</h3>
+                    <p>Koleksi audio murotal dari 15+ qori terkenal dunia dengan kualitas suara jernih dan pilihan kecepatan bacaan.</p>
+                </div>
+                <div class="feature-card">
                     <div class="feature-icon">📚</div>
-                    <h3>Materi Super Lengkap</h3>
-                    <p>Kurikulum terstruktur dan update sesuai kisi-kisi UTBK terbaru, disajikan dengan bahasa yang mudah dipahami dan contoh soal relevan.</p>
+                    <h3>Tafsir Lengkap</h3>
+                    <p>Tafsir Al-Quran yang komprehensif dari ulama terpercaya untuk membantu pemahaman makna setiap ayat.</p>
                 </div>
-                <div class="feature-item">
+                <div class="feature-card">
+                    <div class="feature-icon">🔖</div>
+                    <h3>Bookmark & Notes</h3>
+                    <p>Simpan ayat favorit Anda dan buat catatan pribadi untuk refleksi dan pembelajaran yang lebih mendalam.</p>
+                </div>
+                <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <h3>Ribuan Soal & Tryout</h3>
-                    <p>Latihan soal berkualitas tinggi dari berbagai tingkat kesulitan dan tryout prediktif berkala untuk mengukur kemampuanmu secara akurat.</p>
+                    <h3>Jadwal Khatam</h3>
+                    <p>Atur target khatam Al-Quran Anda dengan pengingat otomatis dan tracking progress yang motivatif.</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">💡</div>
-                    <h3>Pembahasan Detail & Jelas</h3>
-                    <p>Setiap soal dilengkapi pembahasan mendalam langkah demi langkah agar kamu benar-benar paham konsep, bukan hanya sekadar menghafal jawaban.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Assistant Islamic</h3>
+                    <p>Tanya jawab seputar Islam dengan AI yang telah dilatih menggunakan rujukan kitab-kitab terpercaya.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="popular-courses section-padding bg-alternate" id="materi-unggulan">
+    <!-- Services Section -->
+    <section class="services-section section-padding bg-alternate">
         <div class="container">
-            <h2 class="section-title">Materi Belajar Unggulan</h2>
-            <p class="section-subtitle">Fokus pada materi-materi kunci yang sering keluar di UTBK dan paling dibutuhkan untuk meraih skor tinggi.</p>
-            <div class="courses-grid">
-                <div class="course-card">
-                    <div class="course-image-container">
-                        <img src="https://picsum.photos/seed/moderncoursesTPS/400/230" alt="Materi Tes Potensi Skolastik" onerror="this.onerror=null;this.src='https://placehold.co/400x230/16213E/A0A0A0?text=Materi+TPS';">
-                    </div>
-                    <div class="course-content">
-                        <h3>Tes Potensi Skolastik (TPS)</h3>
-                        <p>Asah kemampuan penalaran umum, kuantitatif, pemahaman bacaan & menulis, serta pengetahuan umum yang krusial untuk semua kelompok ujian.</p>
-                        <a href="materi.html#tps" class="btn">Pelajari TPS</a>
+            <h2 class="section-title">Layanan Spiritual Digital</h2>
+            <p class="section-subtitle">Berbagai layanan yang dirancang khusus untuk meningkatkan kualitas ibadah dan spiritual Anda.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">🕌</div>
+                    <div class="service-content">
+                        <h3>Baca Al-Quran</h3>
+                        <p>Nikmati pengalaman membaca Al-Quran yang nyaman dengan berbagai pilihan tampilan dan font yang eye-friendly.</p>
+                        <a href="surah.html" class="btn">Mulai Membaca</a>
                     </div>
                 </div>
-                <div class="course-card">
-                    <div class="course-image-container">
-                        <img src="https://picsum.photos/seed/moderncoursesMAT/400/230" alt="Materi Matematika SAINTEK" onerror="this.onerror=null;this.src='https://placehold.co/400x230/16213E/A0A0A0?text=Matematika+SAINTEK';">
-                    </div>
-                    <div class="course-content">
-                        <h3>Matematika SAINTEK</h3>
-                        <p>Kuasai konsep fundamental hingga lanjutan matematika untuk kelompok ujian SAINTEK, dari aljabar, kalkulus, hingga geometri.</p>
-                        <a href="materi.html#matematika-saintek" class="btn">Pelajari Matematika</a>
+                <div class="service-card">
+                    <div class="service-image">🎵</div>
+                    <div class="service-content">
+                        <h3>Dengar Murotal</h3>
+                        <p>Dengarkan murotal Al-Quran dari qori-qori terbaik dunia kapan saja dan di mana saja.</p>
+                        <a href="surah.html" class="btn">Dengar Sekarang</a>
                     </div>
                 </div>
-                <div class="course-card">
-                    <div class="course-image-container">
-                        <img src="https://picsum.photos/seed/moderncoursesENG/400/230" alt="Materi Literasi Bahasa Inggris" onerror="this.onerror=null;this.src='https://placehold.co/400x230/16213E/A0A0A0?text=Literasi+B.+Inggris';">
-                    </div>
-                    <div class="course-content">
-                        <h3>Literasi Bahasa Inggris</h3>
-                        <p>Tingkatkan pemahamanmu dalam reading comprehension, vocabulary, grammar, dan struktur bahasa Inggris untuk soal-soal literasi.</p>
-                        <a href="materi.html#bahasa-inggris" class="btn">Pelajari B. Inggris</a>
+                <div class="service-card">
+                    <div class="service-image">📖</div>
+                    <div class="service-content">
+                        <h3>Pelajari Tafsir</h3>
+                        <p>Pahami makna mendalam setiap ayat Al-Quran dengan tafsir dari ulama mu'tabar.</p>
+                        <a href="surah.html" class="btn">Pelajari Tafsir</a>
                     </div>
                 </div>
-            </div>
-             <div class="text-center" style="margin-top: 50px;">
-                <a href="materi.html" class="btn btn-primary btn-lg">Lihat Semua Materi</a> 
             </div>
         </div>
     </section>
 
-    <section class="testimonials section-padding" id="testimoni">
+    <!-- Testimonials Section -->
+    <section class="testimonials-section section-padding">
         <div class="container">
-            <h2 class="section-title">Apa Kata Mereka?</h2>
-            <p class="section-subtitle">Dengarkan pengalaman sukses dan cerita inspiratif dari para siswa yang telah bergabung dengan UTBK Master.</p>
-            <div class="testimonial-slider">
-                <div class="testimonial-item">
-                    <img src="https://picsum.photos/seed/moderntesti1/95/95" alt="Foto Pengguna 1" class="testimonial-avatar" onerror="this.onerror=null;this.src='https://placehold.co/95x95/0F3460/A0A0A0?text=User+1';">
-                    <p class="quote">"Materi di Eduvoo sangat membantu saya memahami konsep sulit yang sebelumnya bikin pusing. Tryoutnya juga mirip banget sama soal UTBK asli! Alhamdulillah lolos pilihan pertama."</p>
-                    <h4 class="author">Ahmad F.</h4>
-                    <span class="achievement">Lolos FK UI</span>
+            <h2 class="section-title">Apa Kata Pengguna Kami?</h2>
+            <p class="section-subtitle">Pengalaman spiritual dan pembelajaran yang telah dirasakan oleh ribuan Muslim di seluruh Indonesia.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg" alt="Ahmad Fauzi" onerror="this.onerror=null;this.src='https://placehold.co/80x80/243533/F3F4F6?text=AF';">
+                    </div>
+                    <p class="testimonial-text">Alhamdulillah, QuranKu Digital sangat membantu saya dalam rutinitas membaca Al-Quran. Fitur jadwal khatam membuat saya lebih konsisten beribadah.</p>
+                    <div class="testimonial-author">Ahmad Fauzi</div>
+                    <div class="testimonial-role">Pengusaha, Jakarta</div>
                 </div>
-                <div class="testimonial-item">
-                    <img src="https://picsum.photos/seed/moderntesti2/95/95" alt="Foto Pengguna 2" class="testimonial-avatar" onerror="this.onerror=null;this.src='https://placehold.co/95x95/0F3460/A0A0A0?text=User+2';">
-                    <p class="quote">"Belajar jadi lebih fleksibel dan terarah. Pembahasan soalnya detail dan mudah dimengerti, jadi nggak bingung lagi,materinya sangat bagus. Terima kasih Eduvoo sudah jadi teman berjuang!"</p>
-                    <h4 class="author">Fahmi AS</h4>
-                    <span class="achievement">Lolos Harvard University</span>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg" alt="Siti Nurhaliza" onerror="this.onerror=null;this.src='https://placehold.co/80x80/243533/F3F4F6?text=SN';">
+                    </div>
+                    <p class="testimonial-text">Fitur tafsir yang lengkap membuat saya lebih memahami makna ayat-ayat Al-Quran. Audio murottalnya juga sangat jernih dan menenangkan hati.</p>
+                    <div class="testimonial-author">Siti Nurhaliza</div>
+                    <div class="testimonial-role">Guru, Bandung</div>
                 </div>
-                <div class="testimonial-item">
-                    <img src="https://picsum.photos/seed/moderntesti3/95/95" alt="Foto Pengguna 3" class="testimonial-avatar" onerror="this.onerror=null;this.src='https://placehold.co/95x95/0F3460/A0A0A0?text=User+3';">
-                    <p class="quote">"Awalnya ragu belajar online untuk persiapan sebesar UTBK, tapi Eduvoo membuktikan kualitasnya dengan adanya flatform belajar online di sini. Fitur latihan soal dan analisis hasilnya juara!"</p>
-                    <h4 class="author">Budi Prakoso</h4>
-                    <span class="achievement">Lolos FTMD Undip</span>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://images.pexels.com/photos/3777946/pexels-photo-3777946.jpeg" alt="Muhammad Rizki" onerror="this.onerror=null;this.src='https://placehold.co/80x80/243533/F3F4F6?text=MR';">
+                    </div>
+                    <p class="testimonial-text">Sebagai mahasiswa yang sibuk, QuranKu Digital memudahkan saya tetap dekat dengan Al-Quran. Interface-nya modern dan mudah digunakan.</p>
+                    <div class="testimonial-author">Muhammad Rizki</div>
+                    <div class="testimonial-role">Mahasiswa, Yogyakarta</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta section-padding" id="gabung">
-        <div class="container text-center">
-            <h2>Siap Taklukkan UTBK 2025?</h2>
-            <p>Jangan tunda lagi kesempatan emasmu! Bergabunglah dengan ribuan siswa lainnya yang telah meraih sukses bersama UTBK Master. Daftar sekarang dan dapatkan akses ke semua fitur unggulan kami.</p>
-            <a href="surah.html" class="btn btn-primary btn-lg">Daftar Sekarang & Raih Impianmu!</a>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Mulai Perjalanan Spiritual Anda Hari Ini</h2>
+                <p>Bergabunglah dengan ribuan Muslim yang telah merasakan kemudahan beribadah dengan QuranKu Digital. Dapatkan akses ke semua fitur premium dan tingkatkan kualitas spiritual Anda.</p>
+                <div class="cta-buttons">
+                    <a href="harga.html" class="btn btn-lg">🚀 Berlangganan Sekarang</a>
+                    <a href="surah.html" class="btn btn-lg">📖 Coba Gratis</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -326,8 +662,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <h3>Edu<span>Voo</span></h3>
-                    <p>Platform persiapan UTBK online terdepan yang berkomitmen untuk membantumu mencapai Perguruan Tinggi Negeri impian melalui pembelajaran berkualitas dan inovatif.</p>
+                    <h3>Quran<span>Ku</span></h3>
+                    <p>Platform Al-Quran digital terdepan yang berkomitmen untuk membantu umat Muslim meningkatkan kualitas ibadah dan pemahaman Al-Quran melalui teknologi modern dan inovatif.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><img src="https://placehold.co/20x20/FFFFFF/000000?text=FB" alt="Facebook"></a>
                         <a href="#" aria-label="Instagram"><img src="https://placehold.co/20x20/FFFFFF/000000?text=IG" alt="Instagram"></a>
@@ -340,25 +676,22 @@
                     <ul>
                         <li><a href="index.html">Beranda</a></li>
                         <li><a href="tentang.html">Tentang Kami</a></li>
-                        <li><a href="surah.html">Paket Harga</a></li>
-                        <li><a href="materi.html">Materi Belajar</a></li>
+                        <li><a href="harga.html">Paket Berlangganan</a></li>
+                        <li><a href="materi.html">Fitur Al-Quran</a></li>
                         <li><a href="kontak.html">Hubungi Kami</a></li>
-                        <li><a href="#faq">FAQ</a></li> 
+                        <li><a href="harga.html#faq">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Hubungi Kami</h4>
-                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=M" alt="Email Icon"> info@eduvoo.com</p>
-                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=P" alt="Telepon Icon"> (021) 123-4567</p>
-                    <p><img src="https://placehold.co/20x20/8B5CF6/FFFFFF?text=L" alt="Lokasi Icon"> Jl. Pendidikan No. 123, Jakarta Selatan, Indonesia</p>
+                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=M" alt="Email Icon"> info@quranku.com</p>
+                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=P" alt="Telepon Icon"> (021) 1234-5678</p>
+                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=L" alt="Lokasi Icon"> Jl. Masjid Istiqlal No. 456, Jakarta Pusat</p>
                 </div>
             </div>
             <hr class="footer-divider">
-            <p class="footer-copy">&copy; <span id="currentYear"></span> EduVoo. Semua Hak Cipta Dilindungi.</p>
+            <p class="footer-copy">&copy; <span id="currentYear"></span> QuranKu Digital. Semua Hak Cipta Dilindungi.</p>
         </div>
     </footer>
-
-    <script>
-    </script>
 </body>
 </html>
