@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduVoo - Platform Belajar Lengkap</title>
+    <title>QuranKu - Platform Belajar Al-Quran dan Keislaman</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://placehold.co/32x32/8B5CF6/FFFFFF?text=UM" type="image/png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        
+        :root {
+            --primary-color: #1a936f;
+            --secondary-color: #2ecb9c;
+            --accent-color: #117a60;
+            --bg-dark-primary: #0d1b1f;
+            --bg-dark-secondary: #1a2d33;
+            --bg-dark-tertiary: #223d44;
+            --text-light-primary: #ffffff;
+            --text-light-secondary: #a0b3b9;
+            --border-radius: 12px;
+            --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            --gradient-primary: linear-gradient(135deg, #1a936f 0%, #2ecb9c 50%, #1a936f 100%);
+            --gradient-secondary: linear-gradient(135deg, #2ecb9c 0%, #1a936f 50%, #2ecb9c 100%);
+        }
 
         * {
             margin: 0;
@@ -23,6 +35,8 @@
             background-color: var(--bg-dark-primary);
             color: var(--text-light-primary);
             line-height: 1.6;
+            overflow-x: hidden;
+            background: radial-gradient(circle at top, #0d1b1f, #0a1518);
         }
 
         .container {
@@ -33,14 +47,46 @@
 
         .page-title-section {
             background: var(--gradient-primary);
-            padding: 80px 0;
+            padding: 100px 0 80px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-title-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+            opacity: 0.2;
+        }
+
+        .page-title-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, var(--bg-dark-primary), transparent);
         }
 
         .page-title-section h1 {
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            color: #eef9f5;
+            background: linear-gradient(135deg, #ffffff 0%, #e8f5f0 25%, #d1f0e6 50%, #b8e6d3 75%, #9fdcc0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .page-title-section p {
@@ -48,6 +94,10 @@
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            color: #d1f0e6;
         }
 
         .section-padding {
@@ -60,6 +110,20 @@
             text-align: center;
             margin-bottom: 15px;
             color: var(--text-light-primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
         }
 
         .section-subtitle {
@@ -75,6 +139,7 @@
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             padding: 12px 24px;
             background: var(--gradient-primary);
@@ -86,11 +151,30 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transition: left 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 147, 111, 0.3);
         }
 
         .btn-secondary {
@@ -99,8 +183,88 @@
         }
 
         .btn-secondary:hover {
-            background: var(--bg-dark-secondary);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            background: #1f3840;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(26, 45, 51, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--text-light-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-light-primary);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease;
+            background-color: var(--text-light-primary);
         }
 
         /* Mode Selection */
@@ -112,15 +276,17 @@
         }
 
         .mode-card {
-            background: var(--bg-dark-secondary);
+            background: rgba(31, 56, 64, 0.6);
             border-radius: var(--border-radius);
             padding: 40px 30px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 1px solid rgba(46, 203, 156, 0.2);
             position: relative;
             overflow: hidden;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(5px);
         }
 
         .mode-card::before {
@@ -130,7 +296,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(46, 203, 156, 0.1), transparent);
             transition: left 0.5s;
         }
 
@@ -140,13 +306,13 @@
 
         .mode-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--card-shadow);
-            border-color: var(--primary-color);
+            border-color: var(--secondary-color);
+            box-shadow: 0 12px 30px rgba(26, 147, 111, 0.2);
         }
 
         .mode-card.active {
-            border-color: var(--primary-color);
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+            border-color: var(--secondary-color);
+            background: linear-gradient(135deg, rgba(26, 147, 111, 0.15) 0%, rgba(46, 203, 156, 0.15) 100%);
         }
 
         .mode-icon {
@@ -154,6 +320,7 @@
             margin-bottom: 20px;
             display: block;
             transition: transform 0.3s ease;
+            color: var(--secondary-color);
         }
 
         .mode-card:hover .mode-icon {
@@ -171,6 +338,57 @@
             line-height: 1.6;
         }
 
+        /* Search Bar */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            display: flex;
+            width: 100%;
+            max-width: 600px;
+            background: rgba(31, 56, 64, 0.7);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(46, 203, 156, 0.2);
+            transition: border-color 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .search-box:focus-within {
+            border-color: var(--secondary-color);
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            color: var(--text-light-primary);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: #8da9b0;
+        }
+
+        .search-btn {
+            padding: 0 20px;
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: var(--secondary-color);
+        }
+
         /* Subject Tabs */
         .subject-tabs {
             display: flex;
@@ -178,32 +396,33 @@
             flex-wrap: wrap;
             gap: 15px;
             margin-bottom: 40px;
-            border-bottom: 2px solid var(--bg-dark-tertiary);
+            border-bottom: 1px solid rgba(46, 203, 156, 0.1);
             padding-bottom: 20px;
         }
 
         .subject-tab {
             background: transparent;
             color: var(--text-light-secondary);
-            border: 2px solid var(--bg-dark-tertiary);
+            border: 1px solid rgba(46, 203, 156, 0.2);
             padding: 12px 24px;
             border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
             font-size: 0.9rem;
+            backdrop-filter: blur(2px);
         }
 
         .subject-tab:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
             transform: translateY(-2px);
         }
 
         .subject-tab.active {
-            background: var(--primary-color);
+            background: var(--gradient-primary);
             color: white;
-            border-color: var(--primary-color);
+            border-color: transparent;
         }
 
         /* Content Grid */
@@ -214,35 +433,55 @@
         }
 
         .content-card {
-            background: var(--bg-dark-secondary);
+            background: rgba(31, 56, 64, 0.6);
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--card-shadow);
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 1px solid rgba(46, 203, 156, 0.1);
+            position: relative;
+            backdrop-filter: blur(5px);
         }
 
         .content-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-            border-color: var(--primary-color);
+            box-shadow: 0 15px 35px rgba(26, 147, 111, 0.2);
+            border-color: var(--secondary-color);
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .content-thumbnail {
             height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
             position: relative;
             overflow: hidden;
         }
 
+        .content-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .content-card:hover .content-thumbnail img {
+            transform: scale(1.05);
+        }
+
         .video-thumbnail {
             background: var(--gradient-primary);
-            background-size: cover;
-            background-position: center;
         }
 
         .quiz-thumbnail {
@@ -251,25 +490,6 @@
 
         .material-thumbnail {
             background: var(--gradient-primary);
-        }
-
-        .play-button {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .content-card:hover .play-button {
-            transform: scale(1.1);
-            background: rgba(255,255,255,1);
         }
 
         .content-info {
@@ -307,28 +527,18 @@
             color: var(--text-light-secondary);
         }
 
-        .difficulty {
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .difficulty.mudah { background: #10b981; color: white; }
-        .difficulty.sedang { background: #f59e0b; color: white; }
-        .difficulty.sulit { background: #ef4444; color: white; }
-
         .hidden {
             display: none;
         }
 
         /* Video Player Styles */
         .video-player-container {
-            background: var(--bg-dark-secondary);
+            background: rgba(31, 56, 64, 0.8);
             border-radius: var(--border-radius);
             overflow: hidden;
             margin-bottom: 30px;
             box-shadow: var(--card-shadow);
+            border: 1px solid rgba(46, 203, 156, 0.2);
         }
 
         .video-player {
@@ -361,7 +571,7 @@
         }
 
         .control-btn {
-            background: rgba(255,255,255,0.2);
+            background: transparent;
             border: none;
             color: white;
             cursor: pointer;
@@ -369,34 +579,63 @@
             border-radius: 6px;
             transition: all 0.3s ease;
             font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .control-btn:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.2);
             transform: scale(1.05);
         }
 
         .progress-bar {
             flex: 1;
-            height: 6px;
+            height: 8px;
             background: rgba(255,255,255,0.3);
-            border-radius: 3px;
+            border-radius: 4px;
             cursor: pointer;
             position: relative;
+            transition: height 0.2s ease;
+        }
+
+        .progress-bar:hover {
+            height: 10px;
         }
 
         .progress-fill {
             height: 100%;
-            background: var(--primary-color);
-            border-radius: 3px;
+            background: var(--secondary-color);
+            border-radius: 4px;
             width: 0%;
-            transition: width 0.1s;
+            transition: width 0.1s ease;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .progress-bar:hover .progress-fill::after {
+            opacity: 1;
         }
 
         .time-display {
             color: white;
             font-size: 0.9rem;
             font-weight: 500;
+            min-width: 80px;
+            text-align: center;
         }
 
         .volume-control {
@@ -412,14 +651,91 @@
             border-radius: 2px;
             outline: none;
             cursor: pointer;
+            -webkit-appearance: none;
+            appearance: none;
+            transition: all 0.2s ease;
+        }
+
+        .volume-slider:hover {
+            height: 6px;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .volume-slider:hover::-webkit-slider-thumb {
+            width: 16px;
+            height: 16px;
+        }
+
+        .volume-slider::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .volume-slider:hover::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+        }
+
+        .speed-select {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .speed-select:hover {
+            background: rgba(0,0,0,0.9);
+            border-color: var(--secondary-color);
+        }
+
+        .speed-select option {
+            background: #000;
+            color: white;
+        }
+
+        .fullscreen-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .fullscreen-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
         }
 
         /* Quiz Styles */
         .quiz-container {
-            background: var(--bg-dark-secondary);
+            background: rgba(31, 56, 64, 0.8);
             border-radius: var(--border-radius);
-            padding: 30px;
+            padding: 40px;
+            margin-bottom: 30px;
             box-shadow: var(--card-shadow);
+            border: 1px solid rgba(46, 203, 156, 0.2);
         }
 
         .quiz-header {
@@ -428,23 +744,22 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid var(--bg-dark-tertiary);
+            border-bottom: 1px solid rgba(46, 203, 156, 0.2);
+        }
+
+        .quiz-timer {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
         }
 
         .quiz-progress {
-            width: 100%;
-            height: 8px;
-            background: var(--bg-dark-tertiary);
-            border-radius: 4px;
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-
-        .quiz-progress-fill {
-            height: 100%;
-            background: var(--gradient-primary);
-            border-radius: 4px;
-            transition: width 0.3s ease;
+            color: var(--text-light-secondary);
+            font-size: 1rem;
         }
 
         .question-container {
@@ -452,57 +767,51 @@
         }
 
         .question-text {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
             color: var(--text-light-primary);
             line-height: 1.6;
         }
 
-        .option {
-            background: var(--bg-dark-tertiary);
-            border: 2px solid transparent;
-            border-radius: var(--border-radius);
-            padding: 15px 20px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
+        .options-container {
+            display: grid;
             gap: 15px;
         }
 
-        .option:hover {
-            border-color: var(--primary-color);
+        .option-btn {
+            background: rgba(46, 203, 156, 0.1);
+            border: 2px solid rgba(46, 203, 156, 0.3);
+            color: var(--text-light-primary);
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .option-btn:hover {
+            background: rgba(46, 203, 156, 0.2);
+            border-color: var(--secondary-color);
             transform: translateX(5px);
         }
 
-        .option.selected {
-            border-color: var(--primary-color);
-            background: rgba(139, 92, 246, 0.1);
+        .option-btn.selected {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
         }
 
-        .option-radio {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--text-light-secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
+        .option-btn.correct {
+            background: #27ae60;
+            border-color: #27ae60;
+            color: white;
         }
 
-        .option.selected .option-radio {
-            border-color: var(--primary-color);
-            background: var(--primary-color);
-        }
-
-        .option.selected .option-radio::after {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
+        .option-btn.incorrect {
+            background: #e74c3c;
+            border-color: #e74c3c;
+            color: white;
         }
 
         .quiz-navigation {
@@ -512,203 +821,422 @@
             margin-top: 30px;
         }
 
-        .timer {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary-color);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        /* Material Reader Styles */
-        .material-container {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 30px;
-        }
-
-        .material-sidebar {
-            background: var(--bg-dark-secondary);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            height: fit-content;
-            position: sticky;
-            top: 100px;
-            box-shadow: var(--card-shadow);
-        }
-
-        .material-toc {
-            margin-bottom: 25px;
-        }
-
-        .toc-item {
-            background: transparent;
-            border: none;
-            color: var(--text-light-secondary);
-            padding: 12px 15px;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .quiz-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            text-align: left;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .toc-item:hover {
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--primary-color);
-            transform: translateX(5px);
-        }
-
-        .toc-item.active {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .material-stats {
-            border-top: 2px solid var(--bg-dark-tertiary);
-            padding-top: 20px;
-        }
-
-        .stat-item {
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            color: var(--text-light-secondary);
-            font-size: 0.9rem;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
 
-        .material-content {
+        .quiz-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .quiz-popup-content {
             background: var(--bg-dark-secondary);
             border-radius: var(--border-radius);
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-        }
-
-        .material-header {
-            background: var(--gradient-primary);
-            margin: -40px -40px 30px -40px;
-            padding: 30px 40px;
-            color: white;
-        }
-
-        .material-text {
-            color: var(--text-light-secondary);
-            line-height: 1.8;
-            font-size: 1rem;
-        }
-
-        .material-text h3 {
-            color: var(--text-light-primary);
-            margin: 30px 0 15px 0;
-            font-size: 1.4rem;
-        }
-
-        .material-text p {
-            margin-bottom: 20px;
-        }
-
-        .material-navigation {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid var(--bg-dark-tertiary);
-        }
-
-        /* Results Styles */
-        .results-container {
-            background: var(--bg-dark-secondary);
-            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 500px;
             padding: 40px;
             text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+            border: 1px solid rgba(46, 203, 156, 0.2);
+        }
+
+        .quiz-popup.active .quiz-popup-content {
+            transform: translateY(0);
+        }
+
+        .quiz-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(46, 203, 156, 0.1);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(46, 203, 156, 0.2);
+        }
+
+        .quiz-info-item {
+            text-align: center;
+        }
+
+        .quiz-info-item .label {
+            font-size: 0.9rem;
+            color: var(--text-light-secondary);
+            margin-bottom: 5px;
+        }
+
+        .quiz-info-item .value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .quiz-results {
+            background: rgba(31, 56, 64, 0.8);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 30px;
             box-shadow: var(--card-shadow);
+            border: 1px solid rgba(46, 203, 156, 0.2);
         }
 
-        .score-display {
-            font-size: 4rem;
+        .result-score {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(var(--secondary-color) 0deg, var(--secondary-color) var(--score-angle, 0deg), rgba(46, 203, 156, 0.2) var(--score-angle, 0deg));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--bg-dark-secondary);
+            border-radius: 50%;
+        }
+
+        .score-text {
+            position: relative;
+            z-index: 1;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin: 20px 0;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-light-primary);
         }
 
-        .score-excellent { 
-            background: linear-gradient(135deg, #10b981, #059669);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .score-good { 
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .score-poor { 
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .results-stats {
+        .result-summary {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
             margin: 30px 0;
-        }
-
-        .stat-card {
-            background: var(--bg-dark-tertiary);
             padding: 20px;
+            background: rgba(46, 203, 156, 0.1);
             border-radius: var(--border-radius);
-            transition: transform 0.3s ease;
         }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
+        .result-item {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
         }
 
-        .stat-number {
+        .result-item.correct {
+            background: rgba(39, 174, 96, 0.2);
+            border: 1px solid rgba(39, 174, 96, 0.3);
+        }
+
+        .result-item.incorrect {
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+        }
+
+        .result-item .number {
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
 
-        .stat-label {
-            color: var(--text-light-secondary);
+        .result-item.correct .number {
+            color: #27ae60;
+        }
+
+        .result-item.incorrect .number {
+            color: #e74c3c;
+        }
+
+        .result-item .label {
             font-size: 0.9rem;
+            color: var(--text-light-secondary);
         }
 
+        .result-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
 
+        /* Material Reading Styles */
+        .material-container {
+            background: rgba(31, 56, 64, 0.8);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(46, 203, 156, 0.2);
+        }
 
-        /* Loading Animation */
-        .loading {
+        .material-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(46, 203, 156, 0.2);
+        }
+
+        .reading-timer {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .material-content {
+            color: var(--text-light-primary);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .material-content h2 {
+            color: var(--secondary-color);
+            margin: 30px 0 15px;
+            font-size: 1.5rem;
+        }
+
+        .material-content h3 {
+            color: var(--text-light-primary);
+            margin: 25px 0 10px;
+            font-size: 1.3rem;
+        }
+
+        .material-content h4 {
+            color: var(--text-light-primary);
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .material-content p {
+            margin-bottom: 15px;
+        }
+
+        .material-content ul, .material-content ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .material-content li {
+            margin-bottom: 8px;
+        }
+
+        .material-content .highlight {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .material-content .quote {
+            background: rgba(46, 203, 156, 0.1);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Premium Popup */
+        .premium-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .premium-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .premium-content {
+            background: var(--bg-dark-secondary);
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 500px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+            border: 1px solid rgba(46, 203, 156, 0.2);
+        }
+
+        .premium-popup.active .premium-content {
+            transform: translateY(0);
+        }
+
+        .premium-icon {
+            font-size: 4rem;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .premium-content h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .premium-content p {
+            color: var(--text-light-secondary);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .premium-btn {
             display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .premium-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
         }
 
-        /* Smooth Transitions */
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
+        .close-popup {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--text-light-secondary);
+            cursor: pointer;
+            transition: color 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .close-popup:hover {
+            color: var(--text-light-primary);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: var(--bg-dark-secondary);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+                gap: 20px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .page-title-section {
+                padding: 80px 0 60px;
+            }
+
+            .page-title-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-title-section p {
+                font-size: 1rem;
+            }
+
+            .video-element {
+                height: 300px;
+            }
+
+            .quiz-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .quiz-info {
+                grid-template-columns: 1fr;
+            }
+
+            .result-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-controls {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .volume-control {
+                order: 1;
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -716,14 +1244,16 @@
     <header class="header" id="mainHeader">
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="nav-logo">Quran<span>Ku</span></a>
+                <a href="#" class="nav-logo">
+                    <i class="fas fa-book-quran"></i> Quran<span>Ku</span>
+                </a>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link active">Beranda</a></li>
-                    <li class="nav-item"><a href="tentang.html" class="nav-link">Tentang Kami</a></li>
-                    <li class="nav-item"><a href="harga.html" class="nav-link">Berlangganan</a></li>
-                    <li class="nav-item"><a href="surah.html" class="nav-link">Surah</a></li>
-                    <li class="nav-item"><a href="materi.html" class="nav-link">Fitur Al-Quran</a></li>
-                    <li class="nav-item"><a href="kontak.html" class="nav-link">Kontak</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active">Beranda</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Berlangganan</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Surah</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Fitur Al-Quran</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Kontak</a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -738,8 +1268,8 @@
     <div id="homePage">
         <section class="page-title-section">
             <div class="container">
-                <h1>Materi Belajar UTBK</h1>
-                <p>Jelajahi koleksi lengkap video pembelajaran, bank soal, dan materi untuk persiapan UTBK terbaik</p>
+                <h1>Belajar Al-Quran dan Ilmu Keislaman</h1>
+                <p>Jelajahi koleksi lengkap video pembelajaran, bank soal, dan materi untuk memperdalam ilmu agama</p>
             </div>
         </section>
 
@@ -752,17 +1282,17 @@
                     
                     <div class="mode-selection">
                         <div class="mode-card" data-mode="video">
-                            <span class="mode-icon">🎥</span>
+                            <span class="mode-icon"><i class="fas fa-video"></i></span>
                             <h3>Video Pembelajaran</h3>
-                            <p>Belajar dengan video interaktif dari pengajar berpengalaman dengan penjelasan step-by-step yang mudah dipahami</p>
+                            <p>Belajar dengan video interaktif dari ustadz dan ulama berpengalaman dengan penjelasan yang mudah dipahami</p>
                         </div>
                         <div class="mode-card" data-mode="quiz">
-                            <span class="mode-icon">🧠</span>
+                            <span class="mode-icon"><i class="fas fa-brain"></i></span>
                             <h3>Bank Soal</h3>
-                            <p>Latihan soal lengkap dengan pembahasan detail untuk mengasah kemampuan dan strategi mengerjakan soal UTBK</p>
+                            <p>Latihan soal lengkap dengan pembahasan detail untuk mengasah kemampuan pemahaman agama</p>
                         </div>
                         <div class="mode-card" data-mode="material">
-                            <span class="mode-icon">📚</span>
+                            <span class="mode-icon"><i class="fas fa-book"></i></span>
                             <h3>Materi Bacaan</h3>
                             <p>Rangkuman materi komprehensif dalam format PDF dan interaktif untuk referensi belajar kapan saja</p>
                         </div>
@@ -772,33 +1302,44 @@
                 <!-- Content Section -->
                 <div id="contentSection" class="hidden">
                     <button class="btn btn-secondary" onclick="backToModeSelection()" style="margin-bottom: 30px;">
-                        ← Kembali ke Pilihan Mode
+                        <i class="fas fa-arrow-left"></i> Kembali ke Pilihan Mode
                     </button>
+                    
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <div class="search-box">
+                            <input type="text" class="search-input" id="searchInput" placeholder="Cari konten...">
+                            <button class="search-btn" onclick="searchContent()">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
                     
                     <div class="subject-tabs">
                         <button class="subject-tab active" data-subject="all">Semua</button>
-                        <button class="subject-tab" data-subject="penalaran-umum">Penalaran Umum</button>
-                        <button class="subject-tab" data-subject="pengetahuan-pemahaman-umum">Pengetahuan dan Pemahaman Umum</button>
-                        <button class="subject-tab" data-subject="pemahaman-bacaan-menulis">Pemahaman Bacaan dan Menulis</button>
-                        <button class="subject-tab" data-subject="pengetahuan-kuantitatif">Pengetahuan Kuantitatif</button>
-                        <button class="subject-tab" data-subject="literasi-indonesia">Literasi dalam Bahasa Indonesia</button>
-                        <button class="subject-tab" data-subject="literasi-inggris">Literasi dalam Bahasa Inggris</button>
-                        <button class="subject-tab" data-subject="penalaran-matematika">Penalaran Matematika</button>
+                        <button class="subject-tab" data-subject="quran-hadis">Quran & Hadis</button>
+                        <button class="subject-tab" data-subject="fiqih">Fiqih</button>
+                        <button class="subject-tab" data-subject="sejarah-islam">Sejarah Islam</button>
+                        <button class="subject-tab" data-subject="akidah-akhlak">Akidah & Akhlak</button>
+                        <button class="subject-tab" data-subject="bahasa-arab">Bahasa Arab</button>
+                        <button class="subject-tab" data-subject="ilmu-tajwid">Ilmu Tajwid</button>
+                        <button class="subject-tab" data-subject="doa-dzikir">Doa & Dzikir</button>
                     </div>
 
                     <div class="content-grid" id="contentGrid">
+                        <!-- Konten akan diisi melalui JavaScript -->
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Buat muter video -->
+    <!-- Video Player Page -->
     <div id="videoPage" class="hidden">
         <section class="page-title-section">
             <div class="container">
                 <button class="btn btn-secondary" onclick="showHomePage()" style="margin-bottom: 20px;">
-                    ← Kembali ke Materi Belajar
+                    <i class="fas fa-arrow-left"></i> Kembali ke Materi Belajar
                 </button>
                 <h1 id="videoTitle">Video Pembelajaran</h1>
                 <p id="videoDescription">Tonton video pembelajaran interaktif</p>
@@ -810,22 +1351,22 @@
                 <div class="video-player-container">
                     <div class="video-player" id="videoPlayerContainer">
                         <video class="video-element" id="videoElement" preload="metadata">
-                            <source src="Galeri/PK.mp4" type="video/mp4">
-                            Gabisa akses videonya:(.
+                            <source src="" type="video/mp4">
+                            Browser Anda tidak mendukung pemutaran video.
                         </video>
                         <div class="video-controls" id="videoControls">
-                            <button class="control-btn" id="playPauseBtn" onclick="togglePlay()">▶</button>
-                            <button class="control-btn" onclick="skipTime(-10)"><< 10s</button>
-                            <button class="control-btn" onclick="skipTime(10)">10s >></button>
+                            <button class="control-btn" id="playPauseBtn" onclick="togglePlay()"><i class="fas fa-play"></i></button>
+                            <button class="control-btn" onclick="skipTime(-10)"><i class="fas fa-backward"></i> 10s</button>
+                            <button class="control-btn" onclick="skipTime(10)">10s <i class="fas fa-forward"></i></button>
                             <div class="progress-bar" onclick="seekVideo(event)">
                                 <div class="progress-fill" id="progressFill"></div>
                             </div>
                             <span class="time-display" id="timeDisplay">0:00 / 0:00</span>
                             <div class="volume-control">
-                                <button class="control-btn" id="muteBtn" onclick="toggleMute()">🔊</button>
-                                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="1" onchange="changeVolume(this.value)">
+                                <button class="control-btn" id="muteBtn" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+                                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="1" onchange="changeVolume(this.value)" oninput="updateVolumeDisplay(this.value)">
                             </div>
-                            <select class="control-btn" id="speedSelect" onchange="changeSpeed(this.value)">
+                            <select class="speed-select" id="speedSelect" onchange="changeSpeed(this.value)">
                                 <option value="0.5">0.5x</option>
                                 <option value="0.75">0.75x</option>
                                 <option value="1" selected>1x</option>
@@ -833,6 +1374,7 @@
                                 <option value="1.5">1.5x</option>
                                 <option value="2">2x</option>
                             </select>
+                            <button class="fullscreen-btn" onclick="toggleFullscreen()"><i class="fas fa-expand"></i></button>
                         </div>
                     </div>
                     <div style="padding: 25px;">
@@ -841,7 +1383,6 @@
                         <div style="display: flex; flex-wrap: wrap; gap: 20px; font-size: 0.9rem; color: var(--text-light-secondary);">
                             <span id="videoInstructor"></span>
                             <span id="videoDuration"></span>
-                            <span id="videoDifficulty"></span>
                         </div>
                     </div>
                 </div>
@@ -854,490 +1395,172 @@
         <section class="page-title-section">
             <div class="container">
                 <button class="btn btn-secondary" onclick="showHomePage()" style="margin-bottom: 20px;">
-                    ← Kembali ke Materi Belajar
+                    <i class="fas fa-arrow-left"></i> Kembali ke Materi Belajar
                 </button>
                 <h1 id="quizTitle">Bank Soal</h1>
-                <p id="quizDescription">Latihan soal dengan pembahasan lengkap</p>
+                <p id="quizDescription">Uji kemampuan pemahaman Anda</p>
             </div>
         </section>
 
         <main class="section-padding">
             <div class="container">
-                <!-- Quiz Start Screen -->
-                <div id="quizStart" class="quiz-container">
-                    <h2 id="quizStartTitle" style="text-align: center; margin-bottom: 20px;"></h2>
-                    <p id="quizStartDescription" style="text-align: center; margin-bottom: 30px; color: var(--text-light-secondary);"></p>
+                <div id="quizContainer" class="quiz-container">
+                    <div class="quiz-header">
+                        <div class="quiz-timer" id="quizTimer">Waktu: 30:00</div>
+                        <div class="quiz-progress" id="quizProgress">Soal 1 dari 20</div>
+                    </div>
                     
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                        <div class="stat-card">
-                            <div class="stat-number" style="color: var(--primary-color);" id="quizQuestionCount">0</div>
-                            <div class="stat-label">Jumlah Soal</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" style="color: var(--secondary-color);" id="quizTimeLimit">0</div>
-                            <div class="stat-label">Waktu</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" style="color: var(--accent-color);" id="quizDifficultyLevel">-</div>
-                            <div class="stat-label">Tingkat</div>
+                    <div class="question-container">
+                        <div class="question-text" id="questionText">Pertanyaan akan muncul di sini...</div>
+                        <div class="options-container" id="optionsContainer">
+                            <!-- Options akan diisi melalui JavaScript -->
                         </div>
                     </div>
                     
-                    <div style="text-align: center;">
-                        <button class="btn" onclick="startQuiz()" style="font-size: 1.1rem; padding: 15px 30px;">
-                            🚀 Mulai Kuis
+                    <div class="quiz-navigation">
+                        <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>
+                            <i class="fas fa-arrow-left"></i> Sebelumnya
+                        </button>
+                        <button class="btn" id="nextBtn" onclick="nextQuestion()">
+                            Selanjutnya <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- Quiz Questions -->
-                <div id="quizQuestions" class="quiz-container hidden">
-                    <div class="quiz-header">
-                        <div>
-                            <span>Soal <span id="currentQuestionNumber">1</span> dari <span id="totalQuestions">10</span></span>
+                <div id="quizResults" class="quiz-results hidden">
+                    <div class="result-score">
+                        <div class="score-circle" id="scoreCircle">
+                            <div class="score-text" id="scoreText">0%</div>
                         </div>
-                        <div class="timer">
-                            <span>⏰</span>
-                            <span id="quizTimer">30:00</span>
+                        <h2 id="resultTitle">Hasil Quiz</h2>
+                        <p id="resultMessage">Selamat! Anda telah menyelesaikan quiz.</p>
+                    </div>
+                    
+                    <div class="result-summary" id="resultSummary">
+                        <div class="result-item correct">
+                            <div class="number" id="correctCount">0</div>
+                            <div class="label">Jawaban Benar</div>
+                        </div>
+                        <div class="result-item incorrect">
+                            <div class="number" id="incorrectCount">0</div>
+                            <div class="label">Jawaban Salah</div>
                         </div>
                     </div>
                     
-                    <div class="quiz-progress">
-                        <div class="quiz-progress-fill" id="quizProgressFill"></div>
+                    <div class="result-actions">
+                        <button class="btn" onclick="showHomePage()">
+                            <i class="fas fa-home"></i> Kembali ke Beranda
+                        </button>
+                        <button class="btn btn-secondary" onclick="retakeQuiz()">
+                            <i class="fas fa-redo"></i> Ulangi Quiz
+                        </button>
+                        <button class="btn btn-secondary" onclick="showReviewAnswers()">
+                            <i class="fas fa-eye"></i> Lihat Pembahasan
+                        </button>
                     </div>
-                    
-                    <div class="question-container">
-                        <div class="question-text" id="questionText"></div>
-                        <div id="optionsContainer"></div>
-                    </div>
-                    
-                    <div class="quiz-navigation">
-                        <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn">⬅ Sebelumnya</button>
-                        <button class="btn" onclick="nextQuestion()" id="nextBtn">Selanjutnya ➡</button>
-                    </div>
-                </div>
 
-                <!-- Quiz Results -->
-                <div id="quizResults" class="results-container hidden">
-                    <h2>🎉 Hasil Kuis</h2>
-                    <div class="score-display" id="finalScore">0%</div>
-                    <p id="scoreMessage" style="color: var(--text-light-secondary); margin-bottom: 30px;"></p>
-                    
-                    <div class="results-stats">
-                        <div class="stat-card">
-                            <div class="stat-number" style="color: #10b981;" id="correctAnswers">0</div>
-                            <div class="stat-label">Jawaban Benar</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" style="color: #ef4444;" id="wrongAnswers">0</div>
-                            <div class="stat-label">Jawaban Salah</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" style="color: var(--primary-color);" id="totalQuestionsResult">0</div>
-                            <div class="stat-label">Total Soal</div>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px; flex-wrap: wrap;">
-                        <button class="btn" onclick="restartQuiz()">🔄 Ulangi Kuis</button>
-                        <button class="btn btn-secondary" onclick="showHomePage()">🏠 Kembali ke Beranda</button>
+                    <div id="answerReview" class="hidden" style="margin-top: 30px;">
+                        <!-- Review jawaban akan diisi melalui JavaScript -->
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Material Reader Page -->
+    <!-- Material Page -->
     <div id="materialPage" class="hidden">
         <section class="page-title-section">
             <div class="container">
                 <button class="btn btn-secondary" onclick="showHomePage()" style="margin-bottom: 20px;">
-                    ← Kembali ke Materi Belajar
+                    <i class="fas fa-arrow-left"></i> Kembali ke Materi Belajar
                 </button>
                 <h1 id="materialTitle">Materi Bacaan</h1>
-                <p id="materialDescription">Baca materi pembelajaran lengkap</p>
+                <p id="materialDescription">Baca dan pelajari materi dengan seksama</p>
             </div>
         </section>
 
         <main class="section-padding">
             <div class="container">
                 <div class="material-container">
-                    <div class="material-sidebar">
-                        <h3 style="margin-bottom: 20px; color: var(--text-light-primary);">📋 Daftar Isi</h3>
-                        <div class="material-toc" id="materialToc">
-                            <!-- Table of contents will be populated here -->
-                        </div>
-                        
-                        <div class="material-stats">
-                            <div class="stat-item">
-                                <span>⏱️</span>
-                                <span>Waktu Baca: <span id="readingTime">0:00</span></span>
-                            </div>
-                            <div class="stat-item">
-                                <span>📖</span>
-                                <span>Halaman <span id="currentPage">1</span> dari <span id="totalPages">1</span></span>
-                            </div>
-                            <div class="stat-item">
-                                <span>👁️</span>
-                                <span>Progress: <span id="readingProgress">0</span>%</span>
-                            </div>
-                        </div>
+                    <div class="material-header">
+                        <h2 id="materialInfoTitle">Judul Materi</h2>
+                        <div class="reading-timer" id="readingTimer">Waktu Baca: 00:00</div>
                     </div>
                     
-                    <div class="material-content">
-                        <div class="material-header">
-                            <h2 id="materialContentTitle"></h2>
-                            <p id="materialContentDescription"></p>
-                            <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 15px; font-size: 0.9rem;">
-                                <span id="materialPages"></span>
-                                <span id="materialFormat"></span>
-                                <span id="materialDifficulty"></span>
-                            </div>
-                        </div>
-                        A
-                        <div class="material-text" id="materialText">
-                            <!-- Material content will be populated here -->
-                        </div>
-                        
-                        <div class="material-navigation">
-                            <button class="btn btn-secondary" onclick="previousPage()" id="prevPageBtn">⬅ Halaman Sebelumnya</button>
-                            <span style="color: var(--text-light-secondary);">Halaman <span id="pageIndicator">1</span> dari <span id="totalPagesIndicator">1</span></span>
-                            <button class="btn" onclick="nextPage()" id="nextPageBtn">Halaman Selanjutnya ➡</button>
-                        </div>
+                    <div class="material-content" id="materialContent">
+                        <!-- Konten materi akan diisi melalui JavaScript -->
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
+    <!-- Quiz Setup Popup -->
+    <div class="quiz-popup" id="quizSetupPopup">
+        <div class="quiz-popup-content">
+            <span class="close-popup" onclick="closeQuizSetup()"><i class="fas fa-times"></i></span>
+            <h2>Informasi Quiz</h2>
+            <p>Siapkan diri Anda untuk mengerjakan quiz berikut:</p>
+            
+            <div class="quiz-info" id="quizInfo">
+                <div class="quiz-info-item">
+                    <div class="label">Jumlah Soal</div>
+                    <div class="value" id="quizQuestionCount">20</div>
+                </div>
+                <div class="quiz-info-item">
+                    <div class="label">Waktu</div>
+                    <div class="value" id="quizTimeLimit">30 menit</div>
+                </div>
+                <div class="quiz-info-item">
+                    <div class="label">Tingkat</div>
+                    <div class="value" id="quizDifficulty">Mudah</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <button class="btn" onclick="startQuiz()" id="startQuizBtn">
+                    <i class="fas fa-play"></i> Mulai Quiz
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Popup -->
+    <div class="premium-popup" id="premiumPopup">
+        <div class="premium-content">
+            <span class="close-popup" onclick="closePremiumPopup()"><i class="fas fa-times"></i></span>
+            <div class="premium-icon"><i class="fas fa-crown"></i></div>
+            <h2>Konten Premium</h2>
+            <p>Akses penuh ke semua konten premium hanya untuk anggota berlangganan. Berlangganan sekarang untuk mendapatkan manfaat:</p>
+            <ul style="text-align: left; margin-bottom: 20px; padding-left: 20px; color: var(--text-light-secondary);">
+                <li>Akses ke semua video pembelajaran premium</li>
+                <li>Bank soal lengkap dengan pembahasan</li>
+                <li>Materi bacaan eksklusif dan terupdate</li>
+                <li>Prioritas dukungan dari tim ahli</li>
+            </ul>
+            <button class="btn premium-btn" onclick="closePremiumPopup()">Berlangganan Sekarang</button>
+        </div>
+    </div>
+
     <script>
-        // isian data konten
-        const contentData = {
-            video: {
-                'penalaran-umum': [
-                    {
-                        title: 'Penalaran Logis Dasar',
-                        description: 'Memahami konsep dasar penalaran logis dan cara berpikir sistematis dalam menyelesaikan masalah',
-                        duration: '45 menit',
-                        difficulty: 'mudah',
-                        instructor: 'Prof. Dr. Ahmad Susanto',
-                        thumbnail: 'Galeri/anjay.png'
-                    },
-                ],
-                'pengetahuan-pemahaman-umum': [
-                    {
-                        title: 'Isu Kontemporer Indonesia',
-                        description: 'Pembahasan isu-isu terkini dalam bidang politik, ekonomi, dan sosial budaya Indonesia',
-                        duration: '50 menit',
-                        difficulty: 'sedang',
-                        instructor: 'Prof. Dr. Rahmat Hidayat'
-                    },
-                ],
-                'pemahaman-bacaan-menulis': [
-                    {
-                        title: 'Teknik Membaca Cepat dan Efektif',
-                        description: 'Strategi membaca cepat untuk memahami isi bacaan dengan akurat dalam waktu terbatas',
-                        duration: '40 menit',
-                        difficulty: 'mudah',
-                        instructor: 'Dr. Lina Marlina, S.Pd'
-                    },
-                ],
-                'pengetahuan-kuantitatif': [
-                    {
-                        title: 'RUMUS CEPAT FUNGSI DAN INVERS',
-                        description: 'Halo temen-temen pejuang UTBK SNBT 2024 ?Gimana persiapan kalian untuk menghadapi  UTBK SNBT 2024 ?Tentunya kita harus mempersipakan dari sekarang agar hasil belajar kita lebih maksimal.Di video kali ini, aku akan membantu teman - teman dalam memahami soal soal pengetahuan kuantitatif materi fungsi dan invers menggunakan rumus cepat yang ada di TPS UTBK SNBT 2024.',
-                        duration: '17 menit',
-                        difficulty: 'sulit',
-                        instructor: 'Privat Al Faiz'
-                    },
-                ],
-                'literasi-indonesia': [
-                    {
-                        title: 'Tata Bahasa Indonesia yang Baik dan Benar',
-                        description: 'Penguasaan kaidah bahasa Indonesia, ejaan, dan struktur kalimat yang tepat',
-                        duration: '42 menit',
-                        difficulty: 'mudah',
-                        instructor: 'Prof. Dr. Dewi Kusuma'
-                    },
-                ],
-                'literasi-inggris': [
-                    {
-                        title: 'English Grammar Fundamentals',
-                        description: 'Penguasaan grammar dasar bahasa Inggris untuk reading comprehension yang lebih baik',
-                        duration: '45 menit',
-                        difficulty: 'mudah',
-                        instructor: 'Dr. Jennifer Smith, M.A'
-                    },
-                ],
-                'penalaran-matematika': [
-                    {
-                        title: 'Kalkulus Diferensial',
-                        description: 'Konsep limit, turunan, dan aplikasinya dalam menyelesaikan masalah optimasi',
-                        duration: '60 menit',
-                        difficulty: 'sulit',
-                        instructor: 'Prof. Dr. Agus Priyanto'
-                    },
-                ]
-            },
-            quiz: {
-                'penalaran-umum': [
-                    {
-                        title: 'Kuis Penalaran Logis',
-                        description: 'Latihan soal penalaran logis dengan berbagai tipe pertanyaan dan tingkat kesulitan bertahap',
-                        questions: '25 soal',
-                        difficulty: 'mudah',
-                        timeLimit: '30 menit',
-                    }
-                ],
-                'pengetahuan-kuantitatif': [
-                    {
-                        title: 'Latihan Aljabar Dasar',
-                        description: 'Soal-soal latihan aljabar dari tingkat dasar hingga menengah dengan pembahasan lengkap',
-                        questions: '5 soal',
-                        difficulty: 'mudah',
-                        timeLimit: '15 menit',
-                        questionsData: [
-                            {
-                                question: `Dalam suatu sekolah dengan total 135 murid, siswa yang menyukai basket, renang, dan kasti masing-masing ada sebanyak 50, 30, dan 45 siswa. Lalu, sebanyak x siswa menyukai basket dan renang, sebanyak y siswa menyukai basket dan kasti, sebanyak z siswa menyukai renang dan kasti, sebanyak p siswa yang tidak menyukai ketiga olahraga tersebut, dan sebanyak q siswa yang menyukai ketiga olahraga tersebut. Diketahui pula bahwa x + y + z = p.
-\nBerdasarkan informasi tersebut, manakah di antara pilihan berikut yang bernilai benar?\n
-1.Banyaknya murid yang menyukai basket, renang, dan kasti adalah 10 orang.\n
-Banyaknya murid yang hanya menyukai basket dan renang adalah x − 10 orang.\n
-Banyaknya murid yang menyukai renang atau kasti adalah 75 orang.\n
-Banyaknya murid yang menyukai tepat dua jenis olahraga adalah x + y + z orang.`,
-                                options: ['1, 2, dan 3 SAJA yang benar.', '1 dan 3 SAJA yang benar.', '2 dan 4 SAJA yang benar', 'HANYA 4 yang benar', 'Semua pilihan benar.'],
-                                correctAnswer: 2,
-                                explanation: '2x + 5 = 13 → 2x = 8 → x = 4'
-                            },
-                            {
-                                question: 'Hasil dari (3x + 2)(x - 1) adalah:',
-                                options: ['3x² - x - 2', '3x² + x - 2', '3x² - x + 2', '3x² + x + 2'],
-                                correctAnswer: 0,
-                                explanation: '(3x + 2)(x - 1) = 3x² - 3x + 2x - 2 = 3x² - x - 2'
-                            }
-                        ]
-                    }
-                ],
-                'penalaran-matematika': [
-                    {
-                        title: 'Kuis Kalkulus Tingkat Lanjut',
-                        description: 'Soal-soal kalkulus diferensial dan integral dengan tingkat kesulitan tinggi',
-                        questions: '20 soal',
-                        difficulty: 'sulit',
-                        timeLimit: '60 menit',
-                    }
-                ],
-                'pemahaman-bacaan-menulis': [
-                    {
-                        title: 'Kuis Pemahaman Bacaan',
-                        description: 'Latihan soal pemahaman bacaan dengan berbagai jenis teks dan pertanyaan analisis',
-                        questions: '30 soal',
-                        difficulty: 'mudah',
-                        timeLimit: '40 menit',
-                    }
-                ],
-                'pengetahuan-pemahaman-umum': [
-                    {
-                        title: 'Kuis Pengetahuan Umum',
-                        description: 'Latihan soal tentang pengetahuan umum, isu terkini, dan wawasan kebangsaan',
-                        questions: '40 soal',
-                        difficulty: 'sedang',
-                        timeLimit: '50 menit',
-                    }
-                ],
-                'literasi-indonesia': [
-                    {
-                        title: 'Kuis Tata Bahasa Indonesia',
-                        description: 'Latihan soal tata bahasa, ejaan, dan struktur kalimat bahasa Indonesia',
-                        questions: '35 soal',
-                        difficulty: 'sedang',
-                        timeLimit: '45 menit',
-                    }
-                ],
-                'literasi-inggris': [
-                    {
-                        title: 'English Grammar Quiz',
-                        description: 'Latihan soal grammar bahasa Inggris dan reading comprehension',
-                        questions: '30 soal',
-                        difficulty: 'sedang',
-                        timeLimit: '40 menit',
-                    }
-                ]
-            },
-            material: {
-                'penalaran-umum': [
-                    {
-                        title: 'Panduan Lengkap Penalaran Logis',
-                        description: 'E-book komprehensif tentang berbagai teknik penalaran logis dan strategi penyelesaian soal',
-                        pages: '120 halaman',
-                        difficulty: 'mudah',
-                        format: 'PDF + Interaktif',
-                    }
-                ],
-                'pengetahuan-kuantitatif': [
-                    {
-                        title: 'Formularium Matematika UTBK',
-                        description: 'Kumpulan rumus-rumus penting matematika yang sering digunakan dalam UTBK',
-                        pages: '95 halaman',
-                        difficulty: 'mudah',
-                        format: 'PDF + Flashcard',
-                        content: [
-                            {
-                                title: 'Rumus Dasar Aljabar',
-                                content: `Aljabar adalah cabang matematika yang menggunakan simbol dan huruf untuk mewakili angka dalam persamaan dan formula. Berikut adalah rumus-rumus dasar yang penting:
-
-Operasi Dasar:
-- (a + b)² = a² + 2ab + b²
-- (a - b)² = a² - 2ab + b²
-- (a + b)(a - b) = a² - b²
-- (a + b)³ = a³ + 3a²b + 3ab² + b³
-- (a - b)³ = a³ - 3a²b + 3ab² - b³
-
-Persamaan Kuadrat:
-ax² + bx + c = 0
-- Rumus ABC: x = [-b ± √(b² - 4ac)] / 2a
-- Diskriminan: D = b² - 4ac
-- Jika D > 0: dua akar real berbeda
-- Jika D = 0: dua akar real sama
-- Jika D < 0: tidak ada akar real
-
-Sistem Persamaan Linear:
-ax + by = c
-dx + ey = f
-
-Metode penyelesaian:
-1. Substitusi
-2. Eliminasi
-3. Determinan (Cramer's rule)
-
-Fungsi Linear:
-y = mx + c
-- m = gradien/kemiringan
-- c = konstanta/intercept y
-
-Sifat Eksponen:
-- a^m × a^n = a^(m+n)
-- a^m ÷ a^n = a^(m-n)
-- (a^m)^n = a^(mn)
-- a^0 = 1 (a ≠ 0)
-- a^(-n) = 1/a^n`
-                            },
-                            {
-                                title: 'Geometri dan Trigonometri',
-                                content: `Geometri dan trigonometri adalah bagian penting dalam matematika yang sering muncul dalam UTBK. Berikut rumus-rumus kunci:
-
-Luas Bangun Datar:
-- Persegi: L = s²
-- Persegi panjang: L = p × l
-- Segitiga: L = ½ × a × t
-- Lingkaran: L = πr²
-- Trapesium: L = ½ × (a + b) × t
-- Jajargenjang: L = a × t
-
-Keliling Bangun Datar:
-- Persegi: K = 4s
-- Persegi panjang: K = 2(p + l)
-- Segitiga: K = a + b + c
-- Lingkaran: K = 2πr
-
-Volume Bangun Ruang:
-- Kubus: V = s³
-- Balok: V = p × l × t
-- Tabung: V = πr²t
-- Kerucut: V = ⅓πr²t
-- Bola: V = ⅔πr³
-- Limas: V = ⅓ × Luas alas × tinggi
-
-Teorema Pythagoras:
-c² = a² + b²
-
-Trigonometri Dasar:
-- sin θ = depan/miring
-- cos θ = samping/miring
-- tan θ = depan/samping
-
-Identitas Trigonometri:
-- sin²θ + cos²θ = 1
-- tan θ = sin θ / cos θ
-- sin(90° - θ) = cos θ
-- cos(90° - θ) = sin θ
-
-Sudut Istimewa:
-- sin 30° = ½, cos 30° = ½√3, tan 30° = ⅓√3
-- sin 45° = ½√2, cos 45° = ½√2, tan 45° = 1
-- sin 60° = ½√3, cos 60° = ½, tan 60° = √3`
-                            }
-                        ]
-                    }
-                ],
-                'penalaran-matematika': [
-                    {
-                        title: 'Buku Sakti Matematika UTBK',
-                        description: 'Panduan lengkap matematika SAINTEK dengan strategi penyelesaian cepat',
-                        pages: '400 halaman',
-                        difficulty: 'sulit',
-                        format: 'PDF + Video Pendukung',
-                    }
-                ],
-                'pemahaman-bacaan-menulis': [
-                    {
-                        title: 'Panduan Lengkap PBM',
-                        description: 'Buku panduan komprehensif untuk Pemahaman Bacaan dan Menulis',
-                        pages: '200 halaman',
-                        difficulty: 'mudah',
-                        format: 'PDF + Audio',
-                    }
-                ],
-                'pengetahuan-pemahaman-umum': [
-                    {
-                        title: 'Ensiklopedia Pengetahuan Umum',
-                        description: 'Kumpulan pengetahuan umum yang sering muncul dalam UTBK',
-                        pages: '300 halaman',
-                        difficulty: 'sedang',
-                        format: 'PDF + Interaktif',
-                    }
-                ],
-                'literasi-indonesia': [
-                    {
-                        title: 'Panduan Bahasa Indonesia UTBK',
-                        description: 'Panduan lengkap tata bahasa Indonesia dan ejaan yang disempurnakan',
-                        pages: '180 halaman',
-                        difficulty: 'mudah',
-                        format: 'PDF + Audio',
-                    }
-                ],
-                'literasi-inggris': [
-                    {
-                        title: 'English Literacy Guide',
-                        description: 'Comprehensive guide for English literacy and reading comprehension',
-                        pages: '220 halaman',
-                        difficulty: 'sedang',
-                        format: 'PDF + Audio',
-                        }
-                ]
-            }
-        };
-
         // Global Variables
+        let contentData = {};
         let currentMode = '';
         let currentSubject = 'all';
         let currentContent = null;
+        let searchQuery = '';
+        let filteredContent = [];
+        
+        // Quiz Variables
         let currentQuiz = null;
         let currentQuestionIndex = 0;
-        let quizAnswers = [];
+        let userAnswers = [];
         let quizTimer = null;
         let quizTimeLeft = 0;
-        let currentMaterial = null;
-        let currentMaterialPage = 0;
+        
+        // Material Variables
         let readingTimer = null;
         let readingTime = 0;
-
-        // Video Player Variables
-        let videoElement = null;
-        let isPlaying = false;
-        let currentTime = 0;
-        let duration = 0;
-        let isMuted = false;
-        let volume = 1;
 
         // DOM Elements
         const homePage = document.getElementById('homePage');
@@ -1349,6 +1572,67 @@ Sudut Istimewa:
         const contentGrid = document.getElementById('contentGrid');
         const modeCards = document.querySelectorAll('.mode-card');
         const subjectTabs = document.querySelectorAll('.subject-tab');
+        const searchInput = document.getElementById('searchInput');
+        const premiumPopup = document.getElementById('premiumPopup');
+        const quizSetupPopup = document.getElementById('quizSetupPopup');
+
+        // Load content data from JSON file
+        async function loadContentData() {
+            try {
+                const response = await fetch('content.json');
+                contentData = await response.json();
+            } catch (error) {
+                console.error('Error loading content data:', error);
+                // Fallback data if file cannot be loaded
+                contentData = {
+                    video: {
+                        'quran-hadis': [
+                            {
+                                title: 'Tafsir Surat Al-Fatihah',
+                                description: 'Penjelasan mendalam tentang makna dan tafsir surat pembuka Al-Quran',
+                                duration: '45 menit',
+                                instructor: 'Ustadz Ahmad Husein',
+                                thumbnail: 'https://images.unsplash.com/photo-1519730722595-a5ff788dea4d?q=80&w=1470&auto=format&fit=crop',
+                                videoSrc: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+                                premium: false
+                            }
+                        ]
+                    },
+                    quiz: {
+                        'quran-hadis': [
+                            {
+                                title: 'Kuis Hafalan Surat Pendek',
+                                description: 'Uji hafalan surat-surat pendek dalam Al-Quran',
+                                questions: '5 soal',
+                                timeLimit: '10 menit',
+                                difficulty: 'Mudah',
+                                premium: false,
+                                questionsList: [
+                                    {
+                                        question: 'Berapa jumlah ayat dalam Surat Al-Fatihah?',
+                                        options: ['5 ayat', '6 ayat', '7 ayat', '8 ayat'],
+                                        answer: 2,
+                                        explanation: 'Surat Al-Fatihah terdiri dari 7 ayat yang merupakan surat pembuka Al-Quran.'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    material: {
+                        'quran-hadis': [
+                            {
+                                title: 'Panduan Tafsir Al-Quran',
+                                description: 'Buku panduan memahami tafsir Al-Quran untuk pemula',
+                                pages: '150 halaman',
+                                format: 'PDF',
+                                premium: false,
+                                content: '<h3>Panduan Tafsir Al-Quran</h3><p>Materi lengkap untuk memahami tafsir Al-Quran.</p>'
+                            }
+                        ]
+                    }
+                };
+            }
+        }
 
         // Event Listeners
         modeCards.forEach(card => {
@@ -1365,17 +1649,39 @@ Sudut Istimewa:
             });
         });
 
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                searchContent();
+            }
+        });
+
+        // Hamburger menu for mobile
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
         // Navigation Functions
         function showHomePage() {
             homePage.classList.remove('hidden');
             videoPage.classList.add('hidden');
             quizPage.classList.add('hidden');
             materialPage.classList.add('hidden');
+            premiumPopup.classList.remove('active');
+            quizSetupPopup.classList.remove('active');
             
-            // Reset states
-            stopQuizTimer();
-            stopReadingTimer();
-            pauseVideo();
+            // Stop timers
+            if (quizTimer) {
+                clearInterval(quizTimer);
+                quizTimer = null;
+            }
+            if (readingTimer) {
+                clearInterval(readingTimer);
+                readingTimer = null;
+            }
         }
 
         function selectMode(mode) {
@@ -1393,6 +1699,10 @@ Sudut Istimewa:
             currentSubject = 'all';
             subjectTabs.forEach(tab => tab.classList.remove('active'));
             document.querySelector('[data-subject="all"]').classList.add('active');
+            
+            // Reset search
+            searchInput.value = '';
+            searchQuery = '';
             
             // Load content
             loadContent();
@@ -1416,6 +1726,11 @@ Sudut Istimewa:
             currentMode = '';
         }
 
+        function searchContent() {
+            searchQuery = searchInput.value.toLowerCase().trim();
+            loadContent();
+        }
+
         function loadContent() {
             const modeData = contentData[currentMode];
             let allContent = [];
@@ -1424,19 +1739,29 @@ Sudut Istimewa:
                 // Get all content from all subjects
                 Object.keys(modeData).forEach(subject => {
                     if (modeData[subject]) {
-                        modeData[subject].forEach(item => {
-                            allContent.push({...item, subject});
+                        modeData[subject].forEach((item, index) => {
+                            allContent.push({...item, subject, id: `${subject}-${index}`});
                         });
                     }
                 });
             } else {
                 // Get content from specific subject
                 if (modeData[currentSubject]) {
-                    allContent = modeData[currentSubject].map(item => ({...item, subject: currentSubject}));
+                    allContent = modeData[currentSubject].map((item, index) => ({...item, subject: currentSubject, id: `${currentSubject}-${index}`}));
                 }
             }
             
-            renderContent(allContent);
+            // Filter content based on search query
+            if (searchQuery) {
+                filteredContent = allContent.filter(item => 
+                    item.title.toLowerCase().includes(searchQuery) || 
+                    item.description.toLowerCase().includes(searchQuery)
+                );
+            } else {
+                filteredContent = allContent;
+            }
+            
+            renderContent(filteredContent);
         }
 
         function renderContent(content) {
@@ -1445,8 +1770,8 @@ Sudut Istimewa:
             if (content.length === 0) {
                 contentGrid.innerHTML = `
                     <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-light-secondary);">
-                        <h3 style="margin-bottom: 15px; font-size: 1.5rem;">Belum Ada Konten</h3>
-                        <p>Konten untuk kategori ini sedang dalam pengembangan. Silakan pilih kategori lain.</p>
+                        <h3 style="margin-bottom: 15px; font-size: 1.5rem;">Konten Tidak Ditemukan</h3>
+                        <p>Tidak ada konten yang sesuai dengan pencarian Anda. Silakan coba kata kunci lain.</p>
                     </div>
                 `;
                 return;
@@ -1463,22 +1788,21 @@ Sudut Istimewa:
             card.className = 'content-card fade-in';
             
             const thumbnailClass = getThumbnailClass(currentMode);
-            const icon = getIcon(currentMode);
             const metaInfo = getMetaInfo(item, currentMode);
             
             card.innerHTML = `
                 <div class="content-thumbnail ${thumbnailClass}">
-                    <img src="${item.thumbnail}" alt="${item.title} Thumbnail" class="img-thumbnail">
+                    <img src="${item.thumbnail || 'https://images.unsplash.com/photo-1519730722595-a5ff788dea4d?q=80&w=1470&auto=format&fit=crop'}" alt="${item.title}">
+                    ${item.premium ? '<div class="premium-badge">PREMIUM</div>' : ''}
                 </div>
                 <div class="content-info">
                     <h4>${item.title}</h4>
                     <p>${item.description}</p>
-                    ${item.instructor ? `<div class="instructor-info">👨‍🏫 ${item.instructor}</div>` : ''}
+                    ${item.instructor ? `<div class="instructor-info"><i class="fas fa-user"></i> ${item.instructor}</div>` : ''}
                     <div class="content-meta">
                         <span>${metaInfo}</span>
-                        <span class="difficulty ${item.difficulty}">${item.difficulty.toUpperCase()}</span>
                     </div>
-                    <button class="btn" onclick="openContent('${item.subject}', '${item.title.replace(/'/g, "\\'")}')">
+                    <button class="btn" onclick="openContent('${item.id}')">
                         ${getActionText(currentMode)}
                     </button>
                 </div>
@@ -1496,48 +1820,43 @@ Sudut Istimewa:
             }
         }
 
-        function getIcon(mode) {
-            switch(mode) {
-                case 'video': return '🎥';
-                case 'quiz': return '🧠';
-                case 'material': return '📚';
-                default: return '📄';
-            }
-        }
-
         function getMetaInfo(item, mode) {
             switch(mode) {
-                case 'video': return `⏱️ ${item.duration || 'Durasi tidak tersedia'}`;
-                case 'quiz': return `📝 ${item.questions || 'Jumlah soal tidak tersedia'}`;
-                case 'material': return `📄 ${item.pages || 'Halaman tidak tersedia'}`;
+                case 'video': return `<i class="fas fa-clock"></i> ${item.duration || 'Durasi tidak tersedia'}`;
+                case 'quiz': return `<i class="fas fa-list"></i> ${item.questions || 'Jumlah soal tidak tersedia'}`;
+                case 'material': return `<i class="fas fa-file"></i> ${item.pages || 'Halaman tidak tersedia'}`;
                 default: return '';
             }
         }
 
         function getActionText(mode) {
             switch(mode) {
-                case 'video': return '🎬 Tonton Video';
-                case 'quiz': return '🚀 Mulai Kuis';
-                case 'material': return '📖 Baca Materi';
+                case 'video': return '<i class="fas fa-play"></i> Tonton Video';
+                case 'quiz': return '<i class="fas fa-play"></i> Mulai Kuis';
+                case 'material': return '<i class="fas fa-book-open"></i> Baca Materi';
                 default: return 'Lihat Detail';
             }
         }
 
-        function openContent(subject, title) {
-            const modeData = contentData[currentMode];
-            const subjectData = modeData[subject];
-            const content = subjectData ? subjectData.find(item => item.title === title) : null;
+        function openContent(contentId) {
+            const content = filteredContent.find(item => item.id === contentId);
             
             if (!content) return;
             
             currentContent = content;
+            
+            // Check if content is premium
+            if (content.premium) {
+                showPremiumPopup();
+                return;
+            }
             
             switch(currentMode) {
                 case 'video':
                     openVideoPlayer(content);
                     break;
                 case 'quiz':
-                    openQuiz(content);
+                    openQuizSetup(content);
                     break;
                 case 'material':
                     openMaterial(content);
@@ -1554,31 +1873,33 @@ Sudut Istimewa:
             document.getElementById('videoDescription').textContent = content.description;
             document.getElementById('videoInfoTitle').textContent = content.title;
             document.getElementById('videoInfoDescription').textContent = content.description;
-            document.getElementById('videoInstructor').textContent = `👨‍🏫 ${content.instructor}`;
-            document.getElementById('videoDuration').textContent = `⏱️ ${content.duration}`;
-            document.getElementById('videoDifficulty').innerHTML = `<span class="difficulty ${content.difficulty}">${content.difficulty.toUpperCase()}</span>`;
+            document.getElementById('videoInstructor').innerHTML = `<i class="fas fa-user"></i> ${content.instructor}`;
+            document.getElementById('videoDuration').innerHTML = `<i class="fas fa-clock"></i> ${content.duration}`;
+            
+            // Set video source
+            const videoElement = document.getElementById('videoElement');
+            videoElement.src = content.videoSrc || 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
             
             // Initialize video
             initializeVideo();
         }
 
         function initializeVideo() {
-            videoElement = document.getElementById('videoElement');
+            const videoElement = document.getElementById('videoElement');
+            const playPauseBtn = document.getElementById('playPauseBtn');
             
             if (videoElement) {
                 videoElement.addEventListener('loadedmetadata', () => {
-                    duration = videoElement.duration;
                     updateVideoProgress();
+                    updateVolumeSlider();
                 });
                 
                 videoElement.addEventListener('timeupdate', () => {
-                    currentTime = videoElement.currentTime;
                     updateVideoProgress();
                 });
                 
                 videoElement.addEventListener('ended', () => {
-                    isPlaying = false;
-                    document.getElementById('playPauseBtn').textContent = '▶';
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
                 });
                 
                 // Load the video
@@ -1587,92 +1908,196 @@ Sudut Istimewa:
         }
 
         function togglePlay() {
+            const videoElement = document.getElementById('videoElement');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            
             if (!videoElement) return;
             
-            if (isPlaying) {
-                videoElement.pause();
-                document.getElementById('playPauseBtn').textContent = '▶';
-            } else {
+            if (videoElement.paused) {
                 videoElement.play();
-                document.getElementById('playPauseBtn').textContent = '⏸';
-            }
-            isPlaying = !isPlaying;
-        }
-
-        function pauseVideo() {
-            if (videoElement && isPlaying) {
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
                 videoElement.pause();
-                isPlaying = false;
-                document.getElementById('playPauseBtn').textContent = '▶';
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
             }
         }
 
         function skipTime(seconds) {
+            const videoElement = document.getElementById('videoElement');
             if (!videoElement) return;
             
-            videoElement.currentTime = Math.max(0, Math.min(duration, videoElement.currentTime + seconds));
+            videoElement.currentTime = Math.max(0, Math.min(videoElement.duration, videoElement.currentTime + seconds));
         }
 
         function seekVideo(event) {
-            if (!videoElement) return;
+            const videoElement = document.getElementById('videoElement');
+            if (!videoElement || !videoElement.duration) return;
             
             const progressBar = event.currentTarget;
             const rect = progressBar.getBoundingClientRect();
             const clickX = event.clientX - rect.left;
             const percentage = clickX / rect.width;
-            videoElement.currentTime = percentage * duration;
+            videoElement.currentTime = percentage * videoElement.duration;
         }
 
         function changeSpeed(rate) {
+            const videoElement = document.getElementById('videoElement');
             if (!videoElement) return;
             
             videoElement.playbackRate = parseFloat(rate);
         }
 
-        function updateVideoProgress() {
-            if (!videoElement || duration === 0) return;
+        function toggleMute() {
+            const videoElement = document.getElementById('videoElement');
+            const muteBtn = document.getElementById('muteBtn');
+            const volumeSlider = document.getElementById('volumeSlider');
             
-            const progress = (currentTime / duration) * 100;
-            document.getElementById('progressFill').style.width = `${progress}%`;
-            document.getElementById('timeDisplay').textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+            if (!videoElement) return;
+            
+            videoElement.muted = !videoElement.muted;
+            
+            if (videoElement.muted) {
+                muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                volumeSlider.value = 0;
+            } else {
+                muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                volumeSlider.value = videoElement.volume;
+            }
+            updateVolumeSlider();
+        }
+
+        function changeVolume(value) {
+            const videoElement = document.getElementById('videoElement');
+            const muteBtn = document.getElementById('muteBtn');
+            
+            if (!videoElement) return;
+            
+            videoElement.volume = parseFloat(value);
+            videoElement.muted = (value == 0);
+            
+            if (videoElement.muted || value == 0) {
+                muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+            updateVolumeSlider();
+        }
+
+        function updateVolumeDisplay(value) {
+            updateVolumeSlider();
+        }
+
+        function updateVolumeSlider() {
+            const videoElement = document.getElementById('videoElement');
+            const volumeSlider = document.getElementById('volumeSlider');
+            
+            if (!videoElement || !volumeSlider) return;
+            
+            const volume = videoElement.muted ? 0 : videoElement.volume;
+            const percentage = volume * 100;
+            
+            // Update slider background to show filled portion
+            volumeSlider.style.background = `linear-gradient(to right, var(--secondary-color) 0%, var(--secondary-color) ${percentage}%, rgba(255,255,255,0.3) ${percentage}%, rgba(255,255,255,0.3) 100%)`;
+        }
+
+        function toggleFullscreen() {
+            const videoContainer = document.getElementById('videoPlayerContainer');
+            const fullscreenBtn = document.querySelector('.fullscreen-btn i');
+            
+            if (!document.fullscreenElement) {
+                if (videoContainer.requestFullscreen) {
+                    videoContainer.requestFullscreen();
+                } else if (videoContainer.webkitRequestFullscreen) {
+                    videoContainer.webkitRequestFullscreen();
+                } else if (videoContainer.msRequestFullscreen) {
+                    videoContainer.msRequestFullscreen();
+                }
+                fullscreenBtn.className = 'fas fa-compress';
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                fullscreenBtn.className = 'fas fa-expand';
+            }
+        }
+
+        // Listen for fullscreen changes
+        document.addEventListener('fullscreenchange', () => {
+            const fullscreenBtn = document.querySelector('.fullscreen-btn i');
+            if (document.fullscreenElement) {
+                fullscreenBtn.className = 'fas fa-compress';
+            } else {
+                fullscreenBtn.className = 'fas fa-expand';
+            }
+        });
+
+        function updateVideoProgress() {
+            const videoElement = document.getElementById('videoElement');
+            if (!videoElement) return;
+            
+            const progressFill = document.getElementById('progressFill');
+            const timeDisplay = document.getElementById('timeDisplay');
+            
+            const currentTime = videoElement.currentTime;
+            const duration = videoElement.duration;
+            
+            if (duration > 0) {
+                const progress = (currentTime / duration) * 100;
+                progressFill.style.width = `${progress}%`;
+                timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+            }
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs.toString().padStart(2, '0')}`;
         }
 
         // Quiz Functions
-        function openQuiz(content) {
-            homePage.classList.add('hidden');
-            quizPage.classList.remove('hidden');
-            
+        function openQuizSetup(content) {
             currentQuiz = content;
-            currentQuestionIndex = 0;
-            quizAnswers = [];
-            
-            // Show quiz start screen
-            document.getElementById('quizStart').classList.remove('hidden');
-            document.getElementById('quizQuestions').classList.add('hidden');
-            document.getElementById('quizResults').classList.add('hidden');
-            
-            // Populate quiz info
             document.getElementById('quizTitle').textContent = content.title;
             document.getElementById('quizDescription').textContent = content.description;
-            document.getElementById('quizStartTitle').textContent = content.title;
-            document.getElementById('quizStartDescription').textContent = content.description;
-            document.getElementById('quizQuestionCount').textContent = content.questionsData ? content.questionsData.length : content.questions.split(' ')[0];
+            
+            // Update quiz info
+            document.getElementById('quizQuestionCount').textContent = content.questions;
             document.getElementById('quizTimeLimit').textContent = content.timeLimit;
-            document.getElementById('quizDifficultyLevel').textContent = content.difficulty.toUpperCase();
+            document.getElementById('quizDifficulty').textContent = content.difficulty;
+            
+            quizSetupPopup.classList.add('active');
+        }
+
+        function closeQuizSetup() {
+            quizSetupPopup.classList.remove('active');
         }
 
         function startQuiz() {
-            if (!currentQuiz.questionsData) {
-                alert('Soal untuk kuis ini belum tersedia. Silakan pilih kuis lain.');
-                return;
-            }
+            if (!currentQuiz) return;
             
-            document.getElementById('quizStart').classList.add('hidden');
-            document.getElementById('quizQuestions').classList.remove('hidden');
+            closeQuizSetup();
             
-            // Set timer
-            const timeLimit = parseInt(currentQuiz.timeLimit.split(' ')[0]);
-            quizTimeLeft = timeLimit * 60; // Convert to seconds
+            // Initialize quiz
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            
+            // Parse time limit (convert "30 menit" to seconds)
+            const timeMatch = currentQuiz.timeLimit.match(/(\d+)/);
+            quizTimeLeft = timeMatch ? parseInt(timeMatch[1]) * 60 : 1800; // Default 30 minutes
+            
+            // Show quiz page
+            homePage.classList.add('hidden');
+            quizPage.classList.remove('hidden');
+            
+            // Hide results and show quiz container
+            document.getElementById('quizContainer').classList.remove('hidden');
+            document.getElementById('quizResults').classList.add('hidden');
+            
+            // Start timer
             startQuizTimer();
             
             // Load first question
@@ -1680,82 +2105,61 @@ Sudut Istimewa:
         }
 
         function startQuizTimer() {
+            const timerElement = document.getElementById('quizTimer');
+            
             quizTimer = setInterval(() => {
                 quizTimeLeft--;
-                updateQuizTimer();
+                
+                const minutes = Math.floor(quizTimeLeft / 60);
+                const seconds = quizTimeLeft % 60;
+                timerElement.textContent = `Waktu: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
                 
                 if (quizTimeLeft <= 0) {
+                    clearInterval(quizTimer);
                     finishQuiz();
                 }
             }, 1000);
         }
 
-        function stopQuizTimer() {
-            if (quizTimer) {
-                clearInterval(quizTimer);
-                quizTimer = null;
-            }
-        }
-
-        function updateQuizTimer() {
-            const minutes = Math.floor(quizTimeLeft / 60);
-            const seconds = quizTimeLeft % 60;
-            document.getElementById('quizTimer').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-        }
-
         function loadQuestion() {
-            const question = currentQuiz.questionsData[currentQuestionIndex];
+            const question = currentQuiz.questionsList[currentQuestionIndex];
             
-            document.getElementById('currentQuestionNumber').textContent = currentQuestionIndex + 1;
-            document.getElementById('totalQuestions').textContent = currentQuiz.questionsData.length;
             document.getElementById('questionText').textContent = question.question;
+            document.getElementById('quizProgress').textContent = `Soal ${currentQuestionIndex + 1} dari ${currentQuiz.questionsList.length}`;
             
-            // Update progress
-            const progress = ((currentQuestionIndex + 1) / currentQuiz.questionsData.length) * 100;
-            document.getElementById('quizProgressFill').style.width = `${progress}%`;
-            
-            // Load options
             const optionsContainer = document.getElementById('optionsContainer');
             optionsContainer.innerHTML = '';
             
             question.options.forEach((option, index) => {
-                const optionDiv = document.createElement('div');
-                optionDiv.className = 'option';
-                optionDiv.onclick = () => selectOption(index);
-                
-                const currentAnswer = quizAnswers.find(a => a.questionIndex === currentQuestionIndex);
-                if (currentAnswer && currentAnswer.selectedOption === index) {
-                    optionDiv.classList.add('selected');
-                }
-                
-                optionDiv.innerHTML = `
-                    <div class="option-radio"></div>
-                    <span>${option}</span>
-                `;
-                
-                optionsContainer.appendChild(optionDiv);
+                const optionBtn = document.createElement('button');
+                optionBtn.className = 'option-btn';
+                optionBtn.textContent = option;
+                optionBtn.onclick = () => selectOption(index);
+                optionsContainer.appendChild(optionBtn);
             });
             
             // Update navigation buttons
             document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-            document.getElementById('nextBtn').textContent = currentQuestionIndex === currentQuiz.questionsData.length - 1 ? '🏁 Selesai' : 'Selanjutnya ➡';
+            document.getElementById('nextBtn').textContent = currentQuestionIndex === currentQuiz.questionsList.length - 1 ? 'Selesai' : 'Selanjutnya';
+            
+            // Restore previous answer if exists
+            if (userAnswers[currentQuestionIndex] !== undefined) {
+                const selectedOption = optionsContainer.children[userAnswers[currentQuestionIndex]];
+                if (selectedOption) {
+                    selectedOption.classList.add('selected');
+                }
+            }
         }
 
         function selectOption(optionIndex) {
-            // Remove previous selection for this question
-            quizAnswers = quizAnswers.filter(a => a.questionIndex !== currentQuestionIndex);
+            // Remove previous selection
+            document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
             
-            // Add new selection
-            quizAnswers.push({
-                questionIndex: currentQuestionIndex,
-                selectedOption: optionIndex,
-                isCorrect: optionIndex === currentQuiz.questionsData[currentQuestionIndex].correctAnswer
-            });
+            // Add selection to clicked option
+            document.querySelectorAll('.option-btn')[optionIndex].classList.add('selected');
             
-            // Update UI
-            document.querySelectorAll('.option').forEach((option, index) => {
-                option.classList.toggle('selected', index === optionIndex);
-            });
+            // Store answer
+            userAnswers[currentQuestionIndex] = optionIndex;
         }
 
         function previousQuestion() {
@@ -1766,7 +2170,7 @@ Sudut Istimewa:
         }
 
         function nextQuestion() {
-            if (currentQuestionIndex < currentQuiz.questionsData.length - 1) {
+            if (currentQuestionIndex < currentQuiz.questionsList.length - 1) {
                 currentQuestionIndex++;
                 loadQuestion();
             } else {
@@ -1775,184 +2179,136 @@ Sudut Istimewa:
         }
 
         function finishQuiz() {
-            stopQuizTimer();
+            // Stop timer
+            if (quizTimer) {
+                clearInterval(quizTimer);
+                quizTimer = null;
+            }
             
-            document.getElementById('quizQuestions').classList.add('hidden');
-            document.getElementById('quizResults').classList.remove('hidden');
+            // Calculate score
+            let correctAnswers = 0;
+            currentQuiz.questionsList.forEach((question, index) => {
+                if (userAnswers[index] === question.answer) {
+                    correctAnswers++;
+                }
+            });
             
-            // Calculate results
-            const correctAnswers = quizAnswers.filter(a => a.isCorrect).length;
-            const totalQuestions = currentQuiz.questionsData.length;
+            const totalQuestions = currentQuiz.questionsList.length;
+            const incorrectAnswers = totalQuestions - correctAnswers;
             const score = Math.round((correctAnswers / totalQuestions) * 100);
             
-            // Display results
-            document.getElementById('finalScore').textContent = `${score}%`;
-            document.getElementById('finalScore').className = `score-display ${
-                score >= 80 ? 'score-excellent' : score >= 60 ? 'score-good' : 'score-poor'
-            }`;
+            // Hide quiz container and show results
+            document.getElementById('quizContainer').classList.add('hidden');
+            document.getElementById('quizResults').classList.remove('hidden');
             
-            const message = score >= 80 ? 'Excellent! Kamu sangat menguasai materi ini.' :
-                           score >= 60 ? 'Good! Kamu cukup menguasai materi ini.' :
-                           'Keep Learning! Terus belajar untuk hasil yang lebih baik.';
+            // Update score display
+            const scoreCircle = document.getElementById('scoreCircle');
+            const scoreText = document.getElementById('scoreText');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultMessage = document.getElementById('resultMessage');
             
-            document.getElementById('scoreMessage').textContent = message;
+            scoreText.textContent = `${score}%`;
+            scoreCircle.style.setProperty('--score-angle', `${(score / 100) * 360}deg`);
             
-            document.getElementById('correctAnswers').textContent = correctAnswers;
-            document.getElementById('wrongAnswers').textContent = totalQuestions - correctAnswers;
-            document.getElementById('totalQuestionsResult').textContent = totalQuestions;
+            // Update result summary
+            document.getElementById('correctCount').textContent = correctAnswers;
+            document.getElementById('incorrectCount').textContent = incorrectAnswers;
+            
+            if (score >= 80) {
+                resultTitle.textContent = 'Excellent!';
+                resultMessage.textContent = 'Selamat! Anda memiliki pemahaman yang sangat baik.';
+            } else if (score >= 60) {
+                resultTitle.textContent = 'Good Job!';
+                resultMessage.textContent = 'Bagus! Terus tingkatkan pemahaman Anda.';
+            } else {
+                resultTitle.textContent = 'Keep Learning!';
+                resultMessage.textContent = 'Jangan menyerah! Terus belajar untuk hasil yang lebih baik.';
+            }
         }
 
-        function restartQuiz() {
-            currentQuestionIndex = 0;
-            quizAnswers = [];
-            startQuiz();
+        function showReviewAnswers() {
+            const reviewContainer = document.getElementById('answerReview');
+            reviewContainer.classList.remove('hidden');
+            reviewContainer.innerHTML = '<h3 style="margin-bottom: 20px; color: var(--text-light-primary);">Pembahasan Soal</h3>';
+            
+            currentQuiz.questionsList.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === question.answer;
+                
+                const answerItem = document.createElement('div');
+                answerItem.className = `answer-item ${isCorrect ? '' : 'incorrect'}`;
+                answerItem.style.cssText = `
+                    background: ${isCorrect ? 'rgba(39, 174, 96, 0.1)' : 'rgba(231, 76, 60, 0.1)'};
+                    border-radius: var(--border-radius);
+                    padding: 20px;
+                    margin-bottom: 15px;
+                    border-left: 4px solid ${isCorrect ? '#27ae60' : '#e74c3c'};
+                `;
+                
+                answerItem.innerHTML = `
+                    <div style="font-weight: 600; margin-bottom: 10px; color: var(--text-light-primary);">
+                        ${index + 1}. ${question.question}
+                    </div>
+                    <div style="font-size: 0.9rem; color: var(--text-light-secondary); margin-bottom: 10px;">
+                        <strong>Jawaban Anda:</strong> ${userAnswer !== undefined ? question.options[userAnswer] : 'Tidak dijawab'}<br>
+                        <strong>Jawaban Benar:</strong> ${question.options[question.answer]}
+                    </div>
+                    <div style="margin-top: 10px; padding: 10px; background: rgba(0, 0, 0, 0.2); border-radius: 6px; font-style: italic;">
+                        <strong>Penjelasan:</strong> ${question.explanation}
+                    </div>
+                `;
+                
+                reviewContainer.appendChild(answerItem);
+            });
         }
 
-        // Material Reader Functions
+        function retakeQuiz() {
+            openQuizSetup(currentQuiz);
+        }
+
+        // Material Functions
         function openMaterial(content) {
             homePage.classList.add('hidden');
             materialPage.classList.remove('hidden');
             
-            currentMaterial = content;
-            currentMaterialPage = 0;
-            readingTime = 0;
-            
-            // Populate material info
             document.getElementById('materialTitle').textContent = content.title;
             document.getElementById('materialDescription').textContent = content.description;
-            document.getElementById('materialContentTitle').textContent = content.title;
-            document.getElementById('materialContentDescription').textContent = content.description;
-            document.getElementById('materialPages').textContent = `📄 ${content.pages}`;
-            document.getElementById('materialFormat').textContent = `💾 ${content.format}`;
-            document.getElementById('materialDifficulty').innerHTML = `<span class="difficulty ${content.difficulty}">${content.difficulty.toUpperCase()}</span>`;
+            document.getElementById('materialInfoTitle').textContent = content.title;
             
-            // Load table of contents
-            loadTableOfContents();
-            
-            // Load first page
-            loadMaterialPage();
+            // Set material content
+            const materialContent = document.getElementById('materialContent');
+            materialContent.innerHTML = content.content;
             
             // Start reading timer
+            readingTime = 0;
             startReadingTimer();
         }
 
-        function loadTableOfContents() {
-            const tocContainer = document.getElementById('materialToc');
-            tocContainer.innerHTML = '';
-            
-            currentMaterial.content.forEach((page, index) => {
-                const tocItem = document.createElement('button');
-                tocItem.className = 'toc-item';
-                tocItem.textContent = page.title;
-                tocItem.onclick = () => goToMaterialPage(index);
-                
-                if (index === currentMaterialPage) {
-                    tocItem.classList.add('active');
-                }
-                
-                tocContainer.appendChild(tocItem);
-            });
-        }
-
-        function loadMaterialPage() {
-            const page = currentMaterial.content[currentMaterialPage];
-            
-            document.getElementById('materialText').innerHTML = `
-                <h3>${page.title}</h3>
-                ${page.content.split('\n\n').map(paragraph => `<p>${paragraph}</p>`).join('')}
-            `;
-            
-            // Update navigation
-            document.getElementById('prevPageBtn').disabled = currentMaterialPage === 0;
-            document.getElementById('nextPageBtn').disabled = currentMaterialPage === currentMaterial.content.length - 1;
-            
-            // Update page indicators
-            document.getElementById('currentPage').textContent = currentMaterialPage + 1;
-            document.getElementById('totalPages').textContent = currentMaterial.content.length;
-            document.getElementById('pageIndicator').textContent = currentMaterialPage + 1;
-            document.getElementById('totalPagesIndicator').textContent = currentMaterial.content.length;
-            
-            // Update progress
-            const progress = Math.round(((currentMaterialPage + 1) / currentMaterial.content.length) * 100);
-            document.getElementById('readingProgress').textContent = progress;
-            
-            // Update TOC
-            document.querySelectorAll('.toc-item').forEach((item, index) => {
-                item.classList.toggle('active', index === currentMaterialPage);
-            });
-        }
-
-        function goToMaterialPage(pageIndex) {
-            currentMaterialPage = pageIndex;
-            loadMaterialPage();
-        }
-
-        function previousPage() {
-            if (currentMaterialPage > 0) {
-                currentMaterialPage--;
-                loadMaterialPage();
-            }
-        }
-
-        function nextPage() {
-            if (currentMaterialPage < currentMaterial.content.length - 1) {
-                currentMaterialPage++;
-                loadMaterialPage();
-            }
-        }
-
         function startReadingTimer() {
+            const timerElement = document.getElementById('readingTimer');
+            
             readingTimer = setInterval(() => {
                 readingTime++;
-                updateReadingTime();
+                
+                const minutes = Math.floor(readingTime / 60);
+                const seconds = readingTime % 60;
+                timerElement.textContent = `Waktu Baca: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
             }, 1000);
         }
 
-        function stopReadingTimer() {
-            if (readingTimer) {
-                clearInterval(readingTimer);
-                readingTimer = null;
-            }
+        // Premium Functions
+        function showPremiumPopup() {
+            premiumPopup.classList.add('active');
         }
 
-        function updateReadingTime() {
-            const minutes = Math.floor(readingTime / 60);
-            const seconds = readingTime % 60;
-            document.getElementById('readingTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-        }
-
-        // Utility Functions
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${minutes}:${secs.toString().padStart(2, '0')}`;
+        function closePremiumPopup() {
+            premiumPopup.classList.remove('active');
         }
 
         // Initialize
-        window.addEventListener('load', function() {
+        window.addEventListener('load', async function() {
+            await loadContentData();
             showHomePage();
-        });
-
-        // Add smooth scrolling
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add fade-in animation to elements
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all content cards
-            document.querySelectorAll('.content-card').forEach(card => {
-                observer.observe(card);
-            });
         });
     </script>
 </body>
