@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <style>
 
  
@@ -901,59 +902,8 @@
         }
 
         /* Responsive Styles */
-        @media (max-width: 992px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 80px;
-                flex-direction: column;
-                background: var(--bg-dark-secondary);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 20px 0;
-                gap: 20px;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-        }
 
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .page-title-section {
-                padding: 80px 0 60px;
-            }
-
-            .page-title-section h1 {
-                font-size: 2.5rem;
-            }
-
-            .page-title-section p {
-                font-size: 1rem;
-            }
-
             .video-element {
                 height: 300px;
             }
