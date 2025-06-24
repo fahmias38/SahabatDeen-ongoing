@@ -2,55 +2,70 @@
   "video": {
     "quran-hadis": [
       {
-        "title": "Tafsir Surat Al-Fatihah",
-        "description": "Penjelasan mendalam tentang makna dan tafsir surat pembuka Al-Quran",
-        "duration": "45 menit",
-        "instructor": "Ustadz Ahmad Husein",
-        "thumbnail": "https://images.unsplash.com/photo-1519730722595-a5ff788dea4d?q=80&w=1470&auto=format&fit=crop",
-        "premium": true,
-        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        "title": "Cara Memahami Hadist dan Al-Qur'an",
+        "description": "Dalam memahami Al Qur'an dan Hadits tidak hanya kita menerjemahkannya saja ke dalam bahasa Indonesia akan tetapi kita memerlukan alat. Apakah alat tersebut? Mari kita dengarkan langsung Tausiahnya dari guru kita Buya Yahya...",
+        "duration": "4 menit",
+        "instructor": "Ustadz Buya Yahya",
+        "thumbnail": "Galeri/caramemahami.png",
+        "videoSrc": "Galeri/caramemahami.mp4"
       },
       {
-        "title": "Memahami Hadis Shahih",
-        "description": "Cara membedakan hadis shahih, hasan, dan dhaif",
-        "duration": "35 menit",
-        "instructor": "Ustadzah Fatimah Azzahra",
-        "thumbnail": "https://images.unsplash.com/photo-1601747806122-1c5f39c60a70?q=80&w=1470&auto=format&fit=crop",
-        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+        "title": "Hukum Nun Mati Dan Tanwin (Idzhar, Idgham, Iqlab, Ikhfa')",
+        "description": "Cara membedakan tiap hukum nun mati dan tanwin secara mudah di video ini.",
+        "duration": "12 menit",
+        "instructor": "ALMUSTARI",
+        "thumbnail": "Galeri/nunmatidantanwin.png",
+        "videoSrc": "https://youtu.be/ueeOya8FxQU?si=lQNE7c_Z6PPyGGvh"
       },
       {
-        "title": "Keutamaan Membaca Al-Quran",
-        "description": "Pahala dan keutamaan membaca Al-Quran dalam kehidupan sehari-hari",
-        "duration": "28 menit",
-        "instructor": "Ustadz Muhammad Quraish",
-        "thumbnail": "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?q=80&w=1470&auto=format&fit=crop",
-        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+        "title": "Cara Meyusun Kurikulum Hidup Berdasar Al-Quran",
+        "description": "Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH)",
+        "duration": "7 menit",
+        "instructor": "Ustadz Adi hidayat",
+        "thumbnail": "Galeri/kurikulumhidup.png",
+        "videoSrc": "https://youtu.be/-H4cjh1B9PI?si=jqyfiItyoLZcA80K"
+      },
+      {
+        "title": "Metodologi Memahami Hadis",
+        "description": "M/S 2&3 - Kaedah Asas Dalam Memahami Hadis Berdasarkan Konteks Al-Quran. NO.1 Makna Zahir Hadis Yang Bercanggah Dengan Nas-Nas Al-Quran (a) Hadis Tegahan Bernazar",
+        "duration": "1 jam 15 menit",
+        "instructor": "Dr Rozaimi Ramle",
+        "thumbnail": "Galeri/metodologihadis.png",
+        "premium":true,
+        "videoSrc": "https://youtu.be/4IqX0THtYaw?si=k2xG4htxjjLLK-i8"
+      },
+      {
+        "title": "Tafsir Surah Adh-Dhuha",
+        "description": "Dalam kajian kali ini, Ustadz Adi Hidayat akan membahas tafsir Surah Adh-Dhuha, salah satu surah yang memiliki makna mendalam dan penuh hikmah. Kajian ini dilaksanakan di Masjid Sultan Salahuddin Abdul Aziz Shah, Shah Alam, Selangor, Malaysia.",
+        "duration": "59 menit",
+        "instructor": "Ustadz Adi Hidayat",
+        "thumbnail": "Galeri/tafsirdhuha.png",
+        "videoSrc": "https://youtu.be/W7wZStf3iiE?si=s_RdbI2jlwwKdS39",
+        "premium":true
       }
     ],
-    "fiqih": [
+    "fiqih ibadah": [
       {
-        "title": "Panduan Sholat Lengkap",
-        "description": "Tata cara sholat yang benar sesuai sunnah Nabi Muhammad SAW",
-        "duration": "50 menit",
-        "instructor": "Ustadz Muhammad Yusuf",
-        "thumbnail": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1399&auto=format&fit=crop",
+        "title": "BACAAN SHOLAT | DARI TAKBIR SAMPAI SALAM SESUAI SUNNAH RASULULLAH SAW",
+        "description": "Yuk perbaiki bacaan sholat kita karena amalan yang pertama kali dihisab oleh Allah adalah sholat. jika baik sholat maka baik pula amalan yang lain begitu sebaliknya.",
+        "duration": "6 menit",
+        "instructor": "Ngaji Lagi Indonesia",
+        "thumbnail": "Galeri/bacaansholat.png",
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
       },
       {
-        "title": "Fiqih Puasa Ramadhan",
-        "description": "Hukum, syarat, dan tata cara puasa yang benar",
-        "duration": "42 menit",
-        "instructor": "Ustadz Abdul Rahman",
-        "thumbnail": "https://images.unsplash.com/photo-1573599855110-9d2d0d7a7b9d?q=80&w=1470&auto=format&fit=crop",
-        "premium": true,
-        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+        "title": "Tata Cara Umroh dan Bacaannya yang Benar",
+        "description": "Panduan lengkap tata cara umroh mulai dari niat, rukun, hingga doa-doa yang dibaca selama umroh. Video ini menjelaskan langkah-langkah umroh sesuai sunnah Rasulullah SAW.",
+        "duration": "8 menit",
+        "instructor": "Yufid TV",
+        "thumbnail": "Galeri/caraumroh.png",
+        "videoSrc": "Galeri/caraumroh.mp4"
       },
       {
         "title": "Zakat dan Infaq",
         "description": "Panduan lengkap tentang zakat, infaq, dan sedekah dalam Islam",
         "duration": "38 menit",
         "instructor": "Dr. Yusuf Mansur",
-        "thumbnail": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=1470&auto=format&fit=crop",
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
       }
     ],
@@ -60,7 +75,6 @@
         "description": "Perjalanan hidup Rasulullah dari lahir hingga wafat",
         "duration": "60 menit",
         "instructor": "Dr. Ali Shodiqin",
-        "thumbnail": "https://images.unsplash.com/photo-1591393223703-3fe2e2e3a1e3?q=80&w=1470&auto=format&fit=crop",
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
       },
       {
@@ -68,7 +82,6 @@
         "description": "Sejarah empat khalifah pertama setelah Rasulullah SAW",
         "duration": "55 menit",
         "instructor": "Prof. Dr. Hamka",
-        "thumbnail": "https://images.unsplash.com/photo-1564769625392-651b2c3c7e8b?q=80&w=1470&auto=format&fit=crop",
         "premium": true,
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
       }
@@ -79,7 +92,6 @@
         "description": "Penjelasan mendalam tentang dasar-dasar keimanan",
         "duration": "40 menit",
         "instructor": "Ustadz Ibrahim Khalil",
-        "thumbnail": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1480&auto=format&fit=crop",
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"
       },
       {
@@ -87,7 +99,6 @@
         "description": "Pembentukan karakter dan akhlak yang baik menurut ajaran Islam",
         "duration": "45 menit",
         "instructor": "Ustadzah Aisyah Abdurrahman",
-        "thumbnail": "https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1470&auto=format&fit=crop",
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
       }
     ],
@@ -97,7 +108,6 @@
         "description": "Belajar bahasa Arab untuk pemahaman Al-Quran",
         "duration": "30 menit",
         "instructor": "Ustadz Fahmi Bahreisy",
-        "thumbnail": "https://images.unsplash.com/photo-1518331483807-f6adb0e1ad23?q=80&w=1470&auto=format&fit=crop",
         "premium": true,
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4"
       },
@@ -106,7 +116,6 @@
         "description": "Ilmu tata bahasa Arab untuk memahami struktur kalimat",
         "duration": "48 menit",
         "instructor": "Dr. Ahmad Warson Munawwir",
-        "thumbnail": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1470&auto=format&fit=crop",
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"
       }
     ],
@@ -116,7 +125,6 @@
         "description": "Teknik membaca Al-Quran dengan benar sesuai tajwid",
         "duration": "55 menit",
         "instructor": "Ustadz Mahmud Al-Hafiz",
-        "thumbnail": "https://images.unsplash.com/photo-1519730722595-a5ff788dea4d?q=80&w=1470&auto=format&fit=crop",
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
       },
       {
@@ -124,7 +132,6 @@
         "description": "Tempat keluarnya huruf-huruf hijaiyah yang benar",
         "duration": "35 menit",
         "instructor": "Qari Haji Muammar ZA",
-        "thumbnail": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1470&auto=format&fit=crop",
         "premium": true,
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       }
@@ -135,7 +142,6 @@
         "description": "Doa-doa penting dalam kehidupan sehari-hari",
         "duration": "25 menit",
         "instructor": "Ustadzah Aisyah Nur",
-        "thumbnail": "https://images.unsplash.com/photo-1519730722595-a5ff788dea4d?q=80&w=1470&auto=format&fit=crop",
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
       },
       {
@@ -143,7 +149,6 @@
         "description": "Amalan dzikir yang dianjurkan di pagi dan petang hari",
         "duration": "32 menit",
         "instructor": "Ustadz Khalid Basalamah",
-        "thumbnail": "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?q=80&w=1470&auto=format&fit=crop",
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
       }
     ]
@@ -151,114 +156,229 @@
   "quiz": {
     "quran-hadis": [
       {
-        "title": "Kuis Hafalan Surat Pendek",
-        "description": "Uji hafalan surat-surat pendek dalam Al-Quran",
-        "questions": "20 soal",
-        "timeLimit": "30 menit",
-        "difficulty": "Mudah",
-        "premium": true,
-        "questionsList": [
-          {
-            "question": "Apa arti dari 'Al-Fatihah'?",
-            "options": ["Pembukaan", "Penutup", "Pertengahan", "Lima"],
-            "answer": 0,
-            "explanation": "Al-Fatihah artinya adalah pembukaan, karena merupakan surat pembuka dalam Al-Quran."
-          },
-          {
-            "question": "Surat apakah yang disebut sebagai Ummul Kitab?",
-            "options": ["Al-Ikhlas", "Al-Falaq", "Al-Fatihah", "An-Nas"],
-            "answer": 2,
-            "explanation": "Surat Al-Fatihah disebut sebagai Ummul Kitab (induk Al-Quran) karena mengandung intisari seluruh ajaran Al-Quran."
-          },
-          {
-            "question": "Berapa jumlah ayat dalam surat Al-Kautsar?",
-            "options": ["3 ayat", "5 ayat", "7 ayat", "9 ayat"],
-            "answer": 0,
-            "explanation": "Surat Al-Kautsar terdiri dari 3 ayat dan merupakan surat terpendek dalam Al-Quran."
-          },
-          {
-            "question": "Apa arti dari 'Al-Ikhlas'?",
-            "options": ["Keikhlasan", "Kebenaran", "Keadilan", "Kebijaksanaan"],
-            "answer": 0,
-            "explanation": "Al-Ikhlas berarti keikhlasan, yang mengajarkan tentang keesaan Allah SWT."
-          },
-          {
-            "question": "Surat An-Nas termasuk dalam golongan surat?",
-            "options": ["Makkiyah", "Madaniyah", "Mu'awwidzatain", "Musabbihat"],
-            "answer": 2,
-            "explanation": "Surat An-Nas termasuk dalam Mu'awwidzatain (dua surat perlindungan) bersama Al-Falaq."
+      "title": "Pemahaman Tajwid Al-Qur’an – Teori dan Aplikasi",
+      "description": "Dalam kuis ini, kamu akan diuji pemahamanmu terhadap konsep dasar hingga penerapan tajwid dalam bacaan Al-Qur’an.",
+      "questions": "10 soal",
+      "timeLimit": "5 menit",
+      "difficulty": "Sedang",
+      "questionsList": [
+        {
+        "question": "Ilmu tajwid memiliki tujuan penting dalam membaca Al-Qur’an, salah satunya adalah menjaga lafaz agar tidak berubah makna. Apa pengertian tajwid secara bahasa?",
+        "options": [
+          "Memperindah bacaan",
+          "Menyempurnakan makhraj huruf",
+          "Mengeluarkan huruf dari tempatnya",
+          "Membaca dengan panjang pendek yang benar"
+        ],
+        "answer": 0,
+        "explanation": "Secara bahasa, tajwid berasal dari kata 'jawwada' yang artinya memperindah atau membaguskan bacaan."
+        },
+        {
+        "question": "Hukum nun sukun atau tanwin yang bertemu dengan huruf-huruf tertentu bisa dibaca dengan dengung atau tanpa dengung. Apa nama hukum tajwid ketika nun sukun atau tanwin bertemu dengan huruf mim atau nun?",
+        "options": [
+          "Idgham bilaghunnah",
+          "Ikhfa",
+          "Idgham bighunnah",
+          "Iqlab"
+        ],
+        "answer": 2,
+        "explanation": "Idgham bighunnah terjadi saat nun sukun atau tanwin bertemu dengan huruf ي, ن, م, و yang dibaca dengan dengung."
+        },
+        {
+        "question": "Pada ayat 'قَدْ أَفْلَحَ الْمُؤْمِنُونَ', hukum tajwid dari pertemuan huruf دْ dan أَ disebut sebagai apa?",
+        "options": [
+          "Idgham mutamatsilain",
+          "Idgham bila ghunnah",
+          "Idzhar halqi",
+          "Idgham ma’al ghunnah"
+        ],
+        "answer": 1,
+        "explanation": "Ketika nun sukun atau tanwin bertemu huruf lam atau ra, maka dibaca idgham bila ghunnah (tanpa dengung)."
+        },
+        {
+        "question": "Dalam hukum mad (panjang bacaan), ada istilah mad thabi’i dan mad far’i. Apa perbedaan utama antara keduanya?",
+        "options": [
+          "Mad thabi’i hanya untuk huruf hijaiyah berharakat fathah",
+          "Mad far’i terjadi karena sebab tertentu seperti sukun atau hamzah",
+          "Mad thabi’i harus dibaca lebih dari 6 harakat",
+          "Mad far’i tidak terdapat dalam mushaf"
+        ],
+        "answer": 1,
+        "explanation": "Mad far’i terjadi karena ada tambahan sebab, seperti adanya hamzah setelah huruf mad atau sukun karena waqaf."
+        },
+        {
+        "question": "Dalam bacaan Al-Qur’an, huruf ra (ر) terkadang dibaca tebal dan kadang tipis. Apa istilah untuk bacaan tebal pada huruf ra, dan kapan itu terjadi?",
+        "options": [
+          "Tafkhim, saat ra berharakat kasrah",
+          "Tarqiq, saat ra didahului huruf berharakat fathah",
+          "Tafkhim, saat ra berharakat fathah atau dhammah",
+          "Tarqiq, saat ra sukun setelah huruf qalqalah"
+        ],
+        "answer": 2,
+        "explanation": "Tafkhim adalah bacaan tebal, dilakukan saat ra berharakat fathah atau dhammah, atau sukun setelah huruf berharakat tebal."
+        },
+        {
+        "question": "Apa hukum bacaan dari lafaz 'مِنْ شَرِّ الْوَسْوَاسِ', di mana nun sukun bertemu huruf syin (ش)?",
+        "options": [
+          "Idzhar",
+          "Ikhfa",
+          "Idgham",
+          "Iqlab"
+        ],
+        "answer": 1,
+        "explanation": "Ikhfa terjadi saat nun sukun atau tanwin bertemu salah satu dari 15 huruf Ikhfa, termasuk huruf ش."
+        },
+        {
+        "question": "Huruf-huruf qalqalah memiliki sifat memantul saat dibaca sukun atau mati. Apa saja huruf-huruf qalqalah?",
+        "options": [
+          "ق ط ب ج د",
+          "ب ج د ت ض",
+          "ق ط ب د ج",
+          "ك ق ط ب د"
+        ],
+        "answer": 2,
+        "explanation": "Huruf qalqalah ada 5: ق ط ب د ج. Sifatnya memantul saat sukun, contohnya dalam kata 'أَحَدٌ'."
+        },
+        {
+        "question": "Apa nama hukum tajwid ketika mim sukun bertemu dengan mim, dan dibaca dengan dengung sambil menutup mulut?",
+        "options": [
+          "Ikhfa syafawi",
+          "Idgham mimi",
+          "Idzhar syafawi",
+          "Idgham mutajanisain"
+        ],
+        "answer": 1,
+        "explanation": "Idgham mimi terjadi saat mim sukun bertemu mim berharakat dan dibaca dengan dengung penuh."
+        },
+        {
+        "question": "Pada lafaz 'فِي قُلُوبِهِمْ مَرَضٌ', apa hukum bacaan dari huruf mim sukun sebelum mim berharakat?",
+        "options": [
+          "Idgham mimi",
+          "Idzhar halqi",
+          "Ikhfa hakiki",
+          "Iqlab"
+        ],
+        "answer": 0,
+        "explanation": "Karena mim sukun bertemu dengan mim berharakat, maka hukumnya adalah Idgham Mimi."
+        },
+        {
+        "question": "Mad aridh lissukun terjadi ketika huruf mad diikuti huruf yang sukun karena waqaf. Bagaimana panjang bacaan ini menurut tajwid?",
+        "options": [
+          "2 harakat",
+          "3, 4, atau 6 harakat",
+            "6 harakat saja",
+            "Sesuai panjang nafas pembaca"
+          ],
+          "answer": 1,
+          "explanation": "Mad aridh lissukun dibaca 2, 4, atau 6 harakat, tergantung pada irama pembaca dan konsistensi bacaannya."
           }
-        ]
-      },
-      {
-        "title": "Kuis Hadis Arba'in",
-        "description": "Tes pemahaman 40 hadis pilihan Imam An-Nawawi",
-        "questions": "15 soal",
-        "timeLimit": "25 menit",
-        "difficulty": "Sedang",
-        "questionsList": [
-          {
-            "question": "Siapa yang meriwayatkan hadis pertama dalam Arba'in An-Nawawi?",
-            "options": ["Umar bin Khattab", "Abu Bakar", "Ali bin Abi Thalib", "Anas bin Malik"],
-            "answer": 0,
-            "explanation": "Hadis pertama dalam Arba'in An-Nawawi diriwayatkan dari Umar bin Khattab tentang niat."
-          },
-          {
-            "question": "Apa bunyi hadis tentang niat?",
-            "options": ["إنما الأعمال بالنيات", "لا ضرر ولا ضرار", "الدين النصيحة", "من حسن إسلام المرء"],
-            "answer": 0,
-            "explanation": "Hadis tentang niat berbunyi: إنما الأعمال بالنيات (Sesungguhnya amal itu tergantung niatnya)."
-          },
-          {
-            "question": "Hadis 'الدين النصيحة' mengajarkan tentang?",
-            "options": ["Niat", "Nasihat", "Shalat", "Puasa"],
-            "answer": 1,
-            "explanation": "Hadis ini mengajarkan bahwa agama itu adalah nasihat (memberikan nasihat yang baik)."
-          }
-        ]
-      }
+          ]
+        },
+        {
+          "title": "Madaniyah atau Makkiyah? Tebak Asal Surah",
+          "description": "Kuis seru menebak apakah surah termasuk golongan Makkiyah atau Madaniyah.",
+          "questions": "17 soal",
+          "timeLimit": "20 menit",
+          "difficulty": "Mudah"
+        },
+        {
+          "title": "Makna di Balik Ayat-Ayat Al-Qur’an",
+          "description": "Kuis yang menguji pemahaman makna dan tafsir ayat populer.",
+          "questions": "25 soal",
+          "timeLimit": "40 menit",
+          "difficulty": "Sulit",
+          "premium": true
+        }
     ],
-    "fiqih": [
-      {
-        "title": "Kuis Fiqih Ibadah",
-        "description": "Soal-soal tentang fiqih sholat, puasa, dan zakat",
-        "questions": "25 soal",
-        "timeLimit": "35 menit",
-        "difficulty": "Mudah",
-        "questionsList": [
-          {
-            "question": "Apa hukum sholat Jumat bagi laki-laki muslim?",
-            "options": ["Sunnah", "Wajib", "Fardhu Kifayah", "Fardhu Ain"],
-            "answer": 3,
-            "explanation": "Sholat Jumat hukumnya fardhu ain (wajib bagi setiap individu) bagi laki-laki muslim yang telah memenuhi syarat."
-          },
-          {
-            "question": "Syarat wajib zakat fitrah adalah...",
-            "options": ["Kaya raya", "Memiliki harta lebih dari kebutuhan pokok pada hari raya", "Beragama Islam", "Semua jawaban benar"],
-            "answer": 3,
-            "explanation": "Syarat wajib zakat fitrah adalah beragama Islam, hidup sampai akhir bulan Ramadan, dan memiliki harta yang melebihi kebutuhan pokoknya pada hari raya."
-          },
-          {
-            "question": "Berapa rakaat sholat Maghrib?",
-            "options": ["2 rakaat", "3 rakaat", "4 rakaat", "5 rakaat"],
-            "answer": 1,
-            "explanation": "Sholat Maghrib terdiri dari 3 rakaat."
-          },
-          {
-            "question": "Kapan waktu berbuka puasa?",
-            "options": ["Saat azan Maghrib", "Setelah matahari terbenam", "Saat matahari mulai tenggelam", "Setelah azan Maghrib selesai"],
-            "answer": 1,
-            "explanation": "Waktu berbuka puasa adalah saat matahari terbenam, yang ditandai dengan masuknya waktu Maghrib."
-          }
-        ]
+  
+    "fiqih ibadah & muamalah": [
+        {
+          "title": "Fiqih dalam Beribadah",
+          "description": "Kuis ini menguji pemahaman mendalam tentang hukum-hukum fiqih dalam ibadah, seperti shalat, puasa, zakat, dan haji. Cocok untuk kamu yang sudah mempelajari fiqih tingkat lanjutan.",
+          "questions": "12 soal",
+          "timeLimit": "8 menit",
+          "difficulty": "Sulit",
+          "questionsList": [
+            {
+              "question": "Apa hukum membasuh sebagian anggota wudhu secara sengaja dan terus-menerus tanpa uzur?",
+              "options": ["Sah", "Makruh", "Batal wudhunya", "Sunnah"],
+              "answer": 2,
+              "explanation": "Wudhu menjadi batal jika tidak membasuh seluruh bagian wajib (seperti sebagian wajah saja), karena itu melanggar rukun wudhu."
+            },
+            {
+              "question": "Dalam shalat berjamaah, makmum masbuq yang datang saat ruku’ rakaat pertama, apakah ia mendapat satu rakaat penuh?",
+              "options": ["Tidak, karena tidak mengikuti takbiratul ihram", "Ya, karena sempat ikut ruku’ bersama imam", "Tidak, karena tidak sempat membaca Al-Fatihah", "Ya, jika langsung sujud setelahnya"],
+              "answer": 1,
+              "explanation": "Masbuq dianggap mendapatkan rakaat jika sempat ruku’ bersama imam, walaupun belum membaca Al-Fatihah."
+            },
+            {
+              "question": "Apa hukum puasa Ramadhan bagi orang yang melakukan perjalanan jauh tetapi tetap kuat dan tidak merasa berat?",
+              "options": ["Wajib berpuasa", "Boleh tidak puasa, tapi lebih utama berpuasa", "Haram berpuasa", "Boleh tidak puasa dan tidak wajib qadha"],
+              "answer": 1,
+              "explanation": "Boleh tidak berpuasa saat safar, tapi jika tidak memberatkan, lebih utama tetap berpuasa."
+            },
+            {
+              "question": "Dalam fiqih zakat, berapa nisab zakat emas dalam gram menurut mayoritas ulama?",
+              "options": ["85 gram", "100 gram", "77 gram", "90 gram"],
+              "answer": 0,
+              "explanation": "Mayoritas ulama menyepakati bahwa nisab emas setara dengan 20 dinar, yaitu sekitar 85 gram emas."
+            },
+            {
+              "question": "Apa hukum shalat ketika membawa najis kecil yang tidak diketahui sebelumnya dan baru disadari setelah selesai?",
+              "options": ["Wajib mengulang shalat", "Shalat tetap sah karena tidak tahu", "Batal otomatis", "Shalatnya makruh tapi sah"],
+              "answer": 1,
+              "explanation": "Jika seseorang tidak tahu bahwa dirinya membawa najis, shalatnya tetap sah menurut banyak ulama."
+            },
+            {
+              "question": "Apa rukun utama dalam ibadah haji yang jika ditinggalkan maka hajinya tidak sah?",
+              "options": ["Thawaf wada'", "Melontar jumrah", "Wukuf di Arafah", "Mabit di Mina"],
+              "answer": 2,
+              "explanation": "Wukuf di Arafah adalah rukun haji terpenting. Tanpa wukuf, haji tidak sah walaupun semua rukun lainnya dilakukan."
+            },
+            {
+              "question": "Dalam fiqih, apa perbedaan antara tayamum dan wudhu dalam konteks pembatalan?",
+              "options": ["Tayamum tidak batal dengan semua yang membatalkan wudhu", "Tayamum hanya batal karena hadas besar", "Tayamum batal jika ada air sebelum shalat", "Tayamum tidak bisa digunakan untuk shalat wajib"],
+              "answer": 2,
+              "explanation": "Tayamum batal jika sebabnya hilang, misalnya air ditemukan sebelum shalat didirikan."
+            },
+            {
+              "question": "Seseorang batal wudhunya lalu langsung mandi wajib tanpa berwudhu. Apakah sah untuk shalat?",
+              "options": ["Tidak sah karena wajib wudhu dulu", "Sah karena mandi mencakup wudhu", "Hanya sah untuk shalat jenazah", "Sah hanya jika disertai tayamum"],
+              "answer": 1,
+              "explanation": "Jika mandi dilakukan secara tartib dan niat mencakup hadas kecil dan besar, maka mandi mencakup wudhu."
+            },
+            {
+              "question": "Jika seseorang shalat tanpa menutupi aurat karena tidak tahu bahwa pakaiannya robek, bagaimana hukum shalatnya?",
+              "options": ["Batal dan wajib diulang", "Sah karena tidak tahu", "Makruh tapi sah", "Boleh diteruskan jika di akhir rakaat"],
+              "answer": 1,
+              "explanation": "Menurut pendapat kuat, jika seseorang tidak tahu auratnya terbuka, shalatnya tetap sah dan tidak perlu diulang."
+            },
+            {
+              "question": "Apa yang dimaksud dengan 'syarat sah' shalat?",
+              "options": ["Hal yang harus dilakukan dalam shalat", "Perkara yang jika hilang, shalat batal", "Rukun yang wajib dilakukan dalam shalat", "Hal yang dilakukan setelah takbiratul ihram"],
+              "answer": 1,
+              "explanation": "Syarat sah shalat adalah sesuatu yang harus ada sebelum melaksanakan shalat, seperti suci dari hadas."
+            },
+            {
+              "question": "Jika seseorang lupa jumlah rakaat dalam shalat fardhu, apa yang harus dilakukan menurut fiqih?",
+              "options": ["Membatalkan dan mengulang dari awal", "Mengikuti jumlah yang diyakini lebih banyak", "Mengambil yang paling sedikit dan sujud sahwi", "Langsung salam lalu shalat lagi"],
+              "answer": 2,
+              "explanation": "Dalam keadaan ragu, ambil jumlah yang paling yakin (paling sedikit), lalu lakukan sujud sahwi sebelum atau sesudah salam."
+            },
+            {
+              "question": "Apa hukum membaca surat setelah Al-Fatihah dalam rakaat ketiga dan keempat shalat fardhu?",
+              "options": ["Wajib", "Makruh", "Sunnah", "Membatalkan shalat jika dilakukan"],
+              "answer": 2,
+              "explanation": "Membaca surat setelah Al-Fatihah di rakaat ketiga/keempat adalah sunnah, bukan wajib."
+            }
+          ]
       },
       {
-        "title": "Kuis Fiqih Muamalah",
-        "description": "Soal tentang transaksi dan interaksi sosial dalam Islam",
-        "questions": "20 soal",
-        "timeLimit": "30 menit",
-        "difficulty": "Sedang",
-        "premium": true,
+        "title": "Manasik Haji: Tahapan demi Tahapan",
+        "description": "Kuis ini menguji pengetahuan tentang manasik haji, mulai dari niat hingga tahapan-tahapan penting dalam ibadah haji.",
+        "questions": "15 soal",
+        "timeLimit": "20 menit",
+        "difficulty": "Sulit",
         "questionsList": [
           {
             "question": "Apa yang dimaksud dengan riba?",
@@ -273,54 +393,123 @@
             "explanation": "Jual beli kredit halal dengan syarat tidak mengandung riba dan gharar (ketidakjelasan)."
           }
         ]
-      }
-    ],
-    "sejarah-islam": [
-      {
-        "title": "Kuis Sejarah Islam",
-        "description": "Uji pengetahuan tentang sejarah perkembangan Islam",
-        "questions": "30 soal",
-        "timeLimit": "40 menit",
-        "difficulty": "Sedang",
-        "premium": true,
-        "questionsList": [
-          {
-            "question": "Di manakah Nabi Muhammad SAW dilahirkan?",
-            "options": ["Madinah", "Makkah", "Yatsrib", "Thaif"],
-            "answer": 1,
-            "explanation": "Nabi Muhammad SAW dilahirkan di Makkah pada tahun Gajah (570 Masehi)."
-          },
-          {
-            "question": "Perang pertama dalam sejarah Islam adalah...",
-            "options": ["Perang Uhud", "Perang Badar", "Perang Khandaq", "Perang Hunain"],
-            "answer": 1,
-            "explanation": "Perang Badar adalah perang pertama yang terjadi antara kaum Muslimin dan kaum Quraisy Makkah pada 17 Ramadan 2 H."
-          },
-          {
-            "question": "Siapa khalifah pertama setelah Rasulullah SAW?",
-            "options": ["Umar bin Khattab", "Utsman bin Affan", "Ali bin Abi Thalib", "Abu Bakar Ash-Shiddiq"],
-            "answer": 3,
-            "explanation": "Abu Bakar Ash-Shiddiq adalah khalifah pertama setelah wafatnya Rasulullah SAW."
-          }
-        ]
       },
       {
-        "title": "Kuis Peradaban Islam",
-        "description": "Sejarah kemajuan peradaban dan ilmu pengetahuan Islam",
-        "questions": "25 soal",
-        "timeLimit": "35 menit",
-        "difficulty": "Sulit",
-        "questionsList": [
-          {
-            "question": "Siapa pendiri Baitul Hikmah di Baghdad?",
-            "options": ["Harun Ar-Rasyid", "Al-Ma'mun", "Al-Mansur", "Salahuddin Al-Ayyubi"],
-            "answer": 1,
-            "explanation": "Baitul Hikmah didirikan oleh Khalifah Al-Ma'mun sebagai pusat penerjemahan dan penelitian ilmiah."
-          }
-        ]
+        "title": "Kuis Fiqih Muamalah",
+        "description": "Soal tentang transaksi dan interaksi sosial dalam Islam",
+        "questions": "20 soal",
+        "timeLimit": "30 menit",
+        "difficulty": "Sedang",
+        "premium": true
       }
     ],
-    "akidah-akhlak": [
+    "fiqih keluarga & sosial": [
+      {
+    "title": "Fiqih Sosial dalam Keseharian Muslim",
+    "description": "Kuis ini membahas penerapan fiqih dalam kehidupan sosial dan keluarga, dengan pendekatan naratif agar kamu lebih mudah memahami bagaimana hukum Islam hadir dalam situasi nyata.",
+    "questions": "7 soal",
+    "timeLimit": "6 menit",
+    "difficulty": "Sedang",
+    "questionsList": [
+      {
+        "question": "Rani adalah seorang mahasiswi yang membantu ibunya berdagang. Suatu hari, ia melihat ada sisa makanan dagangan yang hampir basi. Ia berniat membagikannya kepada tetangga yang kurang mampu tanpa sepengetahuan ibunya. Dalam Islam, bagaimana hukum perbuatan Rani membagikan sesuatu yang bukan miliknya secara pribadi, meski dengan niat sedekah?",
+        "options": [
+          "Boleh, karena niatnya sedekah",
+          "Boleh selama tidak dijual",
+          "Tidak boleh tanpa izin pemilik barang",
+          "Wajib karena menyelamatkan makanan dari mubazir"
+        ],
+        "answer": 2,
+        "explanation": "Harta tersebut masih milik ibunya, dan tidak boleh digunakan tanpa izin meskipun niatnya baik. Islam mengajarkan adab terhadap hak milik orang lain."
+      },
+      {
+        "question": "Pak Rudi sering meminjam uang ke tetangganya dengan janji akan mengembalikannya dalam seminggu. Namun ia sering menunda-nunda, padahal ia mampu membayar. Suatu hari, sang tetangga marah karena sudah 3 bulan belum dibayar. Dalam fiqih muamalah, bagaimana hukum menunda pembayaran hutang padahal mampu?",
+        "options": [
+          "Makruh tapi tidak dosa",
+          "Diperbolehkan asal ada niat",
+          "Dosa karena menzalimi orang lain",
+          "Boleh jika tidak sengaja"
+        ],
+        "answer": 2,
+        "explanation": "Menunda membayar hutang padahal mampu termasuk perbuatan zalim menurut hadis Nabi SAW, karena merugikan hak orang lain."
+      },
+      {
+        "question": "Lina ingin menikah, namun orang tuanya menolak calon suaminya hanya karena berbeda suku, padahal calon tersebut salih dan bertanggung jawab. Dalam fiqih pernikahan, apakah penolakan wali semacam ini diperbolehkan?",
+        "options": [
+          "Boleh karena hak wali adalah mutlak",
+          "Tidak boleh jika alasan tidak syar’i",
+          "Wali boleh menolak untuk melindungi anak",
+          "Wajib menurut adat daerah"
+        ],
+        "answer": 1,
+        "explanation": "Jika calon pasangan memenuhi kriteria agama dan akhlak, penolakan wali karena suku atau ras dianggap tidak syar’i dan bisa dilimpahkan ke wali hakim."
+      },
+      {
+        "question": "Andi dan Rara menikah siri (tidak tercatat di negara) namun telah memenuhi rukun dan syarat nikah dalam Islam, termasuk adanya wali dan saksi. Namun keluarga besar Rara menentang karena tidak melalui KUA. Bagaimana status pernikahan ini menurut fiqih?",
+        "options": [
+          "Tidak sah karena tidak melalui KUA",
+          "Sah secara agama tapi tidak sah secara negara",
+          "Batal karena tidak ada izin orang tua",
+          "Sah tapi berdosa"
+        ],
+        "answer": 1,
+        "explanation": "Secara fiqih, nikah sah jika rukun dan syarat terpenuhi, namun tidak tercatat di negara berimplikasi pada hak hukum dan administrasi."
+      },
+      {
+        "question": "Fatimah adalah seorang janda yang hidup bersama dua anaknya. Ia menerima bantuan dari tetangga, namun suatu hari datang tawaran pekerjaan tetap di luar kota. Ia bingung karena harus meninggalkan anak-anak yang masih kecil. Dalam pandangan fiqih sosial, apa yang lebih utama dilakukan oleh Fatimah?",
+        "options": [
+          "Tetap tinggal demi anak-anak meski kesulitan ekonomi",
+          "Pergi bekerja lalu menitipkan anak ke panti",
+          "Menerima pekerjaan dan membawa anak-anak ikut",
+          "Menolak bantuan dan mencari pekerjaan terdekat"
+        ],
+        "answer": 2,
+        "explanation": "Dalam Islam, anak adalah amanah utama. Jika memungkinkan, membawa anak dalam perantauan dan tetap mencari nafkah adalah pilihan yang menyeimbangkan antara hak anak dan kewajiban mencari rezeki."
+      },
+      {
+        "question": "Dani sering melakukan prank dengan menyembunyikan sandal temannya sebagai candaan. Teman-temannya tertawa, tapi ada juga yang merasa terganggu. Bagaimana Islam memandang perbuatan seperti ini dalam kehidupan sosial?",
+        "options": [
+          "Diperbolehkan selama tidak menyakiti",
+          "Dilarang karena termasuk menyakiti sesama",
+          "Lucu-lucuan yang disunnahkan",
+          "Tidak masalah karena niatnya bercanda"
+        ],
+        "answer": 1,
+        "explanation": "Islam melarang segala bentuk candaan yang menyakiti fisik maupun perasaan orang lain. Nabi SAW bersabda, 'Janganlah salah satu dari kalian mengambil barang saudaranya sebagai main-main.'"
+      },
+      {
+        "question": "Bu Rina sebagai ketua RT sering mengadakan arisan ibu-ibu, namun mewajibkan semua warganya ikut dan membayar, termasuk yang tidak mampu. Ada warga yang keberatan tapi takut menolak. Bagaimana hukum kewajiban seperti ini menurut fiqih sosial?",
+        "options": [
+          "Boleh demi kekompakan",
+          "Makruh karena menyulitkan",
+          "Diperbolehkan jika demokratis",
+          "Tidak boleh memaksa dalam muamalah sosial"
+        ],
+        "answer": 3,
+        "explanation": "Dalam fiqih sosial, tidak boleh ada paksaan dalam urusan keuangan, terlebih jika memberatkan. Prinsip tolong-menolong harus sesuai kemampuan dan kerelaan."
+      }
+    ]
+},
+
+      {
+        "title": "Fiqih Pernikahan: Antara Adat, Akad, dan Ibadah",
+        "description": "Kuis ini menguji pengetahuan tentang fiqih pernikahan, termasuk rukun nikah, hak dan kewajiban suami istri, serta adab dalam berkeluarga.",
+        "questions": "25 soal",
+        "timeLimit": "35 menit",
+        "difficulty": "Sulit"
+        
+      },
+      {
+        "title": "Etika Muslim di Era Modern: Fiqih Sosial Kontemporer",
+        "description": "Kuis ini membahas penerapan fiqih dalam konteks sosial modern, seperti media sosial",
+        "questions": "15 soal",
+        "timeLimit": "10 menit",
+        "difficulty": "Sulit",
+        "premium": true
+        
+      }
+    ],
+    "akidah & teologi islam": [
       {
         "title": "Kuis Rukun Iman",
         "description": "Tes pemahaman tentang enam rukun iman",
@@ -415,15 +604,14 @@
     ]
   },
   "material": {
-    "quran-hadis": [
-      {
-        "title": "Panduan Tafsir Al-Quran",
-        "description": "Buku panduan memahami tafsir Al-Quran",
-        "pages": "150 halaman",
-        "format": "PDF",
-        "premium": true,
-        "content": "<h3>Memahami Tafsir Al-Quran</h3><p>Tafsir Al-Quran adalah ilmu untuk memahami dan menafsirkan ayat-ayat Al-Quran. Ilmu ini sangat penting bagi setiap muslim yang ingin mendalami makna kitab suci.</p><h4>Metode Tafsir</h4><p>Terdapat beberapa metode dalam menafsirkan Al-Quran:</p><ul><li><span class=\"highlight\">Tafsir bil Ma'thur</span>: Penafsiran berdasarkan riwayat dari Nabi, sahabat, dan tabi'in</li><li><span class=\"highlight\">Tafsir bir Ra'yi</span>: Penafsiran berdasarkan pemikiran dan ijtihad</li><li><span class=\"highlight\">Tafsir Isyari</span>: Penafsiran berdasarkan isyarat-isyarat tersirat</li></ul><h4>Prinsip Dasar Tafsir</h4><ol><li>Memahami bahasa Arab dengan baik</li><li>Mengetahui asbabun nuzul (sebab turunnya ayat)</li><li>Memahami munasabah (korelasi) antar ayat</li><li>Menggunakan hadis sahih sebagai penjelas</li></ol><div class=\"quote\">\"Sebaik-baik kalian adalah orang yang mempelajari Al-Quran dan mengajarkannya.\" (HR. Bukhari)</div>"
-      },
+  "quran-hadis": [
+    {
+      "title": "Menggapai Cahaya Ilahi: Ketika Quran dan Hadis Menyapa Kehidupan Kita yang Semrawut",
+      "description": "Panduan lengkap memahami Quran dan Hadis dalam kehidupan sehari-hari",
+      "pages": "1 halaman",
+      "format": "PDF",
+      "content": "Di tengah hiruk-pikuk dunia digital yang terus berdenyut tanpa jeda—dengan notifikasi tiada henti, scroll media sosial yang tak kunjung usai, dan tuntutan hidup yang terus menumpuk—ada dua pusaka agung yang tak pernah lekang oleh waktu: Al-Qur’an dan Hadis Nabi. Keduanya bukan sekadar dokumen sejarah atau kumpulan nasihat kuno, melainkan sumber cahaya Ilahi yang hidup, menyapa hati yang gelisah, menenangkan jiwa yang resah, dan menuntun langkah manusia dalam menapaki jalan hidup yang semakin rumit.\n\nBayangkan sejenak. Suatu pagi yang kacau, saat pikiran sudah lelah bahkan sebelum hari benar-benar dimulai. Tiba-tiba terdengar lantunan ayat:\n\n\"لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّٰلِمِينَ\"  \n“Tidak ada Tuhan selain Engkau, Maha Suci Engkau. Sesungguhnya aku termasuk orang-orang yang zalim.”  \n(QS. Al-Anbiya: 87)\n\nSekonyong-konyong dunia yang riuh terasa hening. Hati seperti disentuh oleh kelembutan langit. Inilah mukjizat Al-Qur’an: ia tak hanya dibaca, tetapi hadir untuk menghidupkan.\n\n### Dua Sumber Cahaya di Tengah Kegelapan Zaman\n\nBanyak yang menganggap cukup dengan Al-Qur’an saja, lalu menepikan Hadis. Namun, bagaimana kita bisa mendirikan shalat dengan benar tanpa bimbingan Rasulullah? Justru Hadis-lah yang menuntun kita secara praktis, sebagai penjelas dari wahyu. \n\nAllah berfirman:\n\"وَأَنزَلْنَا إِلَيْكَ ٱلذِّكْرَ لِتُبَيِّنَ لِلنَّاسِ مَا نُزِّلَ إِلَيْهِمْ\"  \n“Dan Kami turunkan kepadamu Adz-Dzikr (Al-Qur’an), agar engkau menjelaskan kepada manusia apa yang telah diturunkan kepada mereka…”  \n(QS. An-Nahl: 44)\n\nAl-Qur’an adalah konstitusi, dan Hadis adalah petunjuk aplikatifnya. Seperti tubuh dan nyawa: Al-Qur’an memberi kerangka, Hadis memberinya kehidupan.\n\n### Mukjizat yang Terus Bersinar di Era Digital\n\nTeknologi terus berkembang, namun Al-Qur’an tetap berdiri sebagai kitab yang relevan dan menakjubkan.\n\nContoh nyata:\n\n- QS. Al-Mu’minun ayat 12-14 menjelaskan tahapan penciptaan embrio:\n\"وَلَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ مِن سُلَٰلَةٍ مِّن طِينٍ ۝ ثُمَّ جَعَلْنَـٰهُ نُطْفَةًۭ فِى قَرَارٍۢ مَّكِينٍۢ ۝ ثُمَّ خَلَقْنَا ٱلنُّطْفَةَ عَلَقَةًۭ فَخَلَقْنَا ٱلْعَلَقَةَ مُضْغَةًۭ...\"\n\n- QS. Adz-Dzariyat: 47 menyebutkan ekspansi alam semesta:\n\"وَٱلسَّمَآءَ بَنَيْنَـٰهَا بِأَيْي۟دٍۢ وَإِنَّا لَمُوسِعُونَ\"\n\nIlmuwan seperti Dr. Keith Moore mengakui bahwa penjelasan tersebut tidak mungkin berasal dari manusia abad ke-7 tanpa wahyu dari Tuhan.\n\n### Solusi Utuh bagi Jiwa yang Terluka\n\nSaat stres, cemas, atau bingung, Al-Qur’an dan Hadis hadir sebagai solusi nyata:\n\n- Doa Nabi ketika cemas:\n\"اللهم إني أعوذ بك من الهم والحزن\"\n\n- Nasihat saat konflik rumah tangga:\n\"وَعَاشِرُوهُنَّ بِٱلْمَعْرُوفِ\"  \n(QS. An-Nisa: 19)\n\n- Peringatan keras terhadap harta haram:\n\"Setiap daging yang tumbuh dari harta haram, maka neraka lebih pantas baginya.\" (HR. Tirmidzi)\n\n### Namun, Kita Masih Lalai\n\nLebih dari 60% umat Islam Indonesia belum mampu membaca Al-Qur’an dengan baik. Gerakan yang menolak Hadis semakin marak. Kita lebih sering menyentuh layar ponsel daripada mushaf Al-Qur’an. Kita membaca ratusan chat dalam sehari, tapi satu ayat pun terasa berat.\n\n### Mulai dari Langkah Kecil, Menuju Perubahan Besar\n\nTidak perlu langsung menjadi ulama. Cukup mulai dari:\n\n1. Baca 5 menit Al-Qur’an setiap pagi\n2. Gunakan wallpaper hadis di HP\n3. Ikut satu kajian setiap minggu\n4. Amalkan satu sunnah kecil tiap hari\n\nSeorang ibu di Surabaya berkata: “Saya mulai dari membaca Quran 5 menit sebelum masak. Sekarang anak-anak saya sudah hafal Juz 30. Suami saya kini jadi imam tetap mushola kami.”\n\n### Cahaya Itu Akan Menyapa Kita\n\nRasulullah ﷺ bersabda:\n“Aku tinggalkan pada kalian dua perkara, kalian tidak akan tersesat selama berpegang teguh kepada keduanya: Kitabullah dan Sunnahku.” (HR. Malik)\n\nDan Allah berjanji:\n\"فَمَنِ ٱتَّبَعَ هُدَاىَ فَلَا يَضِلُّ وَلَا يَشْقَىٰ\"  \n“Barangsiapa mengikuti petunjuk-Ku, maka dia tidak akan sesat dan tidak akan celaka.”  \n(QS. Thaha: 123)\n\n### Penutup: Mari Kembali Pulang\n\nDi dunia yang gelap dan membingungkan, dua pusaka ini—Quran dan Hadis—adalah lentera. Cahaya itu tak pernah padam. Mari buka mushaf malam ini. Satu ayat saja. Rasakan. Renungkan. Lalu, esok, teruskan dengan satu sunnah. Dari situlah langkah kita menuju cahaya Ilahi akan bermula."
+    },
       {
         "title": "Kumpulan Hadis Shahih",
         "description": "Koleksi hadis-hadis shahih dengan terjemahan dan penjelasan",
