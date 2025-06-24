@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <style>
+
+ 
+
         /* Mode Selection */
         .mode-selection {
             display: grid;
@@ -52,6 +55,11 @@
             transform: translateY(-5px);
             border-color: var(--secondary-color);
             box-shadow: 0 12px 30px rgba(26, 147, 111, 0.2);
+        }
+
+        .mode-card.active {
+            border-color: var(--secondary-color);
+            background: linear-gradient(135deg, rgba(26, 147, 111, 0.15) 0%, rgba(46, 203, 156, 0.15) 100%);
         }
 
         .mode-icon {
@@ -1004,12 +1012,18 @@
                     <div class="subject-tabs">
                         <button class="subject-tab active" data-subject="all">Semua</button>
                         <button class="subject-tab" data-subject="quran-hadis">Quran & Hadis</button>
-                        <button class="subject-tab" data-subject="fiqih">Fiqih</button>
+                        <button class="subject-tab" data-subject="fiqih ibadah & muamalah">Fiqih Ibadah & Muamalah</button>
+                        <button class="subject-tab" data-subject="fiqih keluarga & sosial">Fiqih Keluarga & Sosial</button>
                         <button class="subject-tab" data-subject="sejarah-islam">Sejarah Islam</button>
-                        <button class="subject-tab" data-subject="akidah-akhlak">Akidah & Akhlak</button>
+                        <button class="subject-tab" data-subject="akidah & teologi islam">Aqidah & Teologi Islam</button>
                         <button class="subject-tab" data-subject="bahasa-arab">Bahasa Arab</button>
                         <button class="subject-tab" data-subject="ilmu-tajwid">Ilmu Tajwid</button>
-                        <button class="subject-tab" data-subject="doa-dzikir">Doa & Dzikir</button>
+                        <button class="subject-tab" data-subject="doa-dzikir">Doa dan Dzikir</button>
+                        <button class="subject-tab" data-subject="pengajaran islam">Pendidikan & Metodologi Pengajaran Islam</button>
+                        <button class="subject-tab" data-subject="pengembangan diri">Kehidupan & Pengembangan Diri Muslim</button>
+                        <button class="subject-tab" data-subject="isu">Isu Kontemporer & Sosial</button>
+                        <button class="subject-tab" data-subject="seni islam">Seni & Budaya Islam</button>
+                        <button class="subject-tab" data-subject="teknologi">Teknologi & Aplikasi</button>
                     </div>
 
                     <div class="content-grid" id="contentGrid">
@@ -1173,9 +1187,70 @@
                         <div class="reading-timer" id="readingTimer">Waktu Baca: 00:00</div>
                     </div>
                     
-                    <div class="material-content" id="materialContent">
-                        <!-- Konten materi akan diisi melalui JavaScript -->
-                    </div>
+                    <div id="output"></div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  const rawMarkdown = `# Menggapai Cahaya Ilahi: Ketika Quran dan Hadis Menyapa Kehidupan Kita yang Semrawut
+
+Di tengah hiruk-pikuk dunia digital yang terus berdenyut tanpa jeda—dengan notifikasi tiada henti, scroll media sosial yang tak kunjung usai, dan tuntutan hidup yang terus menumpuk—ada dua pusaka agung yang tak pernah lekang oleh waktu: **Al-Qur’an dan Hadis Nabi**.
+
+Bayangkan sejenak. Suatu pagi yang kacau. Tiba-tiba terdengar lantunan ayat:
+
+> **لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّٰلِمِينَ**  
+> “Tidak ada Tuhan selain Engkau. Maha Suci Engkau. Sungguh aku termasuk orang-orang yang zalim.”  
+> (QS. Al-Anbiya: 87)
+
+## Dua Sumber Cahaya dalam Kegelapan Zaman
+
+Allah berfirman:
+
+> **وَأَنزَلْنَا إِلَيْكَ ٱلذِّكْرَ لِتُبَيِّنَ لِلنَّاسِ...**  
+> _“Dan Kami turunkan kepadamu Al-Dzikr agar engkau menjelaskan kepada manusia...”_  
+> (QS. An-Nahl: 44)
+
+Qur'an = prinsip. Hadis = praktiknya.
+
+## Mukjizat yang Relevan
+
+- **Embrio manusia** dalam QS. Al-Mu’minun: 12–14
+- **Ekspansi semesta** dalam QS. Adz-Dzariyat: 47
+
+## Pedoman Nyata untuk Hidup Modern
+
+- **Doa saat stres**:  
+  > اللهم إني أعوذ بك من الهم والحزن
+
+- **Konflik rumah tangga**:  
+  > وَعَاشِرُوهُنَّ بِٱلْمَعْرُوفِ  
+  > (QS. An-Nisa: 19)
+
+- **Godaan harta haram**:  
+  > “Setiap daging yang tumbuh dari harta haram, maka neraka lebih pantas baginya.”  
+  > (HR. Tirmidzi)
+
+## Langkah Nyata Memulai
+
+1. Baca Quran 5 menit tiap pagi  
+2. Pasang wallpaper hadis tiap minggu  
+3. Ikut majelis taklim  
+4. Amalkan satu sunnah kecil
+
+## Penutup
+
+Rasulullah ﷺ bersabda:
+
+> _“Aku tinggalkan dua pusaka: Kitabullah dan Sunnahku.”_  
+> (HR. Malik)
+
+Allah berjanji:
+
+> **فَمَنِ ٱتَّبَعَ هُدَىٰى فَلَا يَضِلُّ وَلَا يَشْقَىٰ**  
+> (QS. Thaha: 123)
+`;
+
+  document.getElementById("output").innerHTML = marked.parse(rawMarkdown);
+</script>
+
                 </div>
             </div>
         </main>
@@ -1224,7 +1299,7 @@
                 <li>Materi bacaan eksklusif dan terupdate</li>
                 <li>Prioritas dukungan dari tim ahli</li>
             </ul>
-            <button class="btn premium-btn" onclick="closePremiumPopup()">Berlangganan Sekarang</button>
+            <a class="btn premium-btn" href="harga.html">Berlangganan Sekarang</a>
         </div>
     </div>
 
@@ -1514,7 +1589,7 @@
             
             card.innerHTML = `
                 <div class="content-thumbnail ${thumbnailClass}">
-                    <img src="${item.thumbnail || 'https://images.unsplash.com/photo-1519730722595-a5ff788dea4d?q=80&w=1470&auto=format&fit=crop'}" alt="${item.title}">
+                    <img src="${item.thumbnail || 'Galeri/branding.png'}" alt="${item.title}">
                     ${item.premium ? '<div class="premium-badge">PREMIUM</div>' : ''}
                 </div>
                 <div class="content-info">
