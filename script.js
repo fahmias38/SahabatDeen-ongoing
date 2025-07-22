@@ -116,6 +116,23 @@ const surahData = [
     { number: 114, name: "An-Nas", arabic: "الناس", meaning: "Manusia", ayat: 6, juz: 30, revelation: "Makkiyah" }
 ];
 
+items.forEach((item, _index) => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Remove active class from all items
+        items.forEach(el => el.classList.remove('active'));
+
+        // Add active class to clicked item
+        item.classList.add('active');
+
+        // Move highlight
+        highlight.style.width = item.offsetWidth + 'px';
+        highlight.style.left = item.offsetLeft + 'px';
+    });
+});
+
+
 // Mobile Navigation Toggle
 function toggleMobileMenu() {
     const hamburger = document.querySelector('.hamburger');

@@ -10,19 +10,726 @@
     <link rel="icon" href="https://placehold.co/32x32/2E856E/FFFFFF?text=Q" type="image/png">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <style>
+        /* Vision Mission Timeline Styles */
+.vision-mission-section {
+    background: #121212;
+    position: relative;
+    overflow: hidden;
+}
+
+.vision-mission-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 25% 25%, rgba(26, 147, 111, 0.1) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(46, 203, 156, 0.1) 2px, transparent 2px);
+    background-size: 40px 40px;
+    opacity: 0.3;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Visi */
+.vision-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin: 60px 0;
+    padding: 50px;
+    background: rgba(31, 56, 64, 0.6);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(26, 147, 111, 0.2);
+    border: 1px solid rgba(46, 203, 156, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.vision-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+}
+
+.vision-container:hover::before {
+    left: 100%;
+}
+
+.vision-icon {
+    flex-shrink: 0;
+}
+
+.icon-circle {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 30px rgba(26, 147, 111, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.icon-circle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent);
+    border-radius: 50%;
+}
+
+.vision-container:hover .icon-circle {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 20px 40px rgba(26, 147, 111, 0.4);
+}
+
+.vision-emoji {
+    font-size: 3.5rem;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.vision-container:hover .vision-emoji {
+    transform: scale(1.1);
+}
+
+.vision-content {
+    flex: 1;
+    text-align: left;
+}
+
+.vision-title {
+    font-size: 2.2rem;
+    color: var(--text-light-primary);
+    margin-bottom: 20px;
+    font-weight: 700;
+    position: relative;
+}
+
+.vision-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.vision-text {
+    font-size: 1.1rem;
+    color: var(--text-light-secondary);
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Timeline Connector */
+.timeline-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+    position: relative;
+}
+
+.connector-line {
+    width: 3px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.connector-line::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}
+
+.connector-arrow {
+    font-size: 2rem;
+    margin-top: 10px;
+    color: var(--text-light-primary);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Mission Section */
+.mission-container {
+    margin-top: 60px;
+}
+
+.mission-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.mission-title {
+    font-size: 2.2rem;
+    color: var(--text-light-primary);
+    margin-bottom: 15px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.mission-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.mission-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light-secondary);
+    margin: 0;
+}
+
+/* Mission Timeline */
+.mission-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mission-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+.timeline-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.timeline-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-right: 30px;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(26, 147, 111, 0.3);
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-number {
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px rgba(26, 147, 111, 0.4);
+}
+
+.timeline-number::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent);
+    border-radius: 50%;
+}
+
+.timeline-content {
+    flex: 1;
+    background: rgba(31, 56, 64, 0.6);
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(46, 203, 156, 0.2);
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+}
+
+.timeline-item:hover .timeline-content::before {
+    left: 100%;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(26, 147, 111, 0.2);
+    border-color: rgba(46, 203, 156, 0.4);
+}
+
+.timeline-content h4 {
+    font-size: 1.4rem;
+    color: var(--text-light-primary);
+    margin-bottom: 12px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    color: var(--text-light-secondary);
+    line-height: 1.7;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vision-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding: 30px;
+    }
+    
+    .vision-content {
+        text-align: center;
+    }
+    
+    .vision-title {
+        font-size: 1.8rem;
+    }
+    
+    .vision-text {
+        font-size: 1rem;
+    }
+    
+    .mission-timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        margin-right: 20px;
+    }
+    
+    .timeline-content {
+        padding: 20px;
+    }
+    
+    .timeline-content h4 {
+        font-size: 1.2rem;
+    }
+    
+    .timeline-content p {
+        font-size: 0.9rem;
+    }
+    
+    .mission-title {
+        font-size: 1.8rem;
+    }
+    
+    .mission-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vision-container {
+        padding: 20px;
+        margin: 40px 0;
+    }
+    
+    .icon-circle {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .vision-emoji {
+        font-size: 2.5rem;
+    }
+    
+    .timeline-item {
+        margin-bottom: 30px;
+    }
+    
+    .timeline-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        margin-right: 15px;
+    }
+    
+    .timeline-content {
+        padding: 15px;
+    }
+}
+.hero-section{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 90px;
+}
+
+.card-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 90px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 30px;
+}
+
+.card{
+    width: 400px;
+    height: 600px;
+    list-style: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.card:before{
+    content: '';
+    display: block;
+    padding-bottom: 150%;
+    width: 100%;
+}
+
+.card__background{
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    bottom: 0;
+    filter: brightness(0.75) saturate(1.2) contrast(0.85);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: center;
+    transform: scale(1) translateZ(0);
+    transition: 
+        filter 200ms linear,
+        transform 200ms linear;
+}
+
+.card:hover .card__background{
+    transform: scale(1.05) translateZ(0);
+}
+
+.card-grid:hover > .card:not(:hover) .card__background{
+    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+}
+
+.card__content{
+    left: 0;
+    padding: var(--spacing-l);
+    position: absolute;
+    top: 0;
+}
+
+.card__category{
+    color: #e7e7e76c;
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-s);
+    text-transform: uppercase;
+}
+
+.card__heading{
+    color: #e7e7e7;
+    font-size: 1.9rem;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    line-height: 1.4;
+    word-spacing: 100vw;
+}
+
+@media (max-width: 540px) {
+    .card-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+h1{
+  font-size: 2.5rem;
+  font-family: 'Montserrat';
+  font-weight: normal;
+  color: #444;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.wrapper{
+  width: 90%;
+  margin: 0 auto;
+  max-width: 80rem;
+}
+
+.cols{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.col{
+  width: calc(25% - 2rem);
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.container{
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.front,
+.back{
+  background-size: cover;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
+  border-radius: 10px;
+  background-position: center;
+  -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  text-align: center;
+  min-height: 280px;
+  height: auto;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.back{
+  background: #246B58;
+  background: -webkit-linear-gradient(45deg,  #246B58 0%,#596a72 100%);
+  background: -o-linear-gradient(45deg,  #246B58 0%,#596a72 100%);
+  background: linear-gradient(45deg,  #246B58 0%,#596a72 100%);
+}
+
+.back p{
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.front:after{
+  position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    content: '';
+    display: block;
+    opacity: .6;
+    background-color: #000;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    border-radius: 10px;
+}
+.container:hover .front,
+.container:hover .back{
+    -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.inner{
+    -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+            transform: translateY(-50%) translateZ(60px) scale(0.94);
+    top: 50%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    outline: 1px solid transparent;
+    -webkit-perspective: inherit;
+            perspective: inherit;
+    z-index: 2;
+}
+
+.container .back{
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+
+.container .front{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+
+.container:hover .back{
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.container:hover .front{
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.front .inner p{
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.front .inner p:after{
+  content: '';
+  width: 4rem;
+  height: 2px;
+  position: absolute;
+  background: #C6D4DF;
+  display: block;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: -.75rem;
+}
+
+.front .inner span{
+  color: rgba(255,255,255,0.7);
+  font-family: 'Montserrat';
+  font-weight: 300;
+}
+
+@media screen and (max-width: 64rem){
+  .col{
+    width: calc(33.333333% - 2rem);
+  }
+}
+
+@media screen and (max-width: 48rem){
+  .col{
+    width: calc(50% - 2rem);
+  }
+}
+
+@media screen and (max-width: 32rem){
+  .col{
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+}
+    </style>
 </head>
 <body>
     <header class="header" id="mainHeader">
         <div class="container">
-            <nav class="navbar">
+            <nav>
                 <a href="index.html" class="nav-logo">Quran<span>Ku</span></a>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
-                    <li class="nav-item"><a href="tentang.html" class="nav-link active">Tentang Kami</a></li>
-                    <li class="nav-item"><a href="harga.html" class="nav-link">Berlangganan</a></li>
-                    <li class="nav-item"><a href="surah.html" class="nav-link">Surah</a></li>
-                    <li class="nav-item"><a href="materi.html" class="nav-link">Fitur Al-Quran</a></li>
-                    <li class="nav-item"><a href="kontak.html" class="nav-link">Kontak</a></li>
+                    <a href="index.html">Beranda <span></span></a></li>
+                    <a href="tentang.html" class="nav-link">Tentang Kami <span></span></a></li>
+                    <a href="harga.html" >Berlangganan <span></span></a></li>
+                    <a href="surah.html" >Surah <span></span></a></li>
+                    <a href="materi.html" >Ngaji <span></span></a></li>
+                    <a href="kontak.html" >Kontak <span></span></a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -33,163 +740,254 @@
         </div>
     </header>
 
-    <section class="page-title-section">
-        <div class="container">
-            <h1>Tentang QuranKu Digital</h1>
-            <p>Mengenal lebih dekat siapa kami, visi, misi, dan tim di balik platform Al-Quran digital terdepan.</p>
-        </div>
-    </section>
-
     <main>
-        <section class="welcome-section section-padding">
-            <div class="container">
-                <h2 class="section-title">🌟 Selamat Datang di Keluarga QuranKu Digital!</h2>
-                <p class="section-subtitle">Kami lebih dari sekadar aplikasi Al-Quran; kami adalah partner setia Anda dalam perjalanan spiritual mendekatkan diri kepada Allah SWT.</p>
-                <div class="values-grid">
-                    <div class="value-item">
-                        <div class="icon">📱</div>
-                        <h4>Platform Al-Quran Digital Terdepan</h4>
-                        <p>QuranKu Digital lahir dari semangat untuk memberikan akses Al-Quran digital yang berkualitas tinggi kepada seluruh umat Muslim di Indonesia dan dunia. Kami percaya bahwa setiap Muslim berhak mendapatkan kemudahan dalam membaca, memahami, dan mengamalkan ajaran Al-Quran dalam kehidupan sehari-hari.</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="icon">🤝</div>
-                        <h4>Partner Spiritual Anda</h4>
-                        <p>Dengan teknologi modern yang Islami, fitur-fitur canggih yang mudah digunakan, dan dukungan penuh dari tim ahli Al-Quran, kami berkomitmen untuk membantu Anda mencapai kualitas ibadah dan spiritual yang lebih baik melalui platform digital yang terpercaya.</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="icon">📈</div>
-                        <h4>Terbukti Membantu Ribuan Muslim</h4>
-                        <p>Sejak diluncurkan, kami telah membantu ribuan umat Muslim meningkatkan kualitas bacaan Al-Quran, memahami makna ayat-ayat suci, dan membangun rutinitas khatam Al-Quran yang konsisten dengan bantuan teknologi yang inovatif dan Islami.</p>
-                    </div>
+        <section class="welcome-section" style="padding: 200px 0;">
+    <div class="container">
+        <h2 class="section-title">Selamat Datang di Keluarga QuranKu Digital!</h2>
+        <p class="section-subtitle">Kami lebih dari sekadar aplikasi Al-Quran; kami adalah partner setia Anda dalam perjalanan spiritual mendekatkan diri kepada Allah SWT.</p>
+        
+        <div class="values-list">
+            <div class="value-item">
+                <div class="value-icon">
+                    <div class="icon">📱</div>
+                </div>
+                <div class="value-content">
+                    <h4>Platform Al-Quran Digital Terdepan</h4>
+                    <p>QuranKu Digital lahir dari semangat untuk memberikan akses Al-Quran digital yang berkualitas tinggi kepada seluruh umat Muslim di Indonesia dan dunia. Kami percaya bahwa setiap Muslim berhak mendapatkan kemudahan dalam membaca, memahami, dan mengamalkan ajaran Al-Quran dalam kehidupan sehari-hari.</p>
                 </div>
             </div>
-        </section>
+            
+            <div class="value-item reverse">
+                <div class="value-icon">
+                    <div class="icon">🤝</div>
+                </div>
+                <div class="value-content">
+                    <h4>Partner Spiritual Anda</h4>
+                    <p>Dengan teknologi modern yang Islami, fitur-fitur canggih yang mudah digunakan, dan dukungan penuh dari tim ahli Al-Quran, kami berkomitmen untuk membantu Anda mencapai kualitas ibadah dan spiritual yang lebih baik melalui platform digital yang terpercaya.</p>
+                </div>
+            </div>
+            
+            <div class="value-item">
+                <div class="value-icon">
+                    <div class="icon">📈</div>
+                </div>
+                <div class="value-content">
+                    <h4>Terbukti Membantu Ribuan Muslim</h4>
+                    <p>Sejak diluncurkan, kami telah membantu ribuan umat Muslim meningkatkan kualitas bacaan Al-Quran, memahami makna ayat-ayat suci, dan membangun rutinitas khatam Al-Quran yang konsisten dengan bantuan teknologi yang inovatif dan Islami.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <section class="vision-mission-section section-padding bg-alternate">
-            <div class="container">
-                <h2 class="section-title">Visi & Misi Kami</h2>
-                <p class="section-subtitle">Landasan fundamental yang mengarahkan setiap langkah kami dalam mengembangkan platform Al-Quran digital terbaik untuk umat Muslim.</p>
-                <div class="values-grid">
-                    <div class="value-item">
-                        <div class="icon">🎯</div>
-                        <h4>Visi Kami</h4>
-                        <p>Menjadi platform Al-Quran digital terdepan yang menginspirasi dan memudahkan umat Muslim di seluruh dunia untuk mendekatkan diri kepada Allah SWT melalui membaca, memahami, dan mengamalkan Al-Quran dalam kehidupan sehari-hari dengan bantuan teknologi yang Islami dan inovatif.</p>
+        <section class="vision-mission-section section-padding">
+    <div class="container">
+        <h2 class="section-title">Visi & Misi Kami</h2>
+        <p class="section-subtitle">Landasan fundamental yang mengarahkan setiap langkah kami dalam mengembangkan platform Al-Quran digital terbaik untuk umat Muslim.</p>
+        
+        <!-- Vision Section -->
+        <div class="vision-container">
+            <div class="vision-icon">
+                <div class="icon-circle">
+                    <span class="vision-emoji">🎯</span>
+                </div>
+            </div>
+            <div class="vision-content">
+                <h3 class="vision-title">Visi Kami</h3>
+                <p class="vision-text">Menjadi platform Al-Quran digital terdepan yang menginspirasi dan memudahkan umat Muslim di seluruh dunia untuk mendekatkan diri kepada Allah SWT melalui membaca, memahami, dan mengamalkan Al-Quran dalam kehidupan sehari-hari dengan bantuan teknologi yang Islami dan inovatif.</p>
+            </div>
+        </div>
+
+        <!-- Timeline Connector -->
+        <div class="timeline-connector">
+            <div class="connector-line"></div>
+            <div class="connector-arrow">⬇</div>
+        </div>
+
+        <!-- Mission Timeline -->
+        <div class="mission-container">
+            <div class="mission-header">
+                <h3 class="mission-title">Misi Kami</h3>
+                <p class="mission-subtitle">Langkah konkret yang kami lakukan untuk mewujudkan visi:</p>
+            </div>
+            
+            <div class="mission-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h4>Menyediakan Al-Quran Digital Berkualitas</h4>
+                        <p>Menyediakan Al-Quran digital dengan kualitas terbaik dan audio murotal dari qori terpilih dengan standar internasional.</p>
                     </div>
-                    <div class="value-item">
-                        <div class="icon">🚀</div>
-                        <h4>Misi Kami</h4>
-                        <div style="text-align: left;">
-                            <p style="margin-bottom: 15px; color: var(--text-light-secondary);">Langkah konkret yang kami lakukan untuk mewujudkan visi:</p>
-                            <ul style="list-style: none; padding-left: 0; color: var(--text-light-secondary); line-height: 1.7;">
-                                <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
-                                    <span style="position: absolute; left: 0; color: var(--secondary-color); font-weight: bold;">✔</span>
-                                    Menyediakan Al-Quran digital dengan kualitas terbaik dan audio murotal dari qori terpilih
-                                </li>
-                                <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
-                                    <span style="position: absolute; left: 0; color: var(--secondary-color); font-weight: bold;">✔</span>
-                                    Mengembangkan fitur inovatif yang membantu ibadah dan pembelajaran Al-Quran
-                                </li>
-                                <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
-                                    <span style="position: absolute; left: 0; color: var(--secondary-color); font-weight: bold;">✔</span>
-                                    Memberikan tafsir dan penjelasan yang mudah dipahami
-                                </li>
-                                <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
-                                    <span style="position: absolute; left: 0; color: var(--secondary-color); font-weight: bold;">✔</span>
-                                    Membangun komunitas Muslim yang saling mendukung
-                                </li>
-                                <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
-                                    <span style="position: absolute; left: 0; color: var(--secondary-color); font-weight: bold;">✔</span>
-                                    Menjaga keaslian Al-Quran dengan standar verifikasi ketat
-                                </li>
-                                <li style="position: relative; padding-left: 25px;">
-                                    <span style="position: absolute; left: 0; color: var(--secondary-color); font-weight: bold;">✔</span>
-                                    Terus berinovasi dengan teknologi terdepan untuk pengalaman spiritual terbaik
-                                </li>
-                            </ul>
-                        </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h4>Mengembangkan Fitur Inovatif</h4>
+                        <p>Mengembangkan fitur inovatif yang membantu ibadah dan pembelajaran Al-Quran dengan teknologi terdepan.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h4>Memberikan Tafsir yang Mudah Dipahami</h4>
+                        <p>Memberikan tafsir dan penjelasan yang mudah dipahami oleh semua kalangan dengan bahasa yang sederhana.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h4>Membangun Komunitas Muslim</h4>
+                        <p>Membangun komunitas Muslim yang saling mendukung dalam perjalanan spiritual dan pembelajaran Al-Quran.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h4>Menjaga Keaslian Al-Quran</h4>
+                        <p>Menjaga keaslian Al-Quran dengan standar verifikasi ketat dan rujukan dari sumber-sumber terpercaya.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">6</div>
+                    <div class="timeline-content">
+                        <h4>Berinovasi dengan Teknologi Terdepan</h4>
+                        <p>Terus berinovasi dengan teknologi terdepan untuk memberikan pengalaman spiritual terbaik bagi pengguna.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <section class="team-section section-padding" id="tim-kami">
             <div class="container">
                 <h2 class="section-title">Tim Profesional di Balik Layar</h2>
-                <p class="section-subtitle">Kami didukung oleh tim yang berdedikasi tinggi, terdiri dari para ahli Al-Quran, developer teknologi, dan pakar Islamic studies yang siap melayani Anda.</p>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="team-member-img-container">
-                            <img src="https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg" 
-                                 alt="Foto Ahmad Fikri Zakaria"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/150x150/243533/F3F4F6?text=AFZ';">
-                        </div>
-                        <h4>Ahmad Fikri Z.</h4>
-                        <p class="role">Founder & Lead Developer</p>
-                        <p class="bio">Mahasiswa Informatika Unsoed dengan passion mendalam di bidang teknologi Islami. Bertekad menciptakan platform Al-Quran digital terbaik untuk umat.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-member-img-container">
-                            <img src="https://images.pexels.com/photos/5626695/pexels-photo-5626695.jpeg" 
-                                 alt="Foto Ustadz Dr. Abdullah"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/150x150/243533/F3F4F6?text=DR';">
-                        </div>
-                        <h4>Dr. Abdullah Rahman</h4>
-                        <p class="role">Ahli Tafsir & Islamic Studies</p>
-                        <p class="bio">Doktor lulusan Al-Azhar dengan spesialisasi tafsir Al-Quran dan ilmu hadits. Memastikan keakuratan konten Islamic di platform kami.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-member-img-container">
-                            <img src="https://images.pexels.com/photos/6140689/pexels-photo-6140689.jpeg" 
-                                 alt="Foto Qori Internasional"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/150x150/243533/F3F4F6?text=QR';">
-                        </div>
-                        <h4>Qori Muhammad Firdaus</h4>
-                        <p class="role">Koordinator Audio & Tajwid</p>
-                        <p class="bio">Qori internasional dan hafiz 30 juz yang bertanggung jawab atas kualitas audio murotal dan pembelajaran tajwid di platform.</p>
-                    </div>
-                </div>
+                <p class="section-subtitle">Kami didukung oleh tim yang berdedikasi tinggi, terdiri dari para ahli Al-Quran, developer teknologi, dan pakar Islamic studies yang siap melayani Anda.</p>  
             </div>
         </section>
-
-        <section class="values-section section-padding bg-alternate">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<section class="hero-section">
+  <div class="card-grid">
+    <a class="card" href="#">
+      <div class="card__background" style="background-image: url(Galeri/Fahmi.jpg)"></div>
+      <div class="card__content">
+        <p class="card__category">Web Developer</p>
+        <h3 class="card__heading">Fahmi Arif Setiawan</h3>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557187666-4fd70cf76254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+      <div class="card__content">
+        <p class="card__category">Graphic Designer</p>
+        <h3 class="card__heading">Rina Amelia</h3>
+      </div>
+    </a>
+    
+  <div>
+</section>
+        <section class="values-section section-padding">
             <div class="container">
                 <h2 class="section-title">Nilai-Nilai Islami Kami</h2>
                 <p class="section-subtitle">Prinsip-prinsip Islamic yang menjadi landasan kami dalam mengembangkan dan memberikan layanan terbaik untuk umat Muslim.</p>
-                <div class="values-grid">
-                    <div class="value-item">
-                        <div class="icon">🕌</div>
-                        <h4>Amanah & Terpercaya</h4>
-                        <p>Kami menjaga amanah dalam menyajikan Al-Quran dengan akurat dan terjaga keasliannya sesuai Mushaf Standar Indonesia.</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="icon">💎</div>
-                        <h4>Kualitas Terbaik</h4>
-                        <p>Tidak pernah berkompromi dengan kualitas dalam hal teknologi, konten Islamic, dan pengalaman spiritual pengguna.</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="icon">🤲</div>
-                        <h4>Lillahi Ta'ala</h4>
-                        <p>Setiap pengembangan dan inovasi yang kami lakukan semata-mata untuk mencari ridha Allah SWT dan melayani umat.</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="icon">🌙</div>
-                        <h4>Inovasi Berkelanjutan</h4>
-                        <p>Terus mengembangkan teknologi dan fitur terbaru yang bermanfaat untuk meningkatkan kualitas ibadah umat Muslim.</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="icon">🤝</div>
-                        <h4>Ukhuwah Islamiyah</h4>
-                        <p>Membangun persaudaraan dan komunitas Muslim yang saling mendukung dalam perjalanan spiritual dan pembelajaran.</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="icon">📚</div>
-                        <h4>Ilmu yang Bermanfaat</h4>
-                        <p>Menyebarkan ilmu Al-Quran dan Islamic knowledge yang bermanfaat untuk kehidupan dunia dan akhirat.</p>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
+
+    <div class="wrapper">
+  <div class="cols">
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container">
+          <div class="front" style="background-image: url(https://unsplash.it/500/500/)">
+            <div class="inner">
+              <p>Amanah & Terpercaya</p>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>Kami menjaga amanah dalam menyajikan Al-Quran dengan akurat dan terjaga keasliannya sesuai Mushaf Standar Indonesia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container">
+          <div class="front" style="url(https://unsplash.it/511/511/)">
+            <div class="inner">
+              <p>Kualitas Terbaik</p>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>Tidak pernah berkompromi dengan kualitas dalam hal teknologi, konten Islamic, dan pengalaman spiritual pengguna.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container">
+          <div class="front" style="background-image: url(https://unsplash.it/502/502/)">
+            <div class="inner">
+              <p>Lillahi Ta'ala</p>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>Setiap pengembangan dan inovasi yang kami lakukan semata-mata untuk mencari ridha Allah SWT dan melayani umat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container">
+          <div class="front" style="background-image: url(https://unsplash.it/503/503/)">
+            <div class="inner">
+              <p>Inovasi Berkelanjutan</p>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>Terus mengembangkan teknologi dan fitur terbaru yang bermanfaat untuk meningkatkan kualitas ibadah umat Muslim.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container">
+          <div class="front" style="background-image: url(https://unsplash.it/504/504/)">
+            <div class="inner">
+              <p>Ukhuwah Islamiyah</p>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>Membangun persaudaraan dan komunitas Muslim yang saling mendukung dalam perjalanan spiritual dan pembelajaran.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container">
+          <div class="front" style="background-image: url(https://unsplash.it/505/505/)">
+            <div class="inner">
+              <p>Ilmu yang Bermanfaat</p>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>Menyebarkan ilmu Al-Quran dan Islamic knowledge yang bermanfaat untuk kehidupan dunia dan akhirat.</p>
+            </div>
+        </div>
+      </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ </div>
 
     <footer class="footer">
         <div class="container">
