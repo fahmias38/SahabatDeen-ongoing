@@ -301,7 +301,6 @@ function displaySurah(surahList) {
             
             <div class="surah-actions">
                 <a href="surah/surah${surah.number}.html" class="btn btn-small btn-read" onclick="readSurah(${surah.number})">Baca</a>
-                <a href="surah/surah${surah.number}.html" class="btn btn-small btn-listen" onclick="listenSurah(${surah.number})">Dengar</a>
             </div>
         </div>
     `).join('');
