@@ -38,37 +38,73 @@
 
 /* Visi */
 .vision-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px 30px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 50px;
-    margin: 60px 0;
-    padding: 50px;
-    background: rgba(31, 56, 64, 0.6);
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(26, 147, 111, 0.2);
-    border: 1px solid rgba(46, 203, 156, 0.2);
-    backdrop-filter: blur(10px);
+    gap: 30px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 15px 35px rgba(26, 147, 111, 0.2);
+    border: 1px solid rgba(46, 203, 156, 0.2);
+    transition: all 0.3s ease;
 }
 
 .vision-container::before {
     content: '';
     position: absolute;
+    width: 120px;
+    height: 130%;
+    transition: all 0.2s linear;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
+    left: 0;
+    z-index: 0;
 }
 
-.vision-container:hover::before {
-    left: 100%;
+
+.vision-container h2,
+.vision-container p {
+    z-index: 1;
+    color: white;
+    margin: 0;
+}
+
+.vision-text-group {
+    z-index: 1;
+    flex: 1;
 }
 
 .vision-icon {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    border-radius: 50%;
+    overflow: hidden;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
 }
+
+.vision-icon img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+@keyframes rotBGimg {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 .icon-circle {
     width: 120px;
@@ -170,6 +206,41 @@
     background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), transparent);
     animation: shimmer 2s infinite;
 }
+
+.masking {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 5.9rem;
+    margin-bottom: 25px;
+    background-image: url(Galeri/makkah.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0 auto;
+    line-height: 1.1;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 20px;
+}
+ display: inline-block;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    background-image: url(Galeri/makkah.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0 auto;
+    line-height: 1.1;
 
 @keyframes shimmer {
     0% { top: -100%; }
@@ -743,13 +814,13 @@ h1{
     <main>
         <section class="welcome-section" style="padding: 200px 0;">
     <div class="container">
-        <h2 class="section-title">Selamat Datang di Keluarga QuranKu Digital!</h2>
+        <h2 class="masking">Deensphere</h2>
         <p class="section-subtitle">Kami lebih dari sekadar aplikasi Al-Quran; kami adalah partner setia Anda dalam perjalanan spiritual mendekatkan diri kepada Allah SWT.</p>
         
         <div class="values-list">
             <div class="value-item">
                 <div class="value-icon">
-                    <div class="icon">📱</div>
+                    <img src="Galeri/ikon/laptop-icon.png" alt="icon" class="icon" style="width: auto; height: 80%;">
                 </div>
                 <div class="value-content">
                     <h4>Platform Al-Quran Digital Terdepan</h4>
@@ -759,7 +830,7 @@ h1{
             
             <div class="value-item reverse">
                 <div class="value-icon">
-                    <div class="icon">🤝</div>
+                    <img src="Galeri/ikon/hand-icon.png" alt="icon" class="icon" style="width: auto; height: 80%;">
                 </div>
                 <div class="value-content">
                     <h4>Partner Spiritual Anda</h4>
@@ -769,7 +840,7 @@ h1{
             
             <div class="value-item">
                 <div class="value-icon">
-                    <div class="icon">📈</div>
+                    <img src="Galeri/ikon/graph-icon.png" alt="icon" class="icon" style="width: auto; height: 80%;">
                 </div>
                 <div class="value-content">
                     <h4>Terbukti Membantu Ribuan Muslim</h4>

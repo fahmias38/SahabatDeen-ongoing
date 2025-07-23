@@ -10,10 +10,18 @@
     <link rel="icon" href="https://placehold.co/32x32/2E856E/FFFFFF?text=Q" type="image/png">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script>
+      // Pastikan fungsi render/filterSurah dipanggil saat halaman selesai dimuat
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof filterSurah === 'function') {
+          filterSurah();
+        }
+      });
+    </script>
     <style>
         /* Konten Spesifik Halaman Surah */
         .search-filter-section {
-            background-color: var(--bg-dark-secondary);
+            background-color: #121212;
             padding: 40px 0;
             margin-bottom: 60px;
         }
@@ -373,15 +381,15 @@
 <body>
     <header class="header" id="mainHeader">
         <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="nav-logo">Deen<span>Sphere</span></a>
+            <nav>
+                <a href="index.html" class="nav-logo">Quran<span>Ku</span></a>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
-                    <li class="nav-item"><a href="tentang.html" class="nav-link">Tentang Kami</a></li>
-                    <li class="nav-item"><a href="harga.html" class="nav-link">Berlangganan</a></li>
-                    <li class="nav-item"><a href="surah.html" class="nav-link active">Surah</a></li>
-                    <li class="nav-item"><a href="materi.html" class="nav-link">Fitur Al-Quran</a></li>
-                    <li class="nav-item"><a href="kontak.html" class="nav-link">Kontak</a></li>
+                    <a href="index.html">Beranda <span></span></a></li>
+                    <a href="tentang.html" >Tentang Kami <span></span></a></li>
+                    <a href="harga.html" >Berlangganan <span></span></a></li>
+                    <a href="surah.html" class="nav-link">Surah <span></span></a></li>
+                    <a href="materi.html" >Ngaji <span></span></a></li>
+                    <a href="kontak.html" >Kontak <span></span></a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -403,11 +411,11 @@
         <div class="container">
             <div class="search-filter-container">
                 <div class="search-group">
-                    <label for="searchSurah">🔍 Cari Surah</label>
+                    <label for="searchSurah">Cari Surah</label>
                     <input type="text" id="searchSurah" class="search-input" placeholder="Cari nama surah (Indonesia/Arab)..." onkeyup="filterSurah()">
                 </div>
                 <div class="filter-group">
-                    <label for="filterJuz">📖 Filter Juz</label>
+                    <label for="filterJuz">Filter Juz</label>
                     <select id="filterJuz" class="filter-select" onchange="filterSurah()">
                         <option value="">Semua Juz</option>
                         <option value="1">Juz 1</option>
@@ -443,7 +451,7 @@
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label for="filterRevelation">🕌 Filter Wahyu</label>
+                    <label for="filterRevelation">Filter Wahyu</label>
                     <select id="filterRevelation" class="filter-select" onchange="filterSurah()">
                         <option value="">Semua</option>
                         <option value="Makkiyah">Makkiyah</option>
@@ -456,33 +464,9 @@
 
     <main>
         <section class="surah-list-section section-padding">
-            <div class="container">
-                <div class="stats-info">
-                    <div class="stat-card">
-                        <span class="stat-number">114</span>
-                        <span class="stat-label">Total Surah</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">6,236</span>
-                        <span class="stat-label">Total Ayat</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">30</span>
-                        <span class="stat-label">Total Juz</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">86</span>
-                        <span class="stat-label">Surah Makkiyah</span>
-                    </div>
-                </div>
-
-                <h2 class="section-title">Daftar Lengkap Surah Al-Quran</h2>
-                <p class="section-subtitle">Pilih surah yang ingin Anda baca dengan terjemahan dan audio murotal berkualitas tinggi.</p>
-
                 <div class="surah-grid" id="surahGrid">
-                    <!-- Surah cards will be populated by JavaScript -->
+                    <!-- Surahnya bakal ada disini pake js -->
                 </div>
-
                 <div class="no-results" id="noResults" style="display: none;">
                     <div class="icon">📖</div>
                     <h3>Surah Tidak Ditemukan</h3>

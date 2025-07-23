@@ -931,23 +931,122 @@
             .volume-control {
                 order: 1;
                 width: 100%;
-                justify-content: center;
+                justify-content: cent er;
             }
         }
+
+        :root {
+  --card-height: 300px;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+        .card {
+  width: var(--card-width);
+  height: var(--card-height);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 36px;
+  perspective: 2500px;
+  margin: 0 50px;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+.wrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+.wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+  opacity: 1;
+}
+
+.card:hover .wrapper::after {
+  height: 120px;
+}
+.title {
+  width: 100%;
+  font-family: poppins, sans-serif;
+  font-size: 30px;
+  transition: transform 0.5s;
+}
+.card:hover .title {
+  transform: translate3d(0%, -50px, 100px);
+}
+
+.character {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
+}
     </style>
 </head>
 <body>
     <header class="header" id="mainHeader">
         <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="nav-logo">Deen<span>Sphere</span></a>
+            <nav>
+                <a href="index.html" class="nav-logo">Quran<span>Ku</span></a>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
-                    <li class="nav-item"><a href="tentang.html" class="nav-link">Tentang Kami</a></li>
-                    <li class="nav-item"><a href="harga.html" class="nav-link">Berlangganan</a></li>
-                    <li class="nav-item"><a href="surah.html" class="nav-link">Surah</a></li>
-                    <li class="nav-item"><a href="materi.html" class="nav-link active">Fitur Al-Quran</a></li>
-                    <li class="nav-item"><a href="kontak.html" class="nav-link">Kontak</a></li>
+                    <a href="index.html">Beranda <span></span></a></li>
+                    <a href="tentang.html" >Tentang Kami <span></span></a></li>
+                    <a href="harga.html" >Berlangganan <span></span></a></li>
+                    <a href="surah.html" >Surah <span></span></a></li>
+                    <a href="materi.html" class="nav-link">Ngaji <span></span></a></li>
+                    <a href="kontak.html" >Kontak <span></span></a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -967,9 +1066,11 @@
             </div>
         </section>
 
+        
+
         <main class="section-padding">
             <div class="container">
-                <!-- Mode Selection -->
+                 <!-- Mode Selection -->
                 <div id="modeSelection">
                     <h2 class="section-title">Pilih Metode Belajar</h2>
                     <p class="section-subtitle">Tentukan cara belajar yang paling sesuai dengan kebutuhan dan gaya belajarmu</p>
@@ -989,6 +1090,45 @@
                             <span class="mode-icon"><i class="fas fa-book"></i></span>
                             <h3>Materi Bacaan</h3>
                             <p>Rangkuman materi komprehensif dalam format PDF dan interaktif untuk referensi belajar kapan saja</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mode Selection -->
+                <div id="modeSelection">
+                    <h2 class="section-title">Pilih Metode Belajar</h2>
+                    <p class="section-subtitle">Tentukan cara belajar yang paling sesuai dengan kebutuhan dan gaya belajarmu</p>
+                    
+                    <div class="mode-selection">
+                        <div class="mode-card" data-mode="video">
+                            <span class="mode-icon"><i class="fas fa-video"></i></span>
+                            <div class="card">
+                                <div class="wrapper">
+                                <img src="Galeri/dakwah1.jpg" class="cover-image" />
+                                </div>
+                                <p class="title">Video Dakwah</p>
+                                <img src="Galeri/ikon/video-icon.png" class="character" />
+                            </div>
+                        </div>
+                        
+
+                            <a href="https://www.mythrillfiction.com/force-mage" alt="Mythrill" target="_blank">
+                            <div class="card">
+                                <div class="wrapper">
+                                <img src="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg" class="cover-image" />
+                                </div>
+                                <img src="https://ggayane.github.io/css-experiments/cards/force_mage-title.png" class="title" />
+                                <img src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp" class="character" />
+                            </div>
+                            </a>
+                            <a href="https://www.mythrillfiction.com/force-mage" alt="Mythrill" target="_blank">
+                            <div class="card">
+                                <div class="wrapper">
+                                <img src="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg" class="cover-image" />
+                                </div>
+                                <img src="https://ggayane.github.io/css-experiments/cards/force_mage-title.png" class="title" />
+                                <img src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp" class="character" />
+                            </div>
+                        </a>
                         </div>
                     </div>
                 </div>
