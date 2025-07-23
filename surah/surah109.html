@@ -1,27 +1,9 @@
-<!-- hapus tes
-ini tambhaan dari fahmi
-aman bro!
-
-cadangan
-const surahCards = document.querySelectorAll('.surah-card');
-// Efek hover untuk kartu surah
-surahCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.borderLeftColor = getComputedStyle(document.documentElement).getPropertyValue('--secondary-color');
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.borderLeftColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
-    });
-});
-
-testing -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surah Al-Fatihah - QuranKu Digital</title>
+    <title>Surah Al-Kafirun - QuranKu Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
@@ -43,24 +25,21 @@ testing -->
             </div>
         </div>
     </header>
-
-    <!-- Main Content -->
     <div class="container">
-        <!-- Surah Header -->
         <div class="surah-header fade-in">
             <div class="surah-title">
-                <div class="surah-name-arabic">الْفَاتِحَة</div>
-                <h1 class="surah-name">Al-Fatihah</h1>
-                <p class="surah-meaning">"Pembuka"</p>
+                <div class="surah-name-arabic">الْكَافِرُونَ</div>
+                <h1 class="surah-name">Al-Kafirun</h1>
+                <p class="surah-meaning">"Orang-orang Kafir"</p>
             </div>
             <div class="surah-info">
                 <div class="info-item">
                     <div class="info-label">Jumlah Ayat</div>
-                    <div class="info-value">7</div>
+                    <div class="info-value">6</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Juz</div>
-                    <div class="info-value">1</div>
+                    <div class="info-value">30</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Turun di</div>
@@ -68,16 +47,14 @@ testing -->
                 </div>
                 <div class="info-item">
                     <div class="info-label">Nomor Surah</div>
-                    <div class="info-value">1</div>
+                    <div class="info-value">109</div>
                 </div>
             </div>
         </div>
-
-        <!-- Audio Player -->
         <div class="audio-player fade-in">
             <div class="audio-controls">
                 <button class="play-btn" onclick="toggleAudio()" id="playBtn">
-                    <span id="playIcon">▶</span>
+                    <span id="playIcon">▶️</span>
                 </button>
                 <select class="qori-select" id="qoriSelect" onchange="changeQori()">
                     <option value="mishary">Sheikh Mishary Rashid Alafasy</option>
@@ -90,19 +67,16 @@ testing -->
                 <div class="progress-fill" id="progressFill"></div>
             </div>
             <audio id="audioPlayer" preload="metadata">
-                <source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/001.mp3" type="audio/mpeg">
+                <source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/109.mp3" type="audio/mpeg">
                 Browser Anda tidak mendukung audio player.
             </audio>
         </div>
-
-        <!-- Ayat Container -->
         <div class="ayat-container">
-            <!-- Ayat 1 -->
             <div class="ayat-card fade-in" id="ayat-1">
                 <div class="ayat-number">1</div>
-                <div class="ayat-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-                <div class="ayat-transliteration">Bismillāhi'r-raḥmāni'r-raḥīm</div>
-                <div class="ayat-translation">Dengan nama Allah Yang Maha Pengasih, Maha Penyayang.</div>
+                <div class="ayat-arabic">قُلْ يَا أَيُّهَا الْكَافِرُونَ</div>
+                <div class="ayat-transliteration">Qul yā ayyuhal-kāfirūn</div>
+                <div class="ayat-translation">Katakanlah: "Hai orang-orang kafir!"</div>
                 <div class="ayat-actions">
                     <button class="ayat-btn" onclick="playAyat(1)">🔊 Putar</button>
                     <button class="ayat-btn" onclick="bookmarkAyat(1)">📚 Bookmark</button>
@@ -110,13 +84,11 @@ testing -->
                     <button class="ayat-btn" onclick="shareAyat(1)">🔗 Bagikan</button>
                 </div>
             </div>
-
-            <!-- Ayat 2 -->
             <div class="ayat-card fade-in" id="ayat-2">
                 <div class="ayat-number">2</div>
-                <div class="ayat-arabic">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</div>
-                <div class="ayat-transliteration">Al-ḥamdu lillāhi rabbi'l-'ālamīn</div>
-                <div class="ayat-translation">Segala puji bagi Allah, Tuhan seluruh alam.</div>
+                <div class="ayat-arabic">لَا أَعْبُدُ مَا تَعْبُدُونَ</div>
+                <div class="ayat-transliteration">Lā aʿbudu mā taʿbudūn</div>
+                <div class="ayat-translation">Aku tidak akan menyembah apa yang kamu sembah.</div>
                 <div class="ayat-actions">
                     <button class="ayat-btn" onclick="playAyat(2)">🔊 Putar</button>
                     <button class="ayat-btn" onclick="bookmarkAyat(2)">📚 Bookmark</button>
@@ -124,13 +96,11 @@ testing -->
                     <button class="ayat-btn" onclick="shareAyat(2)">🔗 Bagikan</button>
                 </div>
             </div>
-
-            <!-- Ayat 3 -->
             <div class="ayat-card fade-in" id="ayat-3">
                 <div class="ayat-number">3</div>
-                <div class="ayat-arabic">الرَّحْمَٰنِ الرَّحِيمِ</div>
-                <div class="ayat-transliteration">Ar-raḥmāni'r-raḥīm</div>
-                <div class="ayat-translation">Yang Maha Pengasih, Maha Penyayang.</div>
+                <div class="ayat-arabic">وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ</div>
+                <div class="ayat-transliteration">Wa lā antum ʿābidūna mā aʿbud</div>
+                <div class="ayat-translation">Dan kamu bukan penyembah Tuhan yang aku sembah.</div>
                 <div class="ayat-actions">
                     <button class="ayat-btn" onclick="playAyat(3)">🔊 Putar</button>
                     <button class="ayat-btn" onclick="bookmarkAyat(3)">📚 Bookmark</button>
@@ -138,13 +108,11 @@ testing -->
                     <button class="ayat-btn" onclick="shareAyat(3)">🔗 Bagikan</button>
                 </div>
             </div>
-
-            <!-- Ayat 4 -->
             <div class="ayat-card fade-in" id="ayat-4">
                 <div class="ayat-number">4</div>
-                <div class="ayat-arabic">مَالِكِ يَوْمِ الدِّينِ</div>
-                <div class="ayat-transliteration">Māliki yawmi'd-dīn</div>
-                <div class="ayat-translation">Pemilik hari pembalasan.</div>
+                <div class="ayat-arabic">وَلَا أَنَا عَابِدٌ مَّا عَبَدتُّمْ</div>
+                <div class="ayat-transliteration">Wa lā anā ʿābidum mā ʿabadtum</div>
+                <div class="ayat-translation">Dan aku tidak pernah menjadi penyembah apa yang kamu sembah.</div>
                 <div class="ayat-actions">
                     <button class="ayat-btn" onclick="playAyat(4)">🔊 Putar</button>
                     <button class="ayat-btn" onclick="bookmarkAyat(4)">📚 Bookmark</button>
@@ -152,13 +120,11 @@ testing -->
                     <button class="ayat-btn" onclick="shareAyat(4)">🔗 Bagikan</button>
                 </div>
             </div>
-
-            <!-- Ayat 5 -->
             <div class="ayat-card fade-in" id="ayat-5">
                 <div class="ayat-number">5</div>
-                <div class="ayat-arabic">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
-                <div class="ayat-transliteration">Iyyāka na'budu wa iyyāka nasta'īn</div>
-                <div class="ayat-translation">Hanya kepada Engkaulah kami menyembah dan hanya kepada Engkaulah kami mohon pertolongan.</div>
+                <div class="ayat-arabic">وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ</div>
+                <div class="ayat-transliteration">Wa lā antum ʿābidūna mā aʿbud</div>
+                <div class="ayat-translation">Dan kamu tidak pernah (pula) menjadi penyembah Tuhan yang aku sembah.</div>
                 <div class="ayat-actions">
                     <button class="ayat-btn" onclick="playAyat(5)">🔊 Putar</button>
                     <button class="ayat-btn" onclick="bookmarkAyat(5)">📚 Bookmark</button>
@@ -166,13 +132,11 @@ testing -->
                     <button class="ayat-btn" onclick="shareAyat(5)">🔗 Bagikan</button>
                 </div>
             </div>
-
-            <!-- Ayat 6 -->
             <div class="ayat-card fade-in" id="ayat-6">
                 <div class="ayat-number">6</div>
-                <div class="ayat-arabic">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</div>
-                <div class="ayat-transliteration">Ihdinā'ṣ-ṣirāṭa'l-mustaqīm</div>
-                <div class="ayat-translation">Tunjukilah kami jalan yang lurus.</div>
+                <div class="ayat-arabic">لَكُمْ دِينُكُمْ وَلِيَ دِينِ</div>
+                <div class="ayat-transliteration">Lakum dīnukum wa liya dīn</div>
+                <div class="ayat-translation">Untukmu agamamu, dan untukku agamaku."</div>
                 <div class="ayat-actions">
                     <button class="ayat-btn" onclick="playAyat(6)">🔊 Putar</button>
                     <button class="ayat-btn" onclick="bookmarkAyat(6)">📚 Bookmark</button>
@@ -180,46 +144,27 @@ testing -->
                     <button class="ayat-btn" onclick="shareAyat(6)">🔗 Bagikan</button>
                 </div>
             </div>
-
-            <!-- Ayat 7 -->
-            <div class="ayat-card fade-in" id="ayat-7">
-                <div class="ayat-number">7</div>
-                <div class="ayat-arabic">صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</div>
-                <div class="ayat-transliteration">Ṣirāṭa'lladhīna an'amta 'alayhim ghayri'l-maghḍūbi 'alayhim wa lā'ḍ-ḍāllīn</div>
-                <div class="ayat-translation">(Yaitu) jalan orang-orang yang telah Engkau beri nikmat kepadanya; bukan (jalan) mereka yang dimurkai, dan bukan (pula jalan) mereka yang sesat.</div>
-                <div class="ayat-actions">
-                    <button class="ayat-btn" onclick="playAyat(7)">🔊 Putar</button>
-                    <button class="ayat-btn" onclick="bookmarkAyat(7)">📚 Bookmark</button>
-                    <button class="ayat-btn" onclick="copyAyat(7)">📋 Salin</button>
-                    <button class="ayat-btn" onclick="shareAyat(7)">🔗 Bagikan</button>
-                </div>
-            </div>
         </div>
-
-        <!-- Notes Section -->
         <div class="notes-section fade-in">
             <div class="notes-header">
                 <h3 class="notes-title">📝 Catatan Pribadi</h3>
             </div>
-            <textarea class="notes-textarea" id="personalNotes" placeholder="Tuliskan catatan atau refleksi Anda tentang Surah Al-Fatihah..."></textarea>
+            <textarea class="notes-textarea" id="personalNotes" placeholder="Tuliskan catatan atau refleksi Anda tentang Surah Al-Kafirun..."></textarea>
             <button class="save-notes-btn" onclick="saveNotes()">💾 Simpan Catatan</button>
         </div>
-
-        <!-- Navigation -->
         <div class="surah-navigation fade-in">
-            <button class="nav-btn" disabled>
+            <a href="surah108.html" class="nav-btn">
                 ← Surah Sebelumnya
-            </button>
+            </a>
             <div class="nav-info">
-                <div class="nav-current">Surah Al-Fatihah</div>
-                <div class="nav-total">Surah 1 dari 114</div>
+                <div class="nav-current">Surah Al-Kafirun</div>
+                <div class="nav-total">Surah 109 dari 114</div>
             </div>
-            <a href="surah2.html" class="nav-btn">
+            <a href="surah110.html" class="nav-btn">
                 Surah Selanjutnya →
             </a>
         </div>
     </div>
-
     <script src="../surah.js"></script>
 </body>
-</html>
+</html> 
