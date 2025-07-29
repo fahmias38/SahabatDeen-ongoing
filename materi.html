@@ -23,66 +23,11 @@
         }
 
         .mode-card {
-            background: rgba(31, 56, 64, 0.6);
-            border-radius: var(--border-radius);
             padding: 40px 30px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(46, 203, 156, 0.2);
             position: relative;
             overflow: hidden;
-            box-shadow: var(--card-shadow);
-            backdrop-filter: blur(5px);
-        }
-
-        .mode-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(46, 203, 156, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .mode-card:hover::before {
-            left: 100%;
-        }
-
-        .mode-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary-color);
-            box-shadow: 0 12px 30px rgba(26, 147, 111, 0.2);
-        }
-
-        .mode-card.active {
-            border-color: var(--secondary-color);
-            background: linear-gradient(135deg, rgba(26, 147, 111, 0.15) 0%, rgba(46, 203, 156, 0.15) 100%);
-        }
-
-        .mode-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-            transition: transform 0.3s ease;
-            color: var(--secondary-color);
-        }
-
-        .mode-card:hover .mode-icon {
-            transform: scale(1.1);
-        }
-
-        .mode-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--text-light-primary);
-        }
-
-        .mode-card p {
-            color: var(--text-light-secondary);
-            line-height: 1.6;
         }
 
         /* Search Bar */
@@ -138,8 +83,9 @@
 
         /* Subject Tabs */
         .subject-tabs {
-            display: flex;
             justify-content: center;
+            align-items: center;
+            display: flex;
             flex-wrap: wrap;
             gap: 15px;
             margin-bottom: 40px;
@@ -188,6 +134,7 @@
             border: 1px solid rgba(46, 203, 156, 0.1);
             position: relative;
             backdrop-filter: blur(5px);
+            justify-content: flex-start;
         }
 
         .content-card:hover {
@@ -834,9 +781,11 @@
         }
 
         .premium-content {
-            background: var(--bg-dark-secondary);
+            background: #174438a0;
             border-radius: var(--border-radius);
             width: 90%;
+            backdrop-filter: blur(10px);;
+            border:#27ae60;
             max-width: 500px;
             padding: 40px;
             text-align: center;
@@ -944,7 +893,7 @@
   width: var(--card-width);
   height: var(--card-height);
   position: relative;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: flex-end;
   padding: 0 36px;
@@ -1012,10 +961,21 @@
   height: 120px;
 }
 .title {
-  width: 100%;
-  font-family: poppins, sans-serif;
-  font-size: 30px;
-  transition: transform 0.5s;
+    width: 100%;
+    align-items: center;
+    font-weight: bolder;
+    background: linear-gradient(to bottom, rgba(226, 192, 0, 0.916) 0%, rgba(226, 192, 0, 0.2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: poppins, sans-serif;
+    font-size: 30px;
+    transition: transform 0.5s, text-shadow 0.5s;
+    text-shadow:
+        0 2px 4px rgba(0,0,0,0.25),
+        0 6px 12px rgba(226,192,0,0.15),
+        0 1px 0 rgba(226, 192, 0, 0.916),
+        2px 2px 8px rgba(226,192,0,0.25);
+    transform: perspective(400px) translateZ(30px);
 }
 .card:hover .title {
   transform: translate3d(0%, -50px, 100px);
@@ -1031,7 +991,7 @@
 
 .card:hover .character {
   opacity: 1;
-  transform: translate3d(0%, -30%, 100px);
+  transform: translate3d(0%, -60%, 100px);
 }
     </style>
 </head>
@@ -1039,7 +999,7 @@
     <header class="header" id="mainHeader">
         <div class="container">
             <nav>
-                <a href="index.html" class="nav-logo">Quran<span>Ku</span></a>
+                <img class="nav-logo" src="Galeri/sahabatdeen.png" alt="Logo SahabatDeen">
                 <ul class="nav-menu">
                     <a href="index.html">Beranda <span></span></a></li>
                     <a href="tentang.html" >Tentang Kami <span></span></a></li>
@@ -1070,65 +1030,40 @@
 
         <main class="section-padding">
             <div class="container">
-                 <!-- Mode Selection -->
-                <div id="modeSelection">
-                    <h2 class="section-title">Pilih Metode Belajar</h2>
-                    <p class="section-subtitle">Tentukan cara belajar yang paling sesuai dengan kebutuhan dan gaya belajarmu</p>
-                    
-                    <div class="mode-selection">
-                        <div class="mode-card" data-mode="video">
-                            <span class="mode-icon"><i class="fas fa-video"></i></span>
-                            <h3>Video Pembelajaran</h3>
-                            <p>Belajar dengan video interaktif dari ustadz dan ulama berpengalaman dengan penjelasan yang mudah dipahami</p>
-                        </div>
-                        <div class="mode-card" data-mode="quiz">
-                            <span class="mode-icon"><i class="fas fa-brain"></i></span>
-                            <h3>Bank Soal</h3>
-                            <p>Latihan soal lengkap dengan pembahasan detail untuk mengasah kemampuan pemahaman agama</p>
-                        </div>
-                        <div class="mode-card" data-mode="material">
-                            <span class="mode-icon"><i class="fas fa-book"></i></span>
-                            <h3>Materi Bacaan</h3>
-                            <p>Rangkuman materi komprehensif dalam format PDF dan interaktif untuk referensi belajar kapan saja</p>
-                        </div>
-                    </div>
-                </div>
+                 
                 <!-- Mode Selection -->
                 <div id="modeSelection">
                     <h2 class="section-title">Pilih Metode Belajar</h2>
                     <p class="section-subtitle">Tentukan cara belajar yang paling sesuai dengan kebutuhan dan gaya belajarmu</p>
-                    
                     <div class="mode-selection">
                         <div class="mode-card" data-mode="video">
-                            <span class="mode-icon"><i class="fas fa-video"></i></span>
                             <div class="card">
                                 <div class="wrapper">
                                 <img src="Galeri/dakwah1.jpg" class="cover-image" />
                                 </div>
-                                <p class="title">Video Dakwah</p>
+                                <p class="title">VIDEO
+                                    DAKWAH</p>
                                 <img src="Galeri/ikon/video-icon.png" class="character" />
                             </div>
                         </div>
-                        
-
-                            <a href="https://www.mythrillfiction.com/force-mage" alt="Mythrill" target="_blank">
+                        <div class="mode-card" data-mode="quiz">
                             <div class="card">
                                 <div class="wrapper">
-                                <img src="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg" class="cover-image" />
+                                <img src="Galeri/ngaji.png" class="cover-image" />
                                 </div>
-                                <img src="https://ggayane.github.io/css-experiments/cards/force_mage-title.png" class="title" />
-                                <img src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp" class="character" />
+                                <p class="title">KUIS ISLAMI</p>
+                                <img src="Galeri/ikon/quiz-icon.png" class="character" />
                             </div>
-                            </a>
-                            <a href="https://www.mythrillfiction.com/force-mage" alt="Mythrill" target="_blank">
+                        </div>
+                        <div class="mode-card" data-mode="material">
                             <div class="card">
                                 <div class="wrapper">
-                                <img src="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg" class="cover-image" />
+                                <img src="Galeri/bacaan.png" class="cover-image" />
                                 </div>
-                                <img src="https://ggayane.github.io/css-experiments/cards/force_mage-title.png" class="title" />
-                                <img src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp" class="character" />
+                                <p class="title">BACAAN MATERI</p>
+                                <img src="Galeri/ikon/bookopen-icon.png" class="character" />
                             </div>
-                        </a>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -1157,9 +1092,7 @@
                         <button class="subject-tab" data-subject="sejarah-islam">Sejarah Islam</button>
                         <button class="subject-tab" data-subject="akidah & teologi islam">Aqidah & Teologi Islam</button>
                         <button class="subject-tab" data-subject="bahasa-arab">Bahasa Arab</button>
-                        <button class="subject-tab" data-subject="ilmu-tajwid">Ilmu Tajwid</button>
                         <button class="subject-tab" data-subject="doa-dzikir">Doa dan Dzikir</button>
-                        <button class="subject-tab" data-subject="pengajaran islam">Pendidikan & Metodologi Pengajaran Islam</button>
                         <button class="subject-tab" data-subject="pengembangan diri">Kehidupan & Pengembangan Diri Muslim</button>
                         <button class="subject-tab" data-subject="isu">Isu Kontemporer & Sosial</button>
                         <button class="subject-tab" data-subject="seni islam">Seni & Budaya Islam</button>
@@ -1447,13 +1380,13 @@ Allah berjanji:
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <h3>Quran<span>Ku</span></h3>
-                    <p>Platform Al-Quran digital terdepan yang berkomitmen untuk membantu umat Muslim meningkatkan kualitas ibadah dan pemahaman Al-Quran melalui teknologi modern dan inovatif.</p>
+                    <h3>SahabatDeen</h3>
+                    <p>Platform Ngaji digital terdepan yang berkomitmen untuk membantu umat Muslim meningkatkan kualitas ibadah dan pemahaman Al-Quran melalui teknologi modern dan inovatif.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook"><img src="https://placehold.co/20x20/FFFFFF/000000?text=FB" alt="Facebook"></a>
-                        <a href="#" aria-label="Instagram"><img src="https://placehold.co/20x20/FFFFFF/000000?text=IG" alt="Instagram"></a>
-                        <a href="#" aria-label="Twitter"><img src="https://placehold.co/20x20/FFFFFF/000000?text=TW" alt="Twitter"></a>
-                        <a href="#" aria-label="YouTube"><img src="https://placehold.co/20x20/FFFFFF/000000?text=YT" alt="YouTube"></a>
+                        <a href="https://www.facebook.com/share/19V61LMTji/" aria-label="Facebook"><img src="https://placehold.co/20x20/FFFFFF/000000?text=FB" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/fahmifw_?igsh=MW1jNDZzdW1mdHl3aQ==" aria-label="Instagram"><img src="https://placehold.co/20x20/FFFFFF/000000?text=IG" alt="Instagram"></a>
+                        <a href="https://x.com/fahmiarifs2548" aria-label="Twitter"><img src="https://placehold.co/20x20/FFFFFF/000000?text=TW" alt="Twitter"></a>
+                        <a href="https://youtube.com/@fahmiarifsetiawan6736?si=NFONK7VomBTCj9OS" aria-label="YouTube"><img src="https://placehold.co/20x20/FFFFFF/000000?text=YT" alt="YouTube"></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -1462,20 +1395,21 @@ Allah berjanji:
                         <li><a href="index.html">Beranda</a></li>
                         <li><a href="tentang.html">Tentang Kami</a></li>
                         <li><a href="harga.html">Paket Berlangganan</a></li>
-                        <li><a href="materi.html">Fitur Al-Quran</a></li>
+                        <li><a href="surah.html">Fitur Surah</a></li>
+                        <li><a href="materi.html">Fitur Ngaji</a></li>
                         <li><a href="kontak.html">Hubungi Kami</a></li>
                         <li><a href="harga.html#faq">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Hubungi Kami</h4>
-                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=M" alt="Email Icon"> info@quranku.com</p>
+                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=M" alt="Email Icon"> sahabatdeen@gmail.com</p>
                     <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=P" alt="Telepon Icon"> (021) 1234-5678</p>
-                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=L" alt="Lokasi Icon"> Jl. Masjid Istiqlal No. 456, Jakarta Pusat</p>
+                    <p><img src="https://placehold.co/20x20/2E856E/FFFFFF?text=L" alt="Lokasi Icon"> Jl. Jenderal Soedirman Purwokerto Timur, Jawa Tengah</p>
                 </div>
             </div>
             <hr class="footer-divider">
-            <p class="footer-copy">&copy; <span id="currentYear"></span> QuranKu Digital. Semua Hak Cipta Dilindungi.</p>
+            <p class="footer-copy">&copy; <span id="currentYear"></span> SahabatDeen. Semua Hak Cipta Dilindungi.</p>
         </div>
     </footer>
 
@@ -2203,7 +2137,7 @@ Allah berjanji:
             openQuizSetup(currentQuiz);
         }
 
-        // Material Functions
+        // fungsi buat materi
         function openMaterial(content) {
             homePage.classList.add('hidden');
             materialPage.classList.remove('hidden');

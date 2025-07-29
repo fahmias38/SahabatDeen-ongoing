@@ -47,15 +47,16 @@ body {
     line-height: 1.7;
     color: var(--text-light-primary);
     background-color: #121212;
-    padding-top: var(--header-height);
     overflow-x: hidden;
-    padding: 2px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /* Utilitas Umum */
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
+    width: 100%;
     padding: 0 20px;
 }
 
@@ -219,7 +220,7 @@ a:hover {
 /* Header dan Navigasi */
 .header {
     position: fixed;
-    top: 10px;
+    top: 20px;
     left: 200px;
     right: 200px;
     z-index: 1000;
@@ -238,20 +239,16 @@ a:hover {
     position: relative;
     display: flex;
     gap: 30px;
-}
-.navbar {
-    position: relative;
-    display: flex;
-    gap: 30px;
-    justify-content: space-between; /* Add this to separate logo and links */
-    align-items: center; /* Vertically center items */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
 }
 
 nav {
     display: flex;
-    gap: 20px;
-    margin-left: auto; /* Push nav links to the right */
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
 
 nav a {
@@ -288,26 +285,18 @@ nav a:hover span {
 }
 
 .nav-logo {
-    font-size: 2.1rem;
-    font-weight: 800;
+    width: 70px;
+    height: 70px;
     margin-left: 10px;
-    color: var(--text-light-primary);
-    text-decoration: none;
-    letter-spacing: 1px;
     padding-left: 10px;
-    transition: all 0.3s ease
-}
-
-.nav-logo span {
-    color: var(--primary-color);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
 }
 
 .nav-menu {
     display: flex;
-    list-style: none;
-    position: right;
-    align-items: center;
-    gap: 10px
+    gap: 20px;
+    margin-left: auto;
 }
 
 .nav-item {

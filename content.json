@@ -44,7 +44,7 @@
         "premium":true
       }
     ],
-    "fiqih ibadah": [
+    "fiqih ibadah & muamalah": [
       {
         "title": "BACAAN SHOLAT | DARI TAKBIR SAMPAI SALAM SESUAI SUNNAH RASULULLAH SAW",
         "description": "Yuk perbaiki bacaan sholat kita karena amalan yang pertama kali dihisab oleh Allah adalah sholat. jika baik sholat maka baik pula amalan yang lain begitu sebaliknya.",
@@ -69,12 +69,37 @@
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
       }
     ],
+    "fiqih keluarga & sosial": [
+      {
+        "title": "4 Hal Untuk Menjaga Silaturahmi",
+        "duration": "8 menit",
+        "instructor": "Ustadz Buya Yahya",
+        "thumbnail": "Galeri/silaturahmi-thumb.jpg",
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+      },
+      {
+        "title": "Nafkah Istri dan Ibu, Mana yang Utama ❓",
+        "duration": "7 menit",
+        "instructor": "Ustadz Buya Yahya",
+        "thumbnail": "Galeri/nafkah-thumb.jpg",
+        "videoSrc": "Galeri/caraumroh.mp4"
+      },
+      {
+        "title": "Akhlak Muslim Dalam Bertetangga",
+        "description": "Akhlak Muslim dalam bertetangga sangat penting. Berhubungan dengan keluarga, ibadah, dan kebersamaan adalah hal yang penting. Berhubungan dengan keluarga, ibadah, dan kebersamaan adalah hal yang penting. Berhubungan dengan keluarga, ibadah, dan kebersamaan adalah hal yang penting.",
+        "duration": "4 menit",
+        "instructor": "Ustadz Adi Hidayat",
+        "thumbnail": "Galeri/tetangga-thumb.jpg",
+        "videoSrc": "https://youtu.be/GzLq6P1o6Jk?si=oRTyqEchoHUzlEu5v"
+      }
+    ],
     "sejarah-islam": [
       {
-        "title": "Sejarah Nabi Muhammad SAW",
-        "description": "Perjalanan hidup Rasulullah dari lahir hingga wafat",
-        "duration": "60 menit",
-        "instructor": "Dr. Ali Shodiqin",
+        "title": "Perjuangan Hijrah Rasulullah dari Mekah ke Madinah",
+        "description": "Hijrah Rasulullah terjadi di bulan Rabiul Awal atau Maulid. Bersama sahabatnya, Abu Bakar ash-Shiddiq, berangkat menuju Madinah, dan sempat tiga malam berada di Gua Tsaur atau Tsur. Keluar dari Gua Tsur pada Senin tanggal 1 Rabiul Awal 1 H. dan sampai di Madinah pada Senin 8 Rabiul Awal.",
+        "duration": "55 menit",
+        "instructor": "inShaa Channel",
+        "thumbnail": "Galeri/rasul-thumb.jpg",
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
       },
       {
@@ -84,71 +109,177 @@
         "instructor": "Prof. Dr. Hamka",
         "premium": true,
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
-      }
-    ],
-    "akidah-akhlak": [
-      {
-        "title": "Rukun Iman dan Islam",
-        "description": "Penjelasan mendalam tentang dasar-dasar keimanan",
-        "duration": "40 menit",
-        "instructor": "Ustadz Ibrahim Khalil",
-        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"
       },
       {
-        "title": "Akhlak Mulia dalam Islam",
-        "description": "Pembentukan karakter dan akhlak yang baik menurut ajaran Islam",
-        "duration": "45 menit",
-        "instructor": "Ustadzah Aisyah Abdurrahman",
+        "title": "SEJARAH MASUKNYA ISLAM KE INDONESIA",
+        "description": "Sejarah masuknya Islam ke Indonesia sangat menarik dipelajari. Banyak lika-liku dalam proses masuknya agama Islam yang dibawa oleh para pedagang muslim tersebut.",
+        "duration": "26 menit",
+        "instructor": "Roudlon CHanel",
+        "thumbnail": "Galeri/sejislam-thumb.jpg",
+        "premium": true,
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
+      }
+    ],
+    "akidah & teologi islam": [
+      {
+        "title": "Mengenal Allah Melalui Asmaul Husna",
+        "description": "Asmaul Husna adalah nama-nama Allah yang indah dan agung. Dalam video ini, kita akan mengenal lebih dekat 99 nama-nama Allah beserta artinya.",
+        "duration": "1 menit",
+        "instructor": "KH Cholil ",
+        "thumbnail": "Galeri/asmaul-thumb.jpg",
+        "videoSrc": "Galeri/asmaul.mp4"
+      },
+      {
+        "title": "Indahnya Akhlak Rasulullah Nabi Muhammad SAW",
+        "duration": "10 menit",
+        "instructor": "Ustadz Adi Hidayat",
+        "thumbnail": "Galeri/akhlak-thumb.jpg",
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+      },
+      {
+        "title": "9 Bahaya Riya dan Cara Menghindarinya ",
+        "description": "Ikhlas ibarat ‘sinyal.’ Tidak bisa dilihat apalagi diraba. Ikhlas adalah syarat diterimanya amal dan ibadah seseorang. ",
+        "duration": "18 menit",
+        "instructor": "Ustadz Mukhlisin Aziz",
+        "thumbnail": "Galeri/riya-thumb.jpg",
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
       }
     ],
     "bahasa-arab": [
       {
-        "title": "Dasar-dasar Bahasa Arab",
-        "description": "Belajar bahasa Arab untuk pemahaman Al-Quran",
-        "duration": "30 menit",
-        "instructor": "Ustadz Fahmi Bahreisy",
-        "premium": true,
-        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4"
+        "title": "Cara membaca huruf hijaiyah dengan baik dan benar",
+        "description": "Mari Simak Video Ustadz Adi Hidayat berikut ini, membahas tentang bagaimana cara membaca huruf hijaiyah dengan baik dan benar ",
+        "duration": "21 menit",
+        "instructor": "Ustadz Adi Hidayat",
+        "thumbnail": "Galeri/hijaiyah-thumb.jpg",
+        "videoSrc": "Galeri/hijaiyah-thumb.mp4"
       },
       {
-        "title": "Nahwu dan Shorof",
-        "description": "Ilmu tata bahasa Arab untuk memahami struktur kalimat",
-        "duration": "48 menit",
-        "instructor": "Dr. Ahmad Warson Munawwir",
+        "title": "Dhomir/Kata Ganti dalam Bahasa Arab",
+        "description": "Dhomir/Kata Ganti dalam Bahasa Arab.",
+        "duration": "3 menit",
+        "instructor": "Bahasa Arab Centre",
+        "thumbnail": "Galeri/dhomir-thumb.jpg",
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"
-      }
-    ],
-    "ilmu-tajwid": [
-      {
-        "title": "Panduan Tajwid Lengkap",
-        "description": "Teknik membaca Al-Quran dengan benar sesuai tajwid",
-        "duration": "55 menit",
-        "instructor": "Ustadz Mahmud Al-Hafiz",
-        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
       },
       {
-        "title": "Makharijul Huruf",
-        "description": "Tempat keluarnya huruf-huruf hijaiyah yang benar",
-        "duration": "35 menit",
-        "instructor": "Qari Haji Muammar ZA",
+        "title": "Belajar Bahasa Arab Ilmu Shorof: Unsur-Unsur Fi'il Mudhari",
+        "description": "kita akan mengenal unsur-unsur fi'il mudhari yang sering disingkat menjadi ا ن ي تatau mudahnya dibaca Anyta, hmm (bukan nama akhwat ya) atau biasa juga disebut Af'alul Mudhara'ah. Mari...mari... kita tonton bersama, gimana jelasnya, ok.",
+        "duration": "8 menit",
+        "instructor": "Ustadz Ammi Nur Baits",
+        "thumbnail": "Galeri/mudhari-thumb.jpg",
         "premium": true,
-        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"
       }
     ],
     "doa-dzikir": [
       {
-        "title": "Kumpulan Doa Harian",
-        "description": "Doa-doa penting dalam kehidupan sehari-hari",
-        "duration": "25 menit",
-        "instructor": "Ustadzah Aisyah Nur",
-        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+        "title": "DZIKIR PAGI Sesuai Sunnah Pembuka Pintu Rezeki",
+        "description": "Dzikir pagi petang adalah salah satu amalan penting yang harus kita perhatikan.",
+        "duration": "29 menit",
+        "instructor": "Lafadz Doa",
+        "thumbnail": "Galeri/doa-thumb.jpg",
+        "videoSrc": "Galeri/dzikirpagi.mp4"
       },
       {
-        "title": "Dzikir Pagi dan Petang",
-        "description": "Amalan dzikir yang dianjurkan di pagi dan petang hari",
-        "duration": "32 menit",
-        "instructor": "Ustadz Khalid Basalamah",
+        "title": "Waktu Sangat Istimewa yang Sering Terlalaikan",
+        "duration": "15 menit",
+        "instructor": "Ustadz Adi Hidayat",
+        "thumbnail": "Galeri/waktuistimewa-thumb.jpg",
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      },
+      {
+        "title": "Dzikir untuk Orang yang Sedang Sakit",
+        "duration": "5 menit",
+        "instructor": "Ustadz Adi Hidayat",
+        "thumbnail": "Galeri/dzikirsakit-thumb.jpg",
+        "premium": true,
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      }
+    ],
+    "pengembangan diri": [
+      {
+        "title": "Rahasia Manajemen Waktu Dalam Islam",
+        "duration": "113 menit",
+        "instructor": "Ustadz Adi Hidayat",
+        "thumbnail": "Galeri/manajemen-thumb.jpg",
+        "videoSrc": "Galeri/manajemen.mp4"
+      },
+      {
+        "title": "Cara Mengatasi Futur, lemah Iman",
+        "duration": "27 menit",
+        "instructor": "Ustadz Adi Hidayat",
+        "thumbnail": "Galeri/futur-thumb.jpg",
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      },
+      {
+        "title": "Rahasia Rezeki yang terus bertambah",
+        "duration": "5 menit",
+        "instructor": "Ustadz Adi Hidayat",
+        "thumbnail": "Galeri/rezeki-thumb.jpg",
+        "premium": true,
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      }
+    ],
+  "isu": [
+      {
+        "title": "Fenomena Flexing & Gaya Hidup dalam Kaca Mata Islam",
+        "duration": "113 menit",
+        "instructor": "Ustadz Raehanul",
+        "thumbnail": "Galeri/flexing-thumb.jpg"
+      },
+      {
+        "title": "Cara Menguatkan Jiwa ketika Ada Persoalan dalam Hidup",
+        "duration": "10 menit",
+        "instructor": "Ustadz Adi Hidayat",
+        "thumbnail": "Galeri/jiwa-thumb.jpg",
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      },
+      {
+        "title": "Islam, Toleransi, dan Moderasi Beragama di Tengah Perbedaan",
+        "duration": "5 menit",
+        "instructor": "Ustadz Fahmi",
+        "premium": true,
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      }
+    ],
+    "seni islam": [
+      {
+        "title": "Estetika dalam Islam: Antara Keindahan dan Makna",
+        "duration": "13 menit",
+        "instructor": "Ustadz Fikri"
+      },
+      {
+        "title": "Tradisi Maulid Nabi: Warisan Budaya Bernuansa Ibadah",
+        "duration": "10 menit",
+        "instructor": "Ustadz Lutfi",
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      },
+      {
+        "title": "Nasyid dan Musik Islami: Batasan dan Keindahan",
+        "duration": "8 menit",
+        "instructor": "Ustadz Fahmi",
+        "premium": true,
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      }
+    ],
+    "teknologi": [
+      {
+        "title": "Aplikasi Islam Populer: Membantu Ibadah di Era Digital",
+        "duration": "20 menit",
+        "instructor": "Ustadz Fikri"
+      },
+      {
+        "title": "Kecerdasan Buatan dalam Layanan Keislaman",
+        "duration": "10 menit",
+        "instructor": "Ustadz Lutfi",
+        "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      },
+      {
+        "title": "Etika Digital dalam Pandangan Islam",
+        "duration": "8 menit",
+        "instructor": "Ustadz Fahmi",
+        "premium": true,
         "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
       }
     ]
@@ -509,27 +640,110 @@
         
       }
     ],
+    "sejarah-islam": [
+    {
+      "title": "Jejak Rasulullah: Misi Dakwah dan Hijrah",
+      "description": "Perjalanan dakwah Nabi Muhammad SAW dari Mekah ke Madinah, strategi dakwah, peristiwa hijrah, dan Piagam Madinah.",
+      "questions": "5 soal",
+      "timeLimit": "5 menit",
+      "difficulty": "Mudah",
+      "questionsList": [
+        {
+          "question": "Apa nama gunung tempat Rasulullah ﷺ menerima wahyu pertama dari Malaikat Jibril?",
+          "options": [
+            "Gunung Uhud",
+            "Gunung Hira",
+            "Gunung Arafah",
+            "Gunung Tsur"
+          ],
+          "answer": 1,
+          "explanation": "Gunung Hira adalah lokasi gua tempat Nabi Muhammad ﷺ menerima wahyu pertama (QS. Al-Alaq: 1-5) sebelum diangkat menjadi Rasul."
+        },
+        {
+          "question": "Siapa orang pertama yang masuk Islam setelah Khadijah binti Khuwailid?",
+          "options": [
+            "Abu Bakar Ash-Shiddiq",
+            "Umar bin Khattab",
+            "Ali bin Abi Thalib",
+            "Zaid bin Haritsah"
+          ],
+          "answer": 2,
+          "explanation": "Ali bin Abi Thalib adalah anak kecil pertama yang masuk Islam (saat berusia 10 tahun) karena tinggal satu rumah dengan Nabi ﷺ."
+        },
+        {
+          "question": "Mengapa Rasulullah ﷺ dan para sahabat melakukan hijrah ke Madinah?",
+          "options": [
+            "Mencari sumber air yang lebih baik",
+            "Menghindari tekanan dan ancaman kaum Quraisy",
+            "Menyebarkan Islam ke wilayah baru",
+            "Semua jawaban benar"
+          ],
+          "answer": 1,
+          "explanation": "Hijrah dilakukan setelah kaum Quraisy Makkah meningkatkan penyiksaan terhadap muslim, dan Madinah menjadi tempat yang aman untuk menyebarkan Islam."
+        },
+        {
+          "question": "Apa nama perjanjian damai yang dibuat antara kaum Muslimin dan Quraisy sebelum penaklukan Makkah?",
+          "options": [
+            "Perjanjian Aqabah",
+            "Perjanjian Hudaibiyah",
+            "Perjanjian Yamamah",
+            "Piagam Madinah"
+          ],
+          "answer": 1,
+          "explanation": "Perjanjian Hudaibiyah adalah perjanjian damai yang dibuat antara Rasulullah ﷺ dan kaum Quraisy yang membuka jalan bagi penyebaran Islam secara damai."
+        },
+        {
+          "question": "Apa isi utama dari Piagam Madinah?",
+          "options": [
+            "Penyatuan suku Quraisy",
+            "Kewajiban zakat dan salat",
+            "Perjanjian damai antar umat dan hak hidup berdampingan",
+            "Larangan perang antar suku"
+          ],
+          "answer": 2,
+          "explanation": "Piagam Madinah adalah konstitusi pertama yang menjamin hak hidup berdampingan antar Muslim dan non-Muslim serta mengatur sistem keadilan di Madinah."
+        }
+      ]
+    },
+    {
+    "title": "Khulafaur Rasyidin: Kepemimpinan dan Warisan Emas Islam",
+    "description": "Abu Bakar, Umar, Utsman, dan Ali serta capaian masa kepemimpinan mereka.",
+    "questions": "5 soal",
+    "timeLimit": "5 menit",
+    "difficulty": "Sedang"
+    },
+    {
+    "title": "Perkembangan Islam di Nusantara",
+    "description": "Menelusuri masuknya Islam ke Indonesia dan peran Walisongo.",
+    "questions": "5 soal",
+    "timeLimit": "5 menit",
+    "premium": true,
+    "difficulty": "Sulit"
+    }
+  ],
     "akidah & teologi islam": [
       {
-        "title": "Kuis Rukun Iman",
-        "description": "Tes pemahaman tentang enam rukun iman",
-        "questions": "18 soal",
-        "timeLimit": "25 menit",
-        "difficulty": "Mudah",
-        "questionsList": [
-          {
-            "question": "Berapa jumlah rukun iman?",
-            "options": ["5", "6", "7", "8"],
-            "answer": 1,
-            "explanation": "Rukun iman berjumlah 6: iman kepada Allah, malaikat, kitab, rasul, hari akhir, dan qada qadar."
-          },
-          {
-            "question": "Apa rukun iman yang pertama?",
-            "options": ["Iman kepada malaikat", "Iman kepada Allah", "Iman kepada kitab", "Iman kepada rasul"],
-            "answer": 1,
-            "explanation": "Rukun iman yang pertama adalah iman kepada Allah SWT."
-          }
-        ]
+        "title": "Rukun Iman: Fondasi Keyakinan Muslim",
+        "description": "Kuis dasar tentang enam rukun iman.",
+        "questions": "5 soal",
+        "timeLimit": "5 menit",
+        "difficulty": "Sulit"
+      },
+      {
+        "title": "Tauhid Asma wa Sifat: Mengenal Allah dengan Lebih Dekat",
+        "description": "Pengenalan kepada tauhid rububiyah, uluhiyah, dan asma wa sifat.",
+        "questions": "5 soal",
+        "timeLimit": "5 menit",
+        "premium": true,
+        "difficulty": "Sulit"
+      },
+      {
+        "title": "Syirik, Kufur, dan Nifaq: Bahaya yang Menggerogoti Iman",
+        "description": "Kuis membahas jenis-jenis dan dampak penyimpangan akidah.",
+        "questions": "5 soal",
+        "timeLimit": "5 menit",
+        "premium": true,
+        "difficulty": "Sulit"
       }
     ],
     "bahasa-arab": [
@@ -539,7 +753,6 @@
         "questions": "20 soal",
         "timeLimit": "30 menit",
         "difficulty": "Mudah",
-        "premium": true,
         "questionsList": [
           {
             "question": "Apa arti dari 'كتاب'?",
@@ -554,6 +767,22 @@
             "explanation": "Masjid dalam bahasa Arab ditulis مسجد."
           }
         ]
+      },
+      {
+        "title": "Mufradat Harian: Kosakata yang Sering Muncul dalam Al-Qur’an",
+        "description": "Kuis mengenali arti kata-kata dasar seperti rahmah, iman, shabr, dsb.",
+        "questions": "5 soal",
+        "timeLimit": "5 menit",
+        "premium": true,
+        "difficulty": "Sulit"
+      },
+      {
+        "title": "Nahwu Dasar: Subjek, Predikat, dan Objek dalam Bahasa Arab",
+        "description": "Kuis seputar ism, fi'il, dan harf dalam struktur kalimat.",
+        "questions": "5 soal",
+        "timeLimit": "5 menit",
+        "premium": true,
+        "difficulty": "Sulit"
       }
     ],
     "ilmu-tajwid": [
@@ -600,6 +829,126 @@
             "explanation": "Doa setelah makan adalah الحمد لله رب العالمين (Alhamdulillahi rabbil 'alamin)."
           }
         ]
+      },
+      {
+        "title": "Doa Harian: Dari Bangun Tidur hingga Tidur Kembali",
+        "description": "Uji hafalan dan pemahaman tentang doa-doa rutin sehari-hari.",
+        "questions": "15 soal",
+        "timeLimit": "20 menit",
+        "difficulty": "Mudah"
+      },
+      {
+        "title": "Dzikir Penenang Hati: Bacaan yang Membawa Ketenangan Jiwa",
+        "description": "Mengenal dzikir pagi-sore, istighfar, dan keutamaannya.",
+        "questions": "15 soal",
+        "timeLimit": "20 menit",
+        "premium": true,
+        "difficulty": "Mudah"
+      }
+
+    ],
+    "pengembangan diri": [
+      {
+        "title": "Etika Muslim Sejati dalam Keseharian",
+        "description": "Sikap seperti jujur, amanah, adab bertutur, dll.",
+        "questions": "15 soal",
+        "timeLimit": "20 menit",
+        "premium": true,
+        "difficulty": "Mudah"
+      },
+      {
+        "title": "Resolusi Diri Muslim: Menjadi Lebih Baik Setiap Hari",
+        "description": "Kuis motivasi dan perencanaan diri ala Islam.",
+        "questions": "15 soal",
+        "timeLimit": "20 menit",
+        "premium": true,
+        "difficulty": "Mudah"
+      },
+      {
+        "title": "Manajemen Waktu dalam Islam",
+        "description": "Kuis tentang urgensi waktu, dzikir rutin, dan jadwal ibadah.",
+        "questions": "15 soal",
+        "timeLimit": "20 menit",
+        "premium": true,
+        "difficulty": "Mudah"
+      }
+    ],
+    "isu": [
+      {
+        "title": "Mental Health dalam Islam: Antara Ikhtiar dan Tawakal",
+        "description": "Kuis pemahaman soal gangguan psikologis dan solusinya dari sisi Islam.",
+        "questions": "10 soal",
+        "timeLimit": "15 menit",
+        "premium": true,
+        "difficulty": "Sulit"
+      },
+      {
+        "title": "Gadget, Medsos, dan Etika Digital Muslim",
+        "description": "Kuis tentang adab bermedsos, bahaya ghibah digital, dll.",
+        "questions": "10 soal",
+        "timeLimit": "15 menit",
+        "premium": true,
+        "difficulty": "Sulit"
+      },
+      {
+        "title": "Moderasi Beragama: Bijak di Tengah Perbedaan",
+        "description": "Tes pemahaman moderasi, toleransi, dan dakwah santun.",
+        "questions": "10 soal",
+        "timeLimit": "15 menit",
+        "premium": true,
+        "difficulty": "Sulit"
+      }
+    ],
+    "seni islam": [
+      {
+        "title": "Estetika Kaligrafi: Seni Menghiasi Ayat",
+        "description": "Tes tentang sejarah dan gaya kaligrafi Islam.",
+        "questions": "10 soal",
+        "timeLimit": "15 menit",
+        "premium": true,
+        "difficulty": "Sulit"
+      },
+      {
+        "title": "Tradisi Islam Nusantara",
+        "description": "Kuis seputar budaya-budaya bernuansa Islam seperti grebeg Maulud, sekaten, dll.",
+        "questions": "10 soal",
+        "timeLimit": "15 menit",
+        "premium": true,
+        "difficulty": "Sulit"
+      },
+      {
+        "title": "Musik Islami: Antara Tradisi dan Syariat",
+        "description": "Mengenal nasyid, qasidah, dan pandangan fiqih terhadap musik.",
+        "questions": "10 soal",
+        "timeLimit": "15 menit",
+        "premium": true,
+        "difficulty": "Sulit"
+      }
+    ],
+    "teknologi": [
+      {
+        "title": "AI dan Islam: Bolehkah Fatwa dari Mesin?",
+        "description": "Kuis kritis soal penggunaan AI dalam agama.",
+        "questions": "10 soal",
+        "timeLimit": "15 menit",
+        "premium": true,
+        "difficulty": "Sulit"
+      },
+      {
+        "title": "Aplikasi Ngaji Zaman Now",
+        "description": "Mengenal fitur-fitur dari aplikasi digital ngaji seperti yang kamu buat.",
+        "questions": "10 soal",
+        "timeLimit": "15 menit",
+        "premium": true,
+        "difficulty": "Sulit"
+      },
+      {
+        "title": "Etika Digital Seorang Muslim",
+        "description": "Kuis tentang privasi, keamanan data, dan tanggung jawab bermedia.",
+        "questions": "10 soal",
+        "timeLimit": "15 menit",
+        "premium": true,
+        "difficulty": "Sulit"
       }
     ]
   },
@@ -612,26 +961,63 @@
       "format": "PDF",
       "content": "Di tengah hiruk-pikuk dunia digital yang terus berdenyut tanpa jeda—dengan notifikasi tiada henti, scroll media sosial yang tak kunjung usai, dan tuntutan hidup yang terus menumpuk—ada dua pusaka agung yang tak pernah lekang oleh waktu: Al-Qur’an dan Hadis Nabi. Keduanya bukan sekadar dokumen sejarah atau kumpulan nasihat kuno, melainkan sumber cahaya Ilahi yang hidup, menyapa hati yang gelisah, menenangkan jiwa yang resah, dan menuntun langkah manusia dalam menapaki jalan hidup yang semakin rumit.\n\nBayangkan sejenak. Suatu pagi yang kacau, saat pikiran sudah lelah bahkan sebelum hari benar-benar dimulai. Tiba-tiba terdengar lantunan ayat:\n\n\"لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّٰلِمِينَ\"  \n“Tidak ada Tuhan selain Engkau, Maha Suci Engkau. Sesungguhnya aku termasuk orang-orang yang zalim.”  \n(QS. Al-Anbiya: 87)\n\nSekonyong-konyong dunia yang riuh terasa hening. Hati seperti disentuh oleh kelembutan langit. Inilah mukjizat Al-Qur’an: ia tak hanya dibaca, tetapi hadir untuk menghidupkan.\n\n### Dua Sumber Cahaya di Tengah Kegelapan Zaman\n\nBanyak yang menganggap cukup dengan Al-Qur’an saja, lalu menepikan Hadis. Namun, bagaimana kita bisa mendirikan shalat dengan benar tanpa bimbingan Rasulullah? Justru Hadis-lah yang menuntun kita secara praktis, sebagai penjelas dari wahyu. \n\nAllah berfirman:\n\"وَأَنزَلْنَا إِلَيْكَ ٱلذِّكْرَ لِتُبَيِّنَ لِلنَّاسِ مَا نُزِّلَ إِلَيْهِمْ\"  \n“Dan Kami turunkan kepadamu Adz-Dzikr (Al-Qur’an), agar engkau menjelaskan kepada manusia apa yang telah diturunkan kepada mereka…”  \n(QS. An-Nahl: 44)\n\nAl-Qur’an adalah konstitusi, dan Hadis adalah petunjuk aplikatifnya. Seperti tubuh dan nyawa: Al-Qur’an memberi kerangka, Hadis memberinya kehidupan.\n\n### Mukjizat yang Terus Bersinar di Era Digital\n\nTeknologi terus berkembang, namun Al-Qur’an tetap berdiri sebagai kitab yang relevan dan menakjubkan.\n\nContoh nyata:\n\n- QS. Al-Mu’minun ayat 12-14 menjelaskan tahapan penciptaan embrio:\n\"وَلَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ مِن سُلَٰلَةٍ مِّن طِينٍ ۝ ثُمَّ جَعَلْنَـٰهُ نُطْفَةًۭ فِى قَرَارٍۢ مَّكِينٍۢ ۝ ثُمَّ خَلَقْنَا ٱلنُّطْفَةَ عَلَقَةًۭ فَخَلَقْنَا ٱلْعَلَقَةَ مُضْغَةًۭ...\"\n\n- QS. Adz-Dzariyat: 47 menyebutkan ekspansi alam semesta:\n\"وَٱلسَّمَآءَ بَنَيْنَـٰهَا بِأَيْي۟دٍۢ وَإِنَّا لَمُوسِعُونَ\"\n\nIlmuwan seperti Dr. Keith Moore mengakui bahwa penjelasan tersebut tidak mungkin berasal dari manusia abad ke-7 tanpa wahyu dari Tuhan.\n\n### Solusi Utuh bagi Jiwa yang Terluka\n\nSaat stres, cemas, atau bingung, Al-Qur’an dan Hadis hadir sebagai solusi nyata:\n\n- Doa Nabi ketika cemas:\n\"اللهم إني أعوذ بك من الهم والحزن\"\n\n- Nasihat saat konflik rumah tangga:\n\"وَعَاشِرُوهُنَّ بِٱلْمَعْرُوفِ\"  \n(QS. An-Nisa: 19)\n\n- Peringatan keras terhadap harta haram:\n\"Setiap daging yang tumbuh dari harta haram, maka neraka lebih pantas baginya.\" (HR. Tirmidzi)\n\n### Namun, Kita Masih Lalai\n\nLebih dari 60% umat Islam Indonesia belum mampu membaca Al-Qur’an dengan baik. Gerakan yang menolak Hadis semakin marak. Kita lebih sering menyentuh layar ponsel daripada mushaf Al-Qur’an. Kita membaca ratusan chat dalam sehari, tapi satu ayat pun terasa berat.\n\n### Mulai dari Langkah Kecil, Menuju Perubahan Besar\n\nTidak perlu langsung menjadi ulama. Cukup mulai dari:\n\n1. Baca 5 menit Al-Qur’an setiap pagi\n2. Gunakan wallpaper hadis di HP\n3. Ikut satu kajian setiap minggu\n4. Amalkan satu sunnah kecil tiap hari\n\nSeorang ibu di Surabaya berkata: “Saya mulai dari membaca Quran 5 menit sebelum masak. Sekarang anak-anak saya sudah hafal Juz 30. Suami saya kini jadi imam tetap mushola kami.”\n\n### Cahaya Itu Akan Menyapa Kita\n\nRasulullah ﷺ bersabda:\n“Aku tinggalkan pada kalian dua perkara, kalian tidak akan tersesat selama berpegang teguh kepada keduanya: Kitabullah dan Sunnahku.” (HR. Malik)\n\nDan Allah berjanji:\n\"فَمَنِ ٱتَّبَعَ هُدَاىَ فَلَا يَضِلُّ وَلَا يَشْقَىٰ\"  \n“Barangsiapa mengikuti petunjuk-Ku, maka dia tidak akan sesat dan tidak akan celaka.”  \n(QS. Thaha: 123)\n\n### Penutup: Mari Kembali Pulang\n\nDi dunia yang gelap dan membingungkan, dua pusaka ini—Quran dan Hadis—adalah lentera. Cahaya itu tak pernah padam. Mari buka mushaf malam ini. Satu ayat saja. Rasakan. Renungkan. Lalu, esok, teruskan dengan satu sunnah. Dari situlah langkah kita menuju cahaya Ilahi akan bermula."
     },
-      {
-        "title": "Kumpulan Hadis Shahih",
-        "description": "Koleksi hadis-hadis shahih dengan terjemahan dan penjelasan",
-        "pages": "200 halaman",
-        "format": "PDF + Audio",
-        "content": "<h3>Ilmu Hadis</h3><p>Hadis adalah segala sesuatu yang disandarkan kepada Nabi Muhammad SAW, baik berupa perkataan, perbuatan, persetujuan, maupun sifat.</p><h4>Kedudukan Hadis dalam Islam</h4><ol><li>Sumber hukum kedua setelah Al-Quran</li><li>Penjelas dan penafsir Al-Quran</li><li>Penetap hukum yang tidak ada dalam Al-Quran</li><li>Contoh praktis dalam beribadah dan bermuamalah</li></ol><h4>Pembagian Hadis Berdasarkan Kualitas</h4><ul><li><span class=\"highlight\">Hadis Shahih</span>: Sanadnya bersambung, perawinya adil dan dhabit</li><li><span class=\"highlight\">Hadis Hasan</span>: Memenuhi syarat shahih tetapi ada sedikit kekurangan</li><li><span class=\"highlight\">Hadis Dha'if</span>: Tidak memenuhi syarat shahih atau hasan</li></ul>"
-      }
+    {
+      "title": "Hadis Tentang Akhlak Rasulullah ﷺ",
+      "description": "Pembahasan hadis-hadis pendek yang menggambarkan akhlak mulia Nabi Muhammad ﷺ.",
+      "pages": "200 halaman",
+      "format": "PDF + Audio",
+      "content": "<h3>Ilmu Hadis</h3><p>Hadis adalah segala sesuatu yang disandarkan kepada Nabi Muhammad SAW, baik berupa perkataan, perbuatan, persetujuan, maupun sifat.</p><h4>Kedudukan Hadis dalam Islam</h4><ol><li>Sumber hukum kedua setelah Al-Quran</li><li>Penjelas dan penafsir Al-Qur'an</li><li>Penetap hukum yang tidak ada dalam Al-Qur'an</li><li>Contoh praktis dalam beribadah dan bermuamalah</li></ol><h4>Pembagian Hadis Berdasarkan Kualitas</h4><ul><li><span class=\"highlight\">Hadis Shahih</span>: Sanadnya bersambung, perawinya adil dan dhabit</li><li><span class=\"highlight\">Hadis Hasan</span>: Memenuhi syarat shahih tetapi ada sedikit kekurangan</li><li><span class=\"highlight\">Hadis Dha'if</span>: Tidak memenuhi syarat shahih atau hasan</li></ul>"
+    },
+    {
+      "title": "Makna Tadabbur dalam Al-Qur’an",
+      "description": "Mengupas pentingnya merenungi isi Al-Qur’an, bukan sekadar membaca lafaz.",
+      "pages": "1 halaman",
+      "format": "PDF",
+      "content": "Di tengah hiruk-pikuk dunia digital yang terus berdenyut tanpa jeda—dengan notifikasi tiada henti, scroll media sosial yang tak kunjung usai, dan tuntutan hidup yang terus menumpuk—ada dua pusaka agung yang tak pernah lekang oleh waktu: Al-Qur’an dan Hadis Nabi. Keduanya bukan sekadar dokumen sejarah atau kumpulan nasihat kuno, melainkan sumber cahaya Ilahi yang hidup, menyapa hati yang gelisah, menenangkan jiwa yang resah, dan menuntun langkah manusia dalam menapaki jalan hidup yang semakin rumit.\n\nBayangkan sejenak. Suatu pagi yang kacau, saat pikiran sudah lelah bahkan sebelum hari benar-benar dimulai. Tiba-tiba terdengar lantunan ayat:\n\n\"لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّٰلِمِينَ\"  \n“Tidak ada Tuhan selain Engkau, Maha Suci Engkau. Sesungguhnya aku termasuk orang-orang yang zalim.”  \n(QS. Al-Anbiya: 87)\n\nSekonyong-konyong dunia yang riuh terasa hening. Hati seperti disentuh oleh kelembutan langit. Inilah mukjizat Al-Qur’an: ia tak hanya dibaca, tetapi hadir untuk menghidupkan.\n\n### Dua Sumber Cahaya di Tengah Kegelapan Zaman\n\nBanyak yang menganggap cukup dengan Al-Qur’an saja, lalu menepikan Hadis. Namun, bagaimana kita bisa mendirikan shalat dengan benar tanpa bimbingan Rasulullah? Justru Hadis-lah yang menuntun kita secara praktis, sebagai penjelas dari wahyu. \n\nAllah berfirman:\n\"وَأَنزَلْنَا إِلَيْكَ ٱلذِّكْرَ لِتُبَيِّنَ لِلنَّاسِ مَا نُزِّلَ إِلَيْهِمْ\"  \n“Dan Kami turunkan kepadamu Adz-Dzikr (Al-Qur’an), agar engkau menjelaskan kepada manusia apa yang telah diturunkan kepada mereka…”  \n(QS. An-Nahl: 44)\n\nAl-Qur’an adalah konstitusi, dan Hadis adalah petunjuk aplikatifnya. Seperti tubuh dan nyawa: Al-Qur’an memberi kerangka, Hadis memberinya kehidupan.\n\n### Mukjizat yang Terus Bersinar di Era Digital\n\nTeknologi terus berkembang, namun Al-Qur’an tetap berdiri sebagai kitab yang relevan dan menakjubkan.\n\nContoh nyata:\n\n- QS. Al-Mu’minun ayat 12-14 menjelaskan tahapan penciptaan embrio:\n\"وَلَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ مِن سُلَٰلَةٍ مِّن طِينٍ ۝ ثُمَّ جَعَلْنَـٰهُ نُطْفَةًۭ فِى قَرَارٍۢ مَّكِينٍۢ ۝ ثُمَّ خَلَقْنَا ٱلنُّطْفَةَ عَلَقَةًۭ فَخَلَقْنَا ٱلْعَلَقَةَ مُضْغَةًۭ...\"\n\n- QS. Adz-Dzariyat: 47 menyebutkan ekspansi alam semesta:\n\"وَٱلسَّمَآءَ بَنَيْنَـٰهَا بِأَيْي۟دٍۢ وَإِنَّا لَمُوسِعُونَ\"\n\nIlmuwan seperti Dr. Keith Moore mengakui bahwa penjelasan tersebut tidak mungkin berasal dari manusia abad ke-7 tanpa wahyu dari Tuhan.\n\n### Solusi Utuh bagi Jiwa yang Terluka\n\nSaat stres, cemas, atau bingung, Al-Qur’an dan Hadis hadir sebagai solusi nyata:\n\n- Doa Nabi ketika cemas:\n\"اللهم إني أعوذ بك من الهم والحزن\"\n\n- Nasihat saat konflik rumah tangga:\n\"وَعَاشِرُوهُنَّ بِٱلْمَعْرُوفِ\"  \n(QS. An-Nisa: 19)\n\n- Peringatan keras terhadap harta haram:\n\"Setiap daging yang tumbuh dari harta haram, maka neraka lebih pantas baginya.\" (HR. Tirmidzi)\n\n### Namun, Kita Masih Lalai\n\nLebih dari 60% umat Islam Indonesia belum mampu membaca Al-Qur’an dengan baik. Gerakan yang menolak Hadis semakin marak. Kita lebih sering menyentuh layar ponsel daripada mushaf Al-Qur’an. Kita membaca ratusan chat dalam sehari, tapi satu ayat pun terasa berat.\n\n### Mulai dari Langkah Kecil, Menuju Perubahan Besar\n\nTidak perlu langsung menjadi ulama. Cukup mulai dari:\n\n1. Baca 5 menit Al-Qur’an setiap pagi\n2. Gunakan wallpaper hadis di HP\n3. Ikut satu kajian setiap minggu\n4. Amalkan satu sunnah kecil tiap hari\n\nSeorang ibu di Surabaya berkata: “Saya mulai dari membaca Quran 5 menit sebelum masak. Sekarang anak-anak saya sudah hafal Juz 30. Suami saya kini jadi imam tetap mushola kami.”\n\n### Cahaya Itu Akan Menyapa Kita\n\nRasulullah ﷺ bersabda:\n“Aku tinggalkan pada kalian dua perkara, kalian tidak akan tersesat selama berpegang teguh kepada keduanya: Kitabullah dan Sunnahku.” (HR. Malik)\n\nDan Allah berjanji:\n\"فَمَنِ ٱتَّبَعَ هُدَاىَ فَلَا يَضِلُّ وَلَا يَشْقَىٰ\"  \n“Barangsiapa mengikuti petunjuk-Ku, maka dia tidak akan sesat dan tidak akan celaka.”  \n(QS. Thaha: 123)\n\n### Penutup: Mari Kembali Pulang\n\nDi dunia yang gelap dan membingungkan, dua pusaka ini—Quran dan Hadis—adalah lentera. Cahaya itu tak pernah padam. Mari buka mushaf malam ini. Satu ayat saja. Rasakan. Renungkan. Lalu, esok, teruskan dengan satu sunnah. Dari situlah langkah kita menuju cahaya Ilahi akan bermula."
+    }
     ],
-    "fiqih": [
+    "fiqih ibadah & muamalah": [
       {
-        "title": "Fiqih Kontemporer",
-        "description": "Pembahasan masalah fiqih di era modern",
-        "pages": "200 halaman",
+        "title": "Rukun dan Syarat Shalat yang Wajib Diketahui",
+        "description": "Panduan shalat fardhu sesuai tuntunan Rasulullah ﷺ.",
+        "pages": "2 halaman",
         "format": "PDF + Interaktif",
         "content": "<h3>Fiqih dalam Kehidupan Modern</h3><p>Fiqih adalah ilmu yang mempelajari hukum-hukum syariat Islam yang berkaitan dengan perbuatan manusia. Dalam era modern, banyak muncul masalah baru yang membutuhkan pendekatan fiqih kontemporer.</p><h4>Masalah Kontemporer dalam Fiqih</h4><ul><li>Transaksi keuangan digital dan cryptocurrency</li><li>Hukum penggunaan teknologi reproduksi</li><li>Fiqih media sosial dan etika berinternet</li><li>Hukum transplantasi organ dan donor darah</li><li>Masalah lingkungan dalam perspektif Islam</li></ul><h4>Prinsip Ijtihad Kontemporer</h4><p>Dalam menyikapi masalah baru, ulama menggunakan beberapa prinsip:</p><ol><li>Mengidentifikasi illat (sebab hukum) dari masalah klasik</li><li>Mencari kemaslahatan umat (maslahah mursalah)</li><li>Mempertimbangkan adat kebiasaan ('urf)</li><li>Memperhatikan maqashid syariah (tujuan syariat)</li></ol><div class=\"quote\">\"Allah menghendaki kemudahan bagimu, dan tidak menghendaki kesukaran bagimu.\" (QS. Al-Baqarah: 185)</div>"
       },
       {
-        "title": "Panduan Ibadah Sehari-hari",
-        "description": "Tata cara ibadah dalam kehidupan sehari-hari",
-        "pages": "120 halaman",
+        "title": "Fikih Jual Beli: Prinsip Halal dalam Transaksi",
+        "description": "Menjelaskan rukun jual beli, akad, dan larangan riba secara ringkas.",
+        "pages": "1 halaman",
+        "format": "PDF",
+        "content": "<h3>Ibadah dalam Kehidupan Sehari-hari</h3><p>Ibadah adalah segala bentuk ketaatan kepada Allah SWT yang dilakukan dengan niat ikhlas karena-Nya.</p><h4>Macam-macam Ibadah</h4><ul><li><span class=\"highlight\">Ibadah Mahdhah</span>: Shalat, puasa, zakat, haji</li><li><span class=\"highlight\">Ibadah Ghairu Mahdhah</span>: Bekerja, belajar, berbuat baik</li></ul><h4>Syarat Diterimanya Ibadah</h4><ol><li>Islam</li><li>Berakal</li><li>Baligh (dewasa)</li><li>Niat yang ikhlas</li><li>Sesuai dengan syariat</li></ol>"
+      },
+      {
+        "title": "Zakat: Membersihkan Harta dan Jiwa",
+        "description": "Penjelasan pengertian zakat, jenis, nisab, dan hikmahnya.",
+        "pages": "1 halaman",
+        "format": "PDF",
+        "content": "<h3>Ibadah dalam Kehidupan Sehari-hari</h3><p>Ibadah adalah segala bentuk ketaatan kepada Allah SWT yang dilakukan dengan niat ikhlas karena-Nya.</p><h4>Macam-macam Ibadah</h4><ul><li><span class=\"highlight\">Ibadah Mahdhah</span>: Shalat, puasa, zakat, haji</li><li><span class=\"highlight\">Ibadah Ghairu Mahdhah</span>: Bekerja, belajar, berbuat baik</li></ul><h4>Syarat Diterimanya Ibadah</h4><ol><li>Islam</li><li>Berakal</li><li>Baligh (dewasa)</li><li>Niat yang ikhlas</li><li>Sesuai dengan syariat</li></ol>"
+      }
+    ],
+    "fiqih keluarga & sosial": [
+      {
+        "title": "Adab & Tanggung Jawab Suami Istri dalam Islam",
+        "description": "Materi tentang hak dan kewajiban masing-masing dalam rumah tangga.",
+        "pages": "2 halaman",
+        "format": "PDF + Interaktif",
+        "content": "<h3>Fiqih dalam Kehidupan Modern</h3><p>Fiqih adalah ilmu yang mempelajari hukum-hukum syariat Islam yang berkaitan dengan perbuatan manusia. Dalam era modern, banyak muncul masalah baru yang membutuhkan pendekatan fiqih kontemporer.</p><h4>Masalah Kontemporer dalam Fiqih</h4><ul><li>Transaksi keuangan digital dan cryptocurrency</li><li>Hukum penggunaan teknologi reproduksi</li><li>Fiqih media sosial dan etika berinternet</li><li>Hukum transplantasi organ dan donor darah</li><li>Masalah lingkungan dalam perspektif Islam</li></ul><h4>Prinsip Ijtihad Kontemporer</h4><p>Dalam menyikapi masalah baru, ulama menggunakan beberapa prinsip:</p><ol><li>Mengidentifikasi illat (sebab hukum) dari masalah klasik</li><li>Mencari kemaslahatan umat (maslahah mursalah)</li><li>Mempertimbangkan adat kebiasaan ('urf)</li><li>Memperhatikan maqashid syariah (tujuan syariat)</li></ol><div class=\"quote\">\"Allah menghendaki kemudahan bagimu, dan tidak menghendaki kesukaran bagimu.\" (QS. Al-Baqarah: 185)</div>"
+      },
+      {
+        "title": "Fikih Hubungan Sosial: Silaturahim, Ghibah, dan Hutang Piutang",
+        "description": "Panduan berinteraksi secara syar’i dengan sesama muslim.",
+        "pages": "1 halaman",
+        "format": "PDF",
+        "content": "<h3>Ibadah dalam Kehidupan Sehari-hari</h3><p>Ibadah adalah segala bentuk ketaatan kepada Allah SWT yang dilakukan dengan niat ikhlas karena-Nya.</p><h4>Macam-macam Ibadah</h4><ul><li><span class=\"highlight\">Ibadah Mahdhah</span>: Shalat, puasa, zakat, haji</li><li><span class=\"highlight\">Ibadah Ghairu Mahdhah</span>: Bekerja, belajar, berbuat baik</li></ul><h4>Syarat Diterimanya Ibadah</h4><ol><li>Islam</li><li>Berakal</li><li>Baligh (dewasa)</li><li>Niat yang ikhlas</li><li>Sesuai dengan syariat</li></ol>"
+      },
+      {
+        "title": "Menjadi Tetangga yang Baik dalam Islam",
+        "description": "Hadis dan praktik sosial mulia terkait adab bertetangga.",
+        "pages": "1 halaman",
         "format": "PDF",
         "content": "<h3>Ibadah dalam Kehidupan Sehari-hari</h3><p>Ibadah adalah segala bentuk ketaatan kepada Allah SWT yang dilakukan dengan niat ikhlas karena-Nya.</p><h4>Macam-macam Ibadah</h4><ul><li><span class=\"highlight\">Ibadah Mahdhah</span>: Shalat, puasa, zakat, haji</li><li><span class=\"highlight\">Ibadah Ghairu Mahdhah</span>: Bekerja, belajar, berbuat baik</li></ul><h4>Syarat Diterimanya Ibadah</h4><ol><li>Islam</li><li>Berakal</li><li>Baligh (dewasa)</li><li>Niat yang ikhlas</li><li>Sesuai dengan syariat</li></ol>"
       }
@@ -640,17 +1026,45 @@
       {
         "title": "Sejarah Peradaban Islam",
         "description": "Perjalanan peradaban Islam dari masa ke masa",
-        "pages": "300 halaman",
+        "pages": "3 halaman",
         "format": "PDF + Multimedia",
         "premium": true,
         "content": "<h3>Peradaban Islam</h3><p>Peradaban Islam telah memberikan kontribusi besar bagi kemajuan dunia dalam berbagai bidang ilmu pengetahuan, teknologi, seni, dan budaya.</p><h4>Masa Keemasan Islam</h4><ul><li><span class=\"highlight\">Dinasti Umayyah</span>: Ekspansi wilayah dan penyebaran Islam</li><li><span class=\"highlight\">Dinasti Abbasiyah</span>: Kemajuan ilmu pengetahuan dan teknologi</li><li><span class=\"highlight\">Andalusia</span>: Pusat peradaban Islam di Eropa</li></ul><h4>Kontribusi Islam bagi Dunia</h4><ol><li>Matematika: Aljabar, sistem angka Arab</li><li>Kedokteran: Rumah sakit, bedah</li><li>Astronomi: Observatorium, peta bintang</li><li>Filsafat: Pemikiran rasional</li><li>Arsitektur: Masjid, istana</li></ol>"
+      },
+      {
+        "title": "Mekah dan Madinah: Dua Kota Suci dalam Sejarah",
+        "description": "Peran dua kota ini dalam perjalanan dakwah Islam dan sejarah Rasulullah ﷺ.",
+        "pages": "2 halaman",
+        "format": "PDF + Interaktif",
+        "content": "<h3>Fiqih dalam Kehidupan Modern</h3><p>Fiqih adalah ilmu yang mempelajari hukum-hukum syariat Islam yang berkaitan dengan perbuatan manusia. Dalam era modern, banyak muncul masalah baru yang membutuhkan pendekatan fiqih kontemporer.</p><h4>Masalah Kontemporer dalam Fiqih</h4><ul><li>Transaksi keuangan digital dan cryptocurrency</li><li>Hukum penggunaan teknologi reproduksi</li><li>Fiqih media sosial dan etika berinternet</li><li>Hukum transplantasi organ dan donor darah</li><li>Masalah lingkungan dalam perspektif Islam</li></ul><h4>Prinsip Ijtihad Kontemporer</h4><p>Dalam menyikapi masalah baru, ulama menggunakan beberapa prinsip:</p><ol><li>Mengidentifikasi illat (sebab hukum) dari masalah klasik</li><li>Mencari kemaslahatan umat (maslahah mursalah)</li><li>Mempertimbangkan adat kebiasaan ('urf)</li><li>Memperhatikan maqashid syariah (tujuan syariat)</li></ol><div class=\"quote\">\"Allah menghendaki kemudahan bagimu, dan tidak menghendaki kesukaran bagimu.\" (QS. Al-Baqarah: 185)</div>"
+      },
+      {
+        "title": "Khulafaur Rasyidin: Empat Pemimpin Teladan",
+        "description": "Biografi ringkas Abu Bakar, Umar, Utsman, dan Ali.",
+        "pages": "2 halaman",
+        "format": "PDF + Interaktif",
+        "content": "<h3>Fiqih dalam Kehidupan Modern</h3><p>Fiqih adalah ilmu yang mempelajari hukum-hukum syariat Islam yang berkaitan dengan perbuatan manusia. Dalam era modern, banyak muncul masalah baru yang membutuhkan pendekatan fiqih kontemporer.</p><h4>Masalah Kontemporer dalam Fiqih</h4><ul><li>Transaksi keuangan digital dan cryptocurrency</li><li>Hukum penggunaan teknologi reproduksi</li><li>Fiqih media sosial dan etika berinternet</li><li>Hukum transplantasi organ dan donor darah</li><li>Masalah lingkungan dalam perspektif Islam</li></ul><h4>Prinsip Ijtihad Kontemporer</h4><p>Dalam menyikapi masalah baru, ulama menggunakan beberapa prinsip:</p><ol><li>Mengidentifikasi illat (sebab hukum) dari masalah klasik</li><li>Mencari kemaslahatan umat (maslahah mursalah)</li><li>Mempertimbangkan adat kebiasaan ('urf)</li><li>Memperhatikan maqashid syariah (tujuan syariat)</li></ol><div class=\"quote\">\"Allah menghendaki kemudahan bagimu, dan tidak menghendaki kesukaran bagimu.\" (QS. Al-Baqarah: 185)</div>"
       }
     ],
-    "akidah-akhlak": [
+    "akidah & teologi islam": [
       {
-        "title": "Akidah Islam",
-        "description": "Dasar-dasar kepercayaan dalam Islam",
-        "pages": "180 halaman",
+        "title": "Tauhid: Mengesakan Allah dalam Segala Aspek",
+        "description": "Menjelaskan tiga aspek tauhid: Rububiyah, Uluhiyah, dan Asma wa Sifat.",
+        "pages": "2 halaman",
+        "format": "PDF",
+        "content": "<h3>Akidah Islam</h3><p>Akidah adalah kepercayaan atau keyakinan yang mengikat hati seorang muslim terhadap ajaran Islam.</p><h4>Rukun Iman</h4><ol><li><span class=\"highlight\">Iman kepada Allah</span>: Meyakini keesaan Allah</li><li><span class=\"highlight\">Iman kepada Malaikat</span>: Meyakini keberadaan malaikat</li><li><span class=\"highlight\">Iman kepada Kitab</span>: Meyakini kitab-kitab Allah</li><li><span class=\"highlight\">Iman kepada Rasul</span>: Meyakini para rasul Allah</li><li><span class=\"highlight\">Iman kepada Hari Akhir</span>: Meyakini hari kiamat</li><li><span class=\"highlight\">Iman kepada Qada dan Qadar</span>: Meyakini takdir Allah</li></ol><h4>Sifat-sifat Allah</h4><p>Allah memiliki sifat-sifat yang sempurna, antara lain:</p><ul><li>Wujud (ada)</li><li>Qidam (terdahulu)</li><li>Baqa (kekal)</li><li>Mukhalafatu lil hawadits (berbeda dengan makhluk)</li><li>Qiyamuhu binafsihi (berdiri sendiri)</li><li>Wahdaniyah (esa)</li></ul>"
+      },
+      {
+        "title": "Iman kepada Takdir: Reda dan Usaha dalam Islam",
+        "description": "Bahas pengertian takdir, jenisnya, dan sikap seorang muslim.",
+        "pages": "2 halaman",
+        "format": "PDF",
+        "content": "<h3>Akidah Islam</h3><p>Akidah adalah kepercayaan atau keyakinan yang mengikat hati seorang muslim terhadap ajaran Islam.</p><h4>Rukun Iman</h4><ol><li><span class=\"highlight\">Iman kepada Allah</span>: Meyakini keesaan Allah</li><li><span class=\"highlight\">Iman kepada Malaikat</span>: Meyakini keberadaan malaikat</li><li><span class=\"highlight\">Iman kepada Kitab</span>: Meyakini kitab-kitab Allah</li><li><span class=\"highlight\">Iman kepada Rasul</span>: Meyakini para rasul Allah</li><li><span class=\"highlight\">Iman kepada Hari Akhir</span>: Meyakini hari kiamat</li><li><span class=\"highlight\">Iman kepada Qada dan Qadar</span>: Meyakini takdir Allah</li></ol><h4>Sifat-sifat Allah</h4><p>Allah memiliki sifat-sifat yang sempurna, antara lain:</p><ul><li>Wujud (ada)</li><li>Qidam (terdahulu)</li><li>Baqa (kekal)</li><li>Mukhalafatu lil hawadits (berbeda dengan makhluk)</li><li>Qiyamuhu binafsihi (berdiri sendiri)</li><li>Wahdaniyah (esa)</li></ul>"
+      },
+      {
+        "title": "Mengenal Malaikat dan Tugasnya",
+        "description": "Pembahasan 10 malaikat utama, tugasnya, dan dalil-dalil pendukung.",
+        "pages": "2 halaman",
         "format": "PDF",
         "content": "<h3>Akidah Islam</h3><p>Akidah adalah kepercayaan atau keyakinan yang mengikat hati seorang muslim terhadap ajaran Islam.</p><h4>Rukun Iman</h4><ol><li><span class=\"highlight\">Iman kepada Allah</span>: Meyakini keesaan Allah</li><li><span class=\"highlight\">Iman kepada Malaikat</span>: Meyakini keberadaan malaikat</li><li><span class=\"highlight\">Iman kepada Kitab</span>: Meyakini kitab-kitab Allah</li><li><span class=\"highlight\">Iman kepada Rasul</span>: Meyakini para rasul Allah</li><li><span class=\"highlight\">Iman kepada Hari Akhir</span>: Meyakini hari kiamat</li><li><span class=\"highlight\">Iman kepada Qada dan Qadar</span>: Meyakini takdir Allah</li></ol><h4>Sifat-sifat Allah</h4><p>Allah memiliki sifat-sifat yang sempurna, antara lain:</p><ul><li>Wujud (ada)</li><li>Qidam (terdahulu)</li><li>Baqa (kekal)</li><li>Mukhalafatu lil hawadits (berbeda dengan makhluk)</li><li>Qiyamuhu binafsihi (berdiri sendiri)</li><li>Wahdaniyah (esa)</li></ul>"
       }

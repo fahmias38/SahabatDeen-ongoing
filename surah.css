@@ -6,16 +6,16 @@
     --secondary-color: #C9AD6A;
     --secondary-color-darker: #B19250;
     /* Dark Theme (Default) */
-    --bg-primary: #1B2B2A;
-    --bg-secondary: #243533;
+    --bg-primary: #121212;
+    --bg-secondary: #121212;
     --bg-tertiary: #304742;
-    --bg-card: #243533;
+    --bg-card: #121212;
     --text-primary: #F3F4F6;
     --text-secondary: #9CA3AF;
     --text-arabic: #F8FAFC;
     --border-color: rgba(255, 255, 255, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.3);
-    --gradient-bg: linear-gradient(135deg, #1B2B2A 0%, #243533 50%, #304742 100%);
+    --gradient-bg: #121212;
     --font-family: 'Poppins', sans-serif;
     --font-arabic: 'Amiri', serif;
     --border-radius: 12px;
@@ -44,7 +44,7 @@ body { font-family: var(--font-family); background: var(--gradient-bg); color: v
 ::-webkit-scrollbar-track { background: var(--bg-tertiary); }
 ::-webkit-scrollbar-thumb { background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: linear-gradient(45deg, var(--primary-color-darker), var(--secondary-color-darker)); }
-.header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(var(--primary-color-rgb), 0.95); backdrop-filter: blur(20px); padding: 15px 0; box-shadow: 0 8px 32px var(--shadow-color); transition: var(--transition); }
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: #1212124e; backdrop-filter: blur(20px); padding: 15px 0; box-shadow: 0 8px 32px var(--shadow-color); transition: var(--transition); }
 .header-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
 .logo { font-size: 1.8rem; font-weight: 800; color: white; text-decoration: none; letter-spacing: 1px; }
 .logo span { color: var(--secondary-color); }
