@@ -159,6 +159,7 @@ function closeMobileMenu() {
     document.body.style.overflow = 'auto';
 }
 
+
 // FAQ Toggle Function
 function toggleFAQ(element) {
     const faqItem = element.parentElement;
@@ -300,22 +301,13 @@ function displaySurah(surahList) {
             <p class="surah-meaning">"${surah.meaning}"</p>
             
             <div class="surah-actions">
-                <a href="surah/surah${surah.number}.html" class="btn btn-small btn-read" onclick="readSurah(${surah.number})">Baca</a>
+                <a href="surah/surah1.html?surah=${surah.number}" class="btn btn-small btn-read">Baca</a>
             </div>
         </div>
     `).join('');
     
     // Re-initialize scroll animations for new cards
     initScrollAnimations();
-}
-
-// Placeholder functions for surah actions
-function readSurah(surahNumber) {
-    alert(`Membuka surah nomor ${surahNumber} untuk dibaca.\n\nFitur ini akan tersedia dalam versi lengkap aplikasi.`);
-}
-
-function listenSurah(surahNumber) {
-    alert(`Memulai audio murotal surah nomor ${surahNumber}.\n\nFitur ini akan tersedia dalam versi lengkap aplikasi.`);
 }
 
 // Smooth Scrolling for anchor links

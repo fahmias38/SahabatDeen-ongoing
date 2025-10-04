@@ -105,21 +105,6 @@
     }
 }
 
-
-.icon-circle {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 15px 30px rgba(26, 147, 111, 0.3);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
 .icon-circle::before {
     content: '';
     position: absolute;
@@ -207,27 +192,6 @@
     animation: shimmer 2s infinite;
 }
 
-.masking {
-    text-align: center;
-    padding-top: 10px;
-    font-size: 5.9rem;
-    margin-bottom: 25px;
-    background-image: url(Galeri/makkah.jpg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    margin: 0 auto;
-    line-height: 1.1;
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: 1px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    font-weight: 700;
-    position: relative;
-    padding-bottom: 20px;
-}
 
 @keyframes shimmer {
     0% { top: -100%; }
@@ -800,11 +764,11 @@ h1{
                     <a href="materi.html" >Ngaji <span></span></a></li>
                     <a href="kontak.html" >Kontak <span></span></a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburger" onclick="toggleMobileMenu()">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                </div>
+            </div>
             </nav>
         </div>
     </header>
@@ -855,17 +819,16 @@ h1{
         <p class="section-subtitle">Gagasan yang terus memotivasi kami dalam mengembangkan platform ngaji Islam yang berkomitmen.</p>
         
         <!-- Vision Section -->
-        <div class="vision-container">
-            <div class="vision-icon">
-                <div class="icon-circle">
+        <div class="values-list">
+            <div class="value-item">
+                <div class="value-icon">
                     <span class="vision-emoji">🎯</span>
                 </div>
+                <div class="value-content">
+                    <h3>Visi Kami</h3>
+                    <p>Menjadi platform Ngaji digital terdepan yang menginspirasi dan memudahkan umat Muslim di seluruh dunia untuk mendekatkan diri kepada Allah SWT melalui membaca, memahami, dan mengamalkan Al-Quran dalam kehidupan sehari-hari dengan bantuan teknologi yang Islami dan inovatif.</p>
+                </div>
             </div>
-            <div class="vision-content">
-                <h3 class="vision-title">Visi Kami</h3>
-                <p class="vision-text">Menjadi platform Ngaji digital terdepan yang menginspirasi dan memudahkan umat Muslim di seluruh dunia untuk mendekatkan diri kepada Allah SWT melalui membaca, memahami, dan mengamalkan Al-Quran dalam kehidupan sehari-hari dengan bantuan teknologi yang Islami dan inovatif.</p>
-            </div>
-        </div>
 
         <!-- Timeline Connector -->
         <div class="timeline-connector">
@@ -942,14 +905,14 @@ h1{
 <section class="hero-section">
   <div class="card-grid">
     <a class="card" href="#">
-      <div class="card__background" style="background-image: url(Galeri/Fahmi.jpg)"></div>
+      <div class="card__background" style="background-image: url(Galeri/fahmi.jpg)"></div>
       <div class="card__content">
         <p class="card__category">Web Developer</p>
         <h3 class="card__heading">Fahmi Arif Setiawan</h3>
       </div>
     </a>
     <a class="card" href="#">
-      <div class="card__background" style="background-image: url(Galeri/Rifa.png)"></div>
+      <div class="card__background" style="background-image: url(Galeri/rifa.png)"></div>
       <div class="card__content">
         <p class="card__category">Graphic Designer</p>
         <h3 class="card__heading"> Moh. Guritno Rifa Saputra

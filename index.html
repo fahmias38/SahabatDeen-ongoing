@@ -672,14 +672,17 @@
             <nav>
                 <img class="nav-logo" src="Galeri/sahabatdeen.png" alt="Logo SahabatDeen">
                 <ul class="nav-menu">
-                    <a href="index.html" class="nav-link">Beranda <span></span></a></li>
-                    <a href="tentang.html" >Tentang Kami <span></span></a></li>
-                    <a href="harga.html" >Berlangganan <span></span></a></li>
-                    <a href="surah.html" >Surah <span></span></a></li>
-                    <a href="materi.html" >Ngaji <span></span></a></li>
-                    <a href="kontak.html" >Kontak <span></span></a></li>
+                    <a href="index.html" class="nav-link">Beranda <span></span></a>
+                    <a href="tentang.html">Tentang Kami <span></span></a>
+                    <a href="harga.html">Berlangganan <span></span></a>
+                    <a href="surah.html">Surah <span></span></a>
+                    <a href="materi.html">Ngaji <span></span></a>
+                    <a href="kontak.html">Kontak <span></span></a>
+                    <a href="login.html" class="nav-link-login">
+                        <i class="fas fa-user-circle"></i> Login
+                    </a>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburger" onclick="toggleMobileMenu()">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -851,5 +854,59 @@
             <p class="footer-copy">&copy; <span id="currentYear"></span> SahabatDeen. Semua Hak Cipta Dilindungi.</p>
         </div>
     </footer>
+    <!-- Dark/Light Mode Toggle - Tambahkan sebelum </body> -->
+<div class="theme-toggle-container">
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">Light</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="theme-slider"></span>
+        </label>
+        <span class="theme-label">Dark</span>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+    (function() {
+        'use strict';
+        
+        // Wait for DOM
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTheme);
+        } else {
+            initTheme();
+        }
+        
+        function initTheme() {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            if (!themeToggle) {
+                console.error('Theme toggle not found');
+                return;
+            }
+            
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                themeToggle.checked = true;
+            }
+            
+            // Toggle event
+            themeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    body.classList.add('light-mode');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    body.classList.remove('light-mode');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        }
+    })();
+    </script>
+</body>
 </body>
 </html>

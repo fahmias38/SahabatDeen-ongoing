@@ -1,27 +1,9 @@
-<!-- hapus tes
-ini tambhaan dari fahmi
-aman bro!
-
-cadangan
-const surahCards = document.querySelectorAll('.surah-card');
-// Efek hover untuk kartu surah
-surahCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.borderLeftColor = getComputedStyle(document.documentElement).getPropertyValue('--secondary-color');
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.borderLeftColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
-    });
-});
-
-testing -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surah Al-Fatihah - QuranKu Digital</title>
+    <title>Surah - QuranKu Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
@@ -32,7 +14,7 @@ testing -->
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <a href="../index.html" class="logo">Quran<span>Ku</span></a>
+            <a href="../index.html" class="logo">Sahabat<span>Deen</span></a>
             <div class="header-actions">
                 <a href="../surah.html" class="back-btn">
                     <span>←</span> Kembali ke Daftar Surah
@@ -44,36 +26,49 @@ testing -->
         </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="container">
+    <!-- buat loading -->
+    <div id="loading-state" class="container" style="text-align: center; padding: 100px 20px; display: none;">
+        <div class="loading" style="margin: 0 auto 20px;"></div>
+        <p>Memuat surah...</p>
+    </div>
+
+    <!-- kalo error -->
+    <div id="error-state" class="container" style="text-align: center; padding: 100px 20px; display: none;">
+        <h2>Terjadi Kesalahan</h2>
+        <p id="error-message">Gagal memuat surah. Silakan coba lagi.</p>
+        <button onclick="loadSurah()" style="background: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 8px; margin-top: 20px; cursor: pointer;">Coba Lagi</button>
+    </div>
+
+    <!-- isi semua konten -->
+    <div class="container" id="main-content" style="display: none;">
         <!-- Surah Header -->
-        <div class="surah-header fade-in">
+        <div class="surah-header fade-in" id="surah-header">
             <div class="surah-title">
-                <div class="surah-name-arabic">الْفَاتِحَة</div>
-                <h1 class="surah-name">Al-Fatihah</h1>
-                <p class="surah-meaning">"Pembuka"</p>
+                <div class="surah-name-arabic" id="surah-arabic"></div>
+                <h1 class="surah-name" id="surah-name"></h1>
+                <p class="surah-meaning" id="surah-meaning"></p>
             </div>
             <div class="surah-info">
                 <div class="info-item">
                     <div class="info-label">Jumlah Ayat</div>
-                    <div class="info-value">7</div>
+                    <div class="info-value" id="ayat-count"></div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Juz</div>
-                    <div class="info-value">1</div>
+                    <div class="info-value" id="juz-number"></div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Turun di</div>
-                    <div class="info-value">Makkah</div>
+                    <div class="info-value" id="revelation"></div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Nomor Surah</div>
-                    <div class="info-value">1</div>
+                    <div class="info-value" id="surah-number"></div>
                 </div>
             </div>
         </div>
 
-        <!-- Audio Player -->
+        <!-- pilihan qori -->
         <div class="audio-player fade-in">
             <div class="audio-controls">
                 <button class="play-btn" onclick="toggleAudio()" id="playBtn">
@@ -90,136 +85,341 @@ testing -->
                 <div class="progress-fill" id="progressFill"></div>
             </div>
             <audio id="audioPlayer" preload="metadata">
-                <source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/001.mp3" type="audio/mpeg">
                 Browser Anda tidak mendukung audio player.
             </audio>
         </div>
 
         <!-- Ayat Container -->
-        <div class="ayat-container">
-            <!-- Ayat 1 -->
-            <div class="ayat-card fade-in" id="ayat-1">
-                <div class="ayat-number">1</div>
-                <div class="ayat-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-                <div class="ayat-transliteration">Bismillāhi'r-raḥmāni'r-raḥīm</div>
-                <div class="ayat-translation">Dengan nama Allah Yang Maha Pengasih, Maha Penyayang.</div>
-                <div class="ayat-actions">
-                    <button class="ayat-btn" onclick="playAyat(1)">🔊 Putar</button>
-                    <button class="ayat-btn" onclick="bookmarkAyat(1)">📚 Bookmark</button>
-                    <button class="ayat-btn" onclick="copyAyat(1)">📋 Salin</button>
-                    <button class="ayat-btn" onclick="shareAyat(1)">🔗 Bagikan</button>
-                </div>
-            </div>
-
-            <!-- Ayat 2 -->
-            <div class="ayat-card fade-in" id="ayat-2">
-                <div class="ayat-number">2</div>
-                <div class="ayat-arabic">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</div>
-                <div class="ayat-transliteration">Al-ḥamdu lillāhi rabbi'l-'ālamīn</div>
-                <div class="ayat-translation">Segala puji bagi Allah, Tuhan seluruh alam.</div>
-                <div class="ayat-actions">
-                    <button class="ayat-btn" onclick="playAyat(2)">🔊 Putar</button>
-                    <button class="ayat-btn" onclick="bookmarkAyat(2)">📚 Bookmark</button>
-                    <button class="ayat-btn" onclick="copyAyat(2)">📋 Salin</button>
-                    <button class="ayat-btn" onclick="shareAyat(2)">🔗 Bagikan</button>
-                </div>
-            </div>
-
-            <!-- Ayat 3 -->
-            <div class="ayat-card fade-in" id="ayat-3">
-                <div class="ayat-number">3</div>
-                <div class="ayat-arabic">الرَّحْمَٰنِ الرَّحِيمِ</div>
-                <div class="ayat-transliteration">Ar-raḥmāni'r-raḥīm</div>
-                <div class="ayat-translation">Yang Maha Pengasih, Maha Penyayang.</div>
-                <div class="ayat-actions">
-                    <button class="ayat-btn" onclick="playAyat(3)">🔊 Putar</button>
-                    <button class="ayat-btn" onclick="bookmarkAyat(3)">📚 Bookmark</button>
-                    <button class="ayat-btn" onclick="copyAyat(3)">📋 Salin</button>
-                    <button class="ayat-btn" onclick="shareAyat(3)">🔗 Bagikan</button>
-                </div>
-            </div>
-
-            <!-- Ayat 4 -->
-            <div class="ayat-card fade-in" id="ayat-4">
-                <div class="ayat-number">4</div>
-                <div class="ayat-arabic">مَالِكِ يَوْمِ الدِّينِ</div>
-                <div class="ayat-transliteration">Māliki yawmi'd-dīn</div>
-                <div class="ayat-translation">Pemilik hari pembalasan.</div>
-                <div class="ayat-actions">
-                    <button class="ayat-btn" onclick="playAyat(4)">🔊 Putar</button>
-                    <button class="ayat-btn" onclick="bookmarkAyat(4)">📚 Bookmark</button>
-                    <button class="ayat-btn" onclick="copyAyat(4)">📋 Salin</button>
-                    <button class="ayat-btn" onclick="shareAyat(4)">🔗 Bagikan</button>
-                </div>
-            </div>
-
-            <!-- Ayat 5 -->
-            <div class="ayat-card fade-in" id="ayat-5">
-                <div class="ayat-number">5</div>
-                <div class="ayat-arabic">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
-                <div class="ayat-transliteration">Iyyāka na'budu wa iyyāka nasta'īn</div>
-                <div class="ayat-translation">Hanya kepada Engkaulah kami menyembah dan hanya kepada Engkaulah kami mohon pertolongan.</div>
-                <div class="ayat-actions">
-                    <button class="ayat-btn" onclick="playAyat(5)">🔊 Putar</button>
-                    <button class="ayat-btn" onclick="bookmarkAyat(5)">📚 Bookmark</button>
-                    <button class="ayat-btn" onclick="copyAyat(5)">📋 Salin</button>
-                    <button class="ayat-btn" onclick="shareAyat(5)">🔗 Bagikan</button>
-                </div>
-            </div>
-
-            <!-- Ayat 6 -->
-            <div class="ayat-card fade-in" id="ayat-6">
-                <div class="ayat-number">6</div>
-                <div class="ayat-arabic">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</div>
-                <div class="ayat-transliteration">Ihdinā'ṣ-ṣirāṭa'l-mustaqīm</div>
-                <div class="ayat-translation">Tunjukilah kami jalan yang lurus.</div>
-                <div class="ayat-actions">
-                    <button class="ayat-btn" onclick="playAyat(6)">🔊 Putar</button>
-                    <button class="ayat-btn" onclick="bookmarkAyat(6)">📚 Bookmark</button>
-                    <button class="ayat-btn" onclick="copyAyat(6)">📋 Salin</button>
-                    <button class="ayat-btn" onclick="shareAyat(6)">🔗 Bagikan</button>
-                </div>
-            </div>
-
-            <!-- Ayat 7 -->
-            <div class="ayat-card fade-in" id="ayat-7">
-                <div class="ayat-number">7</div>
-                <div class="ayat-arabic">صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</div>
-                <div class="ayat-transliteration">Ṣirāṭa'lladhīna an'amta 'alayhim ghayri'l-maghḍūbi 'alayhim wa lā'ḍ-ḍāllīn</div>
-                <div class="ayat-translation">(Yaitu) jalan orang-orang yang telah Engkau beri nikmat kepadanya; bukan (jalan) mereka yang dimurkai, dan bukan (pula jalan) mereka yang sesat.</div>
-                <div class="ayat-actions">
-                    <button class="ayat-btn" onclick="playAyat(7)">🔊 Putar</button>
-                    <button class="ayat-btn" onclick="bookmarkAyat(7)">📚 Bookmark</button>
-                    <button class="ayat-btn" onclick="copyAyat(7)">📋 Salin</button>
-                    <button class="ayat-btn" onclick="shareAyat(7)">🔗 Bagikan</button>
-                </div>
-            </div>
+        <div class="ayat-container" id="ayat-container">
+            <!-- Ayatnya bakal dimuat di sini secara dinamis -->
         </div>
 
-        <!-- Notes Section -->
+        <!-- form catatan -->
         <div class="notes-section fade-in">
             <div class="notes-header">
                 <h3 class="notes-title">📝 Catatan Pribadi</h3>
             </div>
-            <textarea class="notes-textarea" id="personalNotes" placeholder="Tuliskan catatan atau refleksi Anda tentang Surah Al-Fatihah..."></textarea>
+            <textarea class="notes-textarea" id="personalNotes" placeholder="Tuliskan catatan atau refleksi Anda tentang surah ini..."></textarea>
             <button class="save-notes-btn" onclick="saveNotes()">💾 Simpan Catatan</button>
         </div>
 
-        <!-- Navigation -->
-        <div class="surah-navigation fade-in">
-            <button class="nav-btn" disabled>
+        <!-- Navigasi -->
+        <div class="surah-navigation fade-in" id="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="goToPrevSurah()">
                 ← Surah Sebelumnya
             </button>
             <div class="nav-info">
-                <div class="nav-current">Surah Al-Fatihah</div>
-                <div class="nav-total">Surah 1 dari 114</div>
+                <div class="nav-current" id="current-surah-name"></div>
+                <div class="nav-total" id="surah-position"></div>
             </div>
-            <a href="surah2.html" class="nav-btn">
+            <button class="nav-btn" id="nextBtn" onclick="goToNextSurah()">
                 Surah Selanjutnya →
-            </a>
+            </button>
         </div>
     </div>
 
-    <script src="../surah.js"></script>
+    <script>
+        // var global
+        let currentSurahNumber = 1;
+        let surahData = null;
+        let audioPlayer = null;
+        let isPlaying = false;
+
+        // get nomor surah dari url api
+        function getSurahNumberFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const surahParam = urlParams.get('surah');
+            return surahParam ? parseInt(surahParam) : 1;
+        }
+
+        // Load surah data API
+        async function loadSurah() {
+            try {
+                document.getElementById('loading-state').style.display = 'block';
+                document.getElementById('main-content').style.display = 'none';
+                document.getElementById('error-state').style.display = 'none';
+
+                currentSurahNumber = getSurahNumberFromUrl();
+                
+                // ngefetch data surah
+                const response = await fetch(`https://equran.id/api/v2/surat/${currentSurahNumber}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.code !== 200) {
+                    throw new Error(data.message || 'Tidak bisa memuat surah data');
+                }
+                
+                surahData = data.data;
+                
+                updateSurahHeader();
+                updateAyatContent();
+                updateNavigation();
+                loadPersonalNotes();
+                
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                
+                document.title = `Surah ${surahData.namaLatin} - SahabatDeen`;
+                
+            } catch (error) {
+                console.error('gagal memuat surah:', error);
+                
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('main-content').style.display = 'none';
+                document.getElementById('error-state').style.display = 'block';
+                document.getElementById('error-message').textContent = error.message;
+            }
+        }
+
+        function updateSurahHeader() {
+            document.getElementById('surah-arabic').textContent = surahData.nama;
+            document.getElementById('surah-name').textContent = surahData.namaLatin;
+            document.getElementById('surah-meaning').textContent = `"${surahData.arti}"`;
+            document.getElementById('ayat-count').textContent = surahData.jumlahAyat;
+            document.getElementById('juz-number').textContent = surahData.tempatTurun === 'mekah' ? 'Bervariasi' : 'Bervariasi';
+            document.getElementById('revelation').textContent = surahData.tempatTurun === 'mekah' ? 'Makkah' : 'Madinah';
+            document.getElementById('surah-number').textContent = surahData.nomor;
+        }
+
+        function updateAyatContent() {
+            const container = document.getElementById('ayat-container');
+            container.innerHTML = '';
+
+            surahData.ayat.forEach((ayat, index) => {
+                const ayatCard = document.createElement('div');
+                ayatCard.className = 'ayat-card fade-in';
+                ayatCard.id = `ayat-${ayat.nomorAyat}`;
+
+                ayatCard.innerHTML = `
+                    <div class="ayat-number">${ayat.nomorAyat}</div>
+                    <div class="ayat-arabic">${ayat.teksArab}</div>
+                    <div class="ayat-transliteration">${ayat.teksLatin}</div>
+                    <div class="ayat-translation">${ayat.teksIndonesia}</div>
+                    <div class="ayat-actions">
+                        <button class="ayat-btn" onclick="playAyat(${ayat.nomorAyat})">🔊 Putar</button>
+                        <button class="ayat-btn" onclick="bookmarkAyat(${ayat.nomorAyat})">📚 Bookmark</button>
+                        <button class="ayat-btn" onclick="copyAyat(${ayat.nomorAyat})">📋 Salin</button>
+                        <button class="ayat-btn" onclick="shareAyat(${ayat.nomorAyat})">🔗 Bagikan</button>
+                    </div>
+                `;
+
+                container.appendChild(ayatCard);
+            });
+        }
+
+        function updateNavigation() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            document.getElementById('current-surah-name').textContent = `Surah ${surahData.namaLatin}`;
+            document.getElementById('surah-position').textContent = `Surah ${surahData.nomor} dari 114`;
+            
+            if (currentSurahNumber <= 1) {
+                prevBtn.disabled = true;
+                prevBtn.style.opacity = '0.5';
+                prevBtn.style.cursor = 'not-allowed';
+            } else {
+                prevBtn.disabled = false;
+                prevBtn.style.opacity = '1';
+                prevBtn.style.cursor = 'pointer';
+            }
+            
+            if (currentSurahNumber >= 114) {
+                nextBtn.disabled = true;
+                nextBtn.style.opacity = '0.5';
+                nextBtn.style.cursor = 'not-allowed';
+            } else {
+                nextBtn.disabled = false;
+                nextBtn.style.opacity = '1';
+                nextBtn.style.cursor = 'pointer';
+            }
+        }
+
+        function goToPrevSurah() {
+            if (currentSurahNumber > 1) {
+                window.location.href = `?surah=${currentSurahNumber - 1}`;
+            }
+        }
+
+        function goToNextSurah() {
+            if (currentSurahNumber < 114) {
+                window.location.href = `?surah=${currentSurahNumber + 1}`;
+            }
+        }
+
+        function toggleAudio() {
+            const audioPlayer = document.getElementById('audioPlayer');
+            const playBtn = document.getElementById('playBtn');
+            const playIcon = document.getElementById('playIcon');
+
+            if (isPlaying) {
+                audioPlayer.pause();
+                playIcon.textContent = '▶';
+                isPlaying = false;
+            } else {
+                if (!audioPlayer.src || !audioPlayer.src.includes(currentSurahNumber.toString().padStart(3, '0'))) {
+                    updateAudioSource();
+                }
+                audioPlayer.play();
+                playIcon.textContent = '⏸';
+                isPlaying = true;
+            }
+        }
+
+        function updateAudioSource() {
+            const audioPlayer = document.getElementById('audioPlayer');
+            const qoriSelect = document.getElementById('qoriSelect');
+            const qori = qoriSelect.value;
+            
+            let baseUrl = '';
+            switch(qori) {
+                case 'mishary':
+                    baseUrl = 'https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/';
+                    break;
+                case 'sudais':
+                    baseUrl = 'https://download.quranicaudio.com/quran/abdul_rahmaan_as-sudays/';
+                    break;
+                case 'maher':
+                    baseUrl = 'https://download.quranicaudio.com/quran/maher_almuaiqly/';
+                    break;
+                case 'husary':
+                    baseUrl = 'https://download.quranicaudio.com/quran/mahmood_khaleel_al-husaree/';
+                    break;
+            }
+            
+            const paddedNumber = currentSurahNumber.toString().padStart(3, '0');
+            audioPlayer.src = `${baseUrl}${paddedNumber}.mp3`;
+        }
+
+        function changeQori() {
+            updateAudioSource();
+            if (isPlaying) {
+                document.getElementById('audioPlayer').play();
+            }
+        }
+
+        function playAyat(ayatNumber) {
+            alert(`Memutar ayat ${ayatNumber}. Fitur akan segera tersedia.`);
+        }
+
+        function bookmarkAyat(ayatNumber) {
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]');
+            const bookmark = {
+                surah: currentSurahNumber,
+                ayat: ayatNumber,
+                surahName: surahData.namaLatin,
+                timestamp: new Date().toISOString()
+            };
+            
+            bookmarks.push(bookmark);
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+            
+            alert(`Ayat ${ayatNumber} telah ditambahkan ke bookmark.`);
+        }
+
+        function copyAyat(ayatNumber) {
+            const ayat = surahData.ayat.find(a => a.nomorAyat === ayatNumber);
+            if (ayat) {
+                const textToCopy = `${ayat.teksArab}\n\n${ayat.teksLatin}\n\n${ayat.teksIndonesia}\n\n(QS. ${surahData.namaLatin}:${ayatNumber})`;
+                
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    alert('Alhamdulillah ayatnya sudah disalin!');
+                }).catch(() => {
+                    alert('Gagal menyalin ayat. Coba lagi ya.');
+                });
+            }
+        }
+
+        function shareAyat(ayatNumber) {
+            const ayat = surahData.ayat.find(a => a.nomorAyat === ayatNumber);
+            if (ayat) {
+                const shareText = `${ayat.teksArab}\n\n${ayat.teksIndonesia}\n\n(QS. ${surahData.namaLatin}:${ayatNumber})`;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: `QS. ${surahData.namaLatin}:${ayatNumber}`,
+                        text: shareText
+                    });
+                } else {
+                    navigator.clipboard.writeText(shareText).then(() => {
+                        alert('Ayat sudah siap dibagikan!');
+                    });
+                }
+            }
+        }
+
+        function loadPersonalNotes() {
+            const notes = localStorage.getItem(`notes-surah-${currentSurahNumber}`);
+            if (notes) {
+                document.getElementById('personalNotes').value = notes;
+            }
+        }
+
+        function saveNotes() {
+            const notes = document.getElementById('personalNotes').value;
+            localStorage.setItem(`notes-surah-${currentSurahNumber}`, notes);
+            alert('Catatan sudah disimpan!');
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (body.getAttribute('data-theme') === 'light') {
+                body.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.setAttribute('data-theme', 'light');
+                document.getElementById('theme-icon').textContent = '☀️';
+            }
+        }
+
+        function initAudioPlayer() {
+            const audioPlayer = document.getElementById('audioPlayer');
+            const progressFill = document.getElementById('progressFill');
+            
+            audioPlayer.addEventListener('timeupdate', function() {
+                if (audioPlayer.duration) {
+                    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                    progressFill.style.width = progress + '%';
+                }
+            });
+            
+            audioPlayer.addEventListener('ended', function() {
+                document.getElementById('playIcon').textContent = '▶';
+                isPlaying = false;
+                progressFill.style.width = '0%';
+            });
+
+            audioPlayer.addEventListener('loadstart', function() {
+                progressFill.style.width = '0%';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initTheme();
+            initAudioPlayer();
+            loadSurah();
+        });
+
+        window.addEventListener('popstate', function() {
+            loadSurah();
+        });
+    </script>
 </body>
 </html>

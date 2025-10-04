@@ -225,82 +225,122 @@
             display: none;
         }
 
-        /* Video Player Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Video Player Container */
         .video-player-container {
             background: rgba(31, 56, 64, 0.8);
-            border-radius: var(--border-radius);
+            border-radius: 12px;
             overflow: hidden;
             margin-bottom: 30px;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(46, 203, 156, 0.2);
         }
 
         .video-player {
             position: relative;
             background: #000;
+            width: 100%;
         }
 
         .video-element {
             width: 100%;
             height: 500px;
             background: #000;
+            display: block;
         }
 
+        /* Video Controls - Improved */
         .video-controls {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 70%, transparent 100%);
+            padding: 15px 20px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             opacity: 0;
             transition: opacity 0.3s ease;
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
         }
 
-        .video-player:hover .video-controls {
+        .video-player:hover .video-controls,
+        .video-controls:hover {
             opacity: 1;
         }
 
+        /* Control Buttons - Enhanced */
         .control-btn {
             background: transparent;
             border: none;
             color: white;
             cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 6px;
+            padding: 10px 14px;
+            border-radius: 8px;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 5px;
+            min-width: 40px;
+            height: 40px;
         }
 
         .control-btn:hover {
-            background: rgba(255,255,255,0.2);
-            transform: scale(1.05);
+            background: rgba(46, 203, 156, 0.2);
+            transform: scale(1.1);
         }
 
+        .control-btn:active {
+            transform: scale(0.95);
+        }
+
+        .control-btn i {
+            font-size: 18px;
+        }
+
+        #videoPlayerContainer.fullscreen-active .video-element {
+            width: 100vw !important;
+            height: 100vh !important;
+            object-fit: contain;
+        }
+
+        #videoPlayerContainer.fullscreen-active .video-controls {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+        /* Progress Bar - Enhanced */
         .progress-bar {
             flex: 1;
-            height: 8px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 4px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
             cursor: pointer;
             position: relative;
+            overflow: visible;
             transition: height 0.2s ease;
+            min-width: 150px;
         }
 
         .progress-bar:hover {
-            height: 10px;
+            height: 8px;
         }
 
         .progress-fill {
             height: 100%;
             background: var(--secondary-color);
-            border-radius: 4px;
+            border-radius: 3px;
             width: 0%;
             transition: width 0.1s ease;
             position: relative;
@@ -312,10 +352,11 @@
             right: -6px;
             top: 50%;
             transform: translateY(-50%);
-            width: 12px;
-            height: 12px;
-            background: var(--secondary-color);
+            width: 14px;
+            height: 14px;
+            background: white;
             border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
             opacity: 0;
             transition: opacity 0.2s ease;
         }
@@ -324,25 +365,28 @@
             opacity: 1;
         }
 
+        /* Time Display */
         .time-display {
             color: white;
-            font-size: 0.9rem;
+            font-size: 14px;
             font-weight: 500;
-            min-width: 80px;
+            min-width: 100px;
             text-align: center;
+            white-space: nowrap;
         }
 
+        /* Volume Control - Enhanced */
         .volume-control {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .volume-slider {
             width: 80px;
-            height: 4px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 2px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
             outline: none;
             cursor: pointer;
             -webkit-appearance: none;
@@ -351,77 +395,185 @@
         }
 
         .volume-slider:hover {
-            height: 6px;
+            height: 8px;
         }
 
         .volume-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: var(--secondary-color);
             cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             transition: all 0.2s ease;
         }
 
         .volume-slider:hover::-webkit-slider-thumb {
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
+            background: #26b88a;
         }
 
         .volume-slider::-moz-range-thumb {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: var(--secondary-color);
             cursor: pointer;
             border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             transition: all 0.2s ease;
         }
 
         .volume-slider:hover::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
+            background: #26b88a;
         }
 
+        /* Speed Select - Enhanced */
         .speed-select {
-            background: rgba(0,0,0,0.7);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 14px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
         }
 
         .speed-select:hover {
-            background: rgba(0,0,0,0.9);
+            background: rgba(255, 255, 255, 0.15);
             border-color: var(--secondary-color);
         }
 
         .speed-select option {
-            background: #000;
+            background: #1a1a1a;
             color: white;
         }
 
+        /* Fullscreen Button - Enhanced */
         .fullscreen-btn {
             background: transparent;
             border: none;
             color: white;
             cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 6px;
+            padding: 10px 14px;
+            border-radius: 8px;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: 18px;
+            min-width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .fullscreen-btn:hover {
-            background: rgba(255,255,255,0.2);
-            transform: scale(1.05);
+            background: rgba(46, 203, 156, 0.2);
+            transform: scale(1.1);
         }
 
+        .fullscreen-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Fullscreen Mode - Desktop */
+        #videoPlayerContainer.fullscreen-active {
+            background: #000;
+        }
+
+        #videoPlayerContainer.fullscreen-active .video-element {
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: 100vw;
+            max-height: 100vh;
+            object-fit: contain;
+        }
+
+        #videoPlayerContainer.fullscreen-active .video-controls {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+        /* Responsive - Mobile */
+        @media (max-width: 768px) {
+            .video-element {
+                height: 300px;
+            }
+
+            .video-controls {
+                padding: 12px 15px;
+                gap: 8px;
+            }
+            
+            .control-btn {
+                padding: 8px 10px;
+                min-width: 36px;
+                height: 36px;
+            }
+            
+            .control-btn i {
+                font-size: 16px;
+            }
+
+            .time-display {
+                font-size: 12px;
+                min-width: 80px;
+            }
+
+            .volume-slider {
+                width: 60px;
+            }
+
+            .speed-select {
+                padding: 6px 10px;
+                font-size: 13px;
+            }
+
+            /* Fullscreen di Mobile - Landscape Mode */
+            #videoPlayerContainer.fullscreen-active .video-element {
+                width: 100vw !important;
+                height: 100vh !important;
+                object-fit: contain;
+            }
+        }
+
+        /* Landscape Orientation on Mobile */
+        @media screen and (orientation: landscape) and (max-width: 896px) {
+            #videoPlayerContainer.fullscreen-active .video-element {
+                width: 100vw !important;
+                height: 100vh !important;
+                object-fit: contain;
+            }
+            
+            #videoPlayerContainer.fullscreen-active .video-controls {
+                padding: 10px 15px;
+            }
+        }
+
+        .video-info {
+            padding: 25px;
+        }
+
+        .video-info h3 {
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .video-info p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
         /* Quiz Styles */
         .quiz-container {
             background: rgba(31, 56, 64, 0.8);
@@ -757,6 +909,120 @@
             font-style: italic;
             border-radius: 0 8px 8px 0;
         }
+
+        /* Material Content Styling - Tambahkan setelah .material-content yang sudah ada */
+.material-content {
+    color: var(--text-light-primary);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    padding: 30px;
+}
+
+.material-content h1 {
+    color: #34D399;
+    font-size: 2rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid rgba(52, 211, 153, 0.3);
+    font-weight: 700;
+}
+
+.material-content h2 {
+    color: #5EEAD4;
+    font-size: 1.6rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.material-content h3 {
+    color: #7DD3C0;
+    font-size: 1.3rem;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.material-content p {
+    margin-bottom: 18px;
+    color: #d1d5db;
+    text-align: justify;
+}
+
+.material-content strong {
+    color: #34D399;
+    font-weight: 600;
+}
+
+.material-content blockquote {
+    background: rgba(52, 211, 153, 0.1);
+    border-left: 4px solid #34D399;
+    padding: 20px 25px;
+    margin: 25px 0;
+    border-radius: 8px;
+    font-style: italic;
+    color: #f3f4f6;
+}
+
+.material-content blockquote strong {
+    color: #5EEAD4;
+    font-size: 1.15rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.material-content ul, .material-content ol {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+.material-content li {
+    margin-bottom: 12px;
+    color: #d1d5db;
+}
+
+.material-container {
+    background: linear-gradient(135deg, #1a3a3a 0%, #0d2626 100%);
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.material-header {
+    background: linear-gradient(135deg, #2d5a5a 0%, #1a3a3a 100%);
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(52, 211, 153, 0.3);
+}
+
+.material-header h2 {
+    color: #34D399;
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.reading-timer {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34D399;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid rgba(52, 211, 153, 0.3);
+}
+
+.reading-timer i {
+    font-size: 1.1rem;
+}
 
         /* Premium Popup */
         .premium-popup {
@@ -1100,7 +1366,7 @@
                     </div>
 
                     <div class="content-grid" id="contentGrid">
-                        <!-- Konten akan diisi melalui JavaScript -->
+                        <!-- Konten akan diisi pakai JavaScript -->
                     </div>
                 </div>
             </div>
@@ -1125,7 +1391,7 @@
                     <div class="video-player" id="videoPlayerContainer">
                         <video class="video-element" id="videoElement" preload="metadata">
                             <source src="" type="video/mp4">
-                            Browser Ksmu tidak mendukung pemutaran video.
+                            Browser Kamu tidak mendukung pemutaran video.
                         </video>
                         <div class="video-controls" id="videoControls">
                             <button class="control-btn" id="playPauseBtn" onclick="togglePlay()"><i class="fas fa-play"></i></button>
@@ -1241,93 +1507,37 @@
     </div>
 
     <!-- Material Page -->
-    <div id="materialPage" class="hidden">
-        <section class="page-title-section">
-            <div class="container">
-                <button class="btn btn-secondary" onclick="showHomePage()" style="margin-bottom: 20px;">
-                    <i class="fas fa-arrow-left"></i> Kembali
-                </button>
-                <h1 id="materialTitle">Materi Bacaan</h1>
-                <p id="materialDescription">Baca dan pelajari materi dengan seksama</p>
-            </div>
-        </section>
+<div id="materialPage" class="hidden">
+    <section class="page-title-section">
+        <div class="container">
+            <h1 id="materialTitle">Materi Bacaan</h1>
+            <p id="materialDescription">Baca dan pelajari materi dengan seksama</p>
+            <button class="btn btn-secondary" onclick="showHomePage()" style="position: relative;
+            top: 100px;
+            left: 20px;
+            z-index: 1000;
+            margin-top: 0;">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </button>
+        </div>
+    </section>
 
-        <main class="section-padding">
-            <div class="container">
-                <div class="material-container">
-                    <div class="material-header">
-                        <h2 id="materialInfoTitle">Judul Materi</h2>
-                        <div class="reading-timer" id="readingTimer">Waktu Baca: 00:00</div>
+    <main class="section-padding">
+        <div class="container">
+            <div class="material-container">
+                <div class="material-header">
+                    <h2 id="materialInfoTitle">Judul Materi</h2>
+                    <div class="reading-timer" id="readingTimer">
+                        <i class="fas fa-clock"></i> Waktu Baca: 00:00
                     </div>
-                    
-                    <div id="output"></div>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script>
-  const rawMarkdown = `# Menggapai Cahaya Ilahi: Ketika Quran dan Hadis Menyapa Kehidupan Kita yang Semrawut
-
-Di tengah hiruk-pikuk dunia digital yang terus berdenyut tanpa jeda—dengan notifikasi tiada henti, scroll media sosial yang tak kunjung usai, dan tuntutan hidup yang terus menumpuk—ada dua pusaka agung yang tak pernah lekang oleh waktu: **Al-Qur’an dan Hadis Nabi**.
-
-Bayangkan sejenak. Suatu pagi yang kacau. Tiba-tiba terdengar lantunan ayat:
-
-> **لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّٰلِمِينَ**  
-> “Tidak ada Tuhan selain Engkau. Maha Suci Engkau. Sungguh aku termasuk orang-orang yang zalim.”  
-> (QS. Al-Anbiya: 87)
-
-## Dua Sumber Cahaya dalam Kegelapan Zaman
-
-Allah berfirman:
-
-> **وَأَنزَلْنَا إِلَيْكَ ٱلذِّكْرَ لِتُبَيِّنَ لِلنَّاسِ...**  
-> _“Dan Kami turunkan kepadamu Al-Dzikr agar engkau menjelaskan kepada manusia...”_  
-> (QS. An-Nahl: 44)
-
-Qur'an = prinsip. Hadis = praktiknya.
-
-## Mukjizat yang Relevan
-
-- **Embrio manusia** dalam QS. Al-Mu’minun: 12–14
-- **Ekspansi semesta** dalam QS. Adz-Dzariyat: 47
-
-## Pedoman Nyata untuk Hidup Modern
-
-- **Doa saat stres**:  
-  > اللهم إني أعوذ بك من الهم والحزن
-
-- **Konflik rumah tangga**:  
-  > وَعَاشِرُوهُنَّ بِٱلْمَعْرُوفِ  
-  > (QS. An-Nisa: 19)
-
-- **Godaan harta haram**:  
-  > “Setiap daging yang tumbuh dari harta haram, maka neraka lebih pantas baginya.”  
-  > (HR. Tirmidzi)
-
-## Langkah Nyata Memulai
-
-1. Baca Quran 5 menit tiap pagi  
-2. Pasang wallpaper hadis tiap minggu  
-3. Ikut majelis taklim  
-4. Amalkan satu sunnah kecil
-
-## Penutup
-
-Rasulullah ﷺ bersabda:
-
-> _“Aku tinggalkan dua pusaka: Kitabullah dan Sunnahku.”_  
-> (HR. Malik)
-
-Allah berjanji:
-
-> **فَمَنِ ٱتَّبَعَ هُدَىٰى فَلَا يَضِلُّ وَلَا يَشْقَىٰ**  
-> (QS. Thaha: 123)
-`;
-
-  document.getElementById("output").innerHTML = marked.parse(rawMarkdown);
-</script>
-
                 </div>
+                
+                <!-- Material Content akan di-render di sini -->
+                <div id="materialContent" class="material-content"></div>
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
+</div>
 
     <!-- Quiz Setup Popup -->
     <div class="quiz-popup" id="quizSetupPopup">
@@ -1412,7 +1622,8 @@ Allah berjanji:
             <p class="footer-copy">&copy; <span id="currentYear"></span> SahabatDeen. Semua Hak Cipta Dilindungi.</p>
         </div>
     </footer>
-
+    <!-- Load Marked.js untuk Markdown parsing -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
         // Global Variables
         let contentData = {};
@@ -1454,7 +1665,7 @@ Allah berjanji:
                 contentData = await response.json();
             } catch (error) {
                 console.error('Error loading content data:', error);
-                // Fallback data if file cannot be loaded
+                // cadangan kalau gabisa load data json
                 contentData = {
                     video: {
                         'quran-hadis': [
@@ -1663,7 +1874,7 @@ Allah berjanji:
             
             card.innerHTML = `
                 <div class="content-thumbnail ${thumbnailClass}">
-                    <img src="${item.thumbnail || 'Galeri/branding.png'}" alt="${item.title}">
+                    <img src="${item.thumbnail || 'Galeri/thumbnail.png'}" alt="${item.title}">
                     ${item.premium ? '<div class="premium-badge">PREMIUM</div>' : ''}
                 </div>
                 <div class="content-info">
@@ -1716,7 +1927,7 @@ Allah berjanji:
             
             currentContent = content;
             
-            // Check if content is premium
+            // cek konten premium
             if (content.premium) {
                 showPremiumPopup();
                 return;
@@ -1735,7 +1946,7 @@ Allah berjanji:
             }
         }
 
-        // Video Player Functions
+        // Video Player
         function openVideoPlayer(content) {
             homePage.classList.add('hidden');
             videoPage.classList.remove('hidden');
@@ -1867,34 +2078,115 @@ Allah berjanji:
             const volume = videoElement.muted ? 0 : videoElement.volume;
             const percentage = volume * 100;
             
-            // Update slider background to show filled portion
             volumeSlider.style.background = `linear-gradient(to right, var(--secondary-color) 0%, var(--secondary-color) ${percentage}%, rgba(255,255,255,0.3) ${percentage}%, rgba(255,255,255,0.3) 100%)`;
         }
 
-        function toggleFullscreen() {
-            const videoContainer = document.getElementById('videoPlayerContainer');
-            const fullscreenBtn = document.querySelector('.fullscreen-btn i');
-            
-            if (!document.fullscreenElement) {
-                if (videoContainer.requestFullscreen) {
-                    videoContainer.requestFullscreen();
-                } else if (videoContainer.webkitRequestFullscreen) {
-                    videoContainer.webkitRequestFullscreen();
-                } else if (videoContainer.msRequestFullscreen) {
-                    videoContainer.msRequestFullscreen();
-                }
-                fullscreenBtn.className = 'fas fa-compress';
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
-                }
-                fullscreenBtn.className = 'fas fa-expand';
+        async function toggleFullscreen() {
+    const videoContainer = document.getElementById('videoPlayerContainer');
+    const fullscreenBtn = document.querySelector('.fullscreen-btn i');
+
+    if (!document.fullscreenElement) {
+        // masuk fullscreen
+        try {
+            if (videoContainer.requestFullscreen) {
+                await videoContainer.requestFullscreen();
+            } else if (videoContainer.webkitRequestFullscreen) {
+                await videoContainer.webkitRequestFullscreen();
+            } else if (videoContainer.msRequestFullscreen) {
+                await videoContainer.msRequestFullscreen();
             }
+
+            // jadiin landscape di mobile
+            if (screen.orientation && screen.orientation.lock) {
+                try {
+                    await screen.orientation.lock('landscape');
+                } catch (err) {
+                    console.log('Orientation lock not supported:', err);
+                }
+            }
+
+            fullscreenBtn.className = 'fas fa-compress';
+            videoContainer.classList.add('fullscreen-active');
+        } catch (err) {
+            console.error('Error entering fullscreen:', err);
         }
+    } else {
+        // keluar fullscreen
+        try {
+            if (document.exitFullscreen) {
+                await document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                await document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                await document.msExitFullscreen();
+            }
+
+            // Unlock orientation when exiting fullscreen
+            if (screen.orientation && screen.orientation.unlock) {
+                screen.orientation.unlock();
+            }
+
+            fullscreenBtn.className = 'fas fa-expand';
+            videoContainer.classList.remove('fullscreen-active');
+        } catch (err) {
+            console.error('Error exiting fullscreen:', err);
+        }
+    }
+}
+
+// Listen for fullscreen changes
+document.addEventListener('fullscreenchange', handleFullscreenChange);
+document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+function handleFullscreenChange() {
+    const videoContainer = document.getElementById('videoPlayerContainer');
+    const fullscreenBtn = document.querySelector('.fullscreen-btn i');
+
+    if (document.fullscreenElement || document.webkitFullscreenElement || 
+        document.mozFullScreenElement || document.msFullscreenElement) {
+        fullscreenBtn.className = 'fas fa-compress';
+        videoContainer.classList.add('fullscreen-active');
+
+        // Optionally lock the screen orientation here if desired
+        if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock('landscape').catch(err => console.log('Orientation lock failed:', err));
+        }
+    } else {
+        fullscreenBtn.className = 'fas fa-expand';
+        videoContainer.classList.remove('fullscreen-active');
+        
+        // Unlock orientation when exiting fullscreen
+        if (screen.orientation && screen.orientation.unlock) {
+            screen.orientation.unlock();
+        }
+    }
+}
+
+// Event listeners untuk fullscreen change
+document.addEventListener('fullscreenchange', handleFullscreenChange);
+document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+function handleFullscreenChange() {
+    const videoContainer = document.getElementById('videoPlayerContainer');
+    const fullscreenBtn = document.querySelector('.fullscreen-btn i');
+    
+    if (document.fullscreenElement || document.webkitFullscreenElement || 
+        document.mozFullScreenElement || document.msFullscreenElement) {
+        fullscreenBtn.className = 'fas fa-compress';
+        videoContainer.classList.add('fullscreen-active');
+    } else {
+        fullscreenBtn.className = 'fas fa-expand';
+        videoContainer.classList.remove('fullscreen-active');
+        
+        if (screen.orientation && screen.orientation.unlock) {
+            screen.orientation.unlock();
+        }
+    }
+}
 
         // Listen for fullscreen changes
         document.addEventListener('fullscreenchange', () => {
@@ -2137,35 +2429,50 @@ Allah berjanji:
             openQuizSetup(currentQuiz);
         }
 
-        // fungsi buat materi
-        function openMaterial(content) {
-            homePage.classList.add('hidden');
-            materialPage.classList.remove('hidden');
-            
-            document.getElementById('materialTitle').textContent = content.title;
-            document.getElementById('materialDescription').textContent = content.description;
-            document.getElementById('materialInfoTitle').textContent = content.title;
-            
-            // Set material content
-            const materialContent = document.getElementById('materialContent');
-            materialContent.innerHTML = content.content;
-            
-            // Start reading timer
-            readingTime = 0;
-            startReadingTimer();
+        // fungsi buat materi - GANTI YANG LAMA DENGAN YANG INI
+function openMaterial(content) {
+    homePage.classList.add('hidden');
+    materialPage.classList.remove('hidden');
+    
+    document.getElementById('materialTitle').textContent = content.title;
+    document.getElementById('materialDescription').textContent = content.description;
+    document.getElementById('materialInfoTitle').textContent = content.title;
+    
+    // Parse dan render Markdown content
+    const materialContent = document.getElementById('materialContent');
+    if (content.content) {
+        // Cek apakah marked library tersedia
+        if (typeof marked !== 'undefined') {
+            materialContent.innerHTML = marked.parse(content.content);
+        } else {
+            // Fallback jika marked tidak tersedia
+            materialContent.innerHTML = content.content.replace(/\n/g, '<br>');
         }
+    }
+    
+    // Start reading timer
+    readingTime = 0;
+    if (readingTimer) {
+        clearInterval(readingTimer);
+    }
+    startReadingTimer();
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
 
-        function startReadingTimer() {
-            const timerElement = document.getElementById('readingTimer');
-            
-            readingTimer = setInterval(() => {
-                readingTime++;
-                
-                const minutes = Math.floor(readingTime / 60);
-                const seconds = readingTime % 60;
-                timerElement.textContent = `Waktu Baca: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }, 1000);
-        }
+// Update fungsi startReadingTimer untuk menambahkan icon
+function startReadingTimer() {
+    const timerElement = document.getElementById('readingTimer');
+    
+    readingTimer = setInterval(() => {
+        readingTime++;
+        
+        const minutes = Math.floor(readingTime / 60);
+        const seconds = readingTime % 60;
+        timerElement.innerHTML = `<i class="fas fa-clock"></i> Waktu Baca: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }, 1000);
+}
 
         // Premium Functions
         function showPremiumPopup() {
