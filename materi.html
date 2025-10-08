@@ -1274,7 +1274,7 @@
                     <a href="materi.html" class="nav-link">Ngaji <span></span></a></li>
                     <a href="kontak.html" >Kontak <span></span></a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburger" onclick="toggleMobileMenu()">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -1377,11 +1377,15 @@
     <div id="videoPage" class="hidden">
         <section class="page-title-section">
             <div class="container">
-                <button class="btn btn-secondary" onclick="showHomePage()" style="margin-bottom: 20px;">
-                    <i class="fas fa-arrow-left"></i> Kembali ke Materi Belajar
-                </button>
                 <h1 id="videoTitle">Video Pembelajaran</h1>
                 <p id="videoDescription">Tonton video pembelajaran interaktif</p>
+                <button class="btn btn-secondary" onclick="showHomePage()" style="position: relative;
+            top: 100px;
+            left: 0px;
+            z-index: 1000;
+            margin-top: 0;">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </button>
             </div>
         </section>
 
@@ -1433,11 +1437,15 @@
     <div id="quizPage" class="hidden">
         <section class="page-title-section">
             <div class="container">
-                <button class="btn btn-secondary" onclick="showHomePage()" style="margin-bottom: 20px;">
-                    <i class="fas fa-arrow-left"></i> Kembali ke Materi Belajar
-                </button>
                 <h1 id="quizTitle">Bank Soal</h1>
                 <p id="quizDescription">Uji kemampuan pemahaman Anda</p>
+                <button class="btn btn-secondary" onclick="showHomePage()" style="position: relative;
+            top: 100px;
+            left: 20px;
+            z-index: 1000;
+            margin-top: 0;">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </button>
             </div>
         </section>
 
